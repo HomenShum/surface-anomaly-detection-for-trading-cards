@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T19:58:56.783Z",
+  "generatedAt": "2026-05-07T21:48:28.785Z",
   "rows": [
     {
       "gif": "public/demo/gifs/01-sample-card-analysis.gif",
@@ -199,6 +199,22 @@
     },
     {
       "gif": "public/demo/gifs/12-dealer-record-review-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/13-dealer-hero-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/13-dealer-hero-mobile.gif",
       "verdict": "pass",
       "matches": true,
       "confidence": 1,

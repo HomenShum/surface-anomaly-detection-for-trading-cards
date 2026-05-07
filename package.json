@@ -56,6 +56,7 @@
     "certs:build-imports": "node scripts/certs/build_cert_reference_seed.mjs",
     "certs:detect-labels": "python scripts/certs/detect_psa_labels.py",
     "certs:resolve-identities": "node scripts/certs/resolve_card_identities.mjs",
+    "qa:dealer:hero": "node scripts/qa/dogfood_dealer_hero.mjs",
     "demo:laptop:check": "node scripts/qa/launch_blocker_check.mjs",
     "eval:model": "python ml/scripts/eval_models.py --data ml/datasets/yolo/roboflow_alpha/dataset.yaml --weights services/inference-api/app/models/ding-detector-v0.pt --output ml/runs/eval_yolo_test_report.json --conf 0.25 --iou 0.5",
     "showcase:packet": "python scripts/showcase/build_showcase_packet.py",

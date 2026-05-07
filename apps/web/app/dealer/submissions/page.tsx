@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { AlphaBadge } from "../../../components/AlphaBadge";
-import { InferenceHealthPill } from "../../../components/InferenceHealthPill";
+import { DealerAdminTopbar } from "../../../components/DealerAdminTopbar";
 import { loadAllRecords } from "../../../lib/dealer/store";
 
 export const dynamic = "force-dynamic";
@@ -31,7 +30,12 @@ const STAGE_ORDER = [
   "sold",
 ] as const;
 
-export default function DealerSubmissionsPage() {
+type Props = {
+  searchParams?: Promise<{ expert?: string }>;
+};
+
+export default async function DealerSubmissionsPage({ searchParams }: Props) {
+  const params = (await searchParams) ?? {};
   const records = loadAllRecords();
   const subs = records.filter((r) => Boolean(r.submission));
   const byStage: Record<string, typeof records> = {};
@@ -41,23 +45,7 @@ export default function DealerSubmissionsPage() {
   }
   return (
     <main className="dealer-shell">
-      <header className="methods-topbar">
-        <Link className="brand report-brand" href="/">
-          <span className="brand-mark">CV</span>
-          <span>Card Condition Vault</span>
-        </Link>
-        <nav className="methods-nav" aria-label="Dealer nav">
-          <Link href="/dealer/intake">Intake</Link>
-          <Link href="/dealer/dashboard">Dashboard</Link>
-          <Link href="/dealer/listings">Listings</Link>
-          <Link href="/dealer/submissions">Submissions</Link>
-          <Link href="/examples">Examples</Link>
-        </nav>
-        <div className="methods-top-actions">
-          <AlphaBadge />
-          <InferenceHealthPill />
-        </div>
-      </header>
+      <DealerAdminTopbar expert={params.expert === "1"} />
 
       <section>
         <span className="page-kicker">Vendor pilot · grading pipeline</span>

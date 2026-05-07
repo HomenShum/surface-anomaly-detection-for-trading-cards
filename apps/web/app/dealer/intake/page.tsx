@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { AlphaBadge } from "../../../components/AlphaBadge";
-import { InferenceHealthPill } from "../../../components/InferenceHealthPill";
+import { DealerAdminTopbar } from "../../../components/DealerAdminTopbar";
 import { loadAllBatches, loadAllRecords } from "../../../lib/dealer/store";
 import { DealerIntakeClient } from "./DealerIntakeClient";
 
@@ -12,29 +10,17 @@ export const metadata = {
     "Bulk PSA-label intake for the vendor pilot: drop a binder/slab/label batch photo, OCR extracts certs, the inspection pipeline annotates condition.",
 };
 
-export default function DealerIntakePage() {
+type Props = {
+  searchParams?: Promise<{ expert?: string }>;
+};
+
+export default async function DealerIntakePage({ searchParams }: Props) {
+  const params = (await searchParams) ?? {};
   const records = loadAllRecords();
   const batches = loadAllBatches();
   return (
     <main className="dealer-shell">
-      <header className="methods-topbar">
-        <Link className="brand report-brand" href="/">
-          <span className="brand-mark">CV</span>
-          <span>Card Condition Vault</span>
-        </Link>
-        <nav className="methods-nav" aria-label="Dealer nav">
-          <Link href="/dealer/intake">Intake</Link>
-          <Link href="/dealer/dashboard">Dashboard</Link>
-          <Link href="/dealer/listings">Listings</Link>
-          <Link href="/dealer/submissions">Submissions</Link>
-          <Link href="/examples">Examples</Link>
-          <Link href="/benchmarks">Benchmarks</Link>
-        </nav>
-        <div className="methods-top-actions">
-          <AlphaBadge />
-          <InferenceHealthPill />
-        </div>
-      </header>
+      <DealerAdminTopbar expert={params.expert === "1"} />
 
       <section className="dealer-hero">
         <div>

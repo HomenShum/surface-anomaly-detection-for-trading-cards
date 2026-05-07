@@ -90,7 +90,7 @@ export function LandingClient() {
         <div className="landing-top-actions">
           <AlphaBadge />
           <InferenceHealthPill />
-          <Link className="button secondary" href="/dealer/intake">
+          <Link className="button secondary" href="/dealer">
             Dealer pilot
           </Link>
           <Link className="button secondary" href="/workspace">

@@ -1,0 +1,92 @@
+{
+  "gif": "public/demo/gifs/13-dealer-hero-desktop.gif",
+  "expect": "the /dealer single-screen hero on desktop: the prompt 'Drop card photo. Get decision. Save proof.', a real card upload, the 14-stage stream, visible DING annotation boxes with readable labels on the card image, Save proof packet, and the See why evidence panel.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 96,
+    "fps": 10,
+    "duration": 9.6
+  },
+  "capturedAt": "2026-05-07T21:48:18.081Z",
+  "usage": {
+    "promptTokenCount": 2416,
+    "candidatesTokenCount": 804,
+    "totalTokenCount": 4420,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 352
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1200,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a prompt to upload a card photo. A 'Tauros' Pokémon card is then uploaded, processed, and analyzed, displaying condition annotations directly on the image. The UI then presents a summary of findings, allows saving a proof packet, and reveals a detailed stage timeline and findings panel.",
+    "key_observations": [
+      "Frame 1 shows the initial 'Drop card photo. Get decision. Save proof.' prompt.",
+      "Frame 2 displays a 'Tauros' Pokémon card after upload.",
+      "Frame 3 shows visible DING annotation boxes on the card image, including 'EDGE WEAR | MODERATE | 62%', 'CORNER WEAR | MODERATE | 76%', and 'EDGE WEAR | MINOR | 69%'.",
+      "Frame 4 introduces a 'REVIEW REQUIRED' section with buttons for 'Accept all findings', 'Save proof packet', 'See why down', and 'Drop another'. It also states '14 stages | run in 3.2s'.",
+      "Frame 5 shows the 'Save proof packet' button changing to 'Proof saved' and 'evidence saved' text appearing.",
+      "Frame 8 reveals the 'STAGE TIMELINE' and 'FINDINGS' sections, detailing the 14 processing stages and specific findings like 'edge wear | moderate'."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "ALPHA V0.1 Not an official grade",
+      "CHECKING",
+      "Drop card photo. Get decision. Save proof.",
+      "AI-assisted visible condition only. Never an official grade. Local vendor-pilot evidence.",
+      "DING-DETECTOR-V8 READY",
+      "REAL MODEL ding-detector-v8",
+      "Tauros",
+      "70 HP",
+      "EDGE WEAR | MODERATE | 62%",
+      "CORNER WEAR | MODERATE | 76%",
+      "EDGE WEAR | MINOR | 69%",
+      "UPLOADED NORMALIZED CARD OCR IDENTITY CORNERS EDGES SURFACE DINGS PRICING ROI BAND EVIDENCE",
+      "cert n/a | corners ok | DINGS 3 | pricing n/a | proof ready",
+      "Card detected",
+      "3 visible DING(s) | 2 material | 1 cosmetic | 0 accepted",
+      "REVIEW REQUIRED",
+      "cert or comps unavailable | See why for limitations",
+      "Accept all findings",
+      "Save proof packet",
+      "See why down",
+      "Drop another",
+      "14 stages | run in 3.2s | human-curated-open-ding-fixture | evidence not saved",
+      "Proof saved",
+      "evidence saved",
+      "STAGE TIMELINE",
+      "Uploaded DONE",
+      "Normalized DONE",
+      "Card DONE",
+      "OCR SKIPPED",
+      "Cert SKIPPED",
+      "Identity SKIPPED",
+      "Corners DONE",
+      "Edges DONE",
+      "Surface DONE",
+      "DINGS DONE 3 visible DING(s), 2 material",
+      "Pricing SKIPPED",
+      "ROI SKIPPED",
+      "Band SKIPPED",
+      "Evidence DONE",
+      "CERT",
+      "FINDINGS",
+      "edge wear | moderate",
+      "corner wear | moderate"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

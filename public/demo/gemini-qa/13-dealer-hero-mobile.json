@@ -1,0 +1,72 @@
+{
+  "gif": "public/demo/gifs/13-dealer-hero-mobile.gif",
+  "expect": "the /dealer single-screen hero on mobile (390x844): the same real upload flow with no horizontal overflow, a compact stage summary, visible DING annotation boxes/labels, proof saved, and See why expanded.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 81,
+    "fps": 10,
+    "duration": 8.1
+  },
+  "capturedAt": "2026-05-07T21:48:28.653Z",
+  "usage": {
+    "promptTokenCount": 2405,
+    "candidatesTokenCount": 541,
+    "totalTokenCount": 3930,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 341
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 984,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with an empty card upload screen. A Pokemon card (Tauros) is then uploaded and processed, displaying detected condition issues like edge and corner wear. The user saves the proof, and then the detailed findings section expands to show a comprehensive breakdown of the analysis.",
+    "key_observations": [
+      "The initial screen prompts to 'Drop card photo. Get decision. Save proof.'",
+      "Upon card upload, the UI displays 'Card detected' with '3 visible DING(s) | 2 material | 1 cosmetic | 0 accepted'.",
+      "Annotation boxes and labels for 'EDGE WEAR | MODERATE | 82%' and 'CORNER WEAR | MODERATE | 76%' are visible on the card image.",
+      "The 'Save proof packet' button changes to 'Proof saved' and the summary line updates to 'proof saved'.",
+      "The 'REVIEW REQUIRED' section expands to reveal detailed analysis findings, including 'OCR SKIPPED', 'DINGs DONE', and specific 'FINDINGS' for edge and corner wear."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "ALPHA V0.1",
+      "CHECKING",
+      "REAL MODEL",
+      "Drop card photo. Get decision. Save proof.",
+      "DING-DETECTOR-V0 READY",
+      "Tauros",
+      "70 HP",
+      "EDGE WEAR | MODERATE | 82%",
+      "CORNER WEAR | MODERATE | 76%",
+      "cert n/a | corners ok | DINGS 3 | pricing n/a | proof ready",
+      "Card detected",
+      "3 visible DING(s) | 2 material | 1 cosmetic | 0 accepted",
+      "REVIEW REQUIRED",
+      "cert or comps unavailable | use See why for limitations",
+      "Accept all findings",
+      "Save proof packet",
+      "Proof saved",
+      "OCR SKIPPED",
+      "DINGs DONE",
+      "FINDINGS",
+      "edge wear | moderate",
+      "corner wear | moderate",
+      "edge wear | minor",
+      "ADJUST REVIEW"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

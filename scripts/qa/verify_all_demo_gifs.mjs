@@ -60,6 +60,10 @@ const EXPECTATIONS = {
     "the /dealer/records/<id> human-review workbench for a Silver+ Snorlax VMAX cert: cert metadata, accept/reject buttons on each model finding, pricing + ROI panel, variant resolver, and evidence-packet section — desktop (1440x900). DING bbox overlays may not appear because no slab image is attached to seeded records (intentional — reviewer attaches it before publishing).",
   "12-dealer-record-review-mobile":
     "the /dealer/records/<id> human-review workbench on mobile (390x844): the image-stage and aside columns stack vertically; cert metadata, findings list, pricing/ROI, variant resolver, evidence-packet section all visible while scrolling.",
+  "13-dealer-hero-desktop":
+    "the /dealer single-screen hero on desktop: the prompt 'Drop card photo. Get decision. Save proof.', a real card upload, the 14-stage stream, visible DING annotation boxes with readable labels on the card image, Save proof packet, and the See why evidence panel.",
+  "13-dealer-hero-mobile":
+    "the /dealer single-screen hero on mobile (390x844): the same real upload flow with no horizontal overflow, a compact stage summary, visible DING annotation boxes/labels, proof saved, and See why expanded.",
   "real-dataset-card-corner-wear-model-annotations":
     "a real dataset card image analyzed by the live inference API, with visible DING annotation bounding boxes and readable labels on actual card pixels. CRITICAL: the GIF MUST show at least one real corner_wear DING bbox, confidence label, zoom/crop reinspection panel, evidence/proof text, and the not-an-official-grade disclaimer. Verdict should fail if this looks like a blank page, a placeholder, or unlabeled boxes.",
   "real-card-upload-agent-workspace-desktop":

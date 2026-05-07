@@ -333,6 +333,50 @@ const FLOWS = [
     gif: { startSeconds: "0", durationSeconds: "12", fpsDesktop: 11, fpsMobile: 11 },
   },
   {
+    name: "13-dealer-hero",
+    async run(page) {
+      // The minimalist single-screen hero with a real card upload. This is
+      // intentionally the friend-facing proof loop: drop image, stream the
+      // 14-stage strip, show labeled DING boxes, save proof, then expand why.
+      // Use the ?demo=tauros query trigger so the component fetches the real
+      // Tauros fixture and runs handleFile. This avoids brittle file-picker
+      // simulation while still exercising the same upload pipeline.
+      await page.goto(`${baseUrl}/dealer?demo=tauros`);
+      await page.waitForSelector(".dealer-decision-card", { timeout: 60_000 });
+      await page.waitForSelector(".dealer-hero-bbox span", { timeout: 30_000 }).catch(() => {});
+      await page.waitForTimeout(900);
+      await page.getByRole("button", { name: /Accept all findings/i }).click().catch(() => {});
+      await page.waitForTimeout(700);
+      await page.getByRole("button", { name: /Save proof packet/i }).click().catch(() => {});
+      await page.waitForSelector(".dealer-decision-shareline", { timeout: 30_000 }).catch(() => {});
+      await page.waitForTimeout(700);
+      // Expand "See why" — try DOM click then locator click as fallback. JS
+      // dispatch handles pointer-event interception by parents.
+      const expanded = await page.evaluate(() => {
+        const btns = Array.from(document.querySelectorAll(".dealer-decision-actions button"));
+        const seeWhy = btns.find((b) => /see why/i.test(b.textContent || ""));
+        if (seeWhy) {
+          seeWhy.click();
+          return true;
+        }
+        return false;
+      });
+      if (!expanded) {
+        await page.locator(".dealer-decision-actions button", { hasText: /See why/i }).first().click({ force: true }).catch(() => {});
+      }
+      // Wait for the why panel to actually appear in DOM.
+      await page.waitForSelector(".dealer-decision-why", { timeout: 8_000 }).catch(() => {});
+      await page.waitForTimeout(2400);
+      // Scroll into the why panel so Gemini sees it.
+      const why = page.locator(".dealer-decision-why").first();
+      if (await why.count()) {
+        await why.scrollIntoViewIfNeeded().catch(() => {});
+        await page.waitForTimeout(2200);
+      }
+    },
+    gif: { startSeconds: "0", durationSeconds: "16", fpsDesktop: 10, fpsMobile: 10 },
+  },
+  {
     name: "12-dealer-record-review",
     async run(page) {
       // Seeded record dlr_seed_psa_148901890 (Snorlax VMAX) — has cert metadata,
@@ -436,7 +480,8 @@ async function ensureServer() {
   const pnpmArgs =
     serverMode === "dev"
       ? ["--filter", "@card-condition-vault/web", "dev:e2e"]
-      : ["--filter", "@card-condition-vault/web", "exec", "next", "start", "-H", hostname, "-p", port];
+      : ["start"];
+  const serverCwd = serverMode === "dev" ? root : join(root, "apps", "web");
 
   if (serverMode !== "dev") {
     console.log("Building @card-condition-vault/web before recording production GIFs...");
@@ -446,8 +491,8 @@ async function ensureServer() {
   const command = process.platform === "win32" ? "cmd.exe" : "pnpm";
   const args = process.platform === "win32" ? ["/d", "/s", "/c", `pnpm ${pnpmArgs.join(" ")}`] : pnpmArgs;
   const child = spawn(command, args, {
-    cwd: root,
-    env: demoEnv(),
+    cwd: serverCwd,
+    env: { ...demoEnv(), PORT: port },
     stdio: ["ignore", "pipe", "pipe"],
     windowsHide: true,
   });
