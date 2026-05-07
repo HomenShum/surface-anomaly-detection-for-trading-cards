@@ -1,0 +1,81 @@
+{
+  "gif": "public/demo/gifs/02-landing-trust-onboarding-mobile.gif",
+  "expect": "the landing page (/) on mobile (390x844), scrolling through the trust strip, outcome library, verified methods. Inference service is running; no 'INFERENCE OFFLINE' banner expected.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 89,
+    "fps": 12,
+    "duration": 7.41
+  },
+  "capturedAt": "2026-05-07T12:29:19.044Z",
+  "usage": {
+    "promptTokenCount": 2400,
+    "candidatesTokenCount": 484,
+    "totalTokenCount": 3836,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 336
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 952,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a blank screen, then loads the mobile landing page for Card Condition Vault. The user scrolls down the page, revealing sections like 'EVIDENCE BEFORE SHIPPING' and 'TRUST BEFORE UPLOAD'. The scroll continues to display details of a 'CERT REFERENCE' outcome.",
+    "key_observations": [
+      "The landing page loads successfully on a mobile viewport.",
+      "The page scrolls down, revealing various content sections.",
+      "The 'TRUST BEFORE UPLOAD' section and 'CERT REFERENCE' outcome library are visible during the scroll.",
+      "No 'INFERENCE OFFLINE' banner is present; 'LIVE DING-DETECTOR-V0 live verified' is displayed."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Featured",
+      "Examples",
+      "What's new",
+      "Methods",
+      "ALPHA V0.1",
+      "REAL MODEL",
+      "Open workspace",
+      "LIVE DING-DETECTOR-V0",
+      "live verified",
+      "AVG CONFIDENCE",
+      "EVIDENCE BEFORE SHIPPING",
+      "Scan your card before you send it anywhere.",
+      "Try sample card",
+      "Explore outcomes",
+      "Real model",
+      "ding-detector-v0",
+      "Mock fallback",
+      "off by default",
+      "Cards analyzed",
+      "12,847",
+      "TRUST BEFORE UPLOAD",
+      "Explore annotated outcomes before scan",
+      "CERT REFERENCE",
+      "SILVER: EXTERNAL CERTIFIED REFERENCE",
+      "Pokemon Mew ex Certified Refe",
+      "OFFICIAL GRADE YES",
+      "DING LABELS NO",
+      "NOT TRAINING DATA",
+      "KNOWN OUTCOME",
+      "PSA GEM MT 10",
+      "OUR BAND",
+      "Not analyzed by local model",
+      "CONFIDENCE",
+      "0%"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

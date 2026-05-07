@@ -1,0 +1,91 @@
+{
+  "skillId": "community_hshum-maybe-you-should-crop-the-holo-region-and-compare-two-_v1",
+  "benchmarkId": "bench-1778111376351-community_hshum-maybe-you-should-crop-the-holo-region-and-compare-two-_v1",
+  "generatedAt": "2026-05-06T23:49:36.351Z",
+  "fixtures": [
+    {
+      "fixtureName": "clean_matte_no_findings",
+      "passed": true,
+      "steps": [
+        {
+          "tool": "explain_uncertainty",
+          "runtimeTool": "evaluate_glare_risk",
+          "durationMs": 0,
+          "ok": true,
+          "forbiddenGradeHit": false,
+          "forbiddenPrivacyHit": false
+        }
+      ],
+      "totalLatencyMs": 0,
+      "failedStepCount": 0,
+      "forbiddenGradeHits": 0,
+      "forbiddenPrivacyHits": 0
+    },
+    {
+      "fixtureName": "corner_wear_real",
+      "passed": true,
+      "steps": [
+        {
+          "tool": "explain_uncertainty",
+          "runtimeTool": "evaluate_glare_risk",
+          "durationMs": 0,
+          "ok": true,
+          "forbiddenGradeHit": false,
+          "forbiddenPrivacyHit": false
+        }
+      ],
+      "totalLatencyMs": 0,
+      "failedStepCount": 0,
+      "forbiddenGradeHits": 0,
+      "forbiddenPrivacyHits": 0
+    },
+    {
+      "fixtureName": "edge_wear_low_edge_score",
+      "passed": true,
+      "steps": [
+        {
+          "tool": "explain_uncertainty",
+          "runtimeTool": "evaluate_glare_risk",
+          "durationMs": 0,
+          "ok": true,
+          "forbiddenGradeHit": false,
+          "forbiddenPrivacyHit": false
+        }
+      ],
+      "totalLatencyMs": 0,
+      "failedStepCount": 0,
+      "forbiddenGradeHits": 0,
+      "forbiddenPrivacyHits": 0
+    },
+    {
+      "fixtureName": "holo_glare_false_positive",
+      "passed": true,
+      "steps": [
+        {
+          "tool": "explain_uncertainty",
+          "runtimeTool": "evaluate_glare_risk",
+          "durationMs": 0,
+          "ok": true,
+          "forbiddenGradeHit": false,
+          "forbiddenPrivacyHit": false
+        }
+      ],
+      "totalLatencyMs": 0,
+      "failedStepCount": 0,
+      "forbiddenGradeHits": 0,
+      "forbiddenPrivacyHits": 0
+    }
+  ],
+  "summary": {
+    "benchmarkId": "bench-1778111376351-community_hshum-maybe-you-should-crop-the-holo-region-and-compare-two-_v1",
+    "datasetVersion": "fixtures-v0.4",
+    "precisionDelta": 1,
+    "recallDelta": 1,
+    "falsePositiveDelta": 0,
+    "latencyAddedMs": 0,
+    "agentClaimsWithoutToolEvidence": 0,
+    "officialGradeClaims": 0,
+    "privacyViolations": 0,
+    "passed": true
+  }
+}

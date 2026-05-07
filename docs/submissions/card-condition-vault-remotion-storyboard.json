@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "videoId": "cardconditionvault.showcase.v1",
+  "title": "Card Condition Vault Showcase",
+  "durationSeconds": 45,
+  "sourcePacket": "docs/submissions/card-condition-vault-showcase-qa-packet.json",
+  "scenes": [
+    {
+      "type": "intro",
+      "title": "What changed",
+      "caption": "Card Condition Vault now has a deterministic reviewer packet for demo proof."
+    },
+    {
+      "type": "workflow-gif",
+      "title": "Demo workflow menu",
+      "gif": "public/demo/gifs/verified-outcome-library-trust-explorer.gif"
+    },
+    {
+      "type": "screenshot-compare",
+      "title": "Condition report proof",
+      "before": "",
+      "after": "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+      "callouts": [
+        "Condition read",
+        "Confidence",
+        "Evidence trail"
+      ]
+    },
+    {
+      "type": "workflow-gif",
+      "title": "Certified reference import",
+      "gif": "public/demo/gifs/certified-reference-import-eval-workbench.gif"
+    },
+    {
+      "type": "workflow-gif",
+      "title": "Certified reference benchmark",
+      "gif": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif"
+    },
+    {
+      "type": "workflow-gif",
+      "title": "Dispute and scanner flows",
+      "gif": "public/demo/gifs/before-after-evidence-compare-dispute.gif"
+    },
+    {
+      "type": "qa-status",
+      "title": "Ready for handoff",
+      "requiredProof": [
+        "browser QA passed",
+        "per-state screenshots captured",
+        "GIFs generated",
+        "Remotion MP4 rendered",
+        "QA packet updated"
+      ]
+    }
+  ]
+}

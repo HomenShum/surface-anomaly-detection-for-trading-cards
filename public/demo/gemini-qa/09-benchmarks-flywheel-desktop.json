@@ -1,0 +1,75 @@
+{
+  "gif": "public/demo/gifs/09-benchmarks-flywheel-desktop.gif",
+  "expect": "the /benchmarks/flywheel agentic flywheel dashboard: a system score (any value 0..1, fluctuates per run), per-layer scoreboard (ML, Agent, Calibration, Trust, UX, Evidence), recommended fixes, error buckets, per-cert traces table, and run history — desktop.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 123,
+    "fps": 11,
+    "duration": 11.18
+  },
+  "capturedAt": "2026-05-07T12:31:05.355Z",
+  "usage": {
+    "promptTokenCount": 2420,
+    "candidatesTokenCount": 616,
+    "totalTokenCount": 3822,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 356
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 786,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a blank page, which quickly loads to display the 'Agentic Flywheel' dashboard. The user scrolls down the page, revealing various sections including system scores, per-layer scores, recommended fixes, error buckets, a per-cert traces table, and run history.",
+    "key_observations": [
+      "The page loads cleanly, displaying the 'Agentic Flywheel' dashboard.",
+      "A 'System Score' of '0.463' is prominently displayed.",
+      "Per-layer scores for 'ML', 'AGENT', 'CALIBRATION', 'TRUST', 'UX', and 'EVIDENCE' are visible, with values like '1.000' for Agent and '0.600' for Trust.",
+      "A 'RECOMMENDED FIXES' section titled 'Layer-aware suggestions from the judge' is present, listing specific actions.",
+      "An 'ERROR BUCKETS' section shows 'Dominant failure modes across the run', with 'Missing_image' as a bucket.",
+      "A 'PER-CERT TRACES' table lists '29 certs scored' with columns like 'CERT', 'GRADE', 'OFFICIAL BAND', 'PREDICTED', 'AGREEMENT', 'SYSTEM', 'ML', 'CAL', 'TRUST', 'UX', 'BUCKET', and 'FIX LAYER'.",
+      "A 'RUN HISTORY' section displays 'Last 12 runs' with 'RUN ID', 'GENERATED', 'SYSTEM', and 'MATCH RATE' columns.",
+      "A 'How to read this dashboard' section provides explanations for terms like 'match' and 'missing_image'."
+    ],
+    "ui_text_snippets": [
+      "Agentic Flywheel",
+      "System Score",
+      "0.463",
+      "PER-LAYER SCORES",
+      "ML",
+      "AGENT",
+      "1.000",
+      "CALIBRATION",
+      "0.000",
+      "TRUST",
+      "0.600",
+      "UX",
+      "0.500",
+      "EVIDENCE",
+      "RECOMMENDED FIXES",
+      "Layer-aware suggestions from the judge",
+      "Data",
+      "ERROR BUCKETS",
+      "Dominant failure modes across the run",
+      "Missing_image",
+      "PER-CERT TRACES",
+      "29 certs scored",
+      "RUN HISTORY",
+      "Last 12 runs",
+      "How to read this dashboard"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "skillId": "auto_holo_glare_question_glareq_v1",
+  "title": "Auto-clustered: holo cards · glare question (n=15)",
+  "status": "production",
+  "trigger": {
+    "finishType": "holo",
+    "userQuestionIntent": "glare_question"
+  },
+  "steps": [
+    {
+      "tool": "explain_uncertainty",
+      "purpose": "Auto-clustered step from 15 agent runs."
+    },
+    {
+      "tool": "explain_uncertainty",
+      "purpose": "Auto-clustered step from 15 agent runs."
+    },
+    {
+      "tool": "zoom_region",
+      "purpose": "Auto-clustered step from 15 agent runs."
+    },
+    {
+      "tool": "run_glare_check",
+      "purpose": "Auto-clustered step from 15 agent runs."
+    }
+  ],
+  "consentScope": "anonymized_method_stats",
+  "evidencePolicy": {
+    "storesRawUserImages": false,
+    "storesDerivedCrops": true,
+    "storesAnonymizedMetrics": true,
+    "sharesAcrossUsers": true
+  },
+  "guardrails": {
+    "requiresToolEvidence": true,
+    "forbidsOfficialGradeClaims": true,
+    "forbidsLegalProofClaims": true,
+    "requiresHumanApprovalForProduction": true
+  },
+  "createdAt": "2026-05-06T23:19:03.151Z"
+}

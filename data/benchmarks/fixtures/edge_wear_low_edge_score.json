@@ -1,0 +1,34 @@
+{
+  "name": "edge_wear_low_edge_score",
+  "description": "Matte card with low edge_score and edge_wear finding on right edge. Should pass through edge-specific reasoning.",
+  "reportContext": {
+    "cardId": "fixture-edge-wear",
+    "reportSummary": "Matte card showing edge whitening on right edge, low edge_score.",
+    "conditionScore": 68,
+    "surfaceScore": 80,
+    "centeringScore": 81,
+    "edgeScore": 64,
+    "glareScore": 0.07,
+    "finishType": "matte",
+    "findings": [
+      {
+        "type": "edge_wear",
+        "confidence": 0.69,
+        "severity": "minor",
+        "bbox": [94, 30, 100, 70],
+        "zone": "normalized_card",
+        "sha256": "fixture-finding-edge"
+      }
+    ],
+    "evidence": [
+      { "role": "front_normalized", "sha256": "fixture-norm-edge", "path": "fixtures/edge.png" }
+    ]
+  },
+  "groundTruth": {
+    "true_findings": [
+      { "kind": "edge_wear", "region": "right_edge" }
+    ],
+    "forbidden_findings": [],
+    "expected_intents": ["summary_question", "dispute_question"]
+  }
+}

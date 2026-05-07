@@ -1,0 +1,67 @@
+{
+  "averageConfidence": 0.853,
+  "cardCount": 3,
+  "cards": [
+    {
+      "collector": "Avery Chen",
+      "confidence": 0.91,
+      "declaredGrade": "Near Mint",
+      "detectedCondition": "Light edge whitening",
+      "id": "ccv-001",
+      "image": "/demo/sample-cards/roboflow-tauros-real-card.jpg",
+      "notes": "High-value sample with visible left-edge wear for demo triage.",
+      "riskFlags": [
+        "edge-wear",
+        "corner-softening"
+      ],
+      "set": "Pokemon Base Set",
+      "submissionStatus": "ready_for_review",
+      "title": "1999 Base Set Charizard"
+    },
+    {
+      "collector": "Morgan Patel",
+      "confidence": 0.87,
+      "declaredGrade": "Mint",
+      "detectedCondition": "Centering variance",
+      "id": "ccv-002",
+      "image": "/demo/sample-cards/verified-scratch.png",
+      "notes": "Good example for explaining why declared grade and model read differ.",
+      "riskFlags": [
+        "off-centering"
+      ],
+      "set": "Panini Prizm Basketball",
+      "submissionStatus": "needs_second_pass",
+      "title": "2020 Panini Prizm Rookie"
+    },
+    {
+      "collector": "Sam Rivera",
+      "confidence": 0.78,
+      "declaredGrade": "Excellent",
+      "detectedCondition": "Surface print lines",
+      "id": "ccv-003",
+      "image": "/demo/gifs/verified-outcome-library-trust-explorer.gif",
+      "notes": "Lower confidence item used to demonstrate reviewer escalation.",
+      "riskFlags": [
+        "surface-lines",
+        "print-defect"
+      ],
+      "set": "Upper Deck Baseball",
+      "submissionStatus": "manual_review",
+      "title": "1989 Upper Deck Ken Griffey Jr."
+    }
+  ],
+  "generatedAt": "2026-05-06T21:30:27+00:00",
+  "riskCounts": {
+    "corner-softening": 1,
+    "edge-wear": 1,
+    "off-centering": 1,
+    "print-defect": 1,
+    "surface-lines": 1
+  },
+  "source": "public/demo/seed-data/cards.json",
+  "statusCounts": {
+    "manual_review": 1,
+    "needs_second_pass": 1,
+    "ready_for_review": 1
+  }
+}

@@ -1,0 +1,1712 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-07T12:34:27.451Z",
+  "claim": {
+    "provedNow": "AI-assisted visible condition detection demo: real model metadata, open DING dataset audit, DING annotation UI, agent tool-surface checks, and evidence-hash traces are present.",
+    "notProvedYet": [
+      "PSA/TAG/CGC/BGS-equivalent grading",
+      "production certified-reference outcome accuracy",
+      "Gold raw pre-submission scan alignment",
+      "human DING review agreement",
+      "authenticity, market value, or legal guarantee"
+    ]
+  },
+  "commandResults": [
+    {
+      "id": "cert_reference_eval",
+      "command": "node scripts/eval/eval_certrefs.mjs",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "Cert refs deployable: false\nWrote D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\eval-report.json\nWrote D:\\VSCode Projects\\surface_anomaly_detection_model\\docs\\qa\\CERT_REFERENCE_EVAL_REPORT.md",
+      "stderrTail": ""
+    },
+    {
+      "id": "cert_band_agreement",
+      "command": "node scripts/eval/eval_cert_band_agreement.mjs",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "{\n  \"modelVersion\": \"ding-detector-v0\",\n  \"label\": \"ding-detector-v0-2026-05-07T12-34-26-966Z\",\n  \"outPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\benchmarks\\\\cert_refs\\\\ding-detector-v0-2026-05-07T12-34-26-966Z.json\",\n  \"totals\": {\n    \"references\": 29,\n    \"predictionsCovered\": 0,\n    \"matched\": 0,\n    \"adjacent\": 0,\n    \"mismatched\": 0,\n    \"skipped\": 29,\n    \"silverPlusCovered\": 0,\n    \"silverPlusMatched\": 0,\n    \"silverCovered\": 0,\n    \"silverMatched\": 0\n  },\n  \"metrics\": {\n    \"candidateMatchRate\": 0,\n    \"candidateSilverPlusMatchRate\": 0,\n    \"candidateSilverMatchRate\": 0\n  },\n  \"reasons\": [\n    \"Candidate has no cert-reference predictions covered.\"\n  ],\n  \"allowed\": false\n}",
+      "stderrTail": "[eval:certrefs] gate FAILED:\n  - Candidate has no cert-reference predictions covered."
+    },
+    {
+      "id": "agentic_cert_eval",
+      "command": "node scripts/eval/agentic_cert_eval_runner.mjs --check",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "    \"detail\": \"0 training-policy violations.\"\n    },\n    {\n      \"id\": \"tag_no_bulk_scrape\",\n      \"passed\": true,\n      \"detail\": \"0 TAG policy violations.\"\n    },\n    {\n      \"id\": \"no_placeholder_predictions\",\n      \"passed\": true,\n      \"detail\": \"0 placeholder predictions found.\"\n    },\n    {\n      \"id\": \"minimum_real_predictions\",\n      \"passed\": false,\n      \"detail\": \"0 real predictions available.\"\n    },\n    {\n      \"id\": \"gold_eval_set_exists\",\n      \"passed\": false,\n      \"detail\": \"0 Gold/gold-candidate references.\"\n    },\n    {\n      \"id\": \"replayable_evidence_exists\",\n      \"passed\": true,\n      \"detail\": \"0 predicted rows lack replayable images.\"\n    },\n    {\n      \"id\": \"judge_grounding_floor\",\n      \"passed\": false,\n      \"detail\": \"grounding=0.45\"\n    },\n    {\n      \"id\": \"judge_evidence_floor\",\n      \"passed\": false,\n      \"detail\": \"evidence=0.401\"\n    },\n    {\n      \"id\": \"agent_tool_surface_complete\",\n      \"passed\": true,\n      \"detail\": \"all required tools implemented.\"\n    },\n    {\n      \"id\": \"human_review_queue_empty\",\n      \"passed\": false,\n      \"detail\": \"29 rows need review.\"\n    }\n  ],\n  \"reportPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\agentic-eval\\\\latest.json\",\n  \"judgePromptsPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\agentic-eval\\\\latest.judge-prompts.jsonl\"\n}",
+      "stderrTail": ""
+    },
+    {
+      "id": "production_readiness",
+      "command": "node scripts/eval/production_accuracy_gate.mjs",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "s.\"\n    },\n    {\n      \"id\": \"minimum_real_outcome_rows\",\n      \"passed\": false,\n      \"detail\": \"1/100 rows.\"\n    },\n    {\n      \"id\": \"real_band_match_rate\",\n      \"passed\": false,\n      \"detail\": \"1.000 match rate on 1 rows.\"\n    },\n    {\n      \"id\": \"official_band_coverage\",\n      \"passed\": false,\n      \"detail\": \"1/4 bands.\"\n    },\n    {\n      \"id\": \"gold_eval_set\",\n      \"passed\": false,\n      \"detail\": \"0/30 records.\"\n    },\n    {\n      \"id\": \"human_ding_review\",\n      \"passed\": false,\n      \"detail\": \"0/30 records.\"\n    },\n    {\n      \"id\": \"image_backed_silver_plus\",\n      \"passed\": false,\n      \"detail\": \"0/100 records.\"\n    },\n    {\n      \"id\": \"replayable_images_closed\",\n      \"passed\": false,\n      \"detail\": \"20 declared-image refs missing local artifacts.\"\n    },\n    {\n      \"id\": \"agent_tools_complete\",\n      \"passed\": true,\n      \"detail\": \"all required tools available.\"\n    },\n    {\n      \"id\": \"agentic_eval_deployable\",\n      \"passed\": false,\n      \"detail\": \"29 rows need review.\"\n    }\n  ],\n  \"latestPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\production-readiness\\\\latest.json\",\n  \"issuesPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\production-readiness\\\\issues.jsonl\",\n  \"docsPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\docs\\\\qa\\\\PRODUCTION_ACCURACY_READINESS.md\"\n}",
+      "stderrTail": ""
+    }
+  ],
+  "release": {
+    "demoVisibleConditionAssistance": true,
+    "vendorPilotAlpha": false,
+    "customerAlpha": false,
+    "productionTrustBeta": false
+  },
+  "gates": {
+    "demo": [
+      {
+        "id": "open_ding_dataset_verified",
+        "label": "Open DING dataset audit is verified",
+        "passed": true,
+        "detail": "3349 records."
+      },
+      {
+        "id": "real_ding_model_metadata",
+        "label": "Real DING model metadata exists",
+        "passed": true,
+        "detail": "model=ding-detector-v0."
+      },
+      {
+        "id": "model_eval_measured",
+        "label": "YOLO detector metrics are measured",
+        "passed": true,
+        "detail": "mAP50=0.46374 recall=0.44897."
+      },
+      {
+        "id": "baseline_sanity_present",
+        "label": "Random/class-prior baselines exist",
+        "passed": true,
+        "detail": "Baseline sanity checks are present in ml/runs/eval_yolo_test_report.json."
+      },
+      {
+        "id": "cert_refs_loaded",
+        "label": "Certified references are loaded",
+        "passed": true,
+        "detail": "29/20 references."
+      },
+      {
+        "id": "external_refs_not_training",
+        "label": "External certified references are not training data",
+        "passed": true,
+        "detail": "0 training-policy violations."
+      },
+      {
+        "id": "tag_no_bulk_scrape",
+        "label": "TAG references remain link-only/no-bulk-scrape",
+        "passed": true,
+        "detail": "0 TAG policy violations."
+      },
+      {
+        "id": "agent_tool_surface_complete",
+        "label": "Agent tool surface covers inspection workflow",
+        "passed": true,
+        "detail": "0 promotion-required tools missing."
+      },
+      {
+        "id": "agentic_annotation_eval_passes",
+        "label": "Agentic annotation fixture eval passes",
+        "passed": true,
+        "detail": "C precision=1 grounding=1."
+      },
+      {
+        "id": "agent_trust_safety",
+        "label": "Agent judge did not detect official-grade claim failures",
+        "passed": true,
+        "detail": "trustSafety=1."
+      },
+      {
+        "id": "real_ding_gifs_looping",
+        "label": "Shareable real-DING GIFs exist and loop",
+        "passed": true,
+        "detail": "Manifest includes real-ding-annotations GIF entries with loop=infinite."
+      },
+      {
+        "id": "evidence_hash_trace_present",
+        "label": "Evidence proof includes SHA-256 image artifacts",
+        "passed": true,
+        "detail": "2 complete image artifact(s); model hash present=true."
+      }
+    ],
+    "vendorPilot": [
+      {
+        "id": "open_ding_dataset_verified",
+        "label": "Open DING dataset audit is verified",
+        "passed": true,
+        "detail": "3349 records."
+      },
+      {
+        "id": "real_ding_model_metadata",
+        "label": "Real DING model metadata exists",
+        "passed": true,
+        "detail": "model=ding-detector-v0."
+      },
+      {
+        "id": "model_eval_measured",
+        "label": "YOLO detector metrics are measured",
+        "passed": true,
+        "detail": "mAP50=0.46374 recall=0.44897."
+      },
+      {
+        "id": "baseline_sanity_present",
+        "label": "Random/class-prior baselines exist",
+        "passed": true,
+        "detail": "Baseline sanity checks are present in ml/runs/eval_yolo_test_report.json."
+      },
+      {
+        "id": "cert_refs_loaded",
+        "label": "Certified references are loaded",
+        "passed": true,
+        "detail": "29/20 references."
+      },
+      {
+        "id": "external_refs_not_training",
+        "label": "External certified references are not training data",
+        "passed": true,
+        "detail": "0 training-policy violations."
+      },
+      {
+        "id": "tag_no_bulk_scrape",
+        "label": "TAG references remain link-only/no-bulk-scrape",
+        "passed": true,
+        "detail": "0 TAG policy violations."
+      },
+      {
+        "id": "agent_tool_surface_complete",
+        "label": "Agent tool surface covers inspection workflow",
+        "passed": true,
+        "detail": "0 promotion-required tools missing."
+      },
+      {
+        "id": "agentic_annotation_eval_passes",
+        "label": "Agentic annotation fixture eval passes",
+        "passed": true,
+        "detail": "C precision=1 grounding=1."
+      },
+      {
+        "id": "agent_trust_safety",
+        "label": "Agent judge did not detect official-grade claim failures",
+        "passed": true,
+        "detail": "trustSafety=1."
+      },
+      {
+        "id": "real_ding_gifs_looping",
+        "label": "Shareable real-DING GIFs exist and loop",
+        "passed": true,
+        "detail": "Manifest includes real-ding-annotations GIF entries with loop=infinite."
+      },
+      {
+        "id": "evidence_hash_trace_present",
+        "label": "Evidence proof includes SHA-256 image artifacts",
+        "passed": true,
+        "detail": "2 complete image artifact(s); model hash present=true."
+      },
+      {
+        "id": "image_backed_silver_plus_20",
+        "label": "20 image-backed Silver+ references are replayable",
+        "passed": false,
+        "detail": "0/20 image-backed Silver+ refs."
+      },
+      {
+        "id": "human_ding_reviews_10",
+        "label": "10 human DING reviews exist",
+        "passed": false,
+        "detail": "0/10 reviews."
+      },
+      {
+        "id": "agent_grounding_floor",
+        "label": "Agent LLM-judge grounding is vendor-alpha ready",
+        "passed": false,
+        "detail": "grounding=0.45."
+      },
+      {
+        "id": "cert_alpha_gate",
+        "label": "Certified Reference Alpha release mode passes",
+        "passed": false,
+        "detail": "image_backed_silver_plus: 0/20 image-backed Silver+ refs."
+      }
+    ],
+    "customerAlpha": [
+      {
+        "id": "open_ding_dataset_verified",
+        "label": "Open DING dataset audit is verified",
+        "passed": true,
+        "detail": "3349 records."
+      },
+      {
+        "id": "real_ding_model_metadata",
+        "label": "Real DING model metadata exists",
+        "passed": true,
+        "detail": "model=ding-detector-v0."
+      },
+      {
+        "id": "model_eval_measured",
+        "label": "YOLO detector metrics are measured",
+        "passed": true,
+        "detail": "mAP50=0.46374 recall=0.44897."
+      },
+      {
+        "id": "baseline_sanity_present",
+        "label": "Random/class-prior baselines exist",
+        "passed": true,
+        "detail": "Baseline sanity checks are present in ml/runs/eval_yolo_test_report.json."
+      },
+      {
+        "id": "cert_refs_loaded",
+        "label": "Certified references are loaded",
+        "passed": true,
+        "detail": "29/20 references."
+      },
+      {
+        "id": "external_refs_not_training",
+        "label": "External certified references are not training data",
+        "passed": true,
+        "detail": "0 training-policy violations."
+      },
+      {
+        "id": "tag_no_bulk_scrape",
+        "label": "TAG references remain link-only/no-bulk-scrape",
+        "passed": true,
+        "detail": "0 TAG policy violations."
+      },
+      {
+        "id": "agent_tool_surface_complete",
+        "label": "Agent tool surface covers inspection workflow",
+        "passed": true,
+        "detail": "0 promotion-required tools missing."
+      },
+      {
+        "id": "agentic_annotation_eval_passes",
+        "label": "Agentic annotation fixture eval passes",
+        "passed": true,
+        "detail": "C precision=1 grounding=1."
+      },
+      {
+        "id": "agent_trust_safety",
+        "label": "Agent judge did not detect official-grade claim failures",
+        "passed": true,
+        "detail": "trustSafety=1."
+      },
+      {
+        "id": "real_ding_gifs_looping",
+        "label": "Shareable real-DING GIFs exist and loop",
+        "passed": true,
+        "detail": "Manifest includes real-ding-annotations GIF entries with loop=infinite."
+      },
+      {
+        "id": "evidence_hash_trace_present",
+        "label": "Evidence proof includes SHA-256 image artifacts",
+        "passed": true,
+        "detail": "2 complete image artifact(s); model hash present=true."
+      },
+      {
+        "id": "image_backed_silver_plus_20",
+        "label": "20 image-backed Silver+ references are replayable",
+        "passed": false,
+        "detail": "0/20 image-backed Silver+ refs."
+      },
+      {
+        "id": "human_ding_reviews_10",
+        "label": "10 human DING reviews exist",
+        "passed": false,
+        "detail": "0/10 reviews."
+      },
+      {
+        "id": "agent_grounding_floor",
+        "label": "Agent LLM-judge grounding is vendor-alpha ready",
+        "passed": false,
+        "detail": "grounding=0.45."
+      },
+      {
+        "id": "cert_alpha_gate",
+        "label": "Certified Reference Alpha release mode passes",
+        "passed": false,
+        "detail": "image_backed_silver_plus: 0/20 image-backed Silver+ refs."
+      },
+      {
+        "id": "human_ding_reviews_20",
+        "label": "20 human DING reviews exist",
+        "passed": false,
+        "detail": "0/20 reviews."
+      },
+      {
+        "id": "image_backed_silver_plus_50",
+        "label": "50 image-backed references exist",
+        "passed": false,
+        "detail": "0/50 image-backed refs."
+      }
+    ],
+    "production": [
+      {
+        "id": "open_ding_dataset_verified",
+        "label": "Open DING dataset audit is verified",
+        "passed": true,
+        "detail": "3349 records."
+      },
+      {
+        "id": "real_ding_model_metadata",
+        "label": "Real DING model metadata exists",
+        "passed": true,
+        "detail": "model=ding-detector-v0."
+      },
+      {
+        "id": "model_eval_measured",
+        "label": "YOLO detector metrics are measured",
+        "passed": true,
+        "detail": "mAP50=0.46374 recall=0.44897."
+      },
+      {
+        "id": "baseline_sanity_present",
+        "label": "Random/class-prior baselines exist",
+        "passed": true,
+        "detail": "Baseline sanity checks are present in ml/runs/eval_yolo_test_report.json."
+      },
+      {
+        "id": "cert_refs_loaded",
+        "label": "Certified references are loaded",
+        "passed": true,
+        "detail": "29/20 references."
+      },
+      {
+        "id": "external_refs_not_training",
+        "label": "External certified references are not training data",
+        "passed": true,
+        "detail": "0 training-policy violations."
+      },
+      {
+        "id": "tag_no_bulk_scrape",
+        "label": "TAG references remain link-only/no-bulk-scrape",
+        "passed": true,
+        "detail": "0 TAG policy violations."
+      },
+      {
+        "id": "agent_tool_surface_complete",
+        "label": "Agent tool surface covers inspection workflow",
+        "passed": true,
+        "detail": "0 promotion-required tools missing."
+      },
+      {
+        "id": "agentic_annotation_eval_passes",
+        "label": "Agentic annotation fixture eval passes",
+        "passed": true,
+        "detail": "C precision=1 grounding=1."
+      },
+      {
+        "id": "agent_trust_safety",
+        "label": "Agent judge did not detect official-grade claim failures",
+        "passed": true,
+        "detail": "trustSafety=1."
+      },
+      {
+        "id": "real_ding_gifs_looping",
+        "label": "Shareable real-DING GIFs exist and loop",
+        "passed": true,
+        "detail": "Manifest includes real-ding-annotations GIF entries with loop=infinite."
+      },
+      {
+        "id": "evidence_hash_trace_present",
+        "label": "Evidence proof includes SHA-256 image artifacts",
+        "passed": true,
+        "detail": "2 complete image artifact(s); model hash present=true."
+      },
+      {
+        "id": "image_backed_silver_plus_20",
+        "label": "20 image-backed Silver+ references are replayable",
+        "passed": false,
+        "detail": "0/20 image-backed Silver+ refs."
+      },
+      {
+        "id": "human_ding_reviews_10",
+        "label": "10 human DING reviews exist",
+        "passed": false,
+        "detail": "0/10 reviews."
+      },
+      {
+        "id": "agent_grounding_floor",
+        "label": "Agent LLM-judge grounding is vendor-alpha ready",
+        "passed": false,
+        "detail": "grounding=0.45."
+      },
+      {
+        "id": "cert_alpha_gate",
+        "label": "Certified Reference Alpha release mode passes",
+        "passed": false,
+        "detail": "image_backed_silver_plus: 0/20 image-backed Silver+ refs."
+      },
+      {
+        "id": "human_ding_reviews_20",
+        "label": "20 human DING reviews exist",
+        "passed": false,
+        "detail": "0/20 reviews."
+      },
+      {
+        "id": "image_backed_silver_plus_50",
+        "label": "50 image-backed references exist",
+        "passed": false,
+        "detail": "0/50 image-backed refs."
+      },
+      {
+        "id": "production_gate",
+        "label": "Production Trust Gate passes",
+        "passed": false,
+        "detail": "image_backed_silver_plus: 0/100 image-backed Silver+ refs.; real_outcome_rows: 1/100 rows.; real_band_match_rate: 1.000 on 1 rows.; official_band_coverage: 1/4 bands.; gold_records: 0/30 records.; human_ding_reviews: 0/30 reviews.; production_gate: One or more hard production gates is blocked.; declared_silver_plus_images_closed: 20 declared-image refs missing local artifacts.; agentic_eval_deployable: 29 rows need review."
+      }
+    ]
+  },
+  "openDatasetSummary": {
+    "present": true,
+    "verified": true,
+    "records": 3349,
+    "splits": {
+      "test": 137,
+      "train": 2958,
+      "val": 254
+    },
+    "sources": {
+      "roboflow_card_grader_v5": 1504,
+      "roboflow_pokemon_surface_damage_v2": 1845
+    },
+    "classes": {
+      "card": 1503,
+      "corner_wear": 9996,
+      "crease": 638,
+      "edge_wear": 4442,
+      "heavy_wear": 267,
+      "scratch": 5263,
+      "tear_or_hole": 513
+    },
+    "manifest": "ml\\datasets\\manifests\\roboflow_alpha_manifest.jsonl",
+    "manifestSha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+    "usage": "Open DING detector bootstrap only; not official grade proof."
+  },
+  "model": {
+    "modelVersion": "ding-detector-v0",
+    "trainingRunId": "yolo-20260506T124111Z",
+    "weightsSha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d",
+    "datasetManifest": "ml/datasets/manifests/roboflow_alpha_manifest.jsonl",
+    "datasetManifestSha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+    "sourceDatasets": [
+      "roboflow_card_grader_v5",
+      "roboflow_pokemon_surface_damage_v2"
+    ],
+    "yolo": {
+      "mAP50": 0.46374,
+      "mAP50_95": 0.27864,
+      "precision": 0.62639,
+      "recall": 0.44897
+    },
+    "baselines": {
+      "randomDetectorF1": 0.001168,
+      "classPriorF1": 0.003505
+    },
+    "proofUse": "Shows a real alpha DING detector exists and beats empty/random demo logic. Does not prove official grading accuracy."
+  },
+  "certifiedReferences": {
+    "summary": {
+      "total": 29,
+      "psa": 28,
+      "tag": 1,
+      "silverPlus": 20,
+      "gold": 0,
+      "analyzed": 0,
+      "trainingViolations": 0,
+      "tagBulkScrapeViolations": 0,
+      "needsRawScanForGold": 29
+    },
+    "imageEvidence": {
+      "replayableRefs": 0,
+      "silverPlusReplayable": 0,
+      "declaredSilverPlusMissing": 20,
+      "missingExamples": [
+        {
+          "id": "psa_139091062",
+          "provider": "PSA",
+          "certNumber": "139091062",
+          "cardIdentity": "Bulbasaur Enhanced BSTR Box Topper #133",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_139091062/."
+        },
+        {
+          "id": "psa_142558447",
+          "provider": "PSA",
+          "certNumber": "142558447",
+          "cardIdentity": "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike Secret #270",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558447/."
+        },
+        {
+          "id": "psa_142558455",
+          "provider": "PSA",
+          "certNumber": "142558455",
+          "cardIdentity": "2025 Pokemon DRI EN Cynthia's Garchomp ex Special Illustration Rare #232",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558455/."
+        },
+        {
+          "id": "psa_142558459",
+          "provider": "PSA",
+          "certNumber": "142558459",
+          "cardIdentity": "Tyranitar V Battle Styles #155",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558459/."
+        },
+        {
+          "id": "psa_142558463",
+          "provider": "PSA",
+          "certNumber": "142558463",
+          "cardIdentity": "M Ltrs/Zpds/Artcn.GX HF Elite Trainer Box F.A.",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558463/."
+        },
+        {
+          "id": "psa_142558471",
+          "provider": "PSA",
+          "certNumber": "142558471",
+          "cardIdentity": "Meowth #07",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558471/."
+        },
+        {
+          "id": "psa_142558473",
+          "provider": "PSA",
+          "certNumber": "142558473",
+          "cardIdentity": "2025 Pokemon CBB3 CS Ceruledge #07",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558473/."
+        },
+        {
+          "id": "psa_148648467",
+          "provider": "PSA",
+          "certNumber": "148648467",
+          "cardIdentity": "2025 Pokemon PFL EN Piplup Illustration Rare #098",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148648467/."
+        },
+        {
+          "id": "psa_148901879",
+          "provider": "PSA",
+          "certNumber": "148901879",
+          "cardIdentity": "Iris's Fighting Spirit Special Art Rare #247",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901879/."
+        },
+        {
+          "id": "psa_148901880",
+          "provider": "PSA",
+          "certNumber": "148901880",
+          "cardIdentity": "2025 Pokemon M1S JP Mega Gardevoir ex Special Art Rare #087",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901880/."
+        },
+        {
+          "id": "psa_148901881",
+          "provider": "PSA",
+          "certNumber": "148901881",
+          "cardIdentity": "2021 Pokemon JPN S-P Pikachu Yu Nagaba x PCG Campaign #208",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901881/."
+        },
+        {
+          "id": "psa_148901886",
+          "provider": "PSA",
+          "certNumber": "148901886",
+          "cardIdentity": "Tyranitar V Battle Styles #155",
+          "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901886/."
+        }
+      ]
+    },
+    "humanReview": {
+      "humanDingReviews": 0,
+      "goldOrCandidateRecords": 0,
+      "reviewedExamples": []
+    },
+    "certEvalSummary": {
+      "total": 29,
+      "psa": 28,
+      "tag": 1,
+      "silverPlus": 20,
+      "gold": 0,
+      "analyzed": 0,
+      "trainingViolations": 0,
+      "tagBulkScrapeViolations": 0,
+      "needsRawScanForGold": 29
+    },
+    "bandEvalTotals": {
+      "references": 29,
+      "predictionsCovered": 0,
+      "matched": 0,
+      "adjacent": 0,
+      "mismatched": 0,
+      "skipped": 29,
+      "silverPlusCovered": 0,
+      "silverPlusMatched": 0,
+      "silverCovered": 0,
+      "silverMatched": 0
+    },
+    "releaseModes": {
+      "demo": {
+        "id": "demo",
+        "label": "Demo",
+        "deployable": true,
+        "checks": [
+          {
+            "id": "cert_refs_loaded",
+            "passed": true,
+            "detail": "29 certified references loaded."
+          },
+          {
+            "id": "no_active_placeholder_predictions",
+            "passed": true,
+            "detail": "0 placeholder prediction rows."
+          },
+          {
+            "id": "agent_tools_complete",
+            "passed": true,
+            "detail": "all required tools available."
+          }
+        ],
+        "blockingReasons": []
+      },
+      "certified_reference_alpha": {
+        "id": "certified_reference_alpha",
+        "label": "Certified Reference Alpha",
+        "deployable": false,
+        "checks": [
+          {
+            "id": "cert_refs_loaded",
+            "passed": true,
+            "detail": "29 certified references loaded."
+          },
+          {
+            "id": "no_active_placeholder_predictions",
+            "passed": true,
+            "detail": "0 placeholder prediction rows."
+          },
+          {
+            "id": "agent_tools_complete",
+            "passed": true,
+            "detail": "all required tools available."
+          },
+          {
+            "id": "certified_ref_count",
+            "passed": true,
+            "detail": "29/20 refs."
+          },
+          {
+            "id": "image_backed_silver_plus",
+            "passed": false,
+            "detail": "0/20 image-backed Silver+ refs."
+          },
+          {
+            "id": "real_model_trace",
+            "passed": true,
+            "detail": "1/1 real model row(s)."
+          }
+        ],
+        "blockingReasons": [
+          "image_backed_silver_plus: 0/20 image-backed Silver+ refs."
+        ]
+      },
+      "trust_beta": {
+        "id": "trust_beta",
+        "label": "Trust Beta",
+        "deployable": false,
+        "checks": [
+          {
+            "id": "cert_refs_loaded",
+            "passed": true,
+            "detail": "29 certified references loaded."
+          },
+          {
+            "id": "no_active_placeholder_predictions",
+            "passed": true,
+            "detail": "0 placeholder prediction rows."
+          },
+          {
+            "id": "agent_tools_complete",
+            "passed": true,
+            "detail": "all required tools available."
+          },
+          {
+            "id": "certified_ref_count",
+            "passed": true,
+            "detail": "29/20 refs."
+          },
+          {
+            "id": "image_backed_silver_plus",
+            "passed": false,
+            "detail": "0/20 image-backed Silver+ refs."
+          },
+          {
+            "id": "real_model_trace",
+            "passed": true,
+            "detail": "1/1 real model row(s)."
+          },
+          {
+            "id": "real_outcome_rows",
+            "passed": false,
+            "detail": "1/30 rows."
+          },
+          {
+            "id": "real_band_match_rate",
+            "passed": false,
+            "detail": "1.000 on 1 rows."
+          },
+          {
+            "id": "official_band_coverage",
+            "passed": false,
+            "detail": "1/4 bands."
+          },
+          {
+            "id": "gold_records",
+            "passed": false,
+            "detail": "0/10 records."
+          },
+          {
+            "id": "human_ding_reviews",
+            "passed": false,
+            "detail": "0/10 reviews."
+          }
+        ],
+        "blockingReasons": [
+          "image_backed_silver_plus: 0/20 image-backed Silver+ refs.",
+          "real_outcome_rows: 1/30 rows.",
+          "real_band_match_rate: 1.000 on 1 rows.",
+          "official_band_coverage: 1/4 bands.",
+          "gold_records: 0/10 records.",
+          "human_ding_reviews: 0/10 reviews."
+        ]
+      },
+      "production": {
+        "id": "production",
+        "label": "Production Trust Gate",
+        "deployable": false,
+        "checks": [
+          {
+            "id": "cert_refs_loaded",
+            "passed": true,
+            "detail": "29 certified references loaded."
+          },
+          {
+            "id": "no_active_placeholder_predictions",
+            "passed": true,
+            "detail": "0 placeholder prediction rows."
+          },
+          {
+            "id": "agent_tools_complete",
+            "passed": true,
+            "detail": "all required tools available."
+          },
+          {
+            "id": "certified_ref_count",
+            "passed": true,
+            "detail": "29/20 refs."
+          },
+          {
+            "id": "real_model_trace",
+            "passed": true,
+            "detail": "1/1 real model row(s)."
+          },
+          {
+            "id": "image_backed_silver_plus",
+            "passed": false,
+            "detail": "0/100 image-backed Silver+ refs."
+          },
+          {
+            "id": "real_outcome_rows",
+            "passed": false,
+            "detail": "1/100 rows."
+          },
+          {
+            "id": "real_band_match_rate",
+            "passed": false,
+            "detail": "1.000 on 1 rows."
+          },
+          {
+            "id": "official_band_coverage",
+            "passed": false,
+            "detail": "1/4 bands."
+          },
+          {
+            "id": "gold_records",
+            "passed": false,
+            "detail": "0/30 records."
+          },
+          {
+            "id": "human_ding_reviews",
+            "passed": false,
+            "detail": "0/30 reviews."
+          },
+          {
+            "id": "production_gate",
+            "passed": false,
+            "detail": "One or more hard production gates is blocked."
+          },
+          {
+            "id": "declared_silver_plus_images_closed",
+            "passed": false,
+            "detail": "20 declared-image refs missing local artifacts."
+          },
+          {
+            "id": "agentic_eval_deployable",
+            "passed": false,
+            "detail": "29 rows need review."
+          }
+        ],
+        "blockingReasons": [
+          "image_backed_silver_plus: 0/100 image-backed Silver+ refs.",
+          "real_outcome_rows: 1/100 rows.",
+          "real_band_match_rate: 1.000 on 1 rows.",
+          "official_band_coverage: 1/4 bands.",
+          "gold_records: 0/30 records.",
+          "human_ding_reviews: 0/30 reviews.",
+          "production_gate: One or more hard production gates is blocked.",
+          "declared_silver_plus_images_closed: 20 declared-image refs missing local artifacts.",
+          "agentic_eval_deployable: 29 rows need review."
+        ]
+      }
+    }
+  },
+  "agent": {
+    "judgeMode": "deterministic_llm_judge_fallback",
+    "deployable": false,
+    "references": 29,
+    "realPredictions": 0,
+    "replayableImageRefs": 0,
+    "needsReview": 29,
+    "averageScores": {
+      "overall": 0.546,
+      "grounding": 0.45,
+      "toolCoverage": 1,
+      "calibration": 0.016,
+      "evidence": 0.401,
+      "trustSafety": 1
+    },
+    "failureBuckets": {
+      "missing_replayable_image": 28,
+      "tag_link_only_no_structured_outcome": 1
+    },
+    "toolSurface": {
+      "implemented": [
+        "cite_evidence",
+        "compare_to_baseline",
+        "compare_to_cert_reference",
+        "compare_to_known_outcome",
+        "create_human_review_task",
+        "crop_finding",
+        "detect_card_boundary",
+        "evaluate_glare_risk",
+        "get_finding_detail",
+        "get_outcome_example",
+        "glare_check_on_crop",
+        "list_outcome_examples",
+        "lookup_promoted_skill",
+        "normalize_card",
+        "propose_inspection_method",
+        "recommend_retake",
+        "request_zoom_animation",
+        "rerun_detector_on_crop",
+        "run_severity_scorer"
+      ],
+      "required": [
+        {
+          "tool": "get_cert_reference",
+          "status": "partial",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": false
+        },
+        {
+          "tool": "load_cert_images",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": false
+        },
+        {
+          "tool": "detect_card_boundary",
+          "status": "implemented",
+          "implementedBy": [
+            "detect_card_boundary"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "normalize_card",
+          "status": "implemented",
+          "implementedBy": [
+            "normalize_card"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "crop_corners",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "crop_edges",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "crop_surface",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_ding_detector",
+          "status": "partial",
+          "implementedBy": [
+            "rerun_detector_on_crop"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_glare_check",
+          "status": "partial",
+          "implementedBy": [
+            "glare_check_on_crop",
+            "evaluate_glare_risk"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_severity_scorer",
+          "status": "implemented",
+          "implementedBy": [
+            "run_severity_scorer"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_condition_band_calibrator",
+          "status": "partial",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "compare_to_cert_reference",
+          "status": "implemented",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "cite_evidence",
+          "status": "implemented",
+          "implementedBy": [
+            "cite_evidence"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "flag_mismatch",
+          "status": "partial",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": false
+        },
+        {
+          "tool": "create_human_review_task",
+          "status": "implemented",
+          "implementedBy": [
+            "create_human_review_task"
+          ],
+          "requiredForPromotion": false
+        }
+      ],
+      "missingRequired": []
+    }
+  },
+  "agenticAnnotations": {
+    "present": true,
+    "deployable": true,
+    "fixtureCount": 4,
+    "multimodelAgent": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "cleanCardFalsePositiveRate": 0,
+      "holoGlareFalsePositiveRate": 0,
+      "claimGroundedRate": 1,
+      "hallucinatedDingRate": 0,
+      "officialGradeClaimViolations": 0,
+      "latencyMs": 980,
+      "estimatedCostUsd": 0.006
+    },
+    "humanReviewOracle": {
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+    }
+  },
+  "llmJudge": {
+    "mode": "deterministic_llm_judge_fallback",
+    "rubric": "System-level judge over ML, agent, calibration, trust, UX, and evidence layers.",
+    "grounding": 0.45,
+    "toolCoverage": 1,
+    "calibration": 0.016,
+    "evidence": 0.401,
+    "trustSafety": 1,
+    "promptArtifact": "data/cert-references/agentic-eval/latest.judge-prompts.jsonl",
+    "note": "The current judge is deterministic/local so it is replayable without paid LLM calls; the prompt artifact can be sent through pi-ai/OpenAI later."
+  },
+  "evidence": {
+    "present": true,
+    "source": "marketplace_seed_public_images",
+    "realInferenceRows": 1,
+    "proofEligibleMatches": 1,
+    "productionDeployable": false,
+    "imageArtifacts": 2,
+    "completeImageArtifacts": 2,
+    "findings": 0,
+    "findingsWithSha256": 0,
+    "modelMetadata": {
+      "model_version": "ding-detector-v0",
+      "weights_sha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d",
+      "training_run_id": "yolo-20260506T124111Z",
+      "mock": false,
+      "allow_mock_detector": false
+    },
+    "gates": [
+      {
+        "id": "real_images",
+        "label": "Real image inputs",
+        "passed": true,
+        "detail": "1/1 refs used fetched image bytes, not mocks."
+      },
+      {
+        "id": "real_model",
+        "label": "Real local model",
+        "passed": true,
+        "detail": "model=ding-detector-v0, mock=false, allow_mock_detector=false"
+      },
+      {
+        "id": "proof_match",
+        "label": "Outcome-band proof row",
+        "passed": true,
+        "detail": "1/1 required proof-eligible match rows."
+      },
+      {
+        "id": "source_tier_honesty",
+        "label": "Source tier honesty",
+        "passed": true,
+        "detail": "Rows are labelled marketplace_silver_plus; not Gold and not PSA API proof."
+      },
+      {
+        "id": "production_deployability",
+        "label": "Production deployability",
+        "passed": false,
+        "detail": "Still blocked until larger Silver+/Gold eval coverage and human DING review exist."
+      }
+    ]
+  },
+  "examples": {
+    "certifiedExamples": [
+      {
+        "id": "psa_134162375",
+        "provider": "PSA",
+        "certNumber": "134162375",
+        "trustTier": "silver",
+        "officialGrade": "EX-MT 6",
+        "cardIdentity": "2000 P.M. Neo Genesis Slowking-Holo #14",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_137437906",
+        "provider": "PSA",
+        "certNumber": "137437906",
+        "trustTier": "silver",
+        "officialGrade": "EX-MT 6",
+        "cardIdentity": "1999 Pokemon Fossil Dragonite-Holo #4",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_138014353",
+        "provider": "PSA",
+        "certNumber": "138014353",
+        "trustTier": "silver",
+        "officialGrade": "EX 5",
+        "cardIdentity": "2019 Pokemon Sun & Moon Rowlet & Alolan Exeggutor GX Unified Minds FA #214",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_138901043",
+        "provider": "PSA",
+        "certNumber": "138901043",
+        "trustTier": "silver",
+        "officialGrade": "EX-MT 6",
+        "cardIdentity": "2000 Pokemon Promo Venusaur Black Star #13",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_139091042",
+        "provider": "PSA",
+        "certNumber": "139091042",
+        "trustTier": "silver",
+        "officialGrade": "EX-MT 6",
+        "cardIdentity": "2020 Pokemon SWSH BSP Special Delivery Pikachu Pokemon Center Canada-Holo #074",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_139091059",
+        "provider": "PSA",
+        "certNumber": "139091059",
+        "trustTier": "silver",
+        "officialGrade": "EX 5",
+        "cardIdentity": "2023 Pokemon SVP EN Charmander Obsidian Flames ETB #044",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_139091062",
+        "provider": "PSA",
+        "certNumber": "139091062",
+        "trustTier": "silver_plus",
+        "officialGrade": "NM-MT 8",
+        "cardIdentity": "Bulbasaur Enhanced BSTR Box Topper #133",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_139091081",
+        "provider": "PSA",
+        "certNumber": "139091081",
+        "trustTier": "silver",
+        "officialGrade": "EX-MT 6",
+        "cardIdentity": "2010 Pokemon HG & SS Gengar-Holo Triumphant #94",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_142558447",
+        "provider": "PSA",
+        "certNumber": "142558447",
+        "trustTier": "silver_plus",
+        "officialGrade": "GEM MT 10",
+        "cardIdentity": "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike Secret #270",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_142558455",
+        "provider": "PSA",
+        "certNumber": "142558455",
+        "trustTier": "silver_plus",
+        "officialGrade": "GEM MT 10",
+        "cardIdentity": "2025 Pokemon DRI EN Cynthia's Garchomp ex Special Illustration Rare #232",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_142558459",
+        "provider": "PSA",
+        "certNumber": "142558459",
+        "trustTier": "silver_plus",
+        "officialGrade": "MINT 9",
+        "cardIdentity": "Tyranitar V Battle Styles #155",
+        "replayableImage": false,
+        "goldEligible": false
+      },
+      {
+        "id": "psa_142558463",
+        "provider": "PSA",
+        "certNumber": "142558463",
+        "trustTier": "silver_plus",
+        "officialGrade": "MINT 9",
+        "cardIdentity": "M Ltrs/Zpds/Artcn.GX HF Elite Trainer Box F.A.",
+        "replayableImage": false,
+        "goldEligible": false
+      }
+    ],
+    "realDingDemo": {
+      "route": "/examples/roboflow-tauros-real-ding-annotations",
+      "desktopGif": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif",
+      "mobileGif": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+      "note": "Real-card/open-dataset fixture with visible DING labels. Not an official cert outcome."
+    },
+    "outcomeProofExamples": [
+      {
+        "certId": "market_cardshq_psa_128228220",
+        "officialGrade": "GEM MT 10",
+        "predictedBand": "950-1000_gem_pristine",
+        "bandAgreement": "match",
+        "realImagePresent": true,
+        "inferenceIsSimulated": false
+      }
+    ],
+    "shareableGifs": [
+      {
+        "file": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+        "label": "Verified Outcome Library trust explorer",
+        "description": "Filters the public examples, shows failure cases, and opens an inspectable outcome page.",
+        "loop": "infinite"
+      },
+      {
+        "file": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif",
+        "label": "Real DING annotations with labels - Tauros card",
+        "description": "Opens the real Tauros card fixture, shows DING bboxes, labels, confidence, materiality, and selected-DING notes on actual card pixels.",
+        "loop": "infinite"
+      },
+      {
+        "file": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+        "label": "Real DING annotations with labels - mobile",
+        "description": "Mobile trust view of the real Tauros card fixture with labeled DING overlays visible.",
+        "loop": "infinite"
+      },
+      {
+        "file": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+        "label": "Certified reference import and eval workbench",
+        "description": "Imports the friend PSA/TAG references, shows Silver/Silver+ policy badges, and makes the Gold upgrade gap visible.",
+        "loop": "infinite"
+      },
+      {
+        "file": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+        "label": "Certified reference benchmark grade spread",
+        "description": "Shows the PSA 5/6/8/9/10 spread, Silver/Silver+ status, and the blocked deployability gate.",
+        "loop": "infinite"
+      },
+      {
+        "file": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+        "label": "Before/after evidence compare and dispute flow",
+        "description": "Switches from split view to swipe compare and diff overlay with DING candidates visible.",
+        "loop": "infinite"
+      }
+    ]
+  },
+  "failures": {
+    "blockers": [
+      {
+        "id": "insufficient_real_outcome_rows",
+        "severity": "P0",
+        "layer": "production_accuracy",
+        "title": "Not enough real image-backed outcome rows",
+        "detail": "1/100 real outcome rows available.",
+        "nextAction": "Attach more user-permitted slab/raw images or allowed remote certified-reference images and run the proof/eval runners."
+      },
+      {
+        "id": "insufficient_gold_records",
+        "severity": "P0",
+        "layer": "dataset",
+        "title": "Gold eval set is missing",
+        "detail": "0/30 Gold or gold-candidate records available.",
+        "nextAction": "Collect raw pre-submission scan + consent + official returned outcome + human DING review."
+      },
+      {
+        "id": "insufficient_human_ding_reviews",
+        "severity": "P0",
+        "layer": "dataset",
+        "title": "Human DING review coverage is missing",
+        "detail": "0/30 human-reviewed records available.",
+        "nextAction": "Create human review tasks for Gold/gold-candidate records and store DING boxes/severity."
+      },
+      {
+        "id": "insufficient_official_band_coverage",
+        "severity": "P0",
+        "layer": "dataset",
+        "title": "Official outcome band coverage is too narrow",
+        "detail": "1/4 official bands covered by real rows.",
+        "nextAction": "Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands."
+      },
+      {
+        "id": "insufficient_image_backed_silver_plus_refs",
+        "severity": "P0",
+        "layer": "dataset",
+        "title": "Image-backed Silver+ reference coverage is below production floor",
+        "detail": "0/100 Silver+ references have replayable local images.",
+        "nextAction": "Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_139091062",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 139091062: Bulbasaur Enhanced BSTR Box Topper #133",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_139091062/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_142558447",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 142558447: 2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike Secret #270",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558447/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_142558455",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 142558455: 2025 Pokemon DRI EN Cynthia's Garchomp ex Special Illustration Rare #232",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558455/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_142558459",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 142558459: Tyranitar V Battle Styles #155",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558459/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_142558463",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 142558463: M Ltrs/Zpds/Artcn.GX HF Elite Trainer Box F.A.",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558463/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_142558471",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 142558471: Meowth #07",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558471/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_142558473",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 142558473: 2025 Pokemon CBB3 CS Ceruledge #07",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558473/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148648467",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148648467: 2025 Pokemon PFL EN Piplup Illustration Rare #098",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148648467/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901879",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901879: Iris's Fighting Spirit Special Art Rare #247",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901879/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901880",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901880: 2025 Pokemon M1S JP Mega Gardevoir ex Special Art Rare #087",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901880/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901881",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901881: 2021 Pokemon JPN S-P Pikachu Yu Nagaba x PCG Campaign #208",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901881/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901886",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901886: Tyranitar V Battle Styles #155",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901886/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901888",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901888: 2025 Pokemon MEG EN Mega Kangaskhan ex Special Illustration Rare #182",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901888/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901889",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901889: 2025 Pokemon MEP EN Mega Charizard X ex Ultra-Premium Collection #023",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901889/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148901890",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148901890: 2020 Pokemon SWSH FA/Snorlax VMAX #142",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901890/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_148965567",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 148965567: 2019 P.M. SM Black Star FA/Garch. & Girat.GX Promo",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148965567/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_152528467",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 152528467: Reshiram ex Special Illustration Rare #166",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_152528467/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_154378339",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 154378339: 2025 Pokemon Japanese SV11B-Black Bolt #174 Zekrom ex BW Rare",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_154378339/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_69196288",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 69196288: 2019 Pokemon Sun & Moon Reshiram & Charizard GX Unbroken Bonds FA #194",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_69196288/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_replayable_slab_image_psa_69923530",
+        "severity": "P1",
+        "layer": "evidence",
+        "title": "Certified reference declares slab images but no replayable local artifact is attached",
+        "detail": "PSA 69923530: 2022 Pokemon SWSH BSP Special Delivery Charizard Pokemon Center UK-Holo #075",
+        "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_69923530/, then run pnpm eval:certrefs:run."
+      },
+      {
+        "id": "missing_reference_image_psa_134162375",
+        "severity": "P2",
+        "layer": "evidence",
+        "title": "Reference has no replayable image artifact",
+        "detail": "PSA 134162375: 2000 P.M. Neo Genesis Slowking-Holo #14",
+        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+      },
+      {
+        "id": "missing_reference_image_psa_137437906",
+        "severity": "P2",
+        "layer": "evidence",
+        "title": "Reference has no replayable image artifact",
+        "detail": "PSA 137437906: 1999 Pokemon Fossil Dragonite-Holo #4",
+        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+      },
+      {
+        "id": "missing_reference_image_psa_138014353",
+        "severity": "P2",
+        "layer": "evidence",
+        "title": "Reference has no replayable image artifact",
+        "detail": "PSA 138014353: 2019 Pokemon Sun & Moon Rowlet & Alolan Exeggutor GX Unified Minds FA #214",
+        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+      },
+      {
+        "id": "missing_reference_image_psa_138901043",
+        "severity": "P2",
+        "layer": "evidence",
+        "title": "Reference has no replayable image artifact",
+        "detail": "PSA 138901043: 2000 Pokemon Promo Venusaur Black Star #13",
+        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+      },
+      {
+        "id": "missing_reference_image_psa_139091042",
+        "severity": "P2",
+        "layer": "evidence",
+        "title": "Reference has no replayable image artifact",
+        "detail": "PSA 139091042: 2020 Pokemon SWSH BSP Special Delivery Pikachu Pokemon Center Canada-Holo #074",
+        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+      }
+    ],
+    "agentFailureBuckets": {
+      "missing_replayable_image": 28,
+      "tag_link_only_no_structured_outcome": 1
+    },
+    "agentReviewQueue": [],
+    "unevaluatedCertifiedRefs": [
+      {
+        "certId": "psa_154378339",
+        "officialGrade": "NM-MT 8",
+        "officialBand": "800-849_near_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901886",
+        "officialGrade": "MINT 9",
+        "officialBand": "900-949_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_142558459",
+        "officialGrade": "MINT 9",
+        "officialBand": "900-949_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_142558463",
+        "officialGrade": "MINT 9",
+        "officialBand": "900-949_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901879",
+        "officialGrade": "MINT 9",
+        "officialBand": "900-949_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_152528467",
+        "officialGrade": "MINT 9",
+        "officialBand": "900-949_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_142558471",
+        "officialGrade": "NM-MT 8",
+        "officialBand": "800-849_near_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_139091062",
+        "officialGrade": "NM-MT 8",
+        "officialBand": "800-849_near_mint",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901890",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901881",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_142558447",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901888",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901880",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148901889",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148965567",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_69196288",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_142558455",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_69923530",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_142558473",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      },
+      {
+        "certId": "psa_148648467",
+        "officialGrade": "GEM MT 10",
+        "officialBand": "950-1000_gem_pristine",
+        "notes": [
+          "No prediction supplied; reference not yet evaluated against this model version."
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "markdown": "docs/proof/VISIBLE_CONDITION_ASSISTANCE_REPORT.md",
+    "modelMetrics": "docs/proof/model_metrics.json",
+    "agentEval": "docs/proof/agent_eval.json",
+    "agenticAnnotationEval": "data/benchmarks/agentic_annotations/latest.json",
+    "exampleGallery": "docs/proof/example_gallery.json",
+    "failureCases": "docs/proof/failure_cases.json",
+    "latestJson": "data/proof/visible-condition/latest.json"
+  },
+  "nextActions": [
+    "Attach 20 user/vendor-permitted local slab/front/back images to declared Silver+ references.",
+    "Run pnpm eval:certrefs:run after local reference images are attached.",
+    "Collect at least 10 human DING reviews for Vendor Pilot Alpha; 30+ for Production Trust Beta.",
+    "Create Gold records from raw pre-submission scans plus returned official outcomes and human DING review.",
+    "Keep agent claims grounded to tool/model/evidence outputs and continue using the LLM-judge replay prompts."
+  ]
+}

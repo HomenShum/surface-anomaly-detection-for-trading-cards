@@ -1,0 +1,14 @@
+{
+  "base_model": "yolov8n.pt",
+  "batch": "2",
+  "best_weights": "D:\\VSCode Projects\\surface_anomaly_detection_model\\runs\\detect\\runs\\ding-detector-v0\\full-loop-smoke\\weights\\best.pt",
+  "data": "ml\\datasets\\yolo\\roboflow_alpha\\dataset.yaml",
+  "device": "cpu",
+  "epochs": 1,
+  "exported_weights": "services\\inference-api\\app\\models\\ding-detector-full-loop-smoke.pt",
+  "imgsz": 320,
+  "model_version": "ding-detector-v0",
+  "name": "full-loop-smoke",
+  "project": "runs/ding-detector-v0",
+  "training_run_id": "yolo-20260507T104708Z"
+}

@@ -1,0 +1,41 @@
+{
+  "userId": "methods-dogfood",
+  "retakePreferences": [],
+  "cardFocus": [
+    "holo"
+  ],
+  "explanationComplexity": "balanced",
+  "topUserIntents": [
+    {
+      "intent": "glare_question",
+      "count": 4
+    }
+  ],
+  "recentToolUsage": [
+    {
+      "tool": "lookup_promoted_skill",
+      "count": 4
+    },
+    {
+      "tool": "get_finding_detail",
+      "count": 4
+    },
+    {
+      "tool": "request_zoom_animation",
+      "count": 4
+    },
+    {
+      "tool": "evaluate_glare_risk",
+      "count": 4
+    },
+    {
+      "tool": "propose_inspection_method",
+      "count": 4
+    }
+  ],
+  "proposedSkillCount": 4,
+  "rejectedFindingTypes": [],
+  "totalTurns": 4,
+  "createdAt": "2026-05-06T23:28:21.451Z",
+  "lastUpdated": "2026-05-06T23:54:55.218Z"
+}

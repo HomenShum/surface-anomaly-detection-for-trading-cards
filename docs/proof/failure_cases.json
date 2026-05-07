@@ -1,0 +1,411 @@
+{
+  "blockers": [
+    {
+      "id": "insufficient_real_outcome_rows",
+      "severity": "P0",
+      "layer": "production_accuracy",
+      "title": "Not enough real image-backed outcome rows",
+      "detail": "1/100 real outcome rows available.",
+      "nextAction": "Attach more user-permitted slab/raw images or allowed remote certified-reference images and run the proof/eval runners."
+    },
+    {
+      "id": "insufficient_gold_records",
+      "severity": "P0",
+      "layer": "dataset",
+      "title": "Gold eval set is missing",
+      "detail": "0/30 Gold or gold-candidate records available.",
+      "nextAction": "Collect raw pre-submission scan + consent + official returned outcome + human DING review."
+    },
+    {
+      "id": "insufficient_human_ding_reviews",
+      "severity": "P0",
+      "layer": "dataset",
+      "title": "Human DING review coverage is missing",
+      "detail": "0/30 human-reviewed records available.",
+      "nextAction": "Create human review tasks for Gold/gold-candidate records and store DING boxes/severity."
+    },
+    {
+      "id": "insufficient_official_band_coverage",
+      "severity": "P0",
+      "layer": "dataset",
+      "title": "Official outcome band coverage is too narrow",
+      "detail": "1/4 official bands covered by real rows.",
+      "nextAction": "Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands."
+    },
+    {
+      "id": "insufficient_image_backed_silver_plus_refs",
+      "severity": "P0",
+      "layer": "dataset",
+      "title": "Image-backed Silver+ reference coverage is below production floor",
+      "detail": "0/100 Silver+ references have replayable local images.",
+      "nextAction": "Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_139091062",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 139091062: Bulbasaur Enhanced BSTR Box Topper #133",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_139091062/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_142558447",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 142558447: 2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike Secret #270",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558447/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_142558455",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 142558455: 2025 Pokemon DRI EN Cynthia's Garchomp ex Special Illustration Rare #232",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558455/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_142558459",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 142558459: Tyranitar V Battle Styles #155",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558459/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_142558463",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 142558463: M Ltrs/Zpds/Artcn.GX HF Elite Trainer Box F.A.",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558463/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_142558471",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 142558471: Meowth #07",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558471/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_142558473",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 142558473: 2025 Pokemon CBB3 CS Ceruledge #07",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_142558473/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148648467",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148648467: 2025 Pokemon PFL EN Piplup Illustration Rare #098",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148648467/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901879",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901879: Iris's Fighting Spirit Special Art Rare #247",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901879/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901880",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901880: 2025 Pokemon M1S JP Mega Gardevoir ex Special Art Rare #087",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901880/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901881",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901881: 2021 Pokemon JPN S-P Pikachu Yu Nagaba x PCG Campaign #208",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901881/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901886",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901886: Tyranitar V Battle Styles #155",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901886/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901888",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901888: 2025 Pokemon MEG EN Mega Kangaskhan ex Special Illustration Rare #182",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901888/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901889",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901889: 2025 Pokemon MEP EN Mega Charizard X ex Ultra-Premium Collection #023",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901889/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148901890",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148901890: 2020 Pokemon SWSH FA/Snorlax VMAX #142",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148901890/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_148965567",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 148965567: 2019 P.M. SM Black Star FA/Garch. & Girat.GX Promo",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_148965567/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_152528467",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 152528467: Reshiram ex Special Illustration Rare #166",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_152528467/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_154378339",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 154378339: 2025 Pokemon Japanese SV11B-Black Bolt #174 Zekrom ex BW Rare",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_154378339/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_69196288",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 69196288: 2019 Pokemon Sun & Moon Reshiram & Charizard GX Unbroken Bonds FA #194",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_69196288/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_replayable_slab_image_psa_69923530",
+      "severity": "P1",
+      "layer": "evidence",
+      "title": "Certified reference declares slab images but no replayable local artifact is attached",
+      "detail": "PSA 69923530: 2022 Pokemon SWSH BSP Special Delivery Charizard Pokemon Center UK-Holo #075",
+      "nextAction": "Attach permitted front/back images under data/cert-references/slab-images/psa_69923530/, then run pnpm eval:certrefs:run."
+    },
+    {
+      "id": "missing_reference_image_psa_134162375",
+      "severity": "P2",
+      "layer": "evidence",
+      "title": "Reference has no replayable image artifact",
+      "detail": "PSA 134162375: 2000 P.M. Neo Genesis Slowking-Holo #14",
+      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+    },
+    {
+      "id": "missing_reference_image_psa_137437906",
+      "severity": "P2",
+      "layer": "evidence",
+      "title": "Reference has no replayable image artifact",
+      "detail": "PSA 137437906: 1999 Pokemon Fossil Dragonite-Holo #4",
+      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+    },
+    {
+      "id": "missing_reference_image_psa_138014353",
+      "severity": "P2",
+      "layer": "evidence",
+      "title": "Reference has no replayable image artifact",
+      "detail": "PSA 138014353: 2019 Pokemon Sun & Moon Rowlet & Alolan Exeggutor GX Unified Minds FA #214",
+      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+    },
+    {
+      "id": "missing_reference_image_psa_138901043",
+      "severity": "P2",
+      "layer": "evidence",
+      "title": "Reference has no replayable image artifact",
+      "detail": "PSA 138901043: 2000 Pokemon Promo Venusaur Black Star #13",
+      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+    },
+    {
+      "id": "missing_reference_image_psa_139091042",
+      "severity": "P2",
+      "layer": "evidence",
+      "title": "Reference has no replayable image artifact",
+      "detail": "PSA 139091042: 2020 Pokemon SWSH BSP Special Delivery Pikachu Pokemon Center Canada-Holo #074",
+      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+    }
+  ],
+  "agentFailureBuckets": {
+    "missing_replayable_image": 28,
+    "tag_link_only_no_structured_outcome": 1
+  },
+  "agentReviewQueue": [],
+  "unevaluatedCertifiedRefs": [
+    {
+      "certId": "psa_154378339",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901886",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558459",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558463",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901879",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_152528467",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558471",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_139091062",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901890",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901881",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558447",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901888",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901880",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901889",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148965567",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_69196288",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558455",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_69923530",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558473",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148648467",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    }
+  ]
+}

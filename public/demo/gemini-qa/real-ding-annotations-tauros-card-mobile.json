@@ -1,0 +1,89 @@
+{
+  "gif": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+  "expect": "a real-card example detail page with visible DING annotation boxes, labels, confidence/materiality notes, and DING panel on mobile.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 24,
+    "fps": 5,
+    "duration": 4.8
+  },
+  "capturedAt": "2026-05-07T12:32:27.722Z",
+  "usage": {
+    "promptTokenCount": 2384,
+    "candidatesTokenCount": 686,
+    "totalTokenCount": 4245,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 320
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1175,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip displays a mobile view of a 'Card Condition Vault' detail page for a Tauros card. It initially shows the card with DING annotations, then scrolls down to reveal a 'VERIFIED OUTCOME' section, and finally a detailed 'DINGS (3)' panel with descriptions and materiality notes.",
+    "key_observations": [
+      "The page is a detail view for a real card, 'Tauros', with a mobile-optimized layout.",
+      "Visible DING annotation boxes, labels (e.g., 'EDGE WEAR'), and confidence/materiality notes (e.g., 'MODERATE', 'MINOR') are present on the card image.",
+      "A dedicated 'DINGS (3)' panel is visible, providing detailed descriptions and materiality for each annotation.",
+      "The 'Material-to-grade only' checkbox is unchecked during the clip, but the DING overlays remain visible."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "All examples",
+      "Verified methods",
+      "Benchmarks",
+      "ALPHA V0.1",
+      "REAL MODEL",
+      "BRONZE Open CC BY 4.0 image + human/model annotation",
+      "Tauros",
+      "DING - EDGE WEAR - MODERATE",
+      "DING - CORNER WEAR - MODERATE",
+      "DING - EDGE WEAR - MINOR",
+      "DING overlays",
+      "Material-to-grade only",
+      "IMAGE OPACITY",
+      "VERIFIED OUTCOME",
+      "Tauros real-card DING annotations",
+      "Real card image used for vendor-pilot trust demos. DING annotations are CCV/open-dataset QA labels, not official PSA/TAG/CGC/BGS rationale.",
+      "OFFICIAL OUTCOME",
+      "None attached — annotation provenance only.",
+      "DINGS (3)",
+      "edge wear",
+      "Material to grade · moderate",
+      "Visible whitening and border wear along the top edge of the real card image.",
+      "annotation: human+model",
+      "corner wear",
+      "Material to grade · moderate",
+      "Corner and lower-edge wear are visible near the lower-left card boundary.",
+      "edge wear",
+      "Material to grade · minor",
+      "Right edge shows visible whitening consistent with edge-wear review.",
+      "Capture quality + limitations",
+      "Identity image source: roboflow-cc-by-4.0",
+      "Roboflow-style real card fixture bundled with CCV demo assets.",
+      "Our scan ≠ TAG photometric stereoscopic imaging. Confidence",
+      "Dashboard",
+      "Workspace",
+      "Examples",
+      "Cert import",
+      "Benchmarks",
+      "Scan",
+      "Cards",
+      "Methods",
+      "Compare"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

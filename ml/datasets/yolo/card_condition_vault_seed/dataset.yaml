@@ -1,0 +1,18 @@
+path: D:/VSCode Projects/surface_anomaly_detection_model/ml/datasets/yolo/card_condition_vault_seed
+train: images/train
+val: images/val
+test: images/test
+nc: 12
+names:
+  0: card
+  1: corner
+  2: edge_wear
+  3: corner_wear
+  4: scratch
+  5: crease
+  6: hole
+  7: tear
+  8: dent
+  9: surface_contamination
+  10: heavy_wear
+  11: unknown_damage

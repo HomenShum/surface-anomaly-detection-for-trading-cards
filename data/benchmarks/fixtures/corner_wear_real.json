@@ -1,0 +1,34 @@
+{
+  "name": "corner_wear_real",
+  "description": "Matte card with real corner wear in top-left corner. Skill should cite the finding and call out severity.",
+  "reportContext": {
+    "cardId": "fixture-corner-wear",
+    "reportSummary": "Matte card with visible corner whitening at top-left.",
+    "conditionScore": 71,
+    "surfaceScore": 82,
+    "centeringScore": 78,
+    "edgeScore": 74,
+    "glareScore": 0.08,
+    "finishType": "matte",
+    "findings": [
+      {
+        "type": "corner_wear",
+        "confidence": 0.78,
+        "severity": "moderate",
+        "bbox": [3, 2, 16, 12],
+        "zone": "normalized_card",
+        "sha256": "fixture-finding-corner"
+      }
+    ],
+    "evidence": [
+      { "role": "front_normalized", "sha256": "fixture-norm-corner", "path": "fixtures/corner.png" }
+    ]
+  },
+  "groundTruth": {
+    "true_findings": [
+      { "kind": "corner_wear", "region": "top_left_corner" }
+    ],
+    "forbidden_findings": [],
+    "expected_intents": ["dispute_question", "summary_question"]
+  }
+}

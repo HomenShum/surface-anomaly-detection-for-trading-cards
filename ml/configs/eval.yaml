@@ -1,0 +1,4 @@
+images: storage/samples/raw
+weights: services/inference-api/app/models/yolo/best.pt
+output: ml/runs/eval_report.json
+limit: 0

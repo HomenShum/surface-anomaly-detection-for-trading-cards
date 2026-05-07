@@ -1,0 +1,6 @@
+dataset: storage/samples/normalized
+output_dir: runs/card-condition/patchcore
+backbone: wide_resnet50_2
+image_size: 896
+coreset_ratio: 0.1
+batch: 8

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "market_cardshq_psa_128228220",
+    "provider": "PSA",
+    "sourceType": "marketplace_certified_reference",
+    "source": "cardshq_public_listing",
+    "trustTier": "marketplace_silver_plus",
+    "certNumber": "128228220",
+    "externalUrl": "https://www.cardshq.com/products/zekrom-ex-2025-pokemon-japanese-sv11bblack-bolt-174-bw-rare-psa-gem-mt-10-128228220",
+    "officialGrade": "GEM MT 10",
+    "numericGrade": 10,
+    "officialBand": "950-1000_gem_pristine",
+    "cardIdentity": "2025 Pokemon Japanese SV11B-Black Bolt #174 Zekrom ex BW Rare",
+    "remoteImageUrls": {
+      "front": "https://cdn.shopify.com/s/files/1/0625/7623/0563/files/128228220-FRONT.jpg?v=1762793691",
+      "back": "https://cdn.shopify.com/s/files/1/0625/7623/0563/files/128228220-BACK.jpg?v=1762793691"
+    },
+    "requiredViews": ["front", "back"],
+    "trainingAllowed": false,
+    "publicExampleAllowed": true,
+    "needsRawScanForGold": true,
+    "limitations": [
+      "Marketplace public listing, not a PSA API response.",
+      "Images are public slab/listing images fetched live for evaluation only.",
+      "Do not use for training unless explicit permission is obtained.",
+      "PSA private DING rationale is unavailable.",
+      "Slab plastic, glare, compression, and marketplace imaging can hide or create visible artifacts."
+    ]
+  }
+]

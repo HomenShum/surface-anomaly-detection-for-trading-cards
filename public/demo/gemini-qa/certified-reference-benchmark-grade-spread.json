@@ -1,0 +1,80 @@
+{
+  "gif": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+  "expect": "the certified reference benchmark dashboard showing grade spread, band alignment, and blocked trust gates.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 16,
+    "fps": 5,
+    "duration": 3.2
+  },
+  "capturedAt": "2026-05-07T12:31:21.554Z",
+  "usage": {
+    "promptTokenCount": 2372,
+    "candidatesTokenCount": 549,
+    "totalTokenCount": 3765,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 308
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 844,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins by displaying a 'Certified Reference Benchmarks' dashboard, showing high-level metrics and 'Production accuracy readiness' with several 'Blocked' statuses. The view then scrolls down to reveal detailed tables for 'Per-grade band agreement', 'Grade distribution', and a 'Reference registry'.",
+    "key_observations": [
+      "The initial view shows key metrics like 'Certified refs', 'Grade spread', 'Lower-grade refs', and 'Band match rate'.",
+      "The 'Production accuracy readiness' section clearly indicates 'ALPHA Blocked', 'TRUST BETA Blocked', and 'DEPLOYABILITY Blocked' statuses.",
+      "Scrolling reveals a 'Per-grade band agreement' table with 'no predictions yet' for all buckets and empty 'MATCHED', 'MISMATCHED', and 'MATCH RATE' columns.",
+      "A 'Grade distribution' table and 'Reference registry' with some 'mismatch' entries are also visible after scrolling."
+    ],
+    "ui_text_snippets": [
+      "CERTIFIED REFERENCE BENCHMARKS",
+      "PSA/TAG references for outcome calibration, not training.",
+      "Import certs",
+      "Review DINGs",
+      "All benchmarks",
+      "Certified refs",
+      "Grade spread",
+      "Lower-grade refs",
+      "Band match rate",
+      "Production accuracy readiness",
+      "DEMO Ready",
+      "ALPHA Blocked",
+      "TRUST BETA Blocked",
+      "DEPLOYABILITY Blocked",
+      "REAL ROWS",
+      "GOLD RECORDS",
+      "IMAGE-BACKED SILVER+",
+      "MISSING IMAGES",
+      "RELEASE MODE",
+      "STATUS",
+      "BLOCKING REASONS",
+      "Demo",
+      "PASS",
+      "Certified Reference Alpha",
+      "Trust Beta",
+      "Production Trust Gate",
+      "Per-grade band agreement",
+      "Grade distribution",
+      "Reference registry",
+      "no predictions yet",
+      "mismatch"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": [
+      "Confirm if 'no predictions yet' in the 'Per-grade band agreement' table is the expected state for this demo.",
+      "Verify the specific blocking reasons listed for Alpha, Trust Beta, and Production Trust Gate are accurate and intended."
+    ]
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-07T06:05:03.427Z",
+  "label": "remote-proof-2026-05-07T06-04-50-608Z",
+  "inferenceBase": "http://127.0.0.1:8000",
+  "source": "marketplace_seed_public_images",
+  "outcomeMatchingProved": true,
+  "productionDeployable": false,
+  "modelMetadata": {
+    "model_version": "ding-detector-v0",
+    "weights_sha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d",
+    "training_run_id": "yolo-20260506T124111Z",
+    "mock": false,
+    "allow_mock_detector": false
+  },
+  "summary": {
+    "totalRefs": 1,
+    "realInferenceRows": 1,
+    "proofEligibleMatches": 1,
+    "match": 1,
+    "adjacent": 0,
+    "mismatch": 0,
+    "noOfficial": 0,
+    "averageJudgeScore": 0.8775
+  },
+  "gates": [
+    {
+      "id": "real_images",
+      "label": "Real image inputs",
+      "passed": true,
+      "detail": "1/1 refs used fetched image bytes, not mocks."
+    },
+    {
+      "id": "real_model",
+      "label": "Real local model",
+      "passed": true,
+      "detail": "model=ding-detector-v0, mock=false, allow_mock_detector=false"
+    },
+    {
+      "id": "proof_match",
+      "label": "Outcome-band proof row",
+      "passed": true,
+      "detail": "1/1 required proof-eligible match rows."
+    },
+    {
+      "id": "source_tier_honesty",
+      "label": "Source tier honesty",
+      "passed": true,
+      "detail": "Rows are labelled marketplace_silver_plus; not Gold and not PSA API proof."
+    },
+    {
+      "id": "production_deployability",
+      "label": "Production deployability",
+      "passed": false,
+      "detail": "Still blocked until larger Silver+/Gold eval coverage and human DING review exist."
+    }
+  ],
+  "notes": [
+    "This report proves only real image-backed outcome-band comparison for listed marketplace certified references.",
+    "It must not be treated as official grade prediction accuracy.",
+    "It does not use cert images as training data.",
+    "General deployability remains blocked until enough Silver+/Gold references pass without regressions."
+  ],
+  "traces": [
+    {
+      "certId": "market_cardshq_psa_128228220",
+      "provider": "PSA",
+      "certNumber": "128228220",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "cardIdentity": "2025 Pokemon Japanese SV11B-Black Bolt #174 Zekrom ex BW Rare",
+      "trustTier": "marketplace_silver_plus",
+      "sourceType": "marketplace_certified_reference",
+      "source": "cardshq_public_listing",
+      "sourceUrl": "https://www.cardshq.com/products/zekrom-ex-2025-pokemon-japanese-sv11bblack-bolt-174-bw-rare-psa-gem-mt-10-128228220",
+      "finishHint": "holo",
+      "imagePresent": true,
+      "realImagePresent": true,
+      "imageSource": "remote_marketplace",
+      "inferenceIsSimulated": false,
+      "detectionCount": 0,
+      "detectionMaxSeverity": "none",
+      "surfaceScore": 100,
+      "glareScore": null,
+      "centeringScore": null,
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      },
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "proofEligible": true,
+      "proofBlockers": [],
+      "remoteImageArtifacts": [
+        {
+          "ok": true,
+          "refId": "market_cardshq_psa_128228220",
+          "view": "front",
+          "url": "https://cdn.shopify.com/s/files/1/0625/7623/0563/files/128228220-FRONT.jpg?v=1762793691",
+          "contentType": "image/webp",
+          "sizeBytes": 887358,
+          "sha256": "bd531b6a931bbe340780ba0e14055134da1a7be50a23738d88419b091b03bd8c",
+          "fetchedAt": "2026-05-07T06:04:51.078Z"
+        },
+        {
+          "ok": true,
+          "refId": "market_cardshq_psa_128228220",
+          "view": "back",
+          "url": "https://cdn.shopify.com/s/files/1/0625/7623/0563/files/128228220-BACK.jpg?v=1762793691",
+          "contentType": "image/webp",
+          "sizeBytes": 955868,
+          "sha256": "ec80dcf4a0e96b2c54a9d643e52cfff8091b58f34c40d9c8e1dd550697259a4b",
+          "fetchedAt": "2026-05-07T06:05:02.770Z"
+        }
+      ],
+      "modelMetadata": {
+        "model_version": "ding-detector-v0",
+        "weights_sha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d",
+        "training_run_id": "yolo-20260506T124111Z",
+        "mock": false,
+        "allow_mock_detector": false
+      },
+      "toolSequence": [
+        {
+          "tool": "compare_to_cert_reference",
+          "argsKeys": [
+            "cert_id",
+            "official_band",
+            "source_type"
+          ],
+          "ok": true,
+          "durationMs": 0,
+          "resultSummary": "provider=PSA grade=GEM MT 10 band=950-1000_gem_pristine"
+        },
+        {
+          "tool": "fetch_remote_reference_image",
+          "argsKeys": [
+            "view",
+            "url"
+          ],
+          "ok": true,
+          "durationMs": 387,
+          "resultSummary": "front sha256=bd531b6a931b bytes=887358"
+        },
+        {
+          "tool": "run_ding_detector",
+          "argsKeys": [
+            "image_base64",
+            "model_version"
+          ],
+          "ok": true,
+          "durationMs": 11361,
+          "resultSummary": "front findings=0 score=100"
+        },
+        {
+          "tool": "fetch_remote_reference_image",
+          "argsKeys": [
+            "view",
+            "url"
+          ],
+          "ok": true,
+          "durationMs": 331,
+          "resultSummary": "back sha256=ec80dcf4a0e9 bytes=955868"
+        },
+        {
+          "tool": "run_ding_detector",
+          "argsKeys": [
+            "image_base64",
+            "model_version"
+          ],
+          "ok": true,
+          "durationMs": 654,
+          "resultSummary": "back findings=0 score=100"
+        },
+        {
+          "tool": "evaluate_glare_risk",
+          "argsKeys": [
+            "region",
+            "surface_score",
+            "glare_hint"
+          ],
+          "ok": true,
+          "durationMs": 1,
+          "resultSummary": "glare=not_measured finish=holo"
+        },
+        {
+          "tool": "run_condition_band_calibrator",
+          "argsKeys": [
+            "score",
+            "findings",
+            "official_band"
+          ],
+          "ok": true,
+          "durationMs": 1,
+          "resultSummary": "predicted 950-1000_gem_pristine (1000)"
+        }
+      ],
+      "claims": [
+        "Internal predicted band 950-1000_gem_pristine (1000). Internal band only - not a grade claim.",
+        "0 DING candidates exceeded the current model threshold on the reference images. This aligns with a high-tier listed outcome but does not prove the card is officially GEM-tier.",
+        "marketplace_silver_plus provenance: cardshq_public_listing. This is not Gold training data and not a PSA API response.",
+        "AI-assisted condition signal. Not an official grade. Not legal proof."
+      ],
+      "evidence": [
+        {
+          "role": "source_image",
+          "sha256": "bd531b6a931bbe340780ba0e14055134da1a7be50a23738d88419b091b03bd8c",
+          "bbox": null,
+          "type": "front",
+          "zone": "front",
+          "confidence": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0625/7623/0563/files/128228220-FRONT.jpg?v=1762793691"
+        },
+        {
+          "role": "source_image",
+          "sha256": "ec80dcf4a0e96b2c54a9d643e52cfff8091b58f34c40d9c8e1dd550697259a4b",
+          "bbox": null,
+          "type": "back",
+          "zone": "back",
+          "confidence": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0625/7623/0563/files/128228220-BACK.jpg?v=1762793691"
+        }
+      ],
+      "uiActions": [],
+      "agentNotes": [
+        "marketplace_silver_plus reference from cardshq_public_listing; internal outcome-band comparison only.",
+        "Internal band lands the listed certified outcome band 950-1000_gem_pristine."
+      ],
+      "inferenceModelVersion": "ding-detector-v0",
+      "error": null,
+      "judge": {
+        "layers": {
+          "ml": {
+            "score": 1,
+            "rationale": "0 findings is in the expected range [0..0] for band 950-1000_gem_pristine.",
+            "signals": {
+              "detectionCount": 0,
+              "detectionMaxSeverity": "none",
+              "expectedRange": {
+                "min": 0,
+                "max": 0
+              },
+              "officialBand": "950-1000_gem_pristine"
+            }
+          },
+          "agent": {
+            "score": 1,
+            "rationale": "Tool sequence is rational and gates fired correctly.",
+            "signals": {
+              "positiveSignals": [
+                "compare_to_cert_reference: agent grounded itself before predicting",
+                "run_ding_detector: ML pipeline invoked when image was present",
+                "evaluate_glare_risk: glare check fired on holo/glossy as required"
+              ],
+              "negativeSignals": [],
+              "sequence": [
+                "compare_to_cert_reference",
+                "fetch_remote_reference_image",
+                "run_ding_detector",
+                "fetch_remote_reference_image",
+                "run_ding_detector",
+                "evaluate_glare_risk",
+                "run_condition_band_calibrator"
+              ]
+            }
+          },
+          "calibration": {
+            "score": 1,
+            "rationale": "predicted 950-1000_gem_pristine == official 950-1000_gem_pristine",
+            "signals": {
+              "predictedBand": "950-1000_gem_pristine",
+              "officialBand": "950-1000_gem_pristine",
+              "bandAgreement": "match",
+              "bandDistance": 0
+            }
+          },
+          "trust": {
+            "score": 0.8999999999999999,
+            "rationale": "Claims grounded; honest disclaimers present.",
+            "signals": {
+              "positiveSignals": [
+                "disclaimer present",
+                "internal-band only language present"
+              ],
+              "negativeSignals": [],
+              "claimCount": 4
+            }
+          },
+          "ux": {
+            "score": 0.6,
+            "rationale": "tool sequence length is within sane bounds",
+            "signals": {
+              "signals": [
+                "tool sequence length is within sane bounds"
+              ],
+              "sequenceLength": 7,
+              "zoomCount": 0
+            }
+          },
+          "evidence": {
+            "score": 0.55,
+            "rationale": "Evidence trail complete: identity + sha256 + bbox + modelVersion.",
+            "signals": {
+              "positiveSignals": [
+                "cardIdentity present (provenance)"
+              ],
+              "negativeSignals": [],
+              "evidenceCount": 2
+            }
+          }
+        },
+        "systemScore": 0.8775,
+        "errorBucket": {
+          "bucket": null,
+          "severity": null
+        },
+        "recommendedFixLayer": null
+      }
+    }
+  ]
+}

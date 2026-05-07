@@ -1,0 +1,37 @@
+{
+  "skillId": "corner_zoom_inspect_v1",
+  "title": "Corner finding → zoom-lens + cite evidence before discussing severity",
+  "status": "production",
+  "trigger": {
+    "region": "top_left_corner"
+  },
+  "steps": [
+    {
+      "tool": "get_finding_detail",
+      "purpose": "Pull the full finding record (bbox + confidence + severity)."
+    },
+    {
+      "tool": "request_zoom_animation",
+      "purpose": "Fire the zoom-lens overlay over the corner. User watches the inspection happen.",
+      "region": "top_left_corner"
+    },
+    {
+      "tool": "cite_evidence",
+      "purpose": "Attach the SHA-256 hash and bbox to back the corner-wear claim."
+    }
+  ],
+  "consentScope": "anonymized_method_stats",
+  "evidencePolicy": {
+    "storesRawUserImages": false,
+    "storesDerivedCrops": false,
+    "storesAnonymizedMetrics": true,
+    "sharesAcrossUsers": true
+  },
+  "guardrails": {
+    "requiresToolEvidence": true,
+    "forbidsOfficialGradeClaims": true,
+    "forbidsLegalProofClaims": true,
+    "requiresHumanApprovalForProduction": true
+  },
+  "createdAt": "2026-05-06T00:00:00.000Z"
+}

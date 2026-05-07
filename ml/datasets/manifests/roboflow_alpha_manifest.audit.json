@@ -1,0 +1,71 @@
+{
+  "classes": {
+    "card": 1503,
+    "corner_wear": 9996,
+    "crease": 638,
+    "edge_wear": 4442,
+    "heavy_wear": 267,
+    "scratch": 5263,
+    "tear_or_hole": 513
+  },
+  "configured_sources": [
+    "roboflow_card_grader_v5",
+    "roboflow_pokemon_surface_damage_v2",
+    "roboflow_scratch_poke_v2",
+    "roboflow_pokefrontbackdamage_v1",
+    "roboflow_card_condition_29wwd_v1",
+    "roboflow_pokemon_card_detection_7aaz7_v1",
+    "roboflow_pokemon_cards_segmentation_v2",
+    "roboflow_pokemon_card_detection_3_v1"
+  ],
+  "downloaded_sources": [
+    "roboflow_card_grader_v5",
+    "roboflow_pokemon_surface_damage_v2"
+  ],
+  "license_status": "verified",
+  "manifest": "ml\\datasets\\manifests\\roboflow_alpha_manifest.jsonl",
+  "manifest_sha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+  "missing_sources": [
+    {
+      "dataset_url": "https://universe.roboflow.com/pokemonfyp/scratch-poke/dataset/2",
+      "id": "roboflow_scratch_poke_v2",
+      "reason": "local_export_missing"
+    },
+    {
+      "dataset_url": "https://universe.roboflow.com/pokemonfyp/pokefrontbackdamage/dataset/1",
+      "id": "roboflow_pokefrontbackdamage_v1",
+      "reason": "local_export_missing"
+    },
+    {
+      "dataset_url": "https://universe.roboflow.com/fes-acatlan/card-condition-29wwd/dataset/1",
+      "id": "roboflow_card_condition_29wwd_v1",
+      "reason": "local_export_missing"
+    },
+    {
+      "dataset_url": "https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7/dataset/1",
+      "id": "roboflow_pokemon_card_detection_7aaz7_v1",
+      "reason": "local_export_missing"
+    },
+    {
+      "dataset_url": "https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation/dataset/2",
+      "id": "roboflow_pokemon_cards_segmentation_v2",
+      "reason": "local_export_missing"
+    },
+    {
+      "dataset_url": "https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3/dataset/1",
+      "id": "roboflow_pokemon_card_detection_3_v1",
+      "reason": "local_export_missing"
+    }
+  ],
+  "records": 3349,
+  "sources": {
+    "roboflow_card_grader_v5": 1504,
+    "roboflow_pokemon_surface_damage_v2": 1845
+  },
+  "splits": {
+    "test": 137,
+    "train": 2958,
+    "val": 254
+  },
+  "status": "verified"
+}

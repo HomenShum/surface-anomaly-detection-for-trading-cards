@@ -1,0 +1,76 @@
+{
+  "gif": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+  "expect": "the before/after evidence comparison flow showing split/swipe/diff modes and DING/evidence annotations.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 19,
+    "fps": 5,
+    "duration": 3.8
+  },
+  "capturedAt": "2026-05-07T12:31:13.402Z",
+  "usage": {
+    "promptTokenCount": 2376,
+    "candidatesTokenCount": 504,
+    "totalTokenCount": 3725,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 312
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 845,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a UI for comparing 'BEFORE' and 'AFTER' states of a card, showcasing three comparison modes: Side-by-side, Swipe compare, and Diff overlay. It highlights various defect annotations like scratches and edge wear, and how they are presented across different views.",
+    "key_observations": [
+      "The UI starts in 'Side-by-side' mode, displaying two distinct card images with defect annotations.",
+      "Transitions to 'Swipe compare' mode, where a slider allows interactive comparison of the 'BEFORE' and 'AFTER' states on a single card.",
+      "Finally, switches to 'Diff overlay' mode, showing a single card with highlighted differences and 'WAS:' annotations for defects.",
+      "Defect annotations like 'scratch', 'edge wear', and 'corner wear' are visible and change contextually across modes.",
+      "The 'SHOW DING OVERLAYS' checkbox is checked throughout the clip."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Side-by-side",
+      "Swipe compare",
+      "Diff overlay",
+      "ALPHA V0.1 Not an official grade",
+      "REAL MODEL ding-detector-v9",
+      "Catalog",
+      "BEFORE",
+      "1999 Holo Charizard",
+      "AFTER",
+      "Rookie Silver Prism",
+      "ZOOM 1.0x",
+      "SHOW DING OVERLAYS",
+      "Before shipping",
+      "After return",
+      "scratch 41% - minor",
+      "edge wear 78% - minor",
+      "Charizard",
+      "corner wear 72%",
+      "Rookie Silver",
+      "NEW DEFECT CANDIDATES",
+      "1",
+      "REQUIRES REVIEW",
+      "RESOLVED OR ABSENT",
+      "2",
+      "edge wear",
+      "back_left_edge",
+      "WAS: EDGE WEAR",
+      "WAS: CORNER"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

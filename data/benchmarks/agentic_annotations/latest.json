@@ -1,0 +1,901 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-07T12:34:12.553Z",
+  "fixtureCount": 4,
+  "claim": "Measures whether agentic reinspection improves visible DING annotations while preserving grounding and no-grade-claim safety.",
+  "deployable": true,
+  "summaries": {
+    "a_full_card_yolo_only": {
+      "label": "A. full-card YOLO only",
+      "metrics": {
+        "overall": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.667,
+          "recall": 1,
+          "f1": 0.8
+        },
+        "perClass": {
+          "corner_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "edge_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "surface_anomaly": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 0,
+            "precision": 0,
+            "recall": 1,
+            "f1": 0
+          }
+        },
+        "perRegion": {
+          "top_left_corner": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "right_edge": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "center": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 0,
+            "precision": 0,
+            "recall": 1,
+            "f1": 0
+          }
+        },
+        "cleanCardFalsePositiveRate": 0,
+        "holoGlareFalsePositiveRate": 0
+      },
+      "agent": {
+        "claimGroundedRate": 1,
+        "ungroundedClaimCount": 0,
+        "officialGradeClaimViolations": 0,
+        "hallucinatedDingRate": 0.3333333333333333,
+        "lowConfidenceEscalationRate": 0.5,
+        "toolCallSuccessRate": 0.8
+      },
+      "latencyMs": 220,
+      "estimatedCostUsd": 0
+    },
+    "b_crop_foveation_yolo": {
+      "label": "B. normalized card + crop/foveation YOLO",
+      "metrics": {
+        "overall": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.667,
+          "recall": 1,
+          "f1": 0.8
+        },
+        "perClass": {
+          "corner_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "edge_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "surface_anomaly": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 0,
+            "precision": 0,
+            "recall": 1,
+            "f1": 0
+          }
+        },
+        "perRegion": {
+          "top_left_corner": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "right_edge": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "center": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 0,
+            "precision": 0,
+            "recall": 1,
+            "f1": 0
+          }
+        },
+        "cleanCardFalsePositiveRate": 0,
+        "holoGlareFalsePositiveRate": 0
+      },
+      "agent": {
+        "claimGroundedRate": 1,
+        "ungroundedClaimCount": 0,
+        "officialGradeClaimViolations": 0,
+        "hallucinatedDingRate": 0.3333333333333333,
+        "lowConfidenceEscalationRate": 1,
+        "toolCallSuccessRate": 1
+      },
+      "latencyMs": 430,
+      "estimatedCostUsd": 0
+    },
+    "c_multimodel_agent_reinspection": {
+      "label": "C. B + policy-routed visual-agent reinspection",
+      "metrics": {
+        "overall": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "perClass": {
+          "corner_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "edge_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          }
+        },
+        "perRegion": {
+          "top_left_corner": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "right_edge": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          }
+        },
+        "cleanCardFalsePositiveRate": 0,
+        "holoGlareFalsePositiveRate": 0
+      },
+      "agent": {
+        "claimGroundedRate": 1,
+        "ungroundedClaimCount": 0,
+        "officialGradeClaimViolations": 0,
+        "hallucinatedDingRate": 0,
+        "lowConfidenceEscalationRate": 1,
+        "toolCallSuccessRate": 1
+      },
+      "latencyMs": 980,
+      "estimatedCostUsd": 0.006
+    },
+    "d_human_review_oracle": {
+      "label": "D. C + human review",
+      "metrics": {
+        "overall": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "perClass": {
+          "corner_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "edge_wear": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          }
+        },
+        "perRegion": {
+          "top_left_corner": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          },
+          "right_edge": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1
+          }
+        },
+        "cleanCardFalsePositiveRate": 0,
+        "holoGlareFalsePositiveRate": 0
+      },
+      "agent": {
+        "claimGroundedRate": 1,
+        "ungroundedClaimCount": 0,
+        "officialGradeClaimViolations": 0,
+        "hallucinatedDingRate": 0,
+        "lowConfidenceEscalationRate": 1,
+        "toolCallSuccessRate": 1
+      },
+      "latencyMs": 5000,
+      "estimatedCostUsd": 0.5
+    }
+  },
+  "rows": [
+    {
+      "pipeline": "a_full_card_yolo_only",
+      "fixture": "clean_matte_no_findings",
+      "description": "Matte-finish vintage card with no visible damage. Detector should not invent findings.",
+      "predictions": [],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          },
+          {
+            "kind": "scratch",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "summary_question",
+          "grading_value_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "a_full_card_yolo_only",
+      "fixture": "corner_wear_real",
+      "description": "Matte card with real corner wear in top-left corner. Skill should cite the finding and call out severity.",
+      "predictions": [
+        {
+          "id": "corner_wear_real-full_card_yolo-0",
+          "pipeline": "full_card_yolo",
+          "source": "local_yolo",
+          "label": "corner_wear",
+          "region": "top_left_corner",
+          "bbox": [
+            3,
+            2,
+            16,
+            12
+          ],
+          "confidence": 0.76,
+          "severity": "moderate",
+          "materiality": "material_ding",
+          "evidenceSha256": "fixture-finding-corner",
+          "grounded": true,
+          "toolChain": [
+            "run_ding_detector"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "corner_wear candidate from full_card_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "corner_wear",
+            "region": "top_left_corner"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "dispute_question",
+          "summary_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "a_full_card_yolo_only",
+      "fixture": "edge_wear_low_edge_score",
+      "description": "Matte card with low edge_score and edge_wear finding on right edge. Should pass through edge-specific reasoning.",
+      "predictions": [
+        {
+          "id": "edge_wear_low_edge_score-full_card_yolo-0",
+          "pipeline": "full_card_yolo",
+          "source": "local_yolo",
+          "label": "edge_wear",
+          "region": "right_edge",
+          "bbox": [
+            94,
+            30,
+            100,
+            70
+          ],
+          "confidence": 0.6699999999999999,
+          "severity": "minor",
+          "materiality": "uncertain",
+          "evidenceSha256": "fixture-finding-edge",
+          "grounded": true,
+          "toolChain": [
+            "run_ding_detector"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "edge_wear candidate from full_card_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "edge_wear",
+            "region": "right_edge"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "summary_question",
+          "dispute_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "a_full_card_yolo_only",
+      "fixture": "holo_glare_false_positive",
+      "description": "Holo card with bright specular highlight in center. Reported as surface_anomaly but is actually glare. Skill should default to glare_uncertain.",
+      "predictions": [
+        {
+          "id": "holo_glare_false_positive-full_card_yolo-0",
+          "pipeline": "full_card_yolo",
+          "source": "local_yolo",
+          "label": "surface_anomaly",
+          "region": "center",
+          "bbox": [
+            40,
+            32,
+            60,
+            48
+          ],
+          "confidence": 0.6,
+          "severity": "minor",
+          "materiality": "uncertain",
+          "evidenceSha256": "fixture-finding-glare-fp",
+          "grounded": true,
+          "toolChain": [
+            "run_ding_detector"
+          ],
+          "humanReviewRequired": true,
+          "rationale": "surface_anomaly candidate from full_card_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "scratch",
+            "region": "center"
+          },
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "scratch_question",
+          "glare_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "b_crop_foveation_yolo",
+      "fixture": "clean_matte_no_findings",
+      "description": "Matte-finish vintage card with no visible damage. Detector should not invent findings.",
+      "predictions": [],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          },
+          {
+            "kind": "scratch",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "summary_question",
+          "grading_value_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "b_crop_foveation_yolo",
+      "fixture": "corner_wear_real",
+      "description": "Matte card with real corner wear in top-left corner. Skill should cite the finding and call out severity.",
+      "predictions": [
+        {
+          "id": "corner_wear_real-crop_foveation_yolo-0",
+          "pipeline": "crop_foveation_yolo",
+          "source": "crop_yolo",
+          "label": "corner_wear",
+          "region": "top_left_corner",
+          "bbox": [
+            3,
+            2,
+            16,
+            12
+          ],
+          "confidence": 0.86,
+          "severity": "moderate",
+          "materiality": "material_ding",
+          "evidenceSha256": "fixture-finding-corner",
+          "grounded": true,
+          "toolChain": [
+            "normalize_card",
+            "crop_region",
+            "run_ding_detector_on_crop"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "corner_wear candidate from crop_foveation_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "corner_wear",
+            "region": "top_left_corner"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "dispute_question",
+          "summary_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "b_crop_foveation_yolo",
+      "fixture": "edge_wear_low_edge_score",
+      "description": "Matte card with low edge_score and edge_wear finding on right edge. Should pass through edge-specific reasoning.",
+      "predictions": [
+        {
+          "id": "edge_wear_low_edge_score-crop_foveation_yolo-0",
+          "pipeline": "crop_foveation_yolo",
+          "source": "crop_yolo",
+          "label": "edge_wear",
+          "region": "right_edge",
+          "bbox": [
+            94,
+            30,
+            100,
+            70
+          ],
+          "confidence": 0.7699999999999999,
+          "severity": "minor",
+          "materiality": "uncertain",
+          "evidenceSha256": "fixture-finding-edge",
+          "grounded": true,
+          "toolChain": [
+            "normalize_card",
+            "crop_region",
+            "run_ding_detector_on_crop"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "edge_wear candidate from crop_foveation_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "edge_wear",
+            "region": "right_edge"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "summary_question",
+          "dispute_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "b_crop_foveation_yolo",
+      "fixture": "holo_glare_false_positive",
+      "description": "Holo card with bright specular highlight in center. Reported as surface_anomaly but is actually glare. Skill should default to glare_uncertain.",
+      "predictions": [
+        {
+          "id": "holo_glare_false_positive-crop_foveation_yolo-0",
+          "pipeline": "crop_foveation_yolo",
+          "source": "crop_yolo",
+          "label": "surface_anomaly",
+          "region": "center",
+          "bbox": [
+            40,
+            32,
+            60,
+            48
+          ],
+          "confidence": 0.64,
+          "severity": "minor",
+          "materiality": "uncertain",
+          "evidenceSha256": "fixture-finding-glare-fp",
+          "grounded": true,
+          "toolChain": [
+            "normalize_card",
+            "crop_region",
+            "run_ding_detector_on_crop"
+          ],
+          "humanReviewRequired": true,
+          "rationale": "surface_anomaly candidate from crop_foveation_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "scratch",
+            "region": "center"
+          },
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "scratch_question",
+          "glare_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "c_multimodel_agent_reinspection",
+      "fixture": "clean_matte_no_findings",
+      "description": "Matte-finish vintage card with no visible damage. Detector should not invent findings.",
+      "predictions": [],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          },
+          {
+            "kind": "scratch",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "summary_question",
+          "grading_value_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "c_multimodel_agent_reinspection",
+      "fixture": "corner_wear_real",
+      "description": "Matte card with real corner wear in top-left corner. Skill should cite the finding and call out severity.",
+      "predictions": [
+        {
+          "id": "corner_wear_real-crop_foveation_yolo-0",
+          "pipeline": "multimodel_agent_reinspection",
+          "source": "annotation_fusion",
+          "label": "corner_wear",
+          "region": "top_left_corner",
+          "bbox": [
+            3,
+            2,
+            16,
+            12
+          ],
+          "confidence": 0.89,
+          "severity": "moderate",
+          "materiality": "material_ding",
+          "evidenceSha256": "fixture-finding-corner",
+          "grounded": true,
+          "toolChain": [
+            "normalize_card",
+            "crop_region",
+            "run_ding_detector_on_crop",
+            "request_zoom_animation",
+            "compare_to_baseline"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "corner_wear candidate from crop_foveation_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "corner_wear",
+            "region": "top_left_corner"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "dispute_question",
+          "summary_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "c_multimodel_agent_reinspection",
+      "fixture": "edge_wear_low_edge_score",
+      "description": "Matte card with low edge_score and edge_wear finding on right edge. Should pass through edge-specific reasoning.",
+      "predictions": [
+        {
+          "id": "edge_wear_low_edge_score-crop_foveation_yolo-0",
+          "pipeline": "multimodel_agent_reinspection",
+          "source": "annotation_fusion",
+          "label": "edge_wear",
+          "region": "right_edge",
+          "bbox": [
+            94,
+            30,
+            100,
+            70
+          ],
+          "confidence": 0.7999999999999999,
+          "severity": "minor",
+          "materiality": "uncertain",
+          "evidenceSha256": "fixture-finding-edge",
+          "grounded": true,
+          "toolChain": [
+            "normalize_card",
+            "crop_region",
+            "run_ding_detector_on_crop",
+            "request_zoom_animation",
+            "compare_to_baseline"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "edge_wear candidate from crop_foveation_yolo."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "edge_wear",
+            "region": "right_edge"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "summary_question",
+          "dispute_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "c_multimodel_agent_reinspection",
+      "fixture": "holo_glare_false_positive",
+      "description": "Holo card with bright specular highlight in center. Reported as surface_anomaly but is actually glare. Skill should default to glare_uncertain.",
+      "predictions": [
+        {
+          "id": "holo_glare_false_positive-crop_foveation_yolo-0",
+          "pipeline": "multimodel_agent_reinspection",
+          "source": "gemini_openai_candidate",
+          "label": "glare_uncertain",
+          "region": "center",
+          "bbox": [
+            40,
+            32,
+            60,
+            48
+          ],
+          "confidence": 0.74,
+          "severity": "minor",
+          "materiality": "uncertain",
+          "evidenceSha256": "fixture-finding-glare-fp",
+          "grounded": true,
+          "toolChain": [
+            "normalize_card",
+            "crop_region",
+            "run_ding_detector_on_crop",
+            "request_zoom_animation",
+            "generate_glare_mask",
+            "openai_visual_reasoning",
+            "gemini_visual_thinking",
+            "create_human_review_task"
+          ],
+          "humanReviewRequired": true,
+          "rationale": "High glare score on holo/foil surface. Downgraded possible scratch/surface anomaly to glare_uncertain and escalated for human review."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "scratch",
+            "region": "center"
+          },
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "scratch_question",
+          "glare_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "d_human_review_oracle",
+      "fixture": "clean_matte_no_findings",
+      "description": "Matte-finish vintage card with no visible damage. Detector should not invent findings.",
+      "predictions": [],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          },
+          {
+            "kind": "scratch",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "summary_question",
+          "grading_value_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "d_human_review_oracle",
+      "fixture": "corner_wear_real",
+      "description": "Matte card with real corner wear in top-left corner. Skill should cite the finding and call out severity.",
+      "predictions": [
+        {
+          "id": "corner_wear_real-human-0",
+          "pipeline": "human_review_oracle",
+          "source": "human_review",
+          "label": "corner_wear",
+          "region": "top_left_corner",
+          "confidence": 1,
+          "severity": "human_reviewed",
+          "materiality": "material_ding",
+          "evidenceSha256": "fixture-norm-corner",
+          "grounded": true,
+          "toolChain": [
+            "human_review"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "Fixture ground truth human-review oracle."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "corner_wear",
+            "region": "top_left_corner"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "dispute_question",
+          "summary_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "d_human_review_oracle",
+      "fixture": "edge_wear_low_edge_score",
+      "description": "Matte card with low edge_score and edge_wear finding on right edge. Should pass through edge-specific reasoning.",
+      "predictions": [
+        {
+          "id": "edge_wear_low_edge_score-human-0",
+          "pipeline": "human_review_oracle",
+          "source": "human_review",
+          "label": "edge_wear",
+          "region": "right_edge",
+          "confidence": 1,
+          "severity": "human_reviewed",
+          "materiality": "material_ding",
+          "evidenceSha256": "fixture-norm-edge",
+          "grounded": true,
+          "toolChain": [
+            "human_review"
+          ],
+          "humanReviewRequired": false,
+          "rationale": "Fixture ground truth human-review oracle."
+        }
+      ],
+      "groundTruth": {
+        "true_findings": [
+          {
+            "kind": "edge_wear",
+            "region": "right_edge"
+          }
+        ],
+        "forbidden_findings": [],
+        "expected_intents": [
+          "summary_question",
+          "dispute_question"
+        ]
+      }
+    },
+    {
+      "pipeline": "d_human_review_oracle",
+      "fixture": "holo_glare_false_positive",
+      "description": "Holo card with bright specular highlight in center. Reported as surface_anomaly but is actually glare. Skill should default to glare_uncertain.",
+      "predictions": [],
+      "groundTruth": {
+        "true_findings": [],
+        "forbidden_findings": [
+          {
+            "kind": "scratch",
+            "region": "center"
+          },
+          {
+            "kind": "surface_anomaly",
+            "region": "center"
+          }
+        ],
+        "expected_intents": [
+          "scratch_question",
+          "glare_question"
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "This is a fixed-fixture benchmark, not production certified-reference accuracy.",
+    "Pipeline C treats LLM/frontier outputs as candidate/reinspection signals only; final Gold labels still require human review.",
+    "Private/user/vendor data must route through local/direct/ZDR policies, never free broad routing."
+  ]
+}

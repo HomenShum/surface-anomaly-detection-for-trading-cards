@@ -1,0 +1,187 @@
+sources:
+  - id: roboflow_card_grader_v5
+    workspace: group-6-major-project
+    project: card-grader
+    version: 5
+    format: yolov8
+    url: https://universe.roboflow.com/group-6-major-project/card-grader
+    dataset_url: https://universe.roboflow.com/group-6-major-project/card-grader/dataset/5
+    license: CC BY 4.0
+    license_status: verified
+    expected_classes:
+      - Scratch
+      - Card
+      - Corner Wear
+      - Edge Wear
+    label_map:
+      Scratch: scratch
+      Card: card
+      Corner Wear: corner_wear
+      Edge Wear: edge_wear
+  - id: roboflow_pokemon_surface_damage_v2
+    workspace: pokemonfrontdamagedetection
+    project: pokemon-surface-damage-detection
+    version: 2
+    format: yolov8
+    url: https://universe.roboflow.com/pokemonfrontdamagedetection/pokemon-surface-damage-detection
+    dataset_url: https://universe.roboflow.com/pokemonfrontdamagedetection/pokemon-surface-damage-detection/dataset/2
+    license: CC BY 4.0
+    license_status: verified
+    expected_classes:
+      - Scratch
+      - Hole
+      - Crease
+      - Damaged_corner
+      - Edge Wear
+      - heavy wear
+      - perfect corner
+      - Tear
+    label_map:
+      Scratch: scratch
+      Hole: tear_or_hole
+      Crease: crease
+      Corner: corner_wear
+      Damaged Corner: corner_wear
+      Damaged_corner: corner_wear
+      Edge Wear: edge_wear
+      Heavy Wear: heavy_wear
+      heavy wear: heavy_wear
+      perfect corner: corner_wear
+      Tear: tear_or_hole
+  - id: roboflow_scratch_poke_v2
+    workspace: pokemonfyp
+    project: scratch-poke
+    version: 2
+    format: yolov8
+    url: https://universe.roboflow.com/pokemonfyp/scratch-poke
+    dataset_url: https://universe.roboflow.com/pokemonfyp/scratch-poke/dataset/2
+    license: CC BY 4.0
+    license_status: verified
+    expected_classes:
+      - Scratch
+      - Hole
+      - Crease
+      - Damaged_corner
+      - Edge Wear
+      - heavy wear
+      - perfect corner
+      - Tear
+    label_map:
+      Scratch: scratch
+      Hole: tear_or_hole
+      Crease: crease
+      Corner: corner_wear
+      Damaged Corner: corner_wear
+      Damaged_corner: corner_wear
+      Edge Wear: edge_wear
+      Heavy Wear: heavy_wear
+      heavy wear: heavy_wear
+      perfect corner: corner_wear
+      Tear: tear_or_hole
+  - id: roboflow_pokefrontbackdamage_v1
+    workspace: pokemonfyp
+    project: pokefrontbackdamage
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/pokemonfyp/pokefrontbackdamage
+    dataset_url: https://universe.roboflow.com/pokemonfyp/pokefrontbackdamage/dataset/1
+    license: CC BY 4.0
+    license_status: verified
+    expected_classes:
+      - Scratch
+      - Damage
+      - Hole
+      - Corner
+      - Crease
+      - Damaged Corner
+      - Edge Wear
+      - Heavy Wear
+      - Tear
+    label_map:
+      Scratch: scratch
+      Damage: unknown_damage
+      Hole: tear_or_hole
+      Corner: corner_wear
+      Crease: crease
+      Damaged Corner: corner_wear
+      Damaged_corner: corner_wear
+      Edge Wear: edge_wear
+      Heavy Wear: heavy_wear
+      Tear: tear_or_hole
+  - id: roboflow_card_condition_29wwd_v1
+    workspace: fes-acatlan
+    project: card-condition-29wwd
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/fes-acatlan/card-condition-29wwd
+    dataset_url: https://universe.roboflow.com/fes-acatlan/card-condition-29wwd/dataset/1
+    license: CC BY 4.0
+    license_status: verified
+    expected_classes:
+      - Card
+      - Corner Wear
+      - Edge Wear
+      - Scratch
+    label_map:
+      card: card
+      Card: card
+      Corner Wear: corner_wear
+      Edge Wear: edge_wear
+      Scratch: scratch
+  - id: roboflow_pokemon_card_detection_7aaz7_v1
+    workspace: roboflow-ayy4i
+    project: pokemon-card-detection-7aaz7
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7
+    dataset_url: https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7/dataset/1
+    license: CC BY 4.0
+    license_status: verified
+    usage_role: card_boundary_segmentation
+    expected_classes:
+      - card
+      - Card
+      - trading-card
+    label_map:
+      card: card
+      Card: card
+      trading-card: card
+      trading card: card
+  - id: roboflow_pokemon_cards_segmentation_v2
+    workspace: maestromaxo
+    project: pokemon-cards-segmentation
+    version: 2
+    format: yolov8
+    url: https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation
+    dataset_url: https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation/dataset/2
+    license: CC BY 4.0
+    license_status: verified
+    usage_role: card_boundary_segmentation
+    expected_classes:
+      - card
+      - Card
+      - pokemon-card
+    label_map:
+      card: card
+      Card: card
+      pokemon-card: card
+      pokemon card: card
+  - id: roboflow_pokemon_card_detection_3_v1
+    workspace: ferrari-yolo
+    project: pokemon-card-detection-3
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3
+    dataset_url: https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3/dataset/1
+    license: CC BY 4.0
+    license_status: verified
+    usage_role: card_boundary_segmentation
+    expected_classes:
+      - card
+      - Card
+      - pokemon-card
+    label_map:
+      card: card
+      Card: card
+      pokemon-card: card
+      pokemon card: card

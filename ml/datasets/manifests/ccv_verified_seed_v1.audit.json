@@ -1,0 +1,23 @@
+{
+  "classes": {
+    "card": 15,
+    "corner_wear": 2,
+    "crease": 2,
+    "dent": 2,
+    "edge_wear": 2,
+    "heavy_wear": 1,
+    "hole": 1,
+    "scratch": 2,
+    "surface_contamination": 2,
+    "tear": 1
+  },
+  "judge": "codex_self_review",
+  "manifest": "ml\\datasets\\manifests\\ccv_verified_seed_v1.jsonl",
+  "records": 15,
+  "splits": {
+    "test": 3,
+    "train": 9,
+    "val": 3
+  },
+  "status": "verified"
+}

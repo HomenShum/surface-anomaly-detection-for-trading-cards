@@ -1,0 +1,28 @@
+{
+  "classes": [
+    "card",
+    "corner_wear",
+    "crease",
+    "dent",
+    "edge_wear",
+    "heavy_wear",
+    "hole",
+    "scratch",
+    "surface_contamination",
+    "tear"
+  ],
+  "dataset": "ccv_verified_seed_v1",
+  "judge": "codex_self_review",
+  "license_status": "verified",
+  "notes": [
+    "Images are first-party rendered card-like examples, not scraped public data.",
+    "Annotations are deterministic and tied to visible rendered defects.",
+    "This dataset is suitable for local integration tests and model-serving proof, not real-world accuracy claims."
+  ],
+  "records": 15,
+  "splits": {
+    "test": 3,
+    "train": 9,
+    "val": 3
+  }
+}

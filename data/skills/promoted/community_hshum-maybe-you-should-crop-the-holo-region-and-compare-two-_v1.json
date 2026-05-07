@@ -1,0 +1,39 @@
+{
+  "skillId": "community_hshum-maybe-you-should-crop-the-holo-region-and-compare-two-_v1",
+  "title": "Maybe you should crop the holo region and compare two tilt f",
+  "status": "production",
+  "trigger": {
+    "finishType": "holo"
+  },
+  "steps": [
+    {
+      "tool": "explain_uncertainty",
+      "purpose": "Operator-proposed reasoning step. Replace with concrete tools after benchmark."
+    }
+  ],
+  "consentScope": "anonymized_method_stats",
+  "evidencePolicy": {
+    "storesRawUserImages": false,
+    "storesDerivedCrops": true,
+    "storesAnonymizedMetrics": true,
+    "sharesAcrossUsers": true
+  },
+  "guardrails": {
+    "requiresToolEvidence": true,
+    "forbidsOfficialGradeClaims": true,
+    "forbidsLegalProofClaims": true,
+    "requiresHumanApprovalForProduction": true
+  },
+  "contributor": {
+    "handle": "hshum",
+    "displayName": "hshum",
+    "source": "agent_chat_user_remark",
+    "originalUserRemark": "Maybe you should crop the holo region and compare two tilt frames before calling that a scratch.",
+    "publicRemark": "Maybe you should crop the holo region and compare two tilt frames before calling that a scratch.",
+    "consentPublicAttribution": true
+  },
+  "usageCount": 0,
+  "createdAt": "2026-05-06T23:49:36.180Z",
+  "versionHash": "sha256:a34a69b3480c1094fa16a7e83036894e0a4146170248ac6f8eccc6916640c6be",
+  "openSourcePath": "inspection-methods/community-hshum-maybe-you-should-crop-the-holo-region-and-co/"
+}

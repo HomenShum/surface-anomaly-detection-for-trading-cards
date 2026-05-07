@@ -1,0 +1,22 @@
+{
+  "modelVersion": "ding-detector-v0",
+  "trainingRunId": "yolo-20260506T124111Z",
+  "weightsSha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d",
+  "datasetManifest": "ml/datasets/manifests/roboflow_alpha_manifest.jsonl",
+  "datasetManifestSha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+  "sourceDatasets": [
+    "roboflow_card_grader_v5",
+    "roboflow_pokemon_surface_damage_v2"
+  ],
+  "yolo": {
+    "mAP50": 0.46374,
+    "mAP50_95": 0.27864,
+    "precision": 0.62639,
+    "recall": 0.44897
+  },
+  "baselines": {
+    "randomDetectorF1": 0.001168,
+    "classPriorF1": 0.003505
+  },
+  "proofUse": "Shows a real alpha DING detector exists and beats empty/random demo logic. Does not prove official grading accuracy."
+}

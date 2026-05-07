@@ -1,0 +1,256 @@
+{
+  "generatedAt": "2026-05-07T12:32:56.395Z",
+  "rows": [
+    {
+      "gif": "public/demo/gifs/01-sample-card-analysis.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/01-scan-end-to-end-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/01-scan-end-to-end-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/02-landing-trust-onboarding-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 0.9,
+      "issues": 1,
+      "suggested_followups": [
+        "Investigate the transient appearance of the 'VERIFIED METHOD ACCEPTED' banner to ensure it's intended behavior and not a rendering glitch."
+      ]
+    },
+    {
+      "gif": "public/demo/gifs/02-landing-trust-onboarding-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/02-scanner-quality-gate.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/03-ding-correction.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/03-examples-library-tour-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 1,
+      "suggested_followups": [
+        "Verify if the initial blank card content in Frame 1 is an expected loading state or a rendering delay that should be addressed."
+      ]
+    },
+    {
+      "gif": "public/demo/gifs/03-examples-library-tour-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/04-before-after-dispute.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/04-example-detail-grader-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/04-example-detail-grader-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 0.9,
+      "issues": 1,
+      "suggested_followups": [
+        "Consider adding a more explicit 'not an official grade' disclaimer if the current phrasing is not sufficient."
+      ]
+    },
+    {
+      "gif": "public/demo/gifs/05-methods-board-flywheel-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 1,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/06-benchmarks-transparency-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/07-certs-import-pipeline-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/07-certs-import-pipeline-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/08-benchmarks-certified-references-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/09-benchmarks-flywheel-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": [
+        "Confirm if 'no predictions yet' in the 'Per-grade band agreement' table is the expected state for this demo.",
+        "Verify the specific blocking reasons listed for Alpha, Trust Beta, and Production Trust Gate are accurate and intended."
+      ]
+    },
+    {
+      "gif": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/community-verified-methods-reward-board.gif",
+      "verdict": "warn",
+      "matches": true,
+      "confidence": 1,
+      "issues": 1,
+      "suggested_followups": [
+        "Confirm the intended behavior for the toast notification: should it auto-dismiss or remain visible for the duration of the clip?"
+      ]
+    },
+    {
+      "gif": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/real-card-upload-agent-workspace-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/real-dataset-card-corner-wear-model-annotations.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    }
+  ]
+}

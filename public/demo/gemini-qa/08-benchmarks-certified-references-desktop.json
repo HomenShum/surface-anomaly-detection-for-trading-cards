@@ -1,0 +1,67 @@
+{
+  "gif": "public/demo/gifs/08-benchmarks-certified-references-desktop.gif",
+  "expect": "the /benchmarks/certified-references page showing band-agreement metrics, predicted vs official band breakdowns, and a per-cert table — desktop (1440x900). IMPORTANT: 'Agentic system eval is blocked for deployability', 'no predictions yet' for PSA 10, and 'no eval' for some certs are HONEST PRODUCT DISCLOSURES of evaluation gaps — they are NOT bugs and SHOULD appear. The page is intentionally transparent about which gates remain unmet.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 113,
+    "fps": 11,
+    "duration": 10.27
+  },
+  "capturedAt": "2026-05-07T12:30:57.455Z",
+  "usage": {
+    "promptTokenCount": 2460,
+    "candidatesTokenCount": 517,
+    "totalTokenCount": 4124,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 396
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1147,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a full page load and subsequent scrolling through a 'Certified Reference Benchmarks' dashboard. The page displays various metrics, production readiness gates, real image outcome proofs, agentic system evaluation status, and a per-grade band agreement table.",
+    "key_observations": [
+      "The page loads completely, displaying a dark-themed UI with multiple sections.",
+      "Key metrics like 'Certified refs 29' and 'Grade spread 5' are visible at the top.",
+      "The 'Production accuracy readiness' section shows several gates as 'BLOCKED' (Alpha, Trust Beta, Deployability) and 'DEMO Ready'.",
+      "A detailed list of 'GATE' statuses shows many items as 'BLOCKED', including 'Minimum real certified-reference outcome rows' and 'Agentic eval deployable'.",
+      "The 'Real image outcome proof' section shows 'PRODUCTION Blocked' and a note about it being the 'first replayable proof loop'.",
+      "The 'Agentic system eval' section clearly states 'SYSTEM STATUS Blocked' with a 'JUDGE SCORE 55%'.",
+      "The 'Per-grade band agreement' table at the bottom explicitly shows 'no predictions yet' for multiple PSA buckets, including 'PSA 10', 'PSA 9', and 'PSA 8'."
+    ],
+    "ui_text_snippets": [
+      "PSA/TAG references for outcome calibration, not training.",
+      "Certified refs",
+      "29 Silver+",
+      "DEMO Ready",
+      "ALPHA Blocked",
+      "TRUST BETA Blocked",
+      "DEPLOYABILITY Blocked",
+      "MISSING IMAGES 29",
+      "Agentic eval deployable BLOCKED",
+      "Real image outcome proof",
+      "PRODUCTION Blocked",
+      "This is the first replayable proof loop, not a production accuracy claim.",
+      "Agentic system eval",
+      "SYSTEM STATUS Blocked",
+      "JUDGE SCORE 55%",
+      "Per-grade band agreement",
+      "PSA 10",
+      "no predictions yet"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

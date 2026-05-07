@@ -1,0 +1,74 @@
+{
+  "gif": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+  "expect": "the certified reference import workbench showing PSA/TAG style reference intake, trust tiers, and import/eval status.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 17,
+    "fps": 5,
+    "duration": 3.4
+  },
+  "capturedAt": "2026-05-07T12:31:30.919Z",
+  "usage": {
+    "promptTokenCount": 2377,
+    "candidatesTokenCount": 584,
+    "totalTokenCount": 3819,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 313
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 858,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins by displaying a 'CERT-REFERENCE EVAL' section, showing metrics like match rates and a table of references with their tiers and agreement status. The view then scrolls down to reveal a 'CERTIFIED REFERENCE INGESTION' area, allowing users to input PSA/TAG references and view a list of 'Certified references' with their outcome, trust tier, and evaluation status.",
+    "key_observations": [
+      "The initial view shows 'CERT-REFERENCE EVAL' with 'Match Rate', 'Silver+ Match Rate', 'Adjacent / Mismatch', and 'REFERENCES' metrics.",
+      "A table lists 'CERT', 'TIER' (e.g., 'SILVER+ PLUS'), 'OFFICIAL BAND', 'PREDICTED BAND', and 'AGREEMENT' (e.g., 'mismatch').",
+      "The page scrolls to reveal a 'CERTIFIED REFERENCE INGESTION' section with a text input for 'CERT INPUT' and a file input for 'LABEL SCREENSHOTS OR TEXT EXPORTS'.",
+      "A button 'Import certified references' is visible.",
+      "A 'Certified references' table is shown, detailing 'PROVIDER', 'CERT', 'OUTCOME', 'TRUST' (e.g., 'SILVER'), 'POLICY', and 'GOLD GAP' (e.g., 'NEEDS RAW SCAN + DING REVIEW').",
+      "A 'SAFETY CONTRACT' section is consistently displayed on the right side of the page."
+    ],
+    "ui_text_snippets": [
+      "CERTIFIED REFERENCE INGESTION",
+      "Import PSA and TAG references without asking the user to type everything by hand.",
+      "SAFETY CONTRACT",
+      "CERT-REFERENCE EVAL",
+      "Band agreement vs official outcomes",
+      "Match Rate",
+      "SILVER+ Match Rate",
+      "ADJACENT / MISMATCH",
+      "REFERENCES",
+      "CERT",
+      "TIER",
+      "SILVER+ PLUS",
+      "mismatch",
+      "CERT INPUT",
+      "LABEL SCREENSHOTS OR TEXT EXPORTS",
+      "Choose Files",
+      "No file chosen",
+      "Import certified references",
+      "Certified references",
+      "OUTCOME",
+      "TRUST",
+      "POLICY",
+      "GOLD GAP",
+      "SILVER",
+      "NEEDS RAW SCAN + DING REVIEW",
+      "ALPHA V0.1 Not an official grade"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

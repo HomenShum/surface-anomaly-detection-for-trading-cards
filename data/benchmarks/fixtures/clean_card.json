@@ -1,0 +1,26 @@
+{
+  "name": "clean_matte_no_findings",
+  "description": "Matte-finish vintage card with no visible damage. Detector should not invent findings.",
+  "reportContext": {
+    "cardId": "fixture-clean-matte",
+    "reportSummary": "Clean matte vintage card. No findings exceeded confidence threshold.",
+    "conditionScore": 92,
+    "surfaceScore": 90,
+    "centeringScore": 88,
+    "edgeScore": 91,
+    "glareScore": 0.05,
+    "finishType": "matte",
+    "findings": [],
+    "evidence": [
+      { "role": "front_normalized", "sha256": "fixture-norm-clean", "path": "fixtures/clean.png" }
+    ]
+  },
+  "groundTruth": {
+    "true_findings": [],
+    "forbidden_findings": [
+      { "kind": "surface_anomaly", "region": "center" },
+      { "kind": "scratch", "region": "center" }
+    ],
+    "expected_intents": ["summary_question", "grading_value_question"]
+  }
+}

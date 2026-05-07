@@ -1,0 +1,178 @@
+{
+  "certifiedExamples": [
+    {
+      "id": "psa_134162375",
+      "provider": "PSA",
+      "certNumber": "134162375",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "cardIdentity": "2000 P.M. Neo Genesis Slowking-Holo #14",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_137437906",
+      "provider": "PSA",
+      "certNumber": "137437906",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "cardIdentity": "1999 Pokemon Fossil Dragonite-Holo #4",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_138014353",
+      "provider": "PSA",
+      "certNumber": "138014353",
+      "trustTier": "silver",
+      "officialGrade": "EX 5",
+      "cardIdentity": "2019 Pokemon Sun & Moon Rowlet & Alolan Exeggutor GX Unified Minds FA #214",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_138901043",
+      "provider": "PSA",
+      "certNumber": "138901043",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "cardIdentity": "2000 Pokemon Promo Venusaur Black Star #13",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_139091042",
+      "provider": "PSA",
+      "certNumber": "139091042",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "cardIdentity": "2020 Pokemon SWSH BSP Special Delivery Pikachu Pokemon Center Canada-Holo #074",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_139091059",
+      "provider": "PSA",
+      "certNumber": "139091059",
+      "trustTier": "silver",
+      "officialGrade": "EX 5",
+      "cardIdentity": "2023 Pokemon SVP EN Charmander Obsidian Flames ETB #044",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_139091062",
+      "provider": "PSA",
+      "certNumber": "139091062",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "cardIdentity": "Bulbasaur Enhanced BSTR Box Topper #133",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_139091081",
+      "provider": "PSA",
+      "certNumber": "139091081",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "cardIdentity": "2010 Pokemon HG & SS Gengar-Holo Triumphant #94",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_142558447",
+      "provider": "PSA",
+      "certNumber": "142558447",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "cardIdentity": "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike Secret #270",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_142558455",
+      "provider": "PSA",
+      "certNumber": "142558455",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "cardIdentity": "2025 Pokemon DRI EN Cynthia's Garchomp ex Special Illustration Rare #232",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_142558459",
+      "provider": "PSA",
+      "certNumber": "142558459",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "cardIdentity": "Tyranitar V Battle Styles #155",
+      "replayableImage": false,
+      "goldEligible": false
+    },
+    {
+      "id": "psa_142558463",
+      "provider": "PSA",
+      "certNumber": "142558463",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "cardIdentity": "M Ltrs/Zpds/Artcn.GX HF Elite Trainer Box F.A.",
+      "replayableImage": false,
+      "goldEligible": false
+    }
+  ],
+  "realDingDemo": {
+    "route": "/examples/roboflow-tauros-real-ding-annotations",
+    "desktopGif": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif",
+    "mobileGif": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+    "note": "Real-card/open-dataset fixture with visible DING labels. Not an official cert outcome."
+  },
+  "outcomeProofExamples": [
+    {
+      "certId": "market_cardshq_psa_128228220",
+      "officialGrade": "GEM MT 10",
+      "predictedBand": "950-1000_gem_pristine",
+      "bandAgreement": "match",
+      "realImagePresent": true,
+      "inferenceIsSimulated": false
+    }
+  ],
+  "shareableGifs": [
+    {
+      "file": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+      "label": "Verified Outcome Library trust explorer",
+      "description": "Filters the public examples, shows failure cases, and opens an inspectable outcome page.",
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif",
+      "label": "Real DING annotations with labels - Tauros card",
+      "description": "Opens the real Tauros card fixture, shows DING bboxes, labels, confidence, materiality, and selected-DING notes on actual card pixels.",
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+      "label": "Real DING annotations with labels - mobile",
+      "description": "Mobile trust view of the real Tauros card fixture with labeled DING overlays visible.",
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+      "label": "Certified reference import and eval workbench",
+      "description": "Imports the friend PSA/TAG references, shows Silver/Silver+ policy badges, and makes the Gold upgrade gap visible.",
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+      "label": "Certified reference benchmark grade spread",
+      "description": "Shows the PSA 5/6/8/9/10 spread, Silver/Silver+ status, and the blocked deployability gate.",
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+      "label": "Before/after evidence compare and dispute flow",
+      "description": "Switches from split view to swipe compare and diff overlay with DING candidates visible.",
+      "loop": "infinite"
+    }
+  ]
+}

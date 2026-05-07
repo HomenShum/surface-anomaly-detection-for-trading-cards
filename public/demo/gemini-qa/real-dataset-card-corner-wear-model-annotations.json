@@ -1,0 +1,57 @@
+{
+  "gif": "public/demo/gifs/real-dataset-card-corner-wear-model-annotations.gif",
+  "expect": "a real dataset card image analyzed by the live inference API, with visible DING annotation bounding boxes and readable labels on actual card pixels. CRITICAL: the GIF MUST show at least one real corner_wear DING bbox, confidence label, zoom/crop reinspection panel, evidence/proof text, and the not-an-official-grade disclaimer. Verdict should fail if this looks like a blank page, a placeholder, or unlabeled boxes.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 26,
+    "fps": 9.090909090909092,
+    "duration": 2.86
+  },
+  "capturedAt": "2026-05-07T12:32:09.336Z",
+  "usage": {
+    "promptTokenCount": 2444,
+    "candidatesTokenCount": 473,
+    "totalTokenCount": 3452,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 380
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 535,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip displays a Pokemon card image, initially without annotations. A bounding box then appears on the bottom-right corner of the card, labeled 'corner_wear' with a confidence score. Simultaneously, a 'Zoomed inspection crop' panel appears on the right, showing a magnified view of the annotated corner and listing multiple 'corner_wear' detection results.",
+    "key_observations": [
+      "A Pokemon card image is displayed as the primary subject.",
+      "A bounding box with the label 'corner_wear 34%' appears on the bottom-right corner of the card.",
+      "A 'Zoomed inspection crop' panel is visible on the right, showing a magnified view of the detected corner wear.",
+      "The inspection panel lists 'DING label: corner_wear | confidence 37.1%' and 'DING label: corner_wear | confidence 34.5%'.",
+      "Evidence text 'Evidence manifest: 62c007fc50b596332c14562d...' is present below the card.",
+      "A disclaimer 'Not an official grade. AI-assisted visible-condition evidence only.' is visible at the bottom right."
+    ],
+    "ui_text_snippets": [
+      "Real model DING annotations",
+      "Live-Roboflow-dataset-card -> inference-API -> labeled-visible-condition findings",
+      "Evidence manifest: 62c007fc50b596332c14562d...",
+      "Not an official grade. AI-assisted visible-condition evidence only.",
+      "Zoomed inspection crop",
+      "Detector result: visible corner wear candidates",
+      "DING label: corner_wear | confidence 37.1%",
+      "DING label: corner_wear | confidence 34.5%",
+      "corner_wear 34%"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

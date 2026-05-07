@@ -1,0 +1,37 @@
+{
+  "userId": "clust_user_3",
+  "retakePreferences": [],
+  "cardFocus": [
+    "holo"
+  ],
+  "explanationComplexity": "balanced",
+  "topUserIntents": [
+    {
+      "intent": "glare_question",
+      "count": 1
+    }
+  ],
+  "recentToolUsage": [
+    {
+      "tool": "lookup_promoted_skill",
+      "count": 1
+    },
+    {
+      "tool": "get_finding_detail",
+      "count": 1
+    },
+    {
+      "tool": "request_zoom_animation",
+      "count": 1
+    },
+    {
+      "tool": "evaluate_glare_risk",
+      "count": 1
+    }
+  ],
+  "proposedSkillCount": 0,
+  "rejectedFindingTypes": [],
+  "totalTurns": 1,
+  "createdAt": "2026-05-06T23:14:37.876Z",
+  "lastUpdated": "2026-05-06T23:14:37.876Z"
+}

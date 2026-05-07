@@ -1,0 +1,73 @@
+{
+  "gif": "public/demo/gifs/07-certs-import-pipeline-desktop.gif",
+  "expect": "the /certs/import page showing the cert-reference import pipeline UI: provider mix (PSA / TAG), Silver / Silver+ / Gold trust tiers, and a list / table of certified references with metadata — desktop (1440x900). 'Image cards' here means the per-reference rows / cards, not necessarily image thumbnails.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 132,
+    "fps": 11,
+    "duration": 12
+  },
+  "capturedAt": "2026-05-07T12:30:35.458Z",
+  "usage": {
+    "promptTokenCount": 2430,
+    "candidatesTokenCount": 509,
+    "totalTokenCount": 4502,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 366
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1563,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip opens on a 'Cert Import' page, displaying a UI for importing PSA and TAG references. It features a table of certified references with various metadata, including trust tiers. The user scrolls down to reveal more of the reference list and input sections for batch importing.",
+    "key_observations": [
+      "The page title 'Import PSA and TAG references' clearly indicates the purpose and provider mix.",
+      "A table titled 'CERT-REFERENCE EVAL' lists certified references with columns for 'CERT', 'TIER', 'OFFICIAL BAND', 'PREDICTED BAND', 'AGREEMENT', and '& BAND'.",
+      "The 'TIER' column shows 'SILVER+' and 'SILVER' values, and a section 'VENDOR / FRIEND ASK' mentions 'Silver+ into Gold'.",
+      "The 'BATCH IMPORT' section provides a 'CERT INPUT' textarea for links (including PSA and TAG examples) and a 'Choose Files' button for label screenshots/text exports.",
+      "A 'CURRENT REGISTRY' panel summarizes counts for 'TOTAL', 'PSA', 'TAG', and 'SILVER+' references."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Cert Import",
+      "Import PSA and TAG references",
+      "CERT-REFERENCE EVAL",
+      "Band agreement vs official outcomes",
+      "MATCH RATE",
+      "SILVER+ MATCH RATE",
+      "REFERENCES",
+      "CERT",
+      "TIER",
+      "OFFICIAL BAND",
+      "SILVER+",
+      "SILVER",
+      "PSA_15437839",
+      "TAG_169994233",
+      "VENDOR / FRIEND ASK",
+      "Send your friend the message that turns Silver+ into Gold.",
+      "BATCH IMPORT",
+      "Paste links, numbers, or label OCR text",
+      "CERT INPUT",
+      "Choose Files",
+      "Import certified references",
+      "CURRENT REGISTRY",
+      "TOTAL",
+      "PSA",
+      "TAG"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

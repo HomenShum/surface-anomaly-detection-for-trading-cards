@@ -1,0 +1,32 @@
+{
+  "annotated_samples_skipped": 0,
+  "annotated_samples_used": 15,
+  "architecture": "synthetic-ding-cnn-v0.3-xlarge",
+  "labels": [
+    "edge_wear",
+    "corner_wear",
+    "scratch",
+    "crease",
+    "dent",
+    "hole",
+    "tear",
+    "surface_contamination",
+    "heavy_wear"
+  ],
+  "parameters": 5503629,
+  "per_class_accuracy": {
+    "corner_wear": 0.8824,
+    "crease": 0.8519,
+    "dent": 0.8,
+    "edge_wear": 0.8421,
+    "heavy_wear": 1.0,
+    "hole": 1.0,
+    "scratch": 0.7692,
+    "surface_contamination": 1.0,
+    "tear": 1.0
+  },
+  "train_samples": 720,
+  "val_accuracy": 0.9167,
+  "val_bbox_l1": 0.1514,
+  "val_samples": 180
+}

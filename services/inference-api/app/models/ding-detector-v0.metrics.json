@@ -1,0 +1,27 @@
+{
+  "base_model": "yolov8n.pt",
+  "batch": 4,
+  "best_weights": "D:\\VSCode Projects\\surface_anomaly_detection_model\\runs\\detect\\runs\\ding-detector-v0\\roboflow-alpha-cpu-8-512\\weights\\best.pt",
+  "data": "ml\\datasets\\yolo\\roboflow_alpha\\dataset.yaml",
+  "dataset_manifest": "ml/datasets/manifests/roboflow_alpha_manifest.jsonl",
+  "dataset_manifest_sha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+  "device": "cpu",
+  "epochs": 8,
+  "exported_weights": "services\\inference-api\\app\\models\\ding-detector-v0.pt",
+  "imgsz": 512,
+  "metrics": {
+    "mAP50": 0.46374,
+    "mAP50_95": 0.27864,
+    "precision": 0.62639,
+    "recall": 0.44897
+  },
+  "model_version": "ding-detector-v0",
+  "name": "roboflow-alpha-cpu-8-512",
+  "project": "runs\\ding-detector-v0",
+  "source_datasets": [
+    "roboflow_card_grader_v5",
+    "roboflow_pokemon_surface_damage_v2"
+  ],
+  "training_run_id": "yolo-20260506T124111Z",
+  "weights_sha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d"
+}

@@ -1,0 +1,7 @@
+model: yolov8n.pt
+data: ml/datasets/card_defects.yaml
+epochs: 50
+imgsz: 896
+batch: 8
+project: runs/card-condition
+name: yolo-defects

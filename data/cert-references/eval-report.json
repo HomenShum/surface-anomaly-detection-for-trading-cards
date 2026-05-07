@@ -1,0 +1,584 @@
+{
+  "generatedAt": "2026-05-07T12:34:26.813Z",
+  "checkMode": false,
+  "deployable": false,
+  "summary": {
+    "total": 29,
+    "psa": 28,
+    "tag": 1,
+    "silverPlus": 20,
+    "gold": 0,
+    "analyzed": 0,
+    "trainingViolations": 0,
+    "tagBulkScrapeViolations": 0,
+    "needsRawScanForGold": 29
+  },
+  "gates": [
+    {
+      "id": "cert_references_exist",
+      "label": "Certified references are seeded or imported",
+      "passed": true,
+      "detail": "29 references loaded."
+    },
+    {
+      "id": "external_refs_not_training_data",
+      "label": "External certified references are not marked training-allowed",
+      "passed": true,
+      "detail": "0 external training violations."
+    },
+    {
+      "id": "tag_no_bulk_scrape",
+      "label": "TAG references remain no-bulk-scrape/link-only",
+      "passed": true,
+      "detail": "0 TAG policy violations."
+    },
+    {
+      "id": "psa_api_first_path",
+      "label": "PSA API-first path exists with documented fallback",
+      "passed": true,
+      "detail": "Worker/importer attempt PSA API when credentials are configured; otherwise warnings are recorded."
+    },
+    {
+      "id": "gold_upgrade_gap_visible",
+      "label": "Silver/Silver+ references explicitly require raw scans for Gold",
+      "passed": true,
+      "detail": "29 references still need raw pre-submission scan + human DING review."
+    },
+    {
+      "id": "minimum_model_analyzed_refs",
+      "label": "At least five certified references have current model outputs",
+      "passed": false,
+      "detail": "0 certified references have model-analysis status."
+    },
+    {
+      "id": "gold_eval_set_exists",
+      "label": "Gold eval set exists before deployability",
+      "passed": false,
+      "detail": "0 Gold/gold-candidate records loaded."
+    }
+  ],
+  "references": [
+    {
+      "id": "psa_134162375",
+      "provider": "PSA",
+      "certNumber": "134162375",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_137437906",
+      "provider": "PSA",
+      "certNumber": "137437906",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_138014353",
+      "provider": "PSA",
+      "certNumber": "138014353",
+      "trustTier": "silver",
+      "officialGrade": "EX 5",
+      "officialBand": "below_700_heavy_wear",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_138901043",
+      "provider": "PSA",
+      "certNumber": "138901043",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_139091042",
+      "provider": "PSA",
+      "certNumber": "139091042",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_139091059",
+      "provider": "PSA",
+      "certNumber": "139091059",
+      "trustTier": "silver",
+      "officialGrade": "EX 5",
+      "officialBand": "below_700_heavy_wear",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_139091062",
+      "provider": "PSA",
+      "certNumber": "139091062",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_139091081",
+      "provider": "PSA",
+      "certNumber": "139091081",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_142558447",
+      "provider": "PSA",
+      "certNumber": "142558447",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_142558455",
+      "provider": "PSA",
+      "certNumber": "142558455",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_142558459",
+      "provider": "PSA",
+      "certNumber": "142558459",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_142558463",
+      "provider": "PSA",
+      "certNumber": "142558463",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_142558464",
+      "provider": "PSA",
+      "certNumber": "142558464",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Label-batch read; verify via PSA API before publishing as final metadata.",
+        "No slab image or raw pre-submission scan attached.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_142558471",
+      "provider": "PSA",
+      "certNumber": "142558471",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_142558473",
+      "provider": "PSA",
+      "certNumber": "142558473",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148648467",
+      "provider": "PSA",
+      "certNumber": "148648467",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148901879",
+      "provider": "PSA",
+      "certNumber": "148901879",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_148901880",
+      "provider": "PSA",
+      "certNumber": "148901880",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148901881",
+      "provider": "PSA",
+      "certNumber": "148901881",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148901886",
+      "provider": "PSA",
+      "certNumber": "148901886",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_148901888",
+      "provider": "PSA",
+      "certNumber": "148901888",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148901889",
+      "provider": "PSA",
+      "certNumber": "148901889",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148901890",
+      "provider": "PSA",
+      "certNumber": "148901890",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_148965567",
+      "provider": "PSA",
+      "certNumber": "148965567",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_152528467",
+      "provider": "PSA",
+      "certNumber": "152528467",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
+        "Post-slab image reference only.",
+        "No DING-level grader notes."
+      ]
+    },
+    {
+      "id": "psa_154378339",
+      "provider": "PSA",
+      "certNumber": "154378339",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "PSA certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_69196288",
+      "provider": "PSA",
+      "certNumber": "69196288",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "psa_69923530",
+      "provider": "PSA",
+      "certNumber": "69923530",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "Slab-front certified image reference, not a raw pre-submission scan.",
+        "PSA cert pages generally do not expose DING-level grader rationale.",
+        "Cert/slab images must not be cached or used for training without permission."
+      ]
+    },
+    {
+      "id": "tag_j6994233",
+      "provider": "TAG",
+      "certNumber": "J6994233",
+      "trustTier": "silver",
+      "officialGrade": "see TAG DIG report",
+      "officialBand": "unknown",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": true,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "TAG report is link-only unless user provides screenshots or TAG grants permission.",
+        "Do not bulk scrape TAG DIG data.",
+        "Use as report-convention reference, not training data."
+      ]
+    }
+  ]
+}

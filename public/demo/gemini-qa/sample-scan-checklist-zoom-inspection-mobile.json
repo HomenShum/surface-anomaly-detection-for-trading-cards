@@ -1,0 +1,75 @@
+{
+  "gif": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+  "expect": "the mobile sample scan flow showing the streaming checklist, card canvas, and visual inspection states. Sequential zoom animation frames may transition quickly between neighboring corners; pass if the clip clearly shows the card canvas, live checklist progress, and region inspection overlays.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 154,
+    "fps": 14,
+    "duration": 11
+  },
+  "capturedAt": "2026-05-07T12:32:36.821Z",
+  "usage": {
+    "promptTokenCount": 2406,
+    "candidatesTokenCount": 525,
+    "totalTokenCount": 3686,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 342
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 755,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a mobile-like UI for a 'Card Condition Vault' performing a real-time scan of a Pokémon card. It shows a 'Tauros' card on a canvas, with dynamic overlays highlighting different regions (corners, edges) for visual inspection. A live checklist tracks progress as the inspection proceeds.",
+    "key_observations": [
+      "The UI displays a 'Tauros' Pokémon card as the central 'card canvas'.",
+      "Region inspection overlays appear sequentially, highlighting 'TOP-LEFT', 'TOP-RIGHT', 'BOTTOM-RIGHT' corners, and 'TOP EDGE', 'BOTTOM EDGE' of the card.",
+      "Zoomed-in views of the 'TOP RIGHT CORNER' and 'BOTTOM-RIGHT CORNER' are shown as overlays.",
+      "A 'LIVE CHECKLIST Real-time progress' section is visible at the bottom, with its percentage updating from 0% to 86% across the clip.",
+      "The UI includes navigation steps (1. MODE, 2. CAPTURE, 3. CHECKLIST, 4. REPORT) and model selection (ALPHA V0.1, REAL MODEL)."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "1. MODE",
+      "2. CAPTURE",
+      "3. CHECKLIST",
+      "4. REPORT",
+      "ALPHA V0.1",
+      "REAL MODEL",
+      "Restart",
+      "Tauros",
+      "70 HP",
+      "Crush Chance",
+      "Call for Family",
+      "Horn Attack",
+      "STREAMING",
+      "roboflow-tauros-real-card.jpg",
+      "surface matte - sharpness 100 - glare risk 0",
+      "LIVE CHECKLIST",
+      "Real-time progress",
+      "0%",
+      "43%",
+      "50%",
+      "57%",
+      "86%",
+      "TOP-LEFT",
+      "TOP RIGHT CORNER",
+      "BOTTOM-RIGHT CORNER",
+      "TOP EDGE",
+      "BOTTOM EDGE"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

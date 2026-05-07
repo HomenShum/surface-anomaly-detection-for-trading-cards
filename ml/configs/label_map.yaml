@@ -1,0 +1,78 @@
+ontology: DING
+version: 0.1.0
+description: Universal Card Condition Vault label ontology.
+classes:
+  - id: 0
+    name: card
+    yolo: true
+    description: Visible trading card body or normalized card region.
+    aliases: [trading card, collectible card, card body]
+  - id: 1
+    name: corner
+    yolo: true
+    description: Generic card corner region when no defect subtype is confirmed.
+    aliases: [corner region, card corner]
+  - id: 2
+    name: edge_wear
+    yolo: true
+    description: Whitening, chipping, dents, or fraying along an edge.
+    aliases: [edge chipping, edge whitening, edge ding, frayed edge]
+  - id: 3
+    name: corner_wear
+    yolo: true
+    description: Rounded, frayed, bent, or whitened card corners.
+    aliases: [corner ding, soft corner, bent corner, rounded corner, corner whitening]
+  - id: 4
+    name: scratch
+    yolo: true
+    description: Linear scratches, scuffs, print lines, or abrasions on the surface.
+    aliases: [surface_scratch, scuff, abrasion, print line, surface line]
+  - id: 5
+    name: crease
+    yolo: true
+    description: Fold line, bend mark, wrinkle, or pressure crease.
+    aliases: [bend, fold, wrinkle, surface crease]
+  - id: 6
+    name: hole
+    yolo: true
+    description: Puncture, missing material, or through-card hole.
+    aliases: [puncture, missing material]
+  - id: 7
+    name: tear
+    yolo: true
+    description: Torn card stock, rip, or split.
+    aliases: [rip, split, torn edge]
+  - id: 8
+    name: dent
+    yolo: true
+    description: Pressure dent, dimple, impression, or indentation.
+    aliases: [surface_indent, dimple, pressure mark, impression]
+  - id: 9
+    name: surface_contamination
+    yolo: true
+    description: Stain, residue, foreign material, discoloration, or surface contamination.
+    aliases: [stain_discoloration, stain, residue, fading, color transfer]
+  - id: 10
+    name: heavy_wear
+    yolo: true
+    description: Multiple severe defects or broad wear pattern.
+    aliases: [heavily damaged, damaged, heavy damage]
+  - id: 11
+    name: unknown_damage
+    yolo: true
+    description: Visible condition issue that cannot be confidently typed.
+    aliases: [damage, defect, anomaly, unknown defect]
+  - id: 12
+    name: glare_uncertain
+    yolo: false
+    description: Visual ambiguity likely caused by glare, foil reflection, sleeve reflection, or lighting.
+    aliases: [glare, reflection, sleeve reflection, uncertain glare]
+license_statuses:
+  - verified
+  - restricted
+  - verify before commercial use
+splits:
+  - train
+  - val
+  - test
+  - holdout

@@ -1,0 +1,67 @@
+{
+  "gif": "public/demo/gifs/03-examples-library-tour-desktop.gif",
+  "expect": "the /examples page with an examples grid, the failure-cases-only toggle being turned on and then back off to demonstrate both states, and the tier filter switching to silver - desktop (1440x900). Returning to all examples after showing failure cases is intentional.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 107,
+    "fps": 12,
+    "duration": 8.91
+  },
+  "capturedAt": "2026-05-07T12:29:29.359Z",
+  "usage": {
+    "promptTokenCount": 2415,
+    "candidatesTokenCount": 516,
+    "totalTokenCount": 3962,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 351
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1031,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip starts on the /examples page, displaying a grid of examples. The 'failure cases only' toggle is activated, filtering the grid, then deactivated to show all examples again. Finally, the 'TRUST TIER' filter is changed from 'All' to 'silver', updating the displayed examples.",
+    "key_observations": [
+      "The /examples page loads with an examples grid, initially showing some blank card placeholders (Frame 1) which then populate with content (Frame 2).",
+      "The 'failure cases only (4)' checkbox is checked (Frame 4), filtering the grid to show different examples, some labeled 'DEMO'.",
+      "The 'failure cases only (4)' checkbox is then unchecked (Frame 6), reverting the grid to its original state with all examples.",
+      "The 'TRUST TIER' filter is changed from 'All' to 'silver' (Frame 7), but the visible examples remain the same, indicating they are all 'silver' tier."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Examples",
+      "Inspect the inspection before you trust the scanner.",
+      "Examples 43",
+      "Matched outcome 0",
+      "Failure cases 4",
+      "Trust tiers 0G - 20S+ - 17S - 4B - 2D",
+      "GAME All",
+      "TRUST TIER All",
+      "SEARCH title, tag, set name...",
+      "failure cases only (4)",
+      "SILVER",
+      "DEMO",
+      "ALPHA V0.1 Not an official grade",
+      "OUR CONDITION LADDER",
+      "0-1000 benchmark band",
+      "silver"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [
+      "Frame 1 shows blank card content before the actual card images and details load in Frame 2, which might be an unintended visual artifact if not a deliberate loading state."
+    ],
+    "verdict": "pass",
+    "suggested_followups": [
+      "Verify if the initial blank card content in Frame 1 is an expected loading state or a rendering delay that should be addressed."
+    ]
+  }
+}

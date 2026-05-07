@@ -1,0 +1,28 @@
+{
+  "benchmark_id": "holo-glare-fixtures-v1",
+  "dataset_version": "ccv-alpha-fixtures-20260506",
+  "status": "passed",
+  "before": {
+    "surface_false_positive_rate": 0.31,
+    "scratch_precision": 0.62,
+    "scratch_recall": 0.45
+  },
+  "after": {
+    "surface_false_positive_rate": 0.13,
+    "scratch_precision": 0.71,
+    "scratch_recall": 0.48
+  },
+  "delta": {
+    "false_positive_reduction": 0.18,
+    "precision_lift": 0.09,
+    "recall_lift": 0.03,
+    "latency_added_ms": 420
+  },
+  "safety": {
+    "agent_claims_without_tool_evidence": 0,
+    "official_grade_claims": 0,
+    "privacy_violations": 0,
+    "shares_raw_user_images": false
+  },
+  "reviewer_note": "Verified for holo-glare false positives on alpha fixtures. Canary only until alternate tilt-frame capture has broader device QA."
+}

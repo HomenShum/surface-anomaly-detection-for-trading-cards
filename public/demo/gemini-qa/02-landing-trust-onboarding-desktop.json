@@ -1,0 +1,70 @@
+{
+  "gif": "public/demo/gifs/02-landing-trust-onboarding-desktop.gif",
+  "expect": "the landing page (/) scrolling through the trust strip, outcome library, and verified community methods — desktop (1440x900). Inference service is running; no 'INFERENCE OFFLINE' banner expected.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 108,
+    "fps": 12,
+    "duration": 9.01
+  },
+  "capturedAt": "2026-05-07T12:29:10.192Z",
+  "usage": {
+    "promptTokenCount": 2403,
+    "candidatesTokenCount": 620,
+    "totalTokenCount": 4355,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 339
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1332,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a blank white screen before the landing page loads. The page then scrolls down, showcasing the main 'Scan your card' section, followed by a 'Trust before upload' section with outcome examples, a 'Featured cards' section, 'What's new' updates, and finally, 'Community verified open-source inspection methods'.",
+    "key_observations": [
+      "The page loads successfully from a blank white screen.",
+      "The initial view displays the 'Scan your card before you send it anywhere.' hero section with live inference status and metrics.",
+      "The page scrolls down to reveal the 'TRUST BEFORE UPLOAD' section, displaying annotated outcome examples like 'Pokemon Mew ex Certified Reference' and 'Holo Glare False Positive'.",
+      "A 'VERIFIED METHOD ACCEPTED' banner appears briefly, disappears, and then reappears and persists through the rest of the scroll.",
+      "Further scrolling reveals 'FEATURED CARDS Ready-to-scan archetypes' and 'WHAT'S NEW Shipped this week' sections.",
+      "The final section visible is 'COMMUNITY VERIFIED Open-source inspection methods', detailing 'Holo Glare Reinspection v1'."
+    ],
+    "ui_text_snippets": [
+      "CV Card Condition Vault",
+      "Scan your card before you send it anywhere.",
+      "LIVE DING-DETECTOR-V0 live verified",
+      "AVG CONFIDENCE 84.6% +1.1%",
+      "INFER LATENCY 612ms 48ms",
+      "ALPHA GUARDRAIL ACTIVE 0 trips",
+      "REAL MODEL ding-detector-v0",
+      "TRUST BEFORE UPLOAD",
+      "Explore annotated outcomes before scanning your own card",
+      "101964593",
+      "Pokemon Mew ex Certified Reference",
+      "Holo Glare False Positive",
+      "VERIFIED METHOD ACCEPTED",
+      "Holo Glare Reinspection v1 reduced false positives by 18%",
+      "FEATURED CARDS Ready-to-scan archetypes",
+      "WHAT'S NEW Shipped this week",
+      "COMMUNITY VERIFIED Open-source inspection methods",
+      "We reward benchmarked methods, not random suggestions."
+    ],
+    "matches_expectation": true,
+    "match_confidence": 0.9,
+    "issues": [
+      "The 'VERIFIED METHOD ACCEPTED' banner appears, disappears, and then reappears during the initial scroll, which might be an unexpected UI behavior."
+    ],
+    "verdict": "pass",
+    "suggested_followups": [
+      "Investigate the transient appearance of the 'VERIFIED METHOD ACCEPTED' banner to ensure it's intended behavior and not a rendering glitch."
+    ]
+  }
+}

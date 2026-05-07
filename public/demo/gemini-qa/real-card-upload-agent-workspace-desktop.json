@@ -1,0 +1,66 @@
+{
+  "gif": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+  "expect": "the agent workspace uploading a real card image, running the DING detector/checklist, and saving the reviewed card on desktop.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 155,
+    "fps": 12,
+    "duration": 12.91
+  },
+  "capturedAt": "2026-05-07T12:31:51.540Z",
+  "usage": {
+    "promptTokenCount": 2383,
+    "candidatesTokenCount": 495,
+    "totalTokenCount": 3963,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 319
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1085,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates the agent workspace workflow for processing a card image. A user uploads a 'roboflow-tauros-real-card.jpg' image, which triggers an automated DING detector checklist. The system processes the image through several steps, calculates a confidence score, and then saves the reviewed card locally.",
+    "key_observations": [
+      "A card image named 'roboflow-tauros-real-card.jpg' is successfully uploaded and displayed in the 'Agent chat' and 'Active item' sections.",
+      "The 'Run checklist' section actively processes all steps: 'Card detected', 'Edges visible', 'Blur check passed', 'Glare check passed', 'Perspective normalized', 'Front/back recognized', 'Corner regions extracted', and 'Edge regions extracted'.",
+      "The 'Active item' confidence updates from 0% to 62% after the checklist completes.",
+      "The 'Review state' indicates 'No visible DING candidates exceeded the current threshold. Human review still recommended.'",
+      "A 'TOOL' message confirms 'Saved roboflow-tauros-real-card.jpg. Persistence: local. Evidence manifest and report data remain auditable.' in the chat."
+    ],
+    "ui_text_snippets": [
+      "Drop a card image into chat",
+      "Upload photo",
+      "roboflow-tauros-real-card.jpg",
+      "Running model",
+      "Card detected",
+      "Edges visible",
+      "Blur check passed",
+      "Glare check passed",
+      "Perspective normalized",
+      "Front/back recognized",
+      "Corner regions extracted",
+      "Edge regions extracted",
+      "0% confidence",
+      "62% confidence",
+      "No active card",
+      "Run checklist",
+      "No visible DING candidates exceeded the current threshold. Human review still recommended.",
+      "Save reviewed card",
+      "Saved roboflow-tauros-real-card.jpg. Persistence: local."
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

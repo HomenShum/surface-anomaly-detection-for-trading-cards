@@ -1,0 +1,76 @@
+{
+  "gif": "public/demo/gifs/real-card-upload-agent-workspace-mobile.gif",
+  "expect": "the mobile-sized agent workspace with an uploaded real card image visible, the DING detector/checklist running, tool/status messages visible, and no blank/error page. The desktop version demonstrates the final save confirmation; the mobile clip may focus on the upload and analysis state because of the narrow viewport.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 153,
+    "fps": 12,
+    "duration": 12.76
+  },
+  "capturedAt": "2026-05-07T12:32:02.232Z",
+  "usage": {
+    "promptTokenCount": 2419,
+    "candidatesTokenCount": 519,
+    "totalTokenCount": 4059,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 355
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1121,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a mobile-sized agent workspace where a user uploads a card image. The system then displays a 'Running model' status, indicating an ongoing analysis by the DING detector. Finally, the analysis completes, enabling the 'Save reviewed card' button and changing the status back to 'Analyze upload'.",
+    "key_observations": [
+      "The UI is presented in a narrow, mobile-like viewport.",
+      "A card image is successfully uploaded and displayed in the chat area (Frame 2).",
+      "The 'DING-DETECTOR-V0' is active, and the 'Analyze upload' button changes to 'Running model' during the analysis phase (Frames 2-6).",
+      "Upon completion of the analysis, the 'Running model' button reverts to 'Analyze upload', and the 'Save reviewed card' button becomes enabled (Frame 7)."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Trade desk",
+      "Vault",
+      "Compare",
+      "Reports",
+      "ALPHA V0.1",
+      "REAL MODEL",
+      "Save reviewed card",
+      "LIVE",
+      "DING-DETECTOR-V0",
+      "Live",
+      "+3.2%",
+      "AVG CONFIDENCE",
+      "PI-ASSISTED OPS",
+      "LOCAL MODE",
+      "CONVEX-READY",
+      "Agent chat",
+      "ASSISTANT",
+      "Upload a card image here. I will run the real DING checkpoint, explain uncertainty, then save an evidence record only after review.",
+      "Drop a card image into chat",
+      "Upload photo",
+      "Use verified sample",
+      "Analyze upload",
+      "Running model",
+      "Ask for next step, retake advice, correction, compare, export...",
+      "Send",
+      "CONDITION MARKETPLACE DESK",
+      "Inspect, annotate, and vault the evidence.",
+      "Dark, asset-first workspace with chat upload, real-model inference, and reviewable proof state.",
+      "MODEL"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

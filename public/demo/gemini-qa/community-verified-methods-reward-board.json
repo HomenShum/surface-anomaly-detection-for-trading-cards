@@ -1,0 +1,87 @@
+{
+  "gif": "public/demo/gifs/community-verified-methods-reward-board.gif",
+  "expect": "the verified inspection methods board with reward/toast/community method registry surfaces.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 17,
+    "fps": 5,
+    "duration": 3.4
+  },
+  "capturedAt": "2026-05-07T12:31:41.400Z",
+  "usage": {
+    "promptTokenCount": 2370,
+    "candidatesTokenCount": 738,
+    "totalTokenCount": 4172,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 306
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1064,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip opens on a 'Verified methods' board, displaying a persistent 'VERIFIED METHOD ACCEPTED' toast notification. The user navigates through different tabs on the board, first showing 'Featured' methods, then 'Bounties' with open benchmark tasks, and finally the 'Open Source Registry' path.",
+    "key_observations": [
+      "A 'VERIFIED METHOD ACCEPTED' toast notification is visible from the first frame and remains throughout the clip.",
+      "The main content area displays 'Verified methods that make the agent inspect cards better.'",
+      "The user clicks the 'Bounties' tab, revealing 'Open benchmark bounties' with three specific tasks.",
+      "The user then clicks the 'Open Source Registry' tab, which displays 'REGISTRY PATH' information.",
+      "A right-hand sidebar consistently shows details for 'Holo Glare Reinspection v1', including 'BENCHMARK LIFT', 'CONTRIBUTOR', and 'REWARD' information."
+    ],
+    "ui_text_snippets": [
+      "CV Card Condition Vault",
+      "Workspace",
+      "Methods",
+      "Try demo",
+      "OPEN-SOURCE INSPECTION FLYWHEEL",
+      "Verified methods that make the agent inspect cards better.",
+      "View featured method",
+      "Propose from workspace",
+      "Submit method",
+      "Featured",
+      "Newly Verified",
+      "In Review",
+      "Bounties",
+      "Top Contributors",
+      "Open Source Registry",
+      "VERIFIED METHOD ACCEPTED",
+      "Holo Glare Reinspection v1 reduced false positives by 18% on ccv-alpha-fixtures-20260506.",
+      "Contributor @collector-methods earned 250 scan credits + Verified Method Author badge.",
+      "CLOSE",
+      "VERIFIED",
+      "Holo Glare Reinspection v1",
+      "BENCHMARK LIFT",
+      "-18% false positives",
+      "CONTRIBUTOR",
+      "@collector-methods",
+      "REWARD",
+      "250 scan credits + Verified Method Author badge",
+      "HELP WANTED",
+      "Open benchmark bounties",
+      "Reduce false scratches on holo cards",
+      "Improve edge wear detection on dark borders",
+      "Detect corner whitening on Japanese cards",
+      "REGISTRY PATH",
+      "inspection-methods/",
+      "Each method ships as a folder with method.yaml, benchmark.json, limitations.md, contributor.md, reproducibility notes, and safety notes. The public board only marks a method verified when the benchmark proof exists.",
+      "inspection-methods/holo-glare-reinspection-v1/"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [
+      "The 'VERIFIED METHOD ACCEPTED' toast notification appears in frame 1 and persists throughout the entire clip without dismissing, which is unusual for a toast and might indicate a bug if it's not intended to be static for the demo."
+    ],
+    "verdict": "warn",
+    "suggested_followups": [
+      "Confirm the intended behavior for the toast notification: should it auto-dismiss or remain visible for the duration of the clip?"
+    ]
+  }
+}

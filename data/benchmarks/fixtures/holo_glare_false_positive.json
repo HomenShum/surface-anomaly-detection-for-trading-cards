@@ -1,0 +1,35 @@
+{
+  "name": "holo_glare_false_positive",
+  "description": "Holo card with bright specular highlight in center. Reported as surface_anomaly but is actually glare. Skill should default to glare_uncertain.",
+  "reportContext": {
+    "cardId": "fixture-holo-glare-fp",
+    "reportSummary": "Holo card. Detector flagged a surface anomaly in the center, low surface confidence.",
+    "conditionScore": 65,
+    "surfaceScore": 58,
+    "centeringScore": 80,
+    "edgeScore": 72,
+    "glareScore": 0.45,
+    "finishType": "holo",
+    "findings": [
+      {
+        "type": "surface_anomaly",
+        "confidence": 0.62,
+        "severity": "minor",
+        "bbox": [40, 32, 60, 48],
+        "zone": "normalized_card",
+        "sha256": "fixture-finding-glare-fp"
+      }
+    ],
+    "evidence": [
+      { "role": "front_normalized", "sha256": "fixture-norm-holo", "path": "fixtures/holo.png" }
+    ]
+  },
+  "groundTruth": {
+    "true_findings": [],
+    "forbidden_findings": [
+      { "kind": "scratch", "region": "center" },
+      { "kind": "surface_anomaly", "region": "center" }
+    ],
+    "expected_intents": ["scratch_question", "glare_question"]
+  }
+}

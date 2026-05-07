@@ -1,0 +1,89 @@
+{
+  "gif": "public/demo/gifs/06-benchmarks-transparency-desktop.gif",
+  "expect": "the /benchmarks page showing per-class YOLO metrics, dataset provenance, and transparency tables — desktop (1440x900). Note: the dataset note 'hand-authored seed, full registry to follow' is honest product disclosure, NOT a bug.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 106,
+    "fps": 11,
+    "duration": 9.65
+  },
+  "capturedAt": "2026-05-07T12:30:22.554Z",
+  "usage": {
+    "promptTokenCount": 2412,
+    "candidatesTokenCount": 637,
+    "totalTokenCount": 4504,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 348
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1455,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a blank white screen, then loads the 'Benchmarks' page. The user scrolls down the page, revealing various sections detailing model performance metrics, dataset provenance, and transparency information. The UI remains stable and fully rendered throughout the scroll.",
+    "key_observations": [
+      "The page loads successfully and displays the 'Benchmarks' content.",
+      "The navigation bar clearly indicates 'Benchmarks' as the active page.",
+      "The 'BENCHMARK TRANSPARENCY' section is prominent, followed by 'Per-class detection metrics (YOLO)' with overall and per-class metrics.",
+      "A warning box regarding 'hand-authored seed' data is visible, as noted in the expectation.",
+      "Further scrolling reveals 'PER-REGION', 'Per-finish performance', 'Per-game coverage', 'Recent skill harness runs', 'Our condition ladder', 'Dataset provenance', and 'CERTIFIED REFERENCES' sections.",
+      "All UI elements appear healthy and correctly formatted for a desktop resolution."
+    ],
+    "ui_text_snippets": [
+      "BENCHMARK TRANSPARENCY",
+      "What our model has actually been tested on.",
+      "Skill harness runs",
+      "Fixture pass-rate",
+      "Outcome examples",
+      "Training datasets",
+      "Per-class detection metrics (YOLO)",
+      "This report is a hand-authored seed.",
+      "Overall precision",
+      "Overall recall",
+      "mAP@50",
+      "mAP@50-95",
+      "PER-CLASS",
+      "CLASS",
+      "PRECISION",
+      "RECALL",
+      "edge_wear",
+      "corner_wear",
+      "scratch",
+      "crease",
+      "surface_anomaly",
+      "whitening",
+      "PER-REGION",
+      "top left corner",
+      "Hand-authored seed. Numbers are representative of what we expect on the open Roboflow validation set, NOT actual measurements.",
+      "Per-finish performance",
+      "Per-game coverage",
+      "Recent skill harness runs",
+      "Our condition ladder",
+      "Dataset provenance",
+      "OPEN TRAINING DATA (CC BY 4.0)",
+      "Pokemon Surface Damage Detection",
+      "Card Grader",
+      "Fes Acadian",
+      "scratch-poke",
+      "Pokemon Segmentation",
+      "CERTIFIED REFERENCES (DEEP LINK ONLY — NO SCRAPING, NO CACHING)",
+      "PSA Cert Verification API",
+      "CGC Cert Lookup",
+      "Beckett Graded Card Lookup",
+      "TAG DIG report"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

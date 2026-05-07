@@ -1,0 +1,63 @@
+{
+  "gif": "public/demo/gifs/03-ding-correction.gif",
+  "expect": "the recorded surface to render correctly with no broken UI",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 24,
+    "fps": 5,
+    "duration": 4.8
+  },
+  "capturedAt": "2026-05-07T09:53:43.706Z",
+  "usage": {
+    "promptTokenCount": 2366,
+    "candidatesTokenCount": 409,
+    "totalTokenCount": 3225,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 302
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 450,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins displaying a detailed view of a 'Tauros' Pokémon card with 'DING annotations' and a 'VERIFIED OUTCOME' panel. The user then scrolls down, revealing additional sections such as 'Grader comparison', 'Why this band, not higher?', 'DINGS (3)', and 'Capture quality + limitations'. All UI elements render correctly throughout the interaction.",
+    "key_observations": [
+      "The initial view shows a Pokémon card with 'DING - EDGE WEAR - MODERATE' overlay.",
+      "The right panel displays 'VERIFIED OUTCOME' for 'Tauros real-card DING annotations' with a 'Visible condition risk' of '81%'.",
+      "Scrolling reveals detailed sections including 'Grader comparison', 'Why this band, not higher?', 'DINGS (3)', and 'Capture quality + limitations'.",
+      "All UI components, text, and images load and display without any visible defects or broken layouts."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Tauros",
+      "70 HP",
+      "DING - EDGE WEAR - MODERATE",
+      "VERIFIED OUTCOME",
+      "Tauros real-card DING annotations",
+      "Visible condition risk",
+      "81%",
+      "DING overlays",
+      "Material-to-grade only",
+      "Grader comparison",
+      "Why this band, not higher?",
+      "DINGS (3)",
+      "Capture quality + limitations",
+      "edge wear",
+      "corner wear",
+      "edge wear - minor"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

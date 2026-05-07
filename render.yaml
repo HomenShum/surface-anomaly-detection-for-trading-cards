@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: card-condition-vault-inference
+    runtime: docker
+    dockerfilePath: ./services/inference-api/Dockerfile
+    dockerContext: .
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: CARD_CONDITION_MODEL_VERSION
+        value: ding-detector-v0
+      - key: CARD_CONDITION_YOLO_WEIGHTS
+        value: /workspace/services/inference-api/app/models/ding-detector-v0.pt
+      - key: CARD_CONDITION_PERSIST_ARTIFACTS
+        value: "true"
+      - key: CARD_CONDITION_STORAGE_ROOT
+        value: /workspace/storage
+      - key: ALLOW_MOCK_DETECTOR
+        value: "false"
+      - key: REQUIRE_REAL_MODEL
+        value: "true"
+      - key: ENABLE_FULL_VIDEO_STORAGE
+        value: "false"

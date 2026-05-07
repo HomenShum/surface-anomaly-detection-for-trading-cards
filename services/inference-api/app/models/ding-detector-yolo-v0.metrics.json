@@ -1,0 +1,14 @@
+{
+  "base_model": "yolov8n.pt",
+  "batch": "8",
+  "best_weights": "D:\\VSCode Projects\\surface_anomaly_detection_model\\runs\\detect\\runs\\ding-detector-v0\\roboflow-alpha-cpu-2\\weights\\best.pt",
+  "data": "ml\\datasets\\yolo\\roboflow_alpha\\dataset.yaml",
+  "device": "cpu",
+  "epochs": 2,
+  "exported_weights": "services\\inference-api\\app\\models\\ding-detector-yolo-v0.pt",
+  "imgsz": 416,
+  "model_version": "ding-detector-yolo-v0",
+  "name": "roboflow-alpha-cpu",
+  "project": "runs/ding-detector-v0",
+  "training_run_id": "yolo-20260506T095906Z"
+}

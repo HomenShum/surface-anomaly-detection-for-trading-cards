@@ -1,0 +1,83 @@
+{
+  "gif": "public/demo/gifs/03-examples-library-tour-mobile.gif",
+  "expect": "the /examples page on mobile (390x844), showing the example library grid, trust/source badges, filter controls, and at least one visible example card. The mobile clip does not need to show the failure-cases-only state.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 76,
+    "fps": 12,
+    "duration": 6.33
+  },
+  "capturedAt": "2026-05-07T12:29:40.309Z",
+  "usage": {
+    "promptTokenCount": 2409,
+    "candidatesTokenCount": 586,
+    "totalTokenCount": 4180,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 345
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1185,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins on a mobile view of the 'Verified Outcome Library' page, displaying an overview of examples and trust tiers. The user then scrolls down to reveal a condition ladder, filter controls for 'GAME' and 'TRUST TIER', a search bar, and a 'Failure cases only' checkbox. An example card for 'Mew ex' is visible, and the user interacts with the 'TRUST TIER' filter, changing it from 'All' to 'silver' and back to 'All'.",
+    "key_observations": [
+      "The UI is clearly optimized for mobile, with stacked content and a bottom navigation bar.",
+      "The 'Verified Outcome Library' section provides summary statistics and 'Trust tiers'.",
+      "Scrolling reveals 'OUR CONDITION LADDER' and comprehensive filter controls including dropdowns for 'GAME' and 'TRUST TIER', a search input, and a 'Failure cases only' checkbox.",
+      "At least one example card ('Mew ex') is visible below the filters.",
+      "The 'TRUST TIER' filter is interactively changed from 'All' to 'silver' and then back to 'All'."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Examples",
+      "Cert import",
+      "Verified methods",
+      "Benchmarks",
+      "Try sample",
+      "ALPHA V0.1",
+      "CHECKING",
+      "REAL MODEL",
+      "VERIFIED OUTCOME LIBRARY",
+      "Inspect the inspection before you trust the scanner.",
+      "Examples 43",
+      "Matched outcome 0",
+      "Failure cases 4",
+      "Trust tiers",
+      "0G · 20S+ · 17S · 4B · 2D",
+      "Dashboard",
+      "Workspace",
+      "Scan",
+      "Cards",
+      "Methods",
+      "Compare",
+      "OUR CONDITION LADDER",
+      "0-1000 benchmark band",
+      "950-1000 Gem / Pristine candidate",
+      "GAME",
+      "All",
+      "TRUST TIER",
+      "silver",
+      "SEARCH",
+      "title, tag, set name...",
+      "Failure cases only (4)",
+      "Mew ex",
+      "HP 180",
+      "BASIC",
+      "SILVER"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

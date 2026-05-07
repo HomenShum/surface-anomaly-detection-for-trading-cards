@@ -1,0 +1,10 @@
+{
+  "installCommand": "pnpm install",
+  "experimentalServices": {
+    "web": {
+      "entrypoint": "apps/web",
+      "framework": "nextjs",
+      "routePrefix": "/"
+    }
+  }
+}

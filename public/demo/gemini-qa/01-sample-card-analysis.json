@@ -1,0 +1,74 @@
+{
+  "gif": "public/demo/gifs/01-sample-card-analysis.gif",
+  "expect": "the recorded surface to render correctly with no broken UI",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 142,
+    "fps": 12,
+    "duration": 11.83
+  },
+  "capturedAt": "2026-05-07T09:52:40.029Z",
+  "usage": {
+    "promptTokenCount": 2369,
+    "candidatesTokenCount": 488,
+    "totalTokenCount": 3520,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 305
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 663,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a user uploading an image of a Pokémon card ('Tauros') to an 'Agent chat' interface. The system then processes the image, displaying a 'Run checklist' that progressively updates with checkmarks as various detection steps complete. The 'Active item' confidence updates from 0% to 62%, and the processed item appears in the 'Vault queue'.",
+    "key_observations": [
+      "The UI starts with 'No active card' and '0% confidence'.",
+      "An image file named 'roboflow-tauros-real-card.jpg' is uploaded.",
+      "The 'Run checklist' items (e.g., 'Card detected', 'Edges visible', 'Blur check passed') sequentially receive green checkmarks.",
+      "The 'Active item' confidence updates to 62% by the end of the clip.",
+      "The 'Vault queue' updates to include the uploaded card with 'Needs human review' and 62% DING review."
+    ],
+    "ui_text_snippets": [
+      "Agent chat",
+      "Upload a card image here.",
+      "Upload photo",
+      "Analyze upload",
+      "CONDITION MARKETPLACE DESK",
+      "ACTIVE ITEM",
+      "0% confidence",
+      "No active card",
+      "roboflow-tauros-real-card.jpg",
+      "RUN MODEL RUN",
+      "Run checklist",
+      "Card detected",
+      "Edges visible",
+      "Blur check passed",
+      "Glare check passed",
+      "Perspective normalized",
+      "Front/back recognized",
+      "Corner regions extracted",
+      "Edge regions extracted",
+      "EVIDENCE BOOK",
+      "Review state",
+      "Vault queue",
+      "1999 Holo Charizard",
+      "Rookie Silver Prizm",
+      "Finals Ticket Stub",
+      "62% confidence",
+      "Needs human review"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

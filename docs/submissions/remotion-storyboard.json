@@ -1,0 +1,47 @@
+{
+  "durationSeconds": 42,
+  "scenes": [
+    {
+      "caption": "Agent sidebar upload, trained DING model, verified seed dataset, evidence manifest, and compact YC-style workspace.",
+      "title": "What changed",
+      "type": "intro"
+    },
+    {
+      "after": "docs/screenshots/workspace-after.png",
+      "before": "docs/screenshots/workspace-before.png",
+      "callouts": [
+        "Primary visual change",
+        "Reduced confusion",
+        "Clearer next action"
+      ],
+      "title": "Before and after",
+      "type": "screenshot-compare"
+    },
+    {
+      "gif": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+      "title": "Primary workflow",
+      "type": "workflow-gif"
+    },
+    {
+      "snippets": [
+        "surface.primary"
+      ],
+      "title": "Component-level proof",
+      "type": "snippet-grid"
+    },
+    {
+      "requiredProof": [
+        "Roboflow alpha dataset audit exists",
+        "ding-detector-v0 YOLO checkpoint exists",
+        "API and web tests pass",
+        "Remotion storyboard exists",
+        "easier-to-read QA packet generated"
+      ],
+      "title": "Ready for handoff",
+      "type": "qa-status"
+    }
+  ],
+  "schemaVersion": 1,
+  "title": "Card Condition Vault real-model agent workspace",
+  "videoId": "card-condition-vault-now"
+}

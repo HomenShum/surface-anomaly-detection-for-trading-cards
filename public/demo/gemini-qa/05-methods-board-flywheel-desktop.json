@@ -1,0 +1,66 @@
+{
+  "gif": "public/demo/gifs/05-methods-board-flywheel-desktop.gif",
+  "expect": "the /methods page showing the verified-methods board, reward toast, and methods flywheel - desktop (1440x900). The reward toast is intentionally held open in this shareable demo so the badge/reward copy is readable.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 132,
+    "fps": 12,
+    "duration": 11.01
+  },
+  "capturedAt": "2026-05-07T12:30:11.101Z",
+  "usage": {
+    "promptTokenCount": 2408,
+    "candidatesTokenCount": 473,
+    "totalTokenCount": 3845,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 344
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 964,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a blank screen before loading the /methods page, displaying a 'Verified methods' board and a 'Holo Glare Reinspection v1' card. A reward toast appears and remains visible while the user navigates through various tabs of the methods flywheel, including 'Newly Verified', 'In Review', 'Bounties', 'Top Contributors', and 'Open Source Registry'.",
+    "key_observations": [
+      "The /methods page loads successfully, showing the main content area and a detailed method card.",
+      "A green 'VERIFIED METHOD ACCEPTED' toast notification appears in the top right and persists throughout the clip.",
+      "The methods flywheel tabs ('Featured', 'Newly Verified', 'In Review', 'Bounties', 'Top Contributors', 'Open Source Registry') are sequentially clicked, updating the content below.",
+      "The UI appears healthy and responsive to tab selections."
+    ],
+    "ui_text_snippets": [
+      "CV Card Condition Vault",
+      "Methods",
+      "Verified methods that make the agent inspect cards better.",
+      "Holo Glare Reinspection v1",
+      "BENCHMARK LIFT -18% false positives",
+      "REWARD 250 scan credits + Verified Method Author badge",
+      "VERIFIED METHOD ACCEPTED",
+      "Holo Glare Reinspection v1 reduced false positives by 18% on ccv-alpha-fixtures-20260506.",
+      "Contributor @collector-methods earned 250 scan credits + Verified Method Author badge.",
+      "Featured",
+      "Newly Verified",
+      "In Review",
+      "Bounties",
+      "Top Contributors",
+      "Open Source Registry",
+      "CLOSE",
+      "HELP WANTED",
+      "Open benchmark bounties"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [
+      "Frame 1 is a blank white screen before the page content loads."
+    ],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

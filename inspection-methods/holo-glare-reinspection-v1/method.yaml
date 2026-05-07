@@ -1,0 +1,35 @@
+id: holo_glare_reinspection_v1
+slug: holo-glare-reinspection-v1
+title: Holo Glare Reinspection v1
+contributor: "@collector-methods"
+status: verified
+source: agent_chat
+version_hash: "sha256:f2e574f742cb625fd58bdf43e872bbf719ed3eea4f20ed2c6e0ee7d18f9eac41"
+supported_card_type: "Holo / glossy trading cards"
+problem: "Reflective holo surfaces can look like scratches when a single upload has a direct light streak across the surface."
+contributor_remark: "If it only appears under one light angle, treat it like glare first. Make the app prove it is damage before scaring the collector."
+public_remark: "Contributor suggested multi-angle glare-first inspection before confirming holo surface scratches."
+trigger:
+  finish_type: holo
+  surface_confidence_below: 0.65
+  glare_score_above: 0.35
+  user_question_intent: scratch_vs_glare
+steps:
+  - crop_region
+  - zoom_region
+  - run_glare_check
+  - run_ding_detector
+  - explain_uncertainty
+reward:
+  scan_credits: 250
+  badge: Verified Method Author
+reward_events:
+  - method_submitted
+  - method_verified
+  - method_merged_open_source
+  - method_used_1000_times
+safety:
+  shares_raw_user_images: false
+  stores_derived_crops: true
+  requires_user_consent: true
+  production_enabled: canary

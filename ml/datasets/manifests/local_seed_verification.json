@@ -1,0 +1,81 @@
+{
+  "dataset": "first_party_generated_seed_v1",
+  "external_public_datasets_used": false,
+  "image_count": 6,
+  "license_status": "verified",
+  "record_count": 6,
+  "records": [
+    {
+      "annotation_authoring": "hand-authored bounding boxes over deterministic first-party renders",
+      "external_source": false,
+      "height": 896,
+      "image_id": "ccv_seed_0001",
+      "image_path": "ml/datasets/seed/first_party_generated_v1/images/ccv_seed_0001.png",
+      "license": "project-generated",
+      "license_status": "verified",
+      "sha256": "af39010a650d626e3f5d985445fd9ce48aaab0a0e8443cb9c7155951c91e4c5e",
+      "source_dataset": "first_party_generated_seed_v1",
+      "width": 640
+    },
+    {
+      "annotation_authoring": "hand-authored bounding boxes over deterministic first-party renders",
+      "external_source": false,
+      "height": 896,
+      "image_id": "ccv_seed_0002",
+      "image_path": "ml/datasets/seed/first_party_generated_v1/images/ccv_seed_0002.png",
+      "license": "project-generated",
+      "license_status": "verified",
+      "sha256": "69b1a9b97578be2fd2597afe6a2e3f64288113d1541cab1ae407691cece59c59",
+      "source_dataset": "first_party_generated_seed_v1",
+      "width": 640
+    },
+    {
+      "annotation_authoring": "hand-authored bounding boxes over deterministic first-party renders",
+      "external_source": false,
+      "height": 896,
+      "image_id": "ccv_seed_0003",
+      "image_path": "ml/datasets/seed/first_party_generated_v1/images/ccv_seed_0003.png",
+      "license": "project-generated",
+      "license_status": "verified",
+      "sha256": "f8e5394a6f8cdef89c1a60dd89688d2f9ffb0ee06779282fcf5a52a85edd1f65",
+      "source_dataset": "first_party_generated_seed_v1",
+      "width": 640
+    },
+    {
+      "annotation_authoring": "hand-authored bounding boxes over deterministic first-party renders",
+      "external_source": false,
+      "height": 896,
+      "image_id": "ccv_seed_0004",
+      "image_path": "ml/datasets/seed/first_party_generated_v1/images/ccv_seed_0004.png",
+      "license": "project-generated",
+      "license_status": "verified",
+      "sha256": "12c1b1edb1b4fa599a76eb71e6c151fb9ddcc6390cb931f3d59a5b99c008148a",
+      "source_dataset": "first_party_generated_seed_v1",
+      "width": 640
+    },
+    {
+      "annotation_authoring": "hand-authored bounding boxes over deterministic first-party renders",
+      "external_source": false,
+      "height": 896,
+      "image_id": "ccv_seed_0005",
+      "image_path": "ml/datasets/seed/first_party_generated_v1/images/ccv_seed_0005.png",
+      "license": "project-generated",
+      "license_status": "verified",
+      "sha256": "b3e86452d31d818ea9948c633713325d7fbc6c5138bfdcb28384fb8a60ba60e7",
+      "source_dataset": "first_party_generated_seed_v1",
+      "width": 640
+    },
+    {
+      "annotation_authoring": "hand-authored bounding boxes over deterministic first-party renders",
+      "external_source": false,
+      "height": 896,
+      "image_id": "ccv_seed_0006",
+      "image_path": "ml/datasets/seed/first_party_generated_v1/images/ccv_seed_0006.png",
+      "license": "project-generated",
+      "license_status": "verified",
+      "sha256": "bf77f62741c3cdba38eb8b076c23bba33935d11d3f89b3ee937eeca18208086a",
+      "source_dataset": "first_party_generated_seed_v1",
+      "width": 640
+    }
+  ]
+}

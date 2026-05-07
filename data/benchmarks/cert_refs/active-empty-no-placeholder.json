@@ -1,0 +1,491 @@
+{
+  "modelVersion": "ding-detector-v0",
+  "evaluatedAt": "2026-05-07T06:54:26.819Z",
+  "totals": {
+    "references": 29,
+    "predictionsCovered": 0,
+    "matched": 0,
+    "adjacent": 0,
+    "mismatched": 0,
+    "skipped": 29,
+    "silverPlusCovered": 0,
+    "silverPlusMatched": 0,
+    "silverCovered": 0,
+    "silverMatched": 0
+  },
+  "rows": [
+    {
+      "certId": "psa_154378339",
+      "provider": "PSA",
+      "certNumber": "154378339",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901886",
+      "provider": "PSA",
+      "certNumber": "148901886",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558459",
+      "provider": "PSA",
+      "certNumber": "142558459",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558463",
+      "provider": "PSA",
+      "certNumber": "142558463",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901879",
+      "provider": "PSA",
+      "certNumber": "148901879",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_152528467",
+      "provider": "PSA",
+      "certNumber": "152528467",
+      "trustTier": "silver_plus",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558471",
+      "provider": "PSA",
+      "certNumber": "142558471",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_139091062",
+      "provider": "PSA",
+      "certNumber": "139091062",
+      "trustTier": "silver_plus",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901890",
+      "provider": "PSA",
+      "certNumber": "148901890",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901881",
+      "provider": "PSA",
+      "certNumber": "148901881",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558447",
+      "provider": "PSA",
+      "certNumber": "142558447",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901888",
+      "provider": "PSA",
+      "certNumber": "148901888",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901880",
+      "provider": "PSA",
+      "certNumber": "148901880",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148901889",
+      "provider": "PSA",
+      "certNumber": "148901889",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148965567",
+      "provider": "PSA",
+      "certNumber": "148965567",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_69196288",
+      "provider": "PSA",
+      "certNumber": "69196288",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558455",
+      "provider": "PSA",
+      "certNumber": "142558455",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_69923530",
+      "provider": "PSA",
+      "certNumber": "69923530",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558473",
+      "provider": "PSA",
+      "certNumber": "142558473",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_148648467",
+      "provider": "PSA",
+      "certNumber": "148648467",
+      "trustTier": "silver_plus",
+      "officialGrade": "GEM MT 10",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_137437906",
+      "provider": "PSA",
+      "certNumber": "137437906",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_139091081",
+      "provider": "PSA",
+      "certNumber": "139091081",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_139091042",
+      "provider": "PSA",
+      "certNumber": "139091042",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_138014353",
+      "provider": "PSA",
+      "certNumber": "138014353",
+      "trustTier": "silver",
+      "officialGrade": "EX 5",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_138901043",
+      "provider": "PSA",
+      "certNumber": "138901043",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_142558464",
+      "provider": "PSA",
+      "certNumber": "142558464",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_134162375",
+      "provider": "PSA",
+      "certNumber": "134162375",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "psa_139091059",
+      "provider": "PSA",
+      "certNumber": "139091059",
+      "trustTier": "silver",
+      "officialGrade": "EX 5",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "mismatch",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    },
+    {
+      "certId": "tag_j6994233",
+      "provider": "TAG",
+      "certNumber": "J6994233",
+      "trustTier": "silver",
+      "officialGrade": "see TAG DIG report",
+      "officialBand": null,
+      "predictedBand": null,
+      "predictedScore": null,
+      "confidence": null,
+      "bandAgreement": "no_official_band",
+      "bandDistance": null,
+      "notes": [
+        "No prediction supplied; reference not yet evaluated against this model version."
+      ]
+    }
+  ],
+  "inputFingerprint": {
+    "predictionsPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\predictions.json",
+    "predictionsSha256": "591a57a90645fca60f6c3aaa863897373d7c29865c318a88d5c85135e08d7f5d"
+  },
+  "notes": [
+    "Eval compares INTERNAL CONDITION BAND, not the official grade.",
+    "Adjacent-band misses do not count as matched.",
+    "Mismatches feed the agent's self-correction loop."
+  ]
+}

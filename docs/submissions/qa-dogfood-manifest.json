@@ -1,0 +1,105 @@
+{
+  "createdAt": "2026-05-07T12:33:14.306443+00:00",
+  "featureId": "card-condition-vault-now",
+  "kind": "easier.qa-dogfood-packet",
+  "links": {
+    "gif": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+    "gifs": [
+      "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+      "public/demo/gifs/real-card-upload-agent-workspace-mobile.gif",
+      "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+      "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+      "public/demo/gifs/real-dataset-card-corner-wear-model-annotations.gif",
+      "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+      "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+      "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+      "public/demo/gifs/community-verified-methods-reward-board.gif",
+      "public/demo/gifs/before-after-evidence-compare-dispute.gif"
+    ],
+    "gmailHtml": "gmail-magic-resend.html",
+    "mp4": "public/demo/card-condition-vault-showcase.mp4",
+    "parityRun": "D:/VSCode Projects/parity-studio reference audit",
+    "preview": "https://card-condition-vault.vercel.app/workspace",
+    "remotionRender": "public/demo/card-condition-vault-showcase.mp4",
+    "sideBySideReview": "docs/screenshots/workspace-upload-analysis-chromium.png"
+  },
+  "personaLanes": [
+    "first-time non-technical user",
+    "product/design reviewer",
+    "coding agent maintainer"
+  ],
+  "schemaVersion": 1,
+  "snapshotSnippets": [
+    {
+      "actualResult": "Verified by Playwright desktop dogfood.",
+      "after": "docs/screenshots/workspace-upload-analysis-chromium.png",
+      "before": "",
+      "componentSlug": "workspace.agent-upload.desktop",
+      "correctionPrompt": "",
+      "diff": "",
+      "expectedChange": "Agent sidebar upload runs analysis and shows trained model proof.",
+      "verdict": "pass"
+    },
+    {
+      "actualResult": "Verified by Playwright mobile dogfood.",
+      "after": "docs/screenshots/workspace-upload-analysis-mobile.png",
+      "before": "",
+      "componentSlug": "workspace.agent-upload.mobile",
+      "correctionPrompt": "",
+      "diff": "",
+      "expectedChange": "Mobile viewport can stage an upload and complete analysis.",
+      "verdict": "pass"
+    },
+    {
+      "actualResult": "Verified by Playwright production screenshot.",
+      "after": "docs/screenshots/production-workspace-magic-final.png",
+      "before": "",
+      "componentSlug": "workspace.production.final",
+      "correctionPrompt": "",
+      "diff": "",
+      "expectedChange": "Production workspace loads from the public Vercel URL.",
+      "verdict": "pass"
+    }
+  ],
+  "title": "Card Condition Vault real-model agent workspace",
+  "verification": {
+    "browserQa": "production workspace verified through Vercel; local fallback available for tunnel-backed alpha",
+    "consoleErrors": [],
+    "geminiVideoAnalysis": "pending",
+    "gifVerified": true,
+    "mp4Verified": true,
+    "reviewStatus": "rendered"
+  },
+  "workflowLanes": [
+    {
+      "id": "new-user",
+      "label": "New or empty user state",
+      "status": "ready-for-local-review",
+      "testUrl": "https://card-condition-vault.vercel.app/workspace"
+    },
+    {
+      "id": "returning-user",
+      "label": "Returning user state",
+      "status": "ready-for-local-review",
+      "testUrl": "https://card-condition-vault.vercel.app/workspace"
+    },
+    {
+      "id": "primary-workflow",
+      "label": "Main happy path",
+      "status": "ready-for-local-review",
+      "testUrl": "https://card-condition-vault.vercel.app/workspace"
+    },
+    {
+      "id": "comment-edit-correction",
+      "label": "Comment/edit correction",
+      "status": "ready-for-local-review",
+      "testUrl": "https://card-condition-vault.vercel.app/workspace"
+    },
+    {
+      "id": "mobile-state",
+      "label": "Mobile state",
+      "status": "ready-for-local-review",
+      "testUrl": "https://card-condition-vault.vercel.app/workspace?viewport=mobile"
+    }
+  ]
+}

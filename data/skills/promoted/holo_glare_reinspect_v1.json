@@ -1,0 +1,41 @@
+{
+  "skillId": "holo_glare_reinspect_v1",
+  "title": "Holo + high glare → defer surface claims to tilt-frame retake",
+  "status": "production",
+  "trigger": {
+    "finishType": "holo",
+    "minGlareScore": 0.35
+  },
+  "steps": [
+    {
+      "tool": "evaluate_glare_risk",
+      "purpose": "Confirm the glare risk for this region using surface_score + glare_score before any surface claim."
+    },
+    {
+      "tool": "request_zoom_animation",
+      "purpose": "Show the user the suspect region so they see the inspection happen."
+    },
+    {
+      "tool": "compare_to_baseline",
+      "purpose": "Pull the holo baseline pattern for the observed finding type."
+    },
+    {
+      "tool": "recommend_retake",
+      "purpose": "Generate a tilt-frame retake checklist if surface confidence is low."
+    }
+  ],
+  "consentScope": "anonymized_method_stats",
+  "evidencePolicy": {
+    "storesRawUserImages": false,
+    "storesDerivedCrops": false,
+    "storesAnonymizedMetrics": true,
+    "sharesAcrossUsers": true
+  },
+  "guardrails": {
+    "requiresToolEvidence": true,
+    "forbidsOfficialGradeClaims": true,
+    "forbidsLegalProofClaims": true,
+    "requiresHumanApprovalForProduction": true
+  },
+  "createdAt": "2026-05-06T00:00:00.000Z"
+}

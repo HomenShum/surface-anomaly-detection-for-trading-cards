@@ -1,0 +1,79 @@
+{
+  "gif": "public/demo/gifs/01-scan-end-to-end-desktop.gif",
+  "expect": "the /scan?mode",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 168,
+    "fps": 12,
+    "duration": 14.01
+  },
+  "capturedAt": "2026-05-07T12:28:50.077Z",
+  "usage": {
+    "promptTokenCount": 2364,
+    "candidatesTokenCount": 526,
+    "totalTokenCount": 4080,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 300
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1190,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a 'Card Condition Vault' application analyzing a Pokemon card. A live checklist on the right tracks the real-time progress of various detection and analysis steps, which transition from 'WAITING' to 'DONE'. The process includes identifying card features and inspecting corner regions.",
+    "key_observations": [
+      "A Pokemon card (Tauros) is displayed for analysis.",
+      "A 'LIVE CHECKLIST' tracks real-time progress of detection steps, with items like 'Card detected', 'Edges visible', 'Blur check', 'Glare check', 'Perspective normalized', 'Front recognized', and 'Corner regions extracted'.",
+      "Checklist items sequentially transition from 'WAITING' or 'CHECKING' to 'DONE'.",
+      "During 'Corner regions extracted', bounding boxes and labels ('TOP-LEFT', 'BOTTOM-RIGHT', 'TOP EDGE', 'BOTTOM EDGE') appear over the card, indicating inspection areas.",
+      "All checklist items eventually show 'DONE', indicating a successful analysis completion."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "1. MODE",
+      "2. CAPTURE",
+      "3. CHECKLIST",
+      "4. REPORT",
+      "ALPHA V0.1 Not an official grade",
+      "REAL MODEL ding-detector-v0",
+      "Restart",
+      "LIVE CHECKLIST",
+      "Real-time progress",
+      "Card detected",
+      "Edges visible",
+      "Blur check",
+      "Glare check",
+      "Perspective normalized",
+      "Front recognized",
+      "Corner regions extracted",
+      "WAITING",
+      "CHECKING",
+      "DONE",
+      "Inspecting TOP-LEFT",
+      "Inspecting BOTTOM-RIGHT",
+      "Inspecting TOP EDGE",
+      "Inspecting BOTTOM EDGE",
+      "4 region(s) inspected",
+      "STREAMING",
+      "roboflow-tauros-real-card.jpg",
+      "Tauros",
+      "70 HP",
+      "Crush Chance",
+      "Call for Family",
+      "Horn Attack"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

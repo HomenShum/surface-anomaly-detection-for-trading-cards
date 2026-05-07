@@ -1,0 +1,63 @@
+{
+  "gif": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+  "expect": "the public example/outcome library with filters and inspectable example cards. External certified references without local images should show explicit external-reference/no-local-image placeholders rather than blank cards.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 22,
+    "fps": 5,
+    "duration": 4.4
+  },
+  "capturedAt": "2026-05-07T12:32:56.309Z",
+  "usage": {
+    "promptTokenCount": 2393,
+    "candidatesTokenCount": 464,
+    "totalTokenCount": 4103,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 329
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1246,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The user navigates to the 'Verified Outcome Library' page, which displays a grid of example cards. They interact with a filter by checking the 'failure cases only' checkbox, which updates the displayed cards. Finally, the user clicks on one of the updated cards to view its detailed inspection page.",
+    "key_observations": [
+      "The initial view shows a library of cards, some with 'no local image evidence yet' and 'PSA CERT' links.",
+      "The user checks the 'failure cases only (4)' checkbox in the search filter.",
+      "The card grid updates, revealing more detailed information on previously placeholder cards, including 'PSA GEM MT 10', 'OUR SCORE N/A - reference only', and 'no local image evidence yet'.",
+      "Clicking on the 'Monkey D. Luffy - Manga Alternate Art' card opens a detailed view, explicitly stating 'External certified reference only; no cert images are cached and no DINGs-level grader notes are implied.'."
+    ],
+    "ui_text_snippets": [
+      "VERIFIED OUTCOME LIBRARY",
+      "Inspect the inspection before you trust the scanner.",
+      "Examples 43",
+      "Failure cases 4",
+      "failure cases only (4)",
+      "no local image evidence yet",
+      "PSA CERT 14156296",
+      "PSA GEM MT 10",
+      "OUR SCORE N/A - reference only",
+      "CONFIDENCE N/A",
+      "DING LABELS NO",
+      "NOT TRAINING DATA",
+      "A unsupported finish",
+      "Holo glare false positive (synthetic)",
+      "External certified reference only; no cert images are cached and no DINGs-level grader notes are implied.",
+      "OFFICIAL OUTCOME PSA - GEM MT 10",
+      "MATCH reference only"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

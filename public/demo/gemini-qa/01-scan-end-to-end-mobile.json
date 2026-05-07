@@ -1,0 +1,73 @@
+{
+  "gif": "public/demo/gifs/01-scan-end-to-end-mobile.gif",
+  "expect": "the /scan?mode",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 168,
+    "fps": 12,
+    "duration": 14.01
+  },
+  "capturedAt": "2026-05-07T12:28:58.480Z",
+  "usage": {
+    "promptTokenCount": 2364,
+    "candidatesTokenCount": 441,
+    "totalTokenCount": 3612,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 300
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 807,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a card scanning process within the 'Card Condition Vault' application. It begins with a 'CAPTURE' phase, transitions to a 'CHECKLIST' where a Pokemon card is analyzed with real-time progress and visual overlays highlighting specific areas, and concludes with a 'REPORT' phase offering options to view or rescan.",
+    "key_observations": [
+      "The UI navigates through 'CAPTURE', 'CHECKLIST', and 'REPORT' steps.",
+      "A 'Tauros' Pokemon card is displayed and analyzed during the 'CHECKLIST' phase.",
+      "Visual overlays highlight specific card regions (corners, edges) with real-time progress updates.",
+      "The process ends on a 'REPORT' screen with options like 'OPEN FULL REPORT' and 'Scan another'."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "1. MODE",
+      "2. CAPTURE",
+      "3. CHECKLIST",
+      "4. REPORT",
+      "ALPHA V0.1",
+      "CHECKING",
+      "Restart",
+      "REAL MODEL",
+      "STREAMING",
+      "roboflow-tauros-real-card.jpg",
+      "surface matte - sharpness 100 - glare risk 0",
+      "LIVE CHECKLIST",
+      "Real-time progress",
+      "36%",
+      "TOP-RIGHT",
+      "TOP-RIGHT CORNER",
+      "43%",
+      "BOTTOM-LEFT",
+      "RIGHT EDGE",
+      "50%",
+      "LEFT EDGE",
+      "93%",
+      "CONDITION RECORD",
+      "OPEN FULL REPORT",
+      "COMPARE BEFORE / AFTER",
+      "Scan another"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

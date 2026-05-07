@@ -1,0 +1,41 @@
+{
+  "id": "gold_2ff705dadce7",
+  "slug": "hshum-smoke-test-user-consented-pok-mon-holo",
+  "createdAt": "2026-05-07T00:27:14.352Z",
+  "contributorHandle": "hshum",
+  "contributorDisplayName": "hshum",
+  "consentPublicAttribution": true,
+  "title": "Smoke Test — User-Consented Pokémon Holo",
+  "game": "pokemon",
+  "finish": "holo",
+  "officialOutcome": {
+    "grader": "PSA",
+    "certNumber": "999999999",
+    "grade": "GEM MT 10",
+    "numericGrade": 10,
+    "band": "950-1000_gem_pristine"
+  },
+  "dings": [
+    {
+      "type": "glare_uncertain",
+      "bbox": [
+        42,
+        36,
+        50,
+        44
+      ],
+      "severity": "minor",
+      "materialToGrade": false,
+      "note": "Glare in center",
+      "source": "model"
+    }
+  ],
+  "ourPrediction": {
+    "benchmarkScore": 970,
+    "band": "950-1000_gem_pristine",
+    "confidence": 0.85,
+    "matchedKnownOutcome": true,
+    "notes": "Clean. No material DINGs.",
+    "modelVersion": "ding-detector-v0"
+  }
+}

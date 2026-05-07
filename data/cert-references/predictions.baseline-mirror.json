@@ -1,0 +1,11 @@
+{
+  "_doc": "Archived baseline mirror rows. These are zero-confidence certified-outcome mirrors used only to prove eval plumbing. They must never count toward production accuracy or deployability.",
+  "psa_154378339": { "predictedBand": "800-849_near_mint", "predictedScore": 825, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_148901886": { "predictedBand": "900-949_mint", "predictedScore": 925, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_142558459": { "predictedBand": "900-949_mint", "predictedScore": 925, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_142558463": { "predictedBand": "900-949_mint", "predictedScore": 925, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_148901879": { "predictedBand": "900-949_mint", "predictedScore": 925, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_152528467": { "predictedBand": "900-949_mint", "predictedScore": 925, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_142558471": { "predictedBand": "800-849_near_mint", "predictedScore": 825, "confidence": 0.0, "modelVersion": "baseline-trust-cert" },
+  "psa_139091062": { "predictedBand": "800-849_near_mint", "predictedScore": 825, "confidence": 0.0, "modelVersion": "baseline-trust-cert" }
+}

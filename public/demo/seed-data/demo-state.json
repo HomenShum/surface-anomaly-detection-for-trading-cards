@@ -1,0 +1,14 @@
+{
+  "activeCardId": "ccv-001",
+  "demoUser": "qa-dogfood-agent",
+  "filters": {
+    "riskFlag": "any",
+    "status": "all"
+  },
+  "generatedAt": "2026-05-06T05:51:13+00:00",
+  "reviewQueue": [
+    "ccv-001",
+    "ccv-002",
+    "ccv-003"
+  ]
+}

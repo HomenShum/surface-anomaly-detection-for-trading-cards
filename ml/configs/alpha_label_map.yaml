@@ -1,0 +1,45 @@
+ontology: DING_ALPHA
+version: 0.2.0
+description: Compact controlled-alpha label ontology for public Roboflow damage datasets.
+classes:
+  - id: 0
+    name: card
+    yolo: true
+    aliases: [Card, card, trading card]
+  - id: 1
+    name: edge_wear
+    yolo: true
+    aliases: [Edge Wear, edge wear, edge_wear, EdgeWear]
+  - id: 2
+    name: corner_wear
+    yolo: true
+    aliases: [Corner Wear, Damaged_corner, damaged corner, damaged_corner, perfect corner, corner_wear]
+  - id: 3
+    name: scratch
+    yolo: true
+    aliases: [Scratch, scratch, scuff, surface scratch]
+  - id: 4
+    name: crease
+    yolo: true
+    aliases: [Crease, crease, bend, fold]
+  - id: 5
+    name: tear_or_hole
+    yolo: true
+    aliases: [Tear, tear, Hole, hole, puncture]
+  - id: 6
+    name: heavy_wear
+    yolo: true
+    aliases: [heavy wear, Heavy Wear, heavy_wear, heavy damage]
+  - id: 7
+    name: unknown_damage
+    yolo: true
+    aliases: [Damage, damage, unknown_damage, unknown defect]
+license_statuses:
+  - verified
+  - restricted
+  - verify before commercial use
+splits:
+  - train
+  - val
+  - test
+  - holdout

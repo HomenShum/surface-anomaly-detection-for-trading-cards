@@ -1,0 +1,36 @@
+{
+  "skillId": "dispute_packet_compose_v1",
+  "title": "Dispute question → cite every claim + supply retake guidance",
+  "status": "production",
+  "trigger": {
+    "userQuestionIntent": "dispute"
+  },
+  "steps": [
+    {
+      "tool": "get_finding_detail",
+      "purpose": "Walk every visible finding with full detail."
+    },
+    {
+      "tool": "cite_evidence",
+      "purpose": "Cite SHA-256 + bbox for each claim in the dispute summary."
+    },
+    {
+      "tool": "recommend_retake",
+      "purpose": "Provide before/after retake guidance so the dispute can include matched conditions."
+    }
+  ],
+  "consentScope": "anonymized_method_stats",
+  "evidencePolicy": {
+    "storesRawUserImages": false,
+    "storesDerivedCrops": false,
+    "storesAnonymizedMetrics": true,
+    "sharesAcrossUsers": true
+  },
+  "guardrails": {
+    "requiresToolEvidence": true,
+    "forbidsOfficialGradeClaims": true,
+    "forbidsLegalProofClaims": true,
+    "requiresHumanApprovalForProduction": true
+  },
+  "createdAt": "2026-05-06T00:00:00.000Z"
+}

@@ -1,0 +1,77 @@
+{
+  "gif": "public/demo/gifs/07-certs-import-pipeline-mobile.gif",
+  "expect": "the /certs/import page with cert reference import pipeline (PSA/TAG providers, Silver/Silver+/Gold tiers, per-reference rows) — mobile (390x844).",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 132,
+    "fps": 11,
+    "duration": 12
+  },
+  "capturedAt": "2026-05-07T12:30:47.563Z",
+  "usage": {
+    "promptTokenCount": 2399,
+    "candidatesTokenCount": 606,
+    "totalTokenCount": 4286,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 335
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1281,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip opens on the 'Cert import' page in a mobile view. The user scrolls down to reveal various sections including 'Certified Reference Ingestion', 'Safety Contract', 'Cert-Reference Eval', and a table of existing 'REFERENCES'. The user then interacts with the 'CERT INPUT' section, which contains pre-filled PSA and TAG references, and an implied import action updates the 'CURRENT REGISTRY' and displays a list of newly processed certs.",
+    "key_observations": [
+      "The UI is displayed in a mobile aspect ratio (390x844).",
+      "The 'Cert import' navigation item is highlighted, indicating the current page.",
+      "Scrolling reveals sections detailing the import process, safety contract, reference evaluation metrics (Match Rate, Silver+ Match Rate), and a list of existing references with 'SILVER+ PLUS' tiers.",
+      "The 'CERT INPUT' section shows pre-populated PSA cert numbers and a TAG grading URL.",
+      "After an implied import action, the 'CURRENT REGISTRY' shows updated counts for 'TOTAL', 'PSA', 'TAG', and 'SILVER+'.",
+      "A list of imported PSA certs with grades and verification status is displayed at the end of the clip."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Cert import",
+      "ALPHA V0.1",
+      "REAL MODEL",
+      "CERTIFIED REFERENCE INGESTION",
+      "Import PSA and TAG references",
+      "SAFETY CONTRACT",
+      "No TAG bulk scraping.",
+      "Raw pre-submission scans are required to upgrade to Gold.",
+      "CERT-REFERENCE EVAL",
+      "MATCH RATE 0%",
+      "SILVER+ MATCH RATE 0%",
+      "REFERENCES",
+      "psa_154378339",
+      "SILVER+ PLUS",
+      "CERT INPUT",
+      "https://www.psacard.com/cert/154378339",
+      "https://my.-taggrading.com/card/J6994233",
+      "Choose Files",
+      "No file chosen",
+      "Import certified references",
+      "CURRENT REGISTRY",
+      "TOTAL 29",
+      "PSA 28",
+      "TAG 1",
+      "SILVER+ 29",
+      "NM-MT 8",
+      "GEM MT 10",
+      "MINT 9"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

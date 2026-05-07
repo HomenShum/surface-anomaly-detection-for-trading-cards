@@ -1,0 +1,75 @@
+{
+  "gif": "public/demo/gifs/04-before-after-dispute.gif",
+  "expect": "the recorded surface to render correctly with no broken UI",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 19,
+    "fps": 5,
+    "duration": 3.8
+  },
+  "capturedAt": "2026-05-07T09:54:16.145Z",
+  "usage": {
+    "promptTokenCount": 2366,
+    "candidatesTokenCount": 492,
+    "totalTokenCount": 3627,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 302
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 769,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a 'Card Condition Vault' UI, starting with a side-by-side comparison of 'Before shipping' and 'After return' card states. The user then switches to 'Swipe compare' mode, where a slider is dragged across a single card view to reveal the 'before' and 'after' conditions, including dynamic defect annotations.",
+    "key_observations": [
+      "The UI transitions smoothly from 'Side-by-side' to 'Swipe compare' view.",
+      "The swipe slider functions correctly, allowing the user to reveal different portions of the 'before' and 'after' card images.",
+      "Defect annotations update dynamically as the slider moves, showing current defects (e.g., 'scratch 41% - minor') or historical ones ('WAS: EDGE WEAR').",
+      "All UI elements render correctly and are responsive to user interaction."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Side-by-side",
+      "Swipe compare",
+      "Diff overlay",
+      "ALPHA V0.1 Not an official grade",
+      "REAL MODEL ding-detector-v9",
+      "Catalog",
+      "BEFORE",
+      "AFTER",
+      "1999 Holo Charizard",
+      "Rookie Silver Prism",
+      "ZOOM 1.0x",
+      "SHOW DING OVERLAYS",
+      "Before shipping",
+      "After return",
+      "scratch 41% - minor",
+      "edge wear 78% - minor",
+      "Charizard",
+      "Rookie Silver",
+      "corner wear 72%",
+      "NEW DEFECT CANDIDATES",
+      "1",
+      "REQUIRES REVIEW",
+      "RESOLVED OR ABSENT",
+      "2",
+      "edge wear",
+      "back_left_edge",
+      "WAS: EDGE WEAR",
+      "WAS: CORNER"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

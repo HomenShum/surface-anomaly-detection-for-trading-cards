@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "1.0.0",
+  "featureId": "cardconditionvault.showcase.v1",
+  "title": "Card Condition Vault Showcase QA Packet",
+  "branch": "local-showcase",
+  "createdAt": "2026-05-07T03:17:00.773Z",
+  "previewUrl": "http://localhost:3000",
+  "summary": {
+    "whatChanged": "Defines a deterministic showcase packet for the Card Condition Vault demo, workspace, report, comparison, and scanner surfaces.",
+    "whyItMatters": "The packet gives reviewers a single contract for browser capture, GIF/video proof, Remotion rendering, and handoff notes.",
+    "primaryComponents": [
+      "demo.choice-grid",
+      "workspace.agent-review",
+      "report.condition-summary",
+      "certs.import-workbench",
+      "benchmarks.cert-reference-grade-spread",
+      "compare.dispute-proof",
+      "scanner.quality-gate"
+    ]
+  },
+  "states": [
+    {
+      "id": "demo-menu",
+      "workflow": "demo",
+      "userState": "new_user",
+      "persona": "product_reviewer",
+      "testUrl": "http://localhost:3000/demo",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+        "snippets": [
+          {
+            "component": "demo.choice-grid",
+            "after": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+            "expectedChange": "Reviewer sees the demo choice grid and can jump into every seeded workflow.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+      "evidence": {
+        "route": "/demo",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    },
+    {
+      "id": "agent-workspace",
+      "workflow": "agent_workspace",
+      "userState": "returning_user",
+      "persona": "qa_agent",
+      "testUrl": "http://localhost:3000/workspace",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+        "snippets": [
+          {
+            "component": "workspace.agent-review",
+            "after": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+            "expectedChange": "Agent workspace exposes catalog context, condition reasoning, and next actions.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+      "evidence": {
+        "route": "/workspace",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    },
+    {
+      "id": "sample-charizard-report",
+      "workflow": "condition_report",
+      "userState": "seeded_sample",
+      "persona": "collector",
+      "testUrl": "http://localhost:3000/cards/sample-1999-charizard/report",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+        "snippets": [
+          {
+            "component": "report.condition-summary",
+            "after": "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+            "expectedChange": "Sample report explains detected edge wear, confidence, and evidence trail.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+      "evidence": {
+        "route": "/cards/sample-1999-charizard/report",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    },
+    {
+      "id": "cert-reference-import",
+      "workflow": "cert_reference_ingestion",
+      "userState": "vendor_batch",
+      "persona": "card_vendor",
+      "testUrl": "http://localhost:3000/certs/import",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+        "snippets": [
+          {
+            "component": "certs.import-workbench",
+            "after": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+            "expectedChange": "Vendor can import PSA/TAG certified references and see Silver/Silver+ policy gates before model evaluation.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+      "evidence": {
+        "route": "/certs/import",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    },
+    {
+      "id": "cert-reference-benchmark",
+      "workflow": "cert_reference_eval",
+      "userState": "vendor_batch",
+      "persona": "ml_evaluator",
+      "testUrl": "http://localhost:3000/benchmarks/certified-references",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+        "snippets": [
+          {
+            "component": "benchmarks.cert-reference-grade-spread",
+            "after": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+            "expectedChange": "Reviewer sees the PSA 5/6/8/9/10 grade spread and the deployability gate that remains blocked until model outputs and Gold records exist.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+      "evidence": {
+        "route": "/benchmarks/certified-references",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    },
+    {
+      "id": "before-after-dispute",
+      "workflow": "comparison",
+      "userState": "seeded_sample",
+      "persona": "grader_reviewer",
+      "testUrl": "http://localhost:3000/compare",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+        "snippets": [
+          {
+            "component": "compare.dispute-proof",
+            "after": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+            "expectedChange": "Before/after dispute view makes DING corrections inspectable.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+      "evidence": {
+        "route": "/compare",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    },
+    {
+      "id": "scanner-quality-gate",
+      "workflow": "scanner",
+      "userState": "upload_ready",
+      "persona": "collector",
+      "testUrl": "http://localhost:3000/scan",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshots": {
+        "after": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+        "snippets": [
+          {
+            "component": "scanner.quality-gate",
+            "after": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+            "expectedChange": "Mobile scanner route shows capture guidance and quality-gate expectations.",
+            "actualResult": "Shareable GIF generated from the current local UI.",
+            "qaVerdict": "passed"
+          }
+        ]
+      },
+      "gif": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+      "evidence": {
+        "route": "/scan",
+        "captureCommand": "Run `pnpm demo:gifs` to regenerate the shareable proof media."
+      },
+      "qaVerdict": "passed",
+      "qaNotes": "Generated from scripts/showcase/build_showcase_packet.mjs and backed by public/demo/gifs."
+    }
+  ],
+  "remotionVideo": {
+    "mp4": "public/demo/card-condition-vault-showcase.mp4",
+    "gif": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+    "durationSeconds": 45,
+    "scenesManifest": "docs/submissions/card-condition-vault-remotion-storyboard.json"
+  },
+  "qaStatus": "shareable",
+  "version": 1
+}

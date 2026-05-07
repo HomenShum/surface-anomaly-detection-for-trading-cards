@@ -1,0 +1,250 @@
+{
+  "agent": {
+    "judgeMode": "deterministic_llm_judge_fallback",
+    "deployable": false,
+    "references": 29,
+    "realPredictions": 0,
+    "replayableImageRefs": 0,
+    "needsReview": 29,
+    "averageScores": {
+      "overall": 0.546,
+      "grounding": 0.45,
+      "toolCoverage": 1,
+      "calibration": 0.016,
+      "evidence": 0.401,
+      "trustSafety": 1
+    },
+    "failureBuckets": {
+      "missing_replayable_image": 28,
+      "tag_link_only_no_structured_outcome": 1
+    },
+    "toolSurface": {
+      "implemented": [
+        "cite_evidence",
+        "compare_to_baseline",
+        "compare_to_cert_reference",
+        "compare_to_known_outcome",
+        "create_human_review_task",
+        "crop_finding",
+        "detect_card_boundary",
+        "evaluate_glare_risk",
+        "get_finding_detail",
+        "get_outcome_example",
+        "glare_check_on_crop",
+        "list_outcome_examples",
+        "lookup_promoted_skill",
+        "normalize_card",
+        "propose_inspection_method",
+        "recommend_retake",
+        "request_zoom_animation",
+        "rerun_detector_on_crop",
+        "run_severity_scorer"
+      ],
+      "required": [
+        {
+          "tool": "get_cert_reference",
+          "status": "partial",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": false
+        },
+        {
+          "tool": "load_cert_images",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": false
+        },
+        {
+          "tool": "detect_card_boundary",
+          "status": "implemented",
+          "implementedBy": [
+            "detect_card_boundary"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "normalize_card",
+          "status": "implemented",
+          "implementedBy": [
+            "normalize_card"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "crop_corners",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "crop_edges",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "crop_surface",
+          "status": "partial",
+          "implementedBy": [
+            "crop_finding"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_ding_detector",
+          "status": "partial",
+          "implementedBy": [
+            "rerun_detector_on_crop"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_glare_check",
+          "status": "partial",
+          "implementedBy": [
+            "glare_check_on_crop",
+            "evaluate_glare_risk"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_severity_scorer",
+          "status": "implemented",
+          "implementedBy": [
+            "run_severity_scorer"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "run_condition_band_calibrator",
+          "status": "partial",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "compare_to_cert_reference",
+          "status": "implemented",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "cite_evidence",
+          "status": "implemented",
+          "implementedBy": [
+            "cite_evidence"
+          ],
+          "requiredForPromotion": true
+        },
+        {
+          "tool": "flag_mismatch",
+          "status": "partial",
+          "implementedBy": [
+            "compare_to_cert_reference"
+          ],
+          "requiredForPromotion": false
+        },
+        {
+          "tool": "create_human_review_task",
+          "status": "implemented",
+          "implementedBy": [
+            "create_human_review_task"
+          ],
+          "requiredForPromotion": false
+        }
+      ],
+      "missingRequired": []
+    }
+  },
+  "llmJudge": {
+    "mode": "deterministic_llm_judge_fallback",
+    "rubric": "System-level judge over ML, agent, calibration, trust, UX, and evidence layers.",
+    "grounding": 0.45,
+    "toolCoverage": 1,
+    "calibration": 0.016,
+    "evidence": 0.401,
+    "trustSafety": 1,
+    "promptArtifact": "data/cert-references/agentic-eval/latest.judge-prompts.jsonl",
+    "note": "The current judge is deterministic/local so it is replayable without paid LLM calls; the prompt artifact can be sent through pi-ai/OpenAI later."
+  },
+  "gates": [
+    {
+      "id": "references_loaded",
+      "label": "Certified references are loaded",
+      "passed": true,
+      "detail": "29 references judged."
+    },
+    {
+      "id": "external_refs_not_training_data",
+      "label": "External references are not training data",
+      "passed": true,
+      "detail": "0 training-policy violations."
+    },
+    {
+      "id": "tag_no_bulk_scrape",
+      "label": "TAG remains link-only/no-bulk-scrape",
+      "passed": true,
+      "detail": "0 TAG policy violations."
+    },
+    {
+      "id": "no_placeholder_predictions",
+      "label": "No placeholder mirror predictions",
+      "passed": true,
+      "detail": "0 placeholder predictions found."
+    },
+    {
+      "id": "minimum_real_predictions",
+      "label": "At least five real model traces",
+      "passed": false,
+      "detail": "0 real predictions available."
+    },
+    {
+      "id": "gold_eval_set_exists",
+      "label": "Gold/gold-candidate eval set exists",
+      "passed": false,
+      "detail": "0 Gold/gold-candidate references."
+    },
+    {
+      "id": "replayable_evidence_exists",
+      "label": "Every predicted row has replayable image evidence",
+      "passed": true,
+      "detail": "0 predicted rows lack replayable images."
+    },
+    {
+      "id": "judge_grounding_floor",
+      "label": "Average grounding score is promotion-ready",
+      "passed": false,
+      "detail": "grounding=0.45"
+    },
+    {
+      "id": "judge_evidence_floor",
+      "label": "Average evidence score is promotion-ready",
+      "passed": false,
+      "detail": "evidence=0.401"
+    },
+    {
+      "id": "agent_tool_surface_complete",
+      "label": "Production agent tool surface covers promotion-required plan",
+      "passed": true,
+      "detail": "all required tools implemented."
+    },
+    {
+      "id": "human_review_queue_empty",
+      "label": "No non-pass judge verdicts remain",
+      "passed": false,
+      "detail": "29 rows need review."
+    }
+  ],
+  "rowsNeedingReview": 29,
+  "judgePromptsPath": "data/cert-references/agentic-eval/latest.judge-prompts.jsonl"
+}

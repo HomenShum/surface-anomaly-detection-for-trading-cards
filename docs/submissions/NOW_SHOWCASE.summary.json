@@ -1,0 +1,141 @@
+{
+  "createdAt": "2026-05-07T12:33:14.306443+00:00",
+  "dataset": {
+    "classes": {
+      "card": 1503,
+      "corner_wear": 9996,
+      "crease": 638,
+      "edge_wear": 4442,
+      "heavy_wear": 267,
+      "scratch": 5263,
+      "tear_or_hole": 513
+    },
+    "configured_sources": [
+      "roboflow_card_grader_v5",
+      "roboflow_pokemon_surface_damage_v2",
+      "roboflow_scratch_poke_v2",
+      "roboflow_pokefrontbackdamage_v1",
+      "roboflow_card_condition_29wwd_v1",
+      "roboflow_pokemon_card_detection_7aaz7_v1",
+      "roboflow_pokemon_cards_segmentation_v2",
+      "roboflow_pokemon_card_detection_3_v1"
+    ],
+    "downloaded_sources": [
+      "roboflow_card_grader_v5",
+      "roboflow_pokemon_surface_damage_v2"
+    ],
+    "license_status": "verified",
+    "manifest": "ml\\datasets\\manifests\\roboflow_alpha_manifest.jsonl",
+    "manifest_sha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+    "missing_sources": [
+      {
+        "dataset_url": "https://universe.roboflow.com/pokemonfyp/scratch-poke/dataset/2",
+        "id": "roboflow_scratch_poke_v2",
+        "reason": "local_export_missing"
+      },
+      {
+        "dataset_url": "https://universe.roboflow.com/pokemonfyp/pokefrontbackdamage/dataset/1",
+        "id": "roboflow_pokefrontbackdamage_v1",
+        "reason": "local_export_missing"
+      },
+      {
+        "dataset_url": "https://universe.roboflow.com/fes-acatlan/card-condition-29wwd/dataset/1",
+        "id": "roboflow_card_condition_29wwd_v1",
+        "reason": "local_export_missing"
+      },
+      {
+        "dataset_url": "https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7/dataset/1",
+        "id": "roboflow_pokemon_card_detection_7aaz7_v1",
+        "reason": "local_export_missing"
+      },
+      {
+        "dataset_url": "https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation/dataset/2",
+        "id": "roboflow_pokemon_cards_segmentation_v2",
+        "reason": "local_export_missing"
+      },
+      {
+        "dataset_url": "https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3/dataset/1",
+        "id": "roboflow_pokemon_card_detection_3_v1",
+        "reason": "local_export_missing"
+      }
+    ],
+    "records": 3349,
+    "sources": {
+      "roboflow_card_grader_v5": 1504,
+      "roboflow_pokemon_surface_damage_v2": 1845
+    },
+    "splits": {
+      "test": 137,
+      "train": 2958,
+      "val": 254
+    },
+    "status": "verified"
+  },
+  "easierTemplates": "D:\\VSCode Projects\\easier-to-read-submissions\\templates",
+  "experimentalModel": {
+    "annotated_samples_skipped": 0,
+    "annotated_samples_used": 15,
+    "architecture": "synthetic-ding-cnn-v0.3-xlarge",
+    "labels": [
+      "edge_wear",
+      "corner_wear",
+      "scratch",
+      "crease",
+      "dent",
+      "hole",
+      "tear",
+      "surface_contamination",
+      "heavy_wear"
+    ],
+    "parameters": 5503629,
+    "per_class_accuracy": {
+      "corner_wear": 0.8824,
+      "crease": 0.8519,
+      "dent": 0.8,
+      "edge_wear": 0.8421,
+      "heavy_wear": 1.0,
+      "hole": 1.0,
+      "scratch": 0.7692,
+      "surface_contamination": 1.0,
+      "tear": 1.0
+    },
+    "train_samples": 720,
+    "val_accuracy": 0.9167,
+    "val_bbox_l1": 0.1514,
+    "val_samples": 180
+  },
+  "featureId": "card-condition-vault-now",
+  "model": {
+    "base_model": "yolov8n.pt",
+    "batch": 4,
+    "best_weights": "D:\\VSCode Projects\\surface_anomaly_detection_model\\runs\\detect\\runs\\ding-detector-v0\\roboflow-alpha-cpu-8-512\\weights\\best.pt",
+    "data": "ml\\datasets\\yolo\\roboflow_alpha\\dataset.yaml",
+    "dataset_manifest": "ml/datasets/manifests/roboflow_alpha_manifest.jsonl",
+    "dataset_manifest_sha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+    "device": "cpu",
+    "epochs": 8,
+    "exported_weights": "services\\inference-api\\app\\models\\ding-detector-v0.pt",
+    "imgsz": 512,
+    "metrics": {
+      "mAP50": 0.46374,
+      "mAP50_95": 0.27864,
+      "precision": 0.62639,
+      "recall": 0.44897
+    },
+    "model_version": "ding-detector-v0",
+    "name": "roboflow-alpha-cpu-8-512",
+    "project": "runs\\ding-detector-v0",
+    "source_datasets": [
+      "roboflow_card_grader_v5",
+      "roboflow_pokemon_surface_damage_v2"
+    ],
+    "training_run_id": "yolo-20260506T124111Z",
+    "weights_sha256": "7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d"
+  },
+  "outputs": [
+    "docs/submissions/NOW_SHOWCASE.md",
+    "docs/submissions/qa-dogfood-manifest.json",
+    "docs/submissions/remotion-storyboard.json"
+  ],
+  "title": "Card Condition Vault real-model agent workspace"
+}

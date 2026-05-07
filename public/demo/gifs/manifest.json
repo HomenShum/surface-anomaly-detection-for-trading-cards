@@ -1,0 +1,157 @@
+{
+  "generatedAt": "2026-05-07T12:14:51.842Z",
+  "baseUrl": "http://127.0.0.1:3101",
+  "note": "Descriptive GIFs are the source of truth; 01-04 files remain compatibility aliases for older docs.",
+  "gifs": [
+    {
+      "file": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif",
+      "label": "Real card upload through agent workspace - desktop",
+      "description": "Uploads the Roboflow Tauros card in the chat sidebar, runs the checklist, and saves the reviewed card.",
+      "sourceVideo": "public/demo/videos/real-card-upload-agent-workspace-desktop.webm",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/real-card-upload-agent-workspace-mobile.gif",
+      "label": "Real card upload through agent workspace - mobile",
+      "description": "Mobile-sized agent workspace with the uploaded real card visible and the model checklist running.",
+      "sourceVideo": "public/demo/videos/real-card-upload-agent-workspace-mobile.webm",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "mobile": true,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/upload-checklist-zoom-inspection-desktop.gif",
+      "label": "Upload-first checklist with zoom inspection - desktop",
+      "description": "Shows the actual uploaded card, streaming checklist rows, and zoom-lens region inspection.",
+      "sourceVideo": "public/demo/videos/upload-checklist-zoom-inspection-desktop.webm",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif",
+      "label": "Sample scan checklist with zoom inspection - mobile",
+      "description": "Mobile capture/result transition with real-time status updates and visual inspection states.",
+      "sourceVideo": "public/demo/videos/sample-scan-checklist-zoom-inspection-mobile.webm",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobile": true,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/verified-outcome-library-trust-explorer.gif",
+      "label": "Verified Outcome Library trust explorer",
+      "description": "Filters the public examples, shows failure cases, and opens an inspectable outcome page.",
+      "sourceFrames": "public/demo/videos/verified-outcome-library-trust-explorer-frames",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif",
+      "label": "Real DING annotations with labels - Tauros card",
+      "description": "Opens the real Tauros card fixture, shows DING bboxes, labels, confidence, materiality, and selected-DING notes on actual card pixels.",
+      "sourceFrames": "public/demo/videos/real-ding-annotations-tauros-card-desktop-frames",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/real-ding-annotations-tauros-card-mobile.gif",
+      "label": "Real DING annotations with labels - mobile",
+      "description": "Mobile trust view of the real Tauros card fixture with labeled DING overlays visible.",
+      "sourceFrames": "public/demo/videos/real-ding-annotations-tauros-card-mobile-frames",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "mobile": true,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/certified-reference-import-eval-workbench.gif",
+      "label": "Certified reference import and eval workbench",
+      "description": "Imports the friend PSA/TAG references, shows Silver/Silver+ policy badges, and makes the Gold upgrade gap visible.",
+      "sourceFrames": "public/demo/videos/certified-reference-import-eval-workbench-frames",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/certified-reference-benchmark-grade-spread.gif",
+      "label": "Certified reference benchmark grade spread",
+      "description": "Shows the PSA 5/6/8/9/10 spread, Silver/Silver+ status, and the blocked deployability gate.",
+      "sourceFrames": "public/demo/videos/certified-reference-benchmark-grade-spread-frames",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/community-verified-methods-reward-board.gif",
+      "label": "Community verified methods reward board",
+      "description": "Shows the verified-method reward toast, open bounties, and open-source method registry.",
+      "sourceFrames": "public/demo/videos/community-verified-methods-reward-board-frames",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobile": false,
+      "loop": "infinite"
+    },
+    {
+      "file": "public/demo/gifs/before-after-evidence-compare-dispute.gif",
+      "label": "Before/after evidence compare and dispute flow",
+      "description": "Switches from split view to swipe compare and diff overlay with DING candidates visible.",
+      "sourceFrames": "public/demo/videos/before-after-evidence-compare-dispute-frames",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mobile": false,
+      "loop": "infinite"
+    }
+  ],
+  "legacyAliases": [
+    {
+      "file": "public/demo/gifs/01-sample-card-analysis.gif",
+      "source": "public/demo/gifs/real-card-upload-agent-workspace-desktop.gif"
+    },
+    {
+      "file": "public/demo/gifs/02-scanner-quality-gate.gif",
+      "source": "public/demo/gifs/sample-scan-checklist-zoom-inspection-mobile.gif"
+    },
+    {
+      "file": "public/demo/gifs/03-ding-correction.gif",
+      "source": "public/demo/gifs/real-ding-annotations-tauros-card-desktop.gif"
+    },
+    {
+      "file": "public/demo/gifs/04-before-after-dispute.gif",
+      "source": "public/demo/gifs/before-after-evidence-compare-dispute.gif"
+    }
+  ]
+}
