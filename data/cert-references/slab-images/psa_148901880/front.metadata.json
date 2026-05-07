@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "certId": "psa_148901880",
+  "view": "front",
+  "filename": "front.jpg",
+  "sourceFilename": "psa_148901880_front_slab.jpg",
+  "source": "vendor_processed_psa_package",
+  "sourceRowLocalImagePath": "processed_psa_references/slab_crops/psa_148901880_front_slab.jpg",
+  "sourceRowLocalImageSha256": "f6aa09c7bb4c721cab7f82d23ed590f67d63acffb3b3095a837004b6617138b2",
+  "targetPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\slab-images\\psa_148901880\\front.jpg",
+  "sha256": "f6aa09c7bb4c721cab7f82d23ed590f67d63acffb3b3095a837004b6617138b2",
+  "sizeBytes": 180151,
+  "consentToStore": true,
+  "publicExampleAllowed": false,
+  "trainingAllowed": false,
+  "importedAt": "2026-05-07T17:48:28.828Z"
+}

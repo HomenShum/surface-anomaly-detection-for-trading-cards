@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 55,
+    "nbFrames": 60,
     "fps": 11,
-    "duration": 5
+    "duration": 5.45
   },
-  "capturedAt": "2026-05-07T12:30:01.183Z",
+  "capturedAt": "2026-05-07T19:21:40.172Z",
   "usage": {
     "promptTokenCount": 2425,
-    "candidatesTokenCount": 610,
-    "totalTokenCount": 4040,
+    "candidatesTokenCount": 587,
+    "totalTokenCount": 4000,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,17 +23,19 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 1005,
+    "thoughtsTokenCount": 988,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip begins with a dark screen showing UI elements and bounding boxes, then a Tauros Pokémon card image fades in with DING annotations. The view then scrolls down to reveal a detailed DINGs panel and a 'Capture quality + limitations' section.",
+    "scene_summary": "The clip begins with a blank screen, then loads a mobile view of a Tauros card with DING bounding boxes and labels. The 'CHECKING' status updates to 'REAL MODEL'. The user then scrolls down to reveal a detailed DINGs panel and a 'Capture quality + limitations' section.",
     "key_observations": [
-      "The UI initially shows 'CHECKING' which transitions to 'REAL MODEL' as the card image loads.",
-      "A Tauros card is displayed with pink and yellow bounding boxes and text labels 'DING - EDGE WEAR - MODERATE' and 'DING - CORNER WEAR - MODERATE' overlaid.",
-      "The view scrolls to reveal a 'DINGs (3)' panel detailing 'edge wear' and 'corner wear' with materiality, descriptions, and 'annotation: human+model' provenance.",
-      "A 'Capture quality + limitations' section is visible, including 'Our scan ≠ TAG photometric'."
+      "The initial frame is blank white, followed by the page loading.",
+      "A Tauros card is displayed with visible DING bounding boxes and labels ('DING - EDGE WEAR - MODERATE', 'DING - CORNER WEAR - MODERATE').",
+      "The status text 'CHECKING' transitions to 'REAL MODEL' after the initial load.",
+      "Scrolling reveals a 'DINGs (3)' panel detailing three DINGs with their type, severity ('moderate', 'minor'), materiality ('Material to grade'), and provenance ('annotation: human+model').",
+      "A 'Capture quality + limitations' section is visible, including the disclaimer 'Our scan ≠ TAG photometric'.",
+      "The UI appears to be rendered correctly for a mobile viewport."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
@@ -44,36 +46,34 @@
       "CHECKING",
       "REAL MODEL",
       "BRONZE Open CC BY 4.0 image + human/model annotation",
-      "Taurus",
       "DING - EDGE WEAR - MODERATE",
       "DING - CORNER WEAR - MODERATE",
-      "DINGs (3)",
-      "edge wear",
-      "Material to grade - moderate",
-      "Visible whitening and border wear along the top edge of the real card image.",
-      "annotation: human+model",
-      "corner wear",
-      "Corner and lower-edge wear are visible near the lower-left card boundary.",
-      "Material to grade - minor",
-      "Right edge shows visible whitening consistent with edge-wear review.",
-      "Capture quality + limitations",
-      "Identity image source: roboflow-cc-by-4.0",
-      "Roboflow-style real card fixture bundled with CCV demo assets.",
-      "Our scan ≠ TAG photometric",
       "Dashboard",
       "Workspace",
       "Examples",
       "Cert import",
-      "Compare"
+      "Scan",
+      "Cards",
+      "Methods",
+      "Compare",
+      "DINGs (3)",
+      "edge wear",
+      "Material to grade · moderate",
+      "Visible whitening and border wear along the top edge of the real card image.",
+      "annotation: human+model",
+      "corner wear",
+      "Corner and lower-edge wear are visible near the lower-left card boundary.",
+      "Material to grade · minor",
+      "Right edge shows visible whitening consistent with edge-wear review.",
+      "Capture quality + limitations",
+      "Identity image source: roboflow-cc-by-4.0",
+      "Roboflow-style real card fixture bundled with CCV demo assets.",
+      "Our scan ≠ TAG photometric"
     ],
     "matches_expectation": true,
-    "match_confidence": 0.9,
-    "issues": [
-      "The 'not-an-official-grade disclaimer' is implied by 'Our scan ≠ TAG photometric' and 'Material to grade' rather than being an explicit statement like 'This is not an official grade'."
-    ],
+    "match_confidence": 1,
+    "issues": [],
     "verdict": "pass",
-    "suggested_followups": [
-      "Consider adding a more explicit 'not an official grade' disclaimer if the current phrasing is not sufficient."
-    ]
+    "suggested_followups": []
   }
 }

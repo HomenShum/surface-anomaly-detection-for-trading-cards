@@ -1,0 +1,81 @@
+{
+  "gif": "public/demo/gifs/11-dealer-dashboard-desktop.gif",
+  "expect": "the /dealer/dashboard daily ops view: inventory $, expected graded EV, reviewed count, listed count, submission pipeline, stale count, then sectional tables for ready-to-list / worth-grading / needs-human-review / recent-imports — desktop (1440x900).",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 105,
+    "fps": 11,
+    "duration": 9.54
+  },
+  "capturedAt": "2026-05-07T19:22:47.743Z",
+  "usage": {
+    "promptTokenCount": 2420,
+    "candidatesTokenCount": 596,
+    "totalTokenCount": 3904,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 356
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 888,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a user scrolling down a 'Dealer dashboard' page. It starts with an overview of key metrics like inventory value and submission pipeline, then reveals several detailed tables for 'Ready to list', 'Worth grading', 'Needs human review', 'Recent imports', and 'Price movers (high variance)'.",
+    "key_observations": [
+      "The page displays a 'Dealer dashboard' with a 'VENDOR PILOT - DAILY OPERATING SYSTEM' header.",
+      "Summary cards at the top show 'INVENTORY (RAW/HIGH) $3,846', 'EXPECTED GRADED EV $10,854', 'REVIEWED 10', 'LISTED 3', 'SUBMISSION PIPELINE 2', and 'STALE (>10D) 0'.",
+      "The user scrolls down to reveal sectional tables: 'Ready to list (7)', 'Worth grading (17)', 'Needs human review (0)', 'Recent imports', and 'Price movers (high variance)'.",
+      "All tables contain data, except 'Needs human review (0)' which states 'No records awaiting review'.",
+      "The UI appears stable and responsive throughout the scroll, with no visual glitches or loading issues."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Dashboard",
+      "Intake",
+      "Listings",
+      "Submissions",
+      "ALPHA V8.1 Not an official grade",
+      "REAL MODEL ding-detector-v8",
+      "VENDOR PILOT - DAILY OPERATING SYSTEM",
+      "Dealer dashboard",
+      "INVENTORY (RAW/HIGH)",
+      "$3,846",
+      "EXPECTED GRADED EV",
+      "$10,854",
+      "REVIEWED",
+      "10",
+      "LISTED",
+      "3",
+      "SUBMISSION PIPELINE",
+      "2",
+      "STALE (>10D)",
+      "0",
+      "Ready to list (7)",
+      "Worth grading (17)",
+      "Needs human review (0)",
+      "No records awaiting review.",
+      "Recent imports",
+      "Price movers (high variance)",
+      "SUBMIT",
+      "SELL_RAW",
+      "MINT 9",
+      "GEM MT 10",
+      "image_attached",
+      "SILVER_PLUS",
+      "HIGH"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

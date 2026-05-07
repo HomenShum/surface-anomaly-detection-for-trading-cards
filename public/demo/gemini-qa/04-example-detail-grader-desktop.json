@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 52,
+    "nbFrames": 51,
     "fps": 11,
-    "duration": 4.73
+    "duration": 4.65
   },
-  "capturedAt": "2026-05-07T12:29:50.000Z",
+  "capturedAt": "2026-05-07T19:21:27.851Z",
   "usage": {
     "promptTokenCount": 2452,
-    "candidatesTokenCount": 552,
-    "totalTokenCount": 4182,
+    "candidatesTokenCount": 542,
+    "totalTokenCount": 4208,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,50 +23,46 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 1178,
+    "thoughtsTokenCount": 1214,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip opens on a detailed view of a Tauros Pokémon card, displaying DING bounding boxes and labels over the card image. The right panel shows an initial summary of the card's condition. The user then scrolls down, revealing a more comprehensive DINGs panel, grader comparison, and capture limitations.",
+    "scene_summary": "The clip opens on a detailed view of a Tauros Pokémon card, displaying DING annotations and a summary panel. The view then scrolls down to reveal more detailed analysis sections, including a DINGs panel with specific defect descriptions and a grader comparison.",
     "key_observations": [
       "The Tauros card image is clearly visible and not blank.",
-      "DING bounding boxes with readable labels ('DING - EDGE WEAR - MODERATE', 'DING - CORNER WEAR - MODERATE') are overlaid on the card pixels.",
-      "The initial right panel displays 'OFFICIAL OUTCOME', 'OUR SCORE', 'CONFIDENCE', '760 Visible condition risk', '81%', and a 'Not an official grade' disclaimer.",
-      "Upon scrolling, a detailed 'DINGS (3)' panel appears, listing 'edge wear' (moderate), 'corner wear' (moderate), and 'edge wear' (minor), each with 'Material to grade' and 'annotation: human+model' for type, severity, materiality, and provenance.",
-      "The 'DINGS (3)' count is present and appears as expected product copy.",
-      "Additional sections for 'Grader comparison' and 'Capture quality + limitations' are revealed after scrolling."
+      "DING bounding boxes (yellow outlines) and labels like 'DING - EDGE WEAR - MODERATE' are visible over the card pixels in the initial frames.",
+      "A 'not-an-official-grade' disclaimer is prominently displayed at the top and bottom of the initial view.",
+      "The right-hand panel initially shows 'OUR SCORE 760 Visible condition risk' and 'CONFIDENCE 81%'.",
+      "Upon scrolling, a 'DINGS (3)' panel becomes visible, detailing three distinct DINGs: 'edge wear' (moderate), 'corner wear' (moderate), and 'edge wear' (minor).",
+      "Each DING entry in the panel specifies its type, materiality ('Material to grade - moderate/minor'), and provenance ('annotation: human+model').",
+      "The 'DINGS (3)' count is clearly product copy and not an error message."
     ],
     "ui_text_snippets": [
+      "CV Card Condition Vault",
       "Tauros",
-      "70 HP",
       "DING - EDGE WEAR - MODERATE",
-      "DING - CORNER WEAR - MODERATE",
-      "OFFICIAL OUTCOME",
-      "OUR SCORE",
-      "CONFIDENCE",
-      "None attached—",
-      "760 Visible condition risk",
-      "81%",
-      "MATCH",
-      "no official outcome",
-      "Not an official grade. Not legal proof. AI-assisted condition estimate against open or certified reference inputs.",
+      "ALPHA V0.1 Not an official grade",
+      "Real card image used for vendor-pilot trust demos.",
+      "OUR SCORE 760 Visible condition risk",
+      "CONFIDENCE 81%",
+      "Not an official grade. Not legal proof.",
       "DING overlays",
-      "Material-to-grade only",
-      "Grader comparison",
-      "Why this band, not higher?",
+      "Material to grade-only",
       "DINGS (3)",
       "edge wear",
       "Material to grade - moderate",
       "annotation: human+model",
       "corner wear",
-      "Material to grade - minor",
-      "Capture quality + limitations"
+      "Material to grade - minor"
     ],
     "matches_expectation": true,
     "match_confidence": 1,
     "issues": [],
     "verdict": "pass",
-    "suggested_followups": []
+    "suggested_followups": [
+      "Verify the exact pixel dimensions (1440x900) if not already confirmed by Playwright's viewport settings.",
+      "Confirm that the DING bounding box colors and label styles are consistent with design specifications."
+    ]
   }
 }

@@ -307,7 +307,19 @@ def main() -> int:
     for source in source_config.get("sources", []):
         source_dir = args.raw_root / source["id"]
         if not args.skip_download:
-            source_dir = download_source(source, args.api_key, args.raw_root, args.force)
+            try:
+                source_dir = download_source(source, args.api_key, args.raw_root, args.force)
+            except Exception as exc:
+                if args.allow_missing:
+                    missing_sources.append(
+                        {
+                            "id": str(source["id"]),
+                            "dataset_url": str(source.get("dataset_url") or source.get("url") or ""),
+                            "reason": f"download_failed: {exc}",
+                        }
+                    )
+                    continue
+                raise
         if not source_dir.is_dir():
             if args.skip_download and args.allow_missing:
                 missing_sources.append(
@@ -319,7 +331,19 @@ def main() -> int:
                 )
                 continue
             raise FileNotFoundError(f"Missing source directory: {source_dir}")
-        all_records.extend(manifest_records(source, source_dir, args.label_map))
+        try:
+            all_records.extend(manifest_records(source, source_dir, args.label_map))
+        except Exception as exc:
+            if args.allow_missing:
+                missing_sources.append(
+                    {
+                        "id": str(source["id"]),
+                        "dataset_url": str(source.get("dataset_url") or source.get("url") or ""),
+                        "reason": f"parse_failed: {exc}",
+                    }
+                )
+                continue
+            raise
 
     write_jsonl(args.out, all_records)
     report = audit(all_records, args.out, configured_sources=configured_sources, missing_sources=missing_sources)

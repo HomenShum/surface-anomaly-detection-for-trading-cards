@@ -1,0 +1,31 @@
+{
+  "base_model": "services/inference-api/app/models/ding-detector-v0.pt",
+  "batch": "16",
+  "best_weights": "D:\\VSCode Projects\\surface_anomaly_detection_model\\runs\\detect\\runs\\card-condition\\ding-detector-v0.2-expanded-smoke-2\\weights\\best.pt",
+  "data": "ml\\datasets\\yolo\\roboflow_alpha\\dataset.yaml",
+  "device": "cpu",
+  "epochs": 1,
+  "exported_weights": "services\\inference-api\\app\\models\\ding-detector-v0.2-smoke.pt",
+  "imgsz": 320,
+  "dataset_manifest": "ml/datasets/manifests/roboflow_alpha_manifest.jsonl",
+  "dataset_manifest_hash": "50ba9be93ca008d3775b876ce5d61835322197a0d68d58040f0c01ad74cf0268",
+  "eval_report": "ml/runs/eval_yolo_v0.2_smoke_report.json",
+  "eval_summary": {
+    "f1": 0.409178,
+    "precision": 0.705176,
+    "recall": 0.288204,
+    "test_images": 954
+  },
+  "model_version": "ding-detector-v0.2-smoke",
+  "name": "ding-detector-v0.2-expanded-smoke",
+  "promotion_status": "not_promoted_cpu_smoke_candidate",
+  "project": "runs/card-condition",
+  "source_datasets": [
+    "roboflow_card_condition_29wwd_v1",
+    "roboflow_card_grader_v5",
+    "roboflow_pokefrontbackdamage_v1",
+    "roboflow_pokemon_surface_damage_v2",
+    "roboflow_scratch_poke_v2"
+  ],
+  "training_run_id": "yolo-20260507T191342Z"
+}

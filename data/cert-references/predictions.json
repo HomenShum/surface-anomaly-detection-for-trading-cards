@@ -1,5 +1,441 @@
 {
   "_doc": "Active certified-reference predictions. Missing prediction means not evaluated and does not count as a match. Placeholder mirrors were archived to data/cert-references/predictions.baseline-mirror.json and are forbidden in production-readiness gates.",
   "_lastUpdated": "2026-05-07",
-  "_policy": "Only real inference rows with replayable image evidence belong here. Use pnpm eval:certrefs:run after local slab/raw images are attached."
+  "_policy": "Only real inference rows with replayable image evidence belong here. Use pnpm eval:certrefs:run after local slab/raw images are attached.",
+  "_lastInferenceRun": "2026-05-07T17:53:44.498Z",
+  "_summary": {
+    "processed": 13,
+    "predicted": 13,
+    "skipped": 16,
+    "failed": 0
+  },
+  "psa_154378339": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901890": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901881": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 950,
+    "confidence": 0.26342135667800903,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "1 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558447": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901888": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901880": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901889": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 950,
+    "confidence": 0.2995944917201996,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "1 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148965567": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_69196288": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558455": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 950,
+    "confidence": 0.40025290846824646,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "1 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_69923530": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558473": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 900,
+    "confidence": 0.3876238465309143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "2 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148648467": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.7142857142857143,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  }
 }

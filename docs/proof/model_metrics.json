@@ -15,8 +15,8 @@
     "recall": 0.44897
   },
   "baselines": {
-    "randomDetectorF1": 0.001168,
-    "classPriorF1": 0.003505
+    "randomDetectorF1": 0,
+    "classPriorF1": 0.00447
   },
   "proofUse": "Shows a real alpha DING detector exists and beats empty/random demo logic. Does not prove official grading accuracy."
 }

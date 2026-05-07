@@ -1,8 +1,8 @@
 {
-  "runId": "20260507123414-it3-ee941b",
+  "runId": "20260507193321-it3-b67032",
   "iteration": 3,
-  "generatedAt": "2026-05-07T12:34:14.707Z",
-  "scoresPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\flywheel\\runs\\20260507123414-it3-ee941b\\judge-scores.json",
-  "tracesPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\flywheel\\runs\\20260507123414-it3-ee941b\\traces.jsonl",
-  "summaryPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\flywheel\\runs\\20260507123414-it3-ee941b\\summary.md"
+  "generatedAt": "2026-05-07T19:33:25.181Z",
+  "scoresPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\flywheel\\runs\\20260507193321-it3-b67032\\judge-scores.json",
+  "tracesPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\flywheel\\runs\\20260507193321-it3-b67032\\traces.jsonl",
+  "summaryPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\flywheel\\runs\\20260507193321-it3-b67032\\summary.md"
 }

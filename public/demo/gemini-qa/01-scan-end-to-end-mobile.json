@@ -8,11 +8,11 @@
     "fps": 12,
     "duration": 14.01
   },
-  "capturedAt": "2026-05-07T12:28:58.480Z",
+  "capturedAt": "2026-05-07T19:20:34.182Z",
   "usage": {
     "promptTokenCount": 2364,
-    "candidatesTokenCount": 441,
-    "totalTokenCount": 3612,
+    "candidatesTokenCount": 521,
+    "totalTokenCount": 3805,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,17 +23,18 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 807,
+    "thoughtsTokenCount": 920,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip demonstrates a card scanning process within the 'Card Condition Vault' application. It begins with a 'CAPTURE' phase, transitions to a 'CHECKLIST' where a Pokemon card is analyzed with real-time progress and visual overlays highlighting specific areas, and concludes with a 'REPORT' phase offering options to view or rescan.",
+    "scene_summary": "The clip begins on an empty 'CAPTURE' screen, then transitions to a 'CHECKLIST' view where a Pokemon card (Tauros) is displayed. The UI highlights different parts of the card (corners, edges) with overlays as a 'Real-time progress' indicator updates. Finally, it moves to a 'REPORT' screen, offering options to view a full report or scan another item.",
     "key_observations": [
-      "The UI navigates through 'CAPTURE', 'CHECKLIST', and 'REPORT' steps.",
-      "A 'Tauros' Pokemon card is displayed and analyzed during the 'CHECKLIST' phase.",
-      "Visual overlays highlight specific card regions (corners, edges) with real-time progress updates.",
-      "The process ends on a 'REPORT' screen with options like 'OPEN FULL REPORT' and 'Scan another'."
+      "The UI navigates from '2. CAPTURE' to '3. CHECKLIST' and then to '4. REPORT'.",
+      "A Pokemon card image is the central focus during the 'CHECKLIST' and 'REPORT' steps.",
+      "During the 'CHECKLIST' phase, specific regions of the card (e.g., 'TOP-RIGHT CORNER', 'LEFT EDGE') are highlighted with visual overlays and zoomed-in previews.",
+      "A 'Real-time progress' indicator updates from 36% to 93% during the checklist process.",
+      "The final 'REPORT' step presents buttons for 'OPEN FULL REPORT', 'COMPARE BEFORE / AFTER', and 'Scan another'."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
@@ -43,22 +44,22 @@
       "4. REPORT",
       "ALPHA V0.1",
       "CHECKING",
-      "Restart",
       "REAL MODEL",
+      "Restart",
+      "Tauros",
+      "70 HP",
+      "Crush Chance",
+      "Call for Family",
+      "Horn Attack",
       "STREAMING",
       "roboflow-tauros-real-card.jpg",
       "surface matte - sharpness 100 - glare risk 0",
       "LIVE CHECKLIST",
       "Real-time progress",
-      "36%",
-      "TOP-RIGHT",
       "TOP-RIGHT CORNER",
-      "43%",
       "BOTTOM-LEFT",
       "RIGHT EDGE",
-      "50%",
       "LEFT EDGE",
-      "93%",
       "CONDITION RECORD",
       "OPEN FULL REPORT",
       "COMPARE BEFORE / AFTER",

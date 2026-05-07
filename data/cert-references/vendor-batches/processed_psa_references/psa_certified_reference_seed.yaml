@@ -1,0 +1,1096 @@
+generated_at: "2026-05-07T17:39:59.323719Z"
+schema_version: "psa_reference_seed_v0.1"
+summary:
+  silver_plus_image_backed_count: 13
+  label_only_candidate_count: 38
+  total_records: 51
+  notes:
+    - "Silver+ rows have replayable local slab/cert-page imagery from vendor/user uploads."
+    - "Label-only candidates need PSA API verification and slab/card images before counting toward Silver+ gate."
+    - "No records are Gold because no raw pre-submission scan plus official outcome plus human DING review has been provided yet."
+silver_plus_records:
+  - id: "psa_148901890"
+    provider: "PSA"
+    cert_number: "148901890"
+    external_url: "https://www.psacard.com/cert/148901890"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2020 Pokemon SWSH FA/Snorlax VMAX #142"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148901890_front_slab.jpg"
+    source_photo_path: "7D5C06D4-18A7-4704-B65A-4B4C6DFE9F4F.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_148901881"
+    provider: "PSA"
+    cert_number: "148901881"
+    external_url: "https://www.psacard.com/cert/148901881"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2021 Pokemon JPN S-P Pikachu Yu Nagaba x PCG Campaign #208"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148901881_front_slab.jpg"
+    source_photo_path: "7D5C06D4-18A7-4704-B65A-4B4C6DFE9F4F.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_142558447"
+    provider: "PSA"
+    cert_number: "142558447"
+    external_url: "https://www.psacard.com/cert/142558447"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike Secret #270"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_142558447_front_slab.jpg"
+    source_photo_path: "7D5C06D4-18A7-4704-B65A-4B4C6DFE9F4F.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_148901888"
+    provider: "PSA"
+    cert_number: "148901888"
+    external_url: "https://www.psacard.com/cert/148901888"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2025 Pokemon MEG EN Mega Kangaskhan ex Special Illustration Rare #182"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148901888_front_slab.jpg"
+    source_photo_path: "7D5C06D4-18A7-4704-B65A-4B4C6DFE9F4F.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_148901880"
+    provider: "PSA"
+    cert_number: "148901880"
+    external_url: "https://www.psacard.com/cert/148901880"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2025 Pokemon M1S JP Mega Gardevoir ex Special Art Rare #087"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148901880_front_slab.jpg"
+    source_photo_path: "7D5C06D4-18A7-4704-B65A-4B4C6DFE9F4F.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_148901889"
+    provider: "PSA"
+    cert_number: "148901889"
+    external_url: "https://www.psacard.com/cert/148901889"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2025 Pokemon MEP EN Mega Charizard X ex Ultra-Premium Collection #023"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148901889_front_slab.jpg"
+    source_photo_path: "7D5C06D4-18A7-4704-B65A-4B4C6DFE9F4F.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_148965567"
+    provider: "PSA"
+    cert_number: "148965567"
+    external_url: "https://www.psacard.com/cert/148965567"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2019 P.M. SM Black Star FA/Garch. & Girat.GX Promo-PWR.PRTNRSHP.TINS #SM193"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148965567_front_slab.jpg"
+    source_photo_path: "43E94482-E48A-4FC7-B6CF-FB30EA647D41.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_69196288"
+    provider: "PSA"
+    cert_number: "69196288"
+    external_url: "https://www.psacard.com/cert/69196288"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2019 Pokemon Sun & Moon Reshiram & Charizard GX Unbroken Bonds-FA #194"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_69196288_front_slab.jpg"
+    source_photo_path: "43E94482-E48A-4FC7-B6CF-FB30EA647D41.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_142558455"
+    provider: "PSA"
+    cert_number: "142558455"
+    external_url: "https://www.psacard.com/cert/142558455"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2025 Pokemon DRI EN Cynthia's Garchomp ex Special Illustration Rare #232"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_142558455_front_slab.jpg"
+    source_photo_path: "43E94482-E48A-4FC7-B6CF-FB30EA647D41.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_69923530"
+    provider: "PSA"
+    cert_number: "69923530"
+    external_url: "https://www.psacard.com/cert/69923530"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2022 Pokemon SWSH BSP Special Delivery Charizard Pokemon Center UK-Holo #075"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_69923530_front_slab.jpg"
+    source_photo_path: "43E94482-E48A-4FC7-B6CF-FB30EA647D41.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_142558473"
+    provider: "PSA"
+    cert_number: "142558473"
+    external_url: "https://www.psacard.com/cert/142558473"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2025 Pokemon CBB3 CS Ceruledge #07"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_142558473_front_slab.jpg"
+    source_photo_path: "43E94482-E48A-4FC7-B6CF-FB30EA647D41.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_148648467"
+    provider: "PSA"
+    cert_number: "148648467"
+    external_url: "https://www.psacard.com/cert/148648467"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_image_backed"
+    official_grade: "GEM MT 10"
+    grade_numeric: 10
+    card_identity: "2025 Pokemon PFL EN Piplup Illustration Rare #098"
+    image_evidence_status: "local_vendor_uploaded_slab_front"
+    local_image_path: "processed_psa_references/slab_crops/psa_148648467_front_slab.jpg"
+    source_photo_path: "43E94482-E48A-4FC7-B6CF-FB30EA647D41.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "post-slab image, not raw pre-submission scan"
+      - "slab glare/plastic may hide or create apparent surface artifacts"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop out PSA label to avoid grade leakage"
+  - id: "psa_154378339"
+    provider: "PSA"
+    cert_number: "154378339"
+    external_url: "https://www.psacard.com/cert/154378339"
+    source_type: "certified_reference"
+    trust_tier: "silver_plus_cert_page_screenshot"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2025 Pokemon Japanese SV11B-Black Bolt #174 Zekrom ex BW Rare"
+    image_evidence_status: "local_user_uploaded_cert_page_screenshot"
+    local_image_path: "processed_psa_references/slab_crops/psa_154378339_cert_page_front_back_screenshot.jpg"
+    source_photo_path: "AB1C7F9D-2064-420C-B96B-8284FADCA07E.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_human_ding_review: true
+    limitations:
+      - "cert page screenshot, not a direct raw scan"
+      - "front/back are visible inside screenshot and may be compressed"
+      - "official PSA grade does not provide DING-level rationale"
+      - "condition model must crop card area and avoid label leakage"
+label_only_candidates:
+  - id: "psa_148901886"
+    provider: "PSA"
+    cert_number: "148901886"
+    external_url: "https://www.psacard.com/cert/148901886"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2021 Pokemon SWSH FA/Tyranitar V Battle Styles #155"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_142558459"
+    provider: "PSA"
+    cert_number: "142558459"
+    external_url: "https://www.psacard.com/cert/142558459"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2021 Pokemon SWSH FA/Tyranitar V Battle Styles #155"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_142558463"
+    provider: "PSA"
+    cert_number: "142558463"
+    external_url: "https://www.psacard.com/cert/142558463"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2019 P.M. SM Black Star Moltres/Zapdos/Articuno GX HF Elite Trainer Box-F.A. #SM210"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_148901879"
+    provider: "PSA"
+    cert_number: "148901879"
+    external_url: "https://www.psacard.com/cert/148901879"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2025 Pokemon M2a JP Iriss Fighting Spirit Special Art Rare #247"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_152528467"
+    provider: "PSA"
+    cert_number: "152528467"
+    external_url: "https://www.psacard.com/cert/152528467"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2025 Pokemon WHT EN Reshiram ex Special Illustration Rare #166"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_142558471"
+    provider: "PSA"
+    cert_number: "142558471"
+    external_url: "https://www.psacard.com/cert/142558471"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2025 Pokemon CBB3 CS Meowth #07"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091062"
+    provider: "PSA"
+    cert_number: "139091062"
+    external_url: "https://www.psacard.com/cert/139091062"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2025 Pokemon MEG EN Bulbasaur Enhanced BSTR Box Topper #133"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "3777400C-2ED9-44EE-875B-42CA4EE60D7B.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_130814362"
+    provider: "PSA"
+    cert_number: "130814362"
+    external_url: "https://www.psacard.com/cert/130814362"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2019 Pokemon Sun & Moon Venusaur & Snivy GX Cosmic Eclipse-Secret-FA #249"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_130814358"
+    provider: "PSA"
+    cert_number: "130814358"
+    external_url: "https://www.psacard.com/cert/130814358"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2021 Pokemon SWSH FA/Dragonite V Evolving Skies #192"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162403"
+    provider: "PSA"
+    cert_number: "134162403"
+    external_url: "https://www.psacard.com/cert/134162403"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_130814351"
+    provider: "PSA"
+    cert_number: "130814351"
+    external_url: "https://www.psacard.com/cert/130814351"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162379"
+    provider: "PSA"
+    cert_number: "134162379"
+    external_url: "https://www.psacard.com/cert/134162379"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2002 Pokemon League Celebi Black Star Promo #50"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162407"
+    provider: "PSA"
+    cert_number: "134162407"
+    external_url: "https://www.psacard.com/cert/134162407"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2019 Pokemon Sun & Moon FA/Latias & Latios GX Team Up #169"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162409"
+    provider: "PSA"
+    cert_number: "134162409"
+    external_url: "https://www.psacard.com/cert/134162409"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2021 Pokemon Celebrations M Rayquaza EX Classic Collection-Roaring Skies #76"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162394"
+    provider: "PSA"
+    cert_number: "134162394"
+    external_url: "https://www.psacard.com/cert/134162394"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2022 Pokemon SWSH FA/Garchomp V Astral Radiance #TG23"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162397"
+    provider: "PSA"
+    cert_number: "134162397"
+    external_url: "https://www.psacard.com/cert/134162397"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2018 Pokemon Sun & Moon FA/Rayquaza GX C.S.19 Y.A-H.F. Premium Collection #177a"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162396"
+    provider: "PSA"
+    cert_number: "134162396"
+    external_url: "https://www.psacard.com/cert/134162396"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2019 Pokemon Sun & Moon FA/Gardevoir GX Hidden Fates #SV75"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091072"
+    provider: "PSA"
+    cert_number: "139091072"
+    external_url: "https://www.psacard.com/cert/139091072"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2025 Pokemon DRI EN Rocket's Moltres ex Special Illustration Rare #229"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_130255216"
+    provider: "PSA"
+    cert_number: "130255216"
+    external_url: "https://www.psacard.com/cert/130255216"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike-Secret #270"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162369"
+    provider: "PSA"
+    cert_number: "134162369"
+    external_url: "https://www.psacard.com/cert/134162369"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2021 Pokemon SWSH BSP FA/Charizard VMAX Shining Fates #SV107"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162384"
+    provider: "PSA"
+    cert_number: "134162384"
+    external_url: "https://www.psacard.com/cert/134162384"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2024 Pokemon SVP EN Kingdra ex SFA Special Illustration Collection #131"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "60412D4C-B11C-463F-A2DC-EE59BC345281.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091059"
+    provider: "PSA"
+    cert_number: "139091059"
+    external_url: "https://www.psacard.com/cert/139091059"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "EX 5"
+    grade_numeric: 5
+    card_identity: "2023 Pokemon SVP EN Charmander Obsidian Flames ETB #044"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162375"
+    provider: "PSA"
+    cert_number: "134162375"
+    external_url: "https://www.psacard.com/cert/134162375"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "EX-MT 6"
+    grade_numeric: 6
+    card_identity: "2000 P.M. Neo Genesis Slowking-Holo #14"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_140992606"
+    provider: "PSA"
+    cert_number: "140992606"
+    external_url: "https://www.psacard.com/cert/140992606"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM 7"
+    grade_numeric: 7
+    card_identity: "2015 Pokemon XY FA/Wailord EX Primal Clash #147"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162412"
+    provider: "PSA"
+    cert_number: "134162412"
+    external_url: "https://www.psacard.com/cert/134162412"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM 7"
+    grade_numeric: 7
+    card_identity: "2016 Pokemon XY FA/Sylveon EX Generations Radiant Collection #RC32"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_137437905"
+    provider: "PSA"
+    cert_number: "137437905"
+    external_url: "https://www.psacard.com/cert/137437905"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM 7"
+    grade_numeric: 7
+    card_identity: "2002 Pokemon Neo Destiny Dark Gengar-Holo #6"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091041"
+    provider: "PSA"
+    cert_number: "139091041"
+    external_url: "https://www.psacard.com/cert/139091041"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM 7"
+    grade_numeric: 7
+    card_identity: "2003 Pokemon Aquapolis Entei-Holo #H8"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162422"
+    provider: "PSA"
+    cert_number: "134162422"
+    external_url: "https://www.psacard.com/cert/134162422"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "EX-MT 6"
+    grade_numeric: 6
+    card_identity: "2000 Pokemon Game Promo Ancient Mew Pokemon 2000 Movie"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091051"
+    provider: "PSA"
+    cert_number: "139091051"
+    external_url: "https://www.psacard.com/cert/139091051"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM 7"
+    grade_numeric: 7
+    card_identity: "2018 P.M. SM Black Star FA/Dragonite GX Promo-Dragon Majesty S/P Collection #SM156"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162413"
+    provider: "PSA"
+    cert_number: "134162413"
+    external_url: "https://www.psacard.com/cert/134162413"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "EX-MT 6"
+    grade_numeric: 6
+    card_identity: "2016 Pokemon XY FA/Flareon EX Generations Radiant Collection #RC28"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162371"
+    provider: "PSA"
+    cert_number: "134162371"
+    external_url: "https://www.psacard.com/cert/134162371"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM 7"
+    grade_numeric: 7
+    card_identity: "1999 Pokemon Jungle Kangaskhan-Holo 1st Edition #5"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091058"
+    provider: "PSA"
+    cert_number: "139091058"
+    external_url: "https://www.psacard.com/cert/139091058"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2023 Pokemon SVP EN Snorlax 151 Elite Trainer Box #051"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162404"
+    provider: "PSA"
+    cert_number: "134162404"
+    external_url: "https://www.psacard.com/cert/134162404"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2019 Pokemon Sun & Moon Reshiram & Zekrom GX Cosmic Eclipse-FA #222"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091080"
+    provider: "PSA"
+    cert_number: "139091080"
+    external_url: "https://www.psacard.com/cert/139091080"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2021 Pokemon SWSH BSP FA/Jolteon VMAX Jolteon VMAX Premium Collection #184"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091071"
+    provider: "PSA"
+    cert_number: "139091071"
+    external_url: "https://www.psacard.com/cert/139091071"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "MINT 9"
+    grade_numeric: 9
+    card_identity: "2024 Pokemon SSP EN Milotic ex Special Illustration Rare #237"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_139091052"
+    provider: "PSA"
+    cert_number: "139091052"
+    external_url: "https://www.psacard.com/cert/139091052"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2017 P.M. Mega Powers Collection FA/Zygarde EX Promo #54a"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_136693729"
+    provider: "PSA"
+    cert_number: "136693729"
+    external_url: "https://www.psacard.com/cert/136693729"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2019 Pokemon Sun & Moon FA/Jessie & James Hidden Fates #68"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"
+  - id: "psa_134162381"
+    provider: "PSA"
+    cert_number: "134162381"
+    external_url: "https://www.psacard.com/cert/134162381"
+    source_type: "certified_reference_candidate"
+    trust_tier: "silver_metadata_candidate_from_label_photo"
+    official_grade: "NM-MT 8"
+    grade_numeric: 8
+    card_identity: "2015 P.M. JPN. XY Promo FA/Hoopa Archdjinni/Rings Giveaway #155"
+    image_evidence_status: "label_photo_only"
+    source_photo_path: "C3D1CE61-A941-452D-94B5-AB70606E9379.jpeg"
+    extraction_confidence: "high"
+    training_allowed: false
+    public_example_allowed: "pending_vendor_consent"
+    needs_raw_scan_for_gold: true
+    needs_psa_api_verification: true
+    needs_local_slab_or_card_image_for_silver_plus: true
+    limitations:
+      - "label-only evidence; no local replayable card/slab image attached"
+      - "not eligible for Silver+ gate until slab/card image is attached"
+      - "official PSA grade does not provide DING-level rationale"

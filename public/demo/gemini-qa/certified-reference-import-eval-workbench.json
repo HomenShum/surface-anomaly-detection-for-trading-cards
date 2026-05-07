@@ -8,11 +8,11 @@
     "fps": 5,
     "duration": 3.4
   },
-  "capturedAt": "2026-05-07T12:31:30.919Z",
+  "capturedAt": "2026-05-07T19:23:12.426Z",
   "usage": {
     "promptTokenCount": 2377,
-    "candidatesTokenCount": 584,
-    "totalTokenCount": 3819,
+    "candidatesTokenCount": 528,
+    "totalTokenCount": 3715,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,19 +23,17 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 858,
+    "thoughtsTokenCount": 810,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip begins by displaying a 'CERT-REFERENCE EVAL' section, showing metrics like match rates and a table of references with their tiers and agreement status. The view then scrolls down to reveal a 'CERTIFIED REFERENCE INGESTION' area, allowing users to input PSA/TAG references and view a list of 'Certified references' with their outcome, trust tier, and evaluation status.",
+    "scene_summary": "The clip begins by displaying a 'CERT-REFERENCE EVAL' dashboard showing match rates and a table of certified references with their tiers and agreement status. The view then scrolls down to reveal a 'CERTIFIED REFERENCE INGESTION' section, allowing input of PSA/TAG references and file uploads. Finally, a 'Certified references' table is shown, detailing outcomes, trust tiers, policy, and gold gap status for imported references.",
     "key_observations": [
-      "The initial view shows 'CERT-REFERENCE EVAL' with 'Match Rate', 'Silver+ Match Rate', 'Adjacent / Mismatch', and 'REFERENCES' metrics.",
-      "A table lists 'CERT', 'TIER' (e.g., 'SILVER+ PLUS'), 'OFFICIAL BAND', 'PREDICTED BAND', and 'AGREEMENT' (e.g., 'mismatch').",
-      "The page scrolls to reveal a 'CERTIFIED REFERENCE INGESTION' section with a text input for 'CERT INPUT' and a file input for 'LABEL SCREENSHOTS OR TEXT EXPORTS'.",
-      "A button 'Import certified references' is visible.",
-      "A 'Certified references' table is shown, detailing 'PROVIDER', 'CERT', 'OUTCOME', 'TRUST' (e.g., 'SILVER'), 'POLICY', and 'GOLD GAP' (e.g., 'NEEDS RAW SCAN + DING REVIEW').",
-      "A 'SAFETY CONTRACT' section is consistently displayed on the right side of the page."
+      "The initial view shows a 'CERT-REFERENCE EVAL' section with summary statistics for match rate, silver+ rate, adjacent/mismatch, and total references.",
+      "A table displays 'CERT', 'TIER' (e.g., SILVER+ PLUS), 'OFFICIAL BAND', 'PREDICTED BAND', and 'AGREEMENT' (e.g., mismatch) columns.",
+      "The page scrolls to reveal an input area for 'CERT INPUT' (PSA/TAG references) and 'LABEL SCREENSHOTS OR TEXT EXPORTS' with a 'Choose Files' button.",
+      "A 'Certified references' table is presented, showing 'PROVIDER', 'CERT', 'OUTCOME', 'TRUST' (e.g., SILVER), 'POLICY', and 'GOLD GAP' (e.g., NEEDS RAW SCAN + DING REVIEW) columns."
     ],
     "ui_text_snippets": [
       "CERTIFIED REFERENCE INGESTION",
@@ -43,27 +41,22 @@
       "SAFETY CONTRACT",
       "CERT-REFERENCE EVAL",
       "Band agreement vs official outcomes",
-      "Match Rate",
-      "SILVER+ Match Rate",
-      "ADJACENT / MISMATCH",
-      "REFERENCES",
-      "CERT",
+      "Match Rate 0%",
+      "SILVER+ Match Rate 0%",
+      "ADJACENT / MISMATCH 0/0",
+      "REFERENCES 29",
       "TIER",
       "SILVER+ PLUS",
       "mismatch",
       "CERT INPUT",
       "LABEL SCREENSHOTS OR TEXT EXPORTS",
-      "Choose Files",
-      "No file chosen",
+      "Choose Files No file chosen",
       "Import certified references",
       "Certified references",
-      "OUTCOME",
       "TRUST",
-      "POLICY",
-      "GOLD GAP",
       "SILVER",
-      "NEEDS RAW SCAN + DING REVIEW",
-      "ALPHA V0.1 Not an official grade"
+      "GOLD GAP",
+      "NEEDS RAW SCAN + DING REVIEW"
     ],
     "matches_expectation": true,
     "match_confidence": 1,

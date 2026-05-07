@@ -1,12 +1,13 @@
 {
   "classes": {
-    "card": 1503,
-    "corner_wear": 9996,
-    "crease": 638,
-    "edge_wear": 4442,
-    "heavy_wear": 267,
-    "scratch": 5263,
-    "tear_or_hole": 513
+    "card": 17640,
+    "corner_wear": 47356,
+    "crease": 2714,
+    "edge_wear": 41045,
+    "heavy_wear": 888,
+    "scratch": 40807,
+    "tear_or_hole": 1776,
+    "unknown_damage": 330
   },
   "configured_sources": [
     "roboflow_card_grader_v5",
@@ -19,53 +20,44 @@
     "roboflow_pokemon_card_detection_3_v1"
   ],
   "downloaded_sources": [
+    "roboflow_card_condition_29wwd_v1",
     "roboflow_card_grader_v5",
-    "roboflow_pokemon_surface_damage_v2"
+    "roboflow_pokefrontbackdamage_v1",
+    "roboflow_pokemon_surface_damage_v2",
+    "roboflow_scratch_poke_v2"
   ],
   "license_status": "verified",
   "manifest": "ml\\datasets\\manifests\\roboflow_alpha_manifest.jsonl",
-  "manifest_sha256": "24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2",
+  "manifest_sha256": "50ba9be93ca008d3775b876ce5d61835322197a0d68d58040f0c01ad74cf0268",
   "missing_sources": [
-    {
-      "dataset_url": "https://universe.roboflow.com/pokemonfyp/scratch-poke/dataset/2",
-      "id": "roboflow_scratch_poke_v2",
-      "reason": "local_export_missing"
-    },
-    {
-      "dataset_url": "https://universe.roboflow.com/pokemonfyp/pokefrontbackdamage/dataset/1",
-      "id": "roboflow_pokefrontbackdamage_v1",
-      "reason": "local_export_missing"
-    },
-    {
-      "dataset_url": "https://universe.roboflow.com/fes-acatlan/card-condition-29wwd/dataset/1",
-      "id": "roboflow_card_condition_29wwd_v1",
-      "reason": "local_export_missing"
-    },
     {
       "dataset_url": "https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7/dataset/1",
       "id": "roboflow_pokemon_card_detection_7aaz7_v1",
-      "reason": "local_export_missing"
+      "reason": "parse_failed: No data.yaml or dataset.yaml found under D:\\VSCode Projects\\surface_anomaly_detection_model\\ml\\datasets\\raw\\roboflow\\roboflow_pokemon_card_detection_7aaz7_v1"
     },
     {
       "dataset_url": "https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation/dataset/2",
       "id": "roboflow_pokemon_cards_segmentation_v2",
-      "reason": "local_export_missing"
+      "reason": "parse_failed: No data.yaml or dataset.yaml found under D:\\VSCode Projects\\surface_anomaly_detection_model\\ml\\datasets\\raw\\roboflow\\roboflow_pokemon_cards_segmentation_v2"
     },
     {
       "dataset_url": "https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3/dataset/1",
       "id": "roboflow_pokemon_card_detection_3_v1",
-      "reason": "local_export_missing"
+      "reason": "parse_failed: No data.yaml or dataset.yaml found under D:\\VSCode Projects\\surface_anomaly_detection_model\\ml\\datasets\\raw\\roboflow\\roboflow_pokemon_card_detection_3_v1"
     }
   ],
-  "records": 3349,
+  "records": 25313,
   "sources": {
+    "roboflow_card_condition_29wwd_v1": 16192,
     "roboflow_card_grader_v5": 1504,
-    "roboflow_pokemon_surface_damage_v2": 1845
+    "roboflow_pokefrontbackdamage_v1": 4973,
+    "roboflow_pokemon_surface_damage_v2": 1845,
+    "roboflow_scratch_poke_v2": 799
   },
   "splits": {
-    "test": 137,
-    "train": 2958,
-    "val": 254
+    "test": 954,
+    "train": 22483,
+    "val": 1876
   },
   "status": "verified"
 }

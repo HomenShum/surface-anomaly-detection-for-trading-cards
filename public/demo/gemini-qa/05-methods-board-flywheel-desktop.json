@@ -8,11 +8,11 @@
     "fps": 12,
     "duration": 11.01
   },
-  "capturedAt": "2026-05-07T12:30:11.101Z",
+  "capturedAt": "2026-05-07T19:21:51.051Z",
   "usage": {
     "promptTokenCount": 2408,
-    "candidatesTokenCount": 473,
-    "totalTokenCount": 3845,
+    "candidatesTokenCount": 617,
+    "totalTokenCount": 4224,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,43 +23,58 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 964,
+    "thoughtsTokenCount": 1199,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip begins with a blank screen before loading the /methods page, displaying a 'Verified methods' board and a 'Holo Glare Reinspection v1' card. A reward toast appears and remains visible while the user navigates through various tabs of the methods flywheel, including 'Newly Verified', 'In Review', 'Bounties', 'Top Contributors', and 'Open Source Registry'.",
+    "scene_summary": "The clip begins with a blank screen before loading the /methods page. A reward toast appears and remains visible while the user navigates through various method categories using the tabs below the main heading. The content displayed in the main section updates dynamically with each tab selection.",
     "key_observations": [
-      "The /methods page loads successfully, showing the main content area and a detailed method card.",
-      "A green 'VERIFIED METHOD ACCEPTED' toast notification appears in the top right and persists throughout the clip.",
-      "The methods flywheel tabs ('Featured', 'Newly Verified', 'In Review', 'Bounties', 'Top Contributors', 'Open Source Registry') are sequentially clicked, updating the content below.",
-      "The UI appears healthy and responsive to tab selections."
+      "The page loads to display the 'Verified methods' section and a detailed board for 'Holo Glare Reinspection v1' on the right.",
+      "A 'VERIFIED METHOD ACCEPTED' toast notification appears in the top right and persists throughout the clip.",
+      "The user clicks through 'Featured', 'Newly Verified', 'In Review', 'Bounties', 'Top Contributors', and 'Open Source Registry' tabs.",
+      "The content area below the tabs updates to show relevant methods or bounties for each selected category."
     ],
     "ui_text_snippets": [
       "CV Card Condition Vault",
       "Methods",
+      "ALPHA V.1 Not an official grade",
+      "REAL MODEL dsing-detector-v8",
+      "OPEN-SOURCE INSPECTION FLYWHEEL",
       "Verified methods that make the agent inspect cards better.",
+      "View featured method",
+      "Propose from workspace",
+      "Submit method",
+      "VERIFIED",
       "Holo Glare Reinspection v1",
       "BENCHMARK LIFT -18% false positives",
       "REWARD 250 scan credits + Verified Method Author badge",
       "VERIFIED METHOD ACCEPTED",
       "Holo Glare Reinspection v1 reduced false positives by 18% on ccv-alpha-fixtures-20260506.",
       "Contributor @collector-methods earned 250 scan credits + Verified Method Author badge.",
+      "CLOSE",
       "Featured",
       "Newly Verified",
       "In Review",
       "Bounties",
       "Top Contributors",
       "Open Source Registry",
-      "CLOSE",
+      "Dark Border Edge Whitening Filter",
+      "Before/After Corner Alignment v1",
+      "Auto-clustered: holo cards - glare question (n=15)",
+      "Maybe you should crop the holo region and compare two tilt f",
       "HELP WANTED",
-      "Open benchmark bounties"
+      "Open benchmark bounties",
+      "Reduce false scratches on holo",
+      "Improve edge wear detection",
+      "Detect corner whitening on",
+      "@COLLECTOR-METHODS Collector Methods Lab",
+      "@EDGE-REVIEW Edge Review Group",
+      "@DIFF-BUILDER Diff Builder"
     ],
     "matches_expectation": true,
     "match_confidence": 1,
-    "issues": [
-      "Frame 1 is a blank white screen before the page content loads."
-    ],
+    "issues": [],
     "verdict": "pass",
     "suggested_followups": []
   }

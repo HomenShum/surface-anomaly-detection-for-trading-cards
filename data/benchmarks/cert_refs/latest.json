@@ -1,15 +1,15 @@
 {
   "modelVersion": "ding-detector-v0",
-  "evaluatedAt": "2026-05-07T12:34:26.969Z",
+  "evaluatedAt": "2026-05-07T19:33:33.957Z",
   "totals": {
     "references": 29,
-    "predictionsCovered": 0,
-    "matched": 0,
-    "adjacent": 0,
-    "mismatched": 0,
-    "skipped": 29,
-    "silverPlusCovered": 0,
-    "silverPlusMatched": 0,
+    "predictionsCovered": 13,
+    "matched": 11,
+    "adjacent": 1,
+    "mismatched": 1,
+    "skipped": 16,
+    "silverPlusCovered": 13,
+    "silverPlusMatched": 11,
     "silverCovered": 0,
     "silverMatched": 0
   },
@@ -21,14 +21,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "NM-MT 8",
       "officialBand": "800-849_near_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
       "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "bandDistance": 3,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901886",
@@ -149,14 +173,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901881",
@@ -165,14 +213,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 950,
+      "confidence": 0.26342135667800903,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558447",
@@ -181,14 +253,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901888",
@@ -197,14 +293,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901880",
@@ -213,14 +333,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901889",
@@ -229,14 +373,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 950,
+      "confidence": 0.2995944917201996,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148965567",
@@ -245,14 +413,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_69196288",
@@ -261,14 +453,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558455",
@@ -277,14 +493,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 950,
+      "confidence": 0.40025290846824646,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_69923530",
@@ -293,14 +533,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558473",
@@ -309,14 +573,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "900-949_mint",
+      "predictedScore": 900,
+      "confidence": 0.3876238465309143,
+      "bandAgreement": "adjacent",
+      "bandDistance": 1,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148648467",
@@ -325,14 +613,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.7142857142857143,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_137437906",
@@ -481,7 +793,7 @@
   ],
   "inputFingerprint": {
     "predictionsPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\predictions.json",
-    "predictionsSha256": "591a57a90645fca60f6c3aaa863897373d7c29865c318a88d5c85135e08d7f5d"
+    "predictionsSha256": "5362592caf7aa7f30ecb7715374c5139b1745bcd3e7a65aede08b9ca4c84da77"
   },
   "notes": [
     "Eval compares INTERNAL CONDITION BAND, not the official grade.",

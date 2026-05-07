@@ -2,20 +2,23 @@
   "agent": {
     "judgeMode": "deterministic_llm_judge_fallback",
     "deployable": false,
-    "references": 29,
-    "realPredictions": 0,
-    "replayableImageRefs": 0,
-    "needsReview": 29,
+    "references": 58,
+    "realPredictions": 13,
+    "replayableImageRefs": 13,
+    "needsReview": 47,
     "averageScores": {
-      "overall": 0.546,
-      "grounding": 0.45,
-      "toolCoverage": 1,
-      "calibration": 0.016,
-      "evidence": 0.401,
+      "overall": 0.602,
+      "grounding": 0.567,
+      "toolCoverage": 0.989,
+      "calibration": 0.211,
+      "evidence": 0.355,
       "trustSafety": 1
     },
     "failureBuckets": {
-      "missing_replayable_image": 28,
+      "missing_replayable_image": 44,
+      "aligned_real_trace": 11,
+      "overflagged_damage_or_glare_false_positive": 1,
+      "overconfident_clean_or_under_detected_dings": 1,
       "tag_link_only_no_structured_outcome": 1
     },
     "toolSurface": {
@@ -169,10 +172,10 @@
   "llmJudge": {
     "mode": "deterministic_llm_judge_fallback",
     "rubric": "System-level judge over ML, agent, calibration, trust, UX, and evidence layers.",
-    "grounding": 0.45,
-    "toolCoverage": 1,
-    "calibration": 0.016,
-    "evidence": 0.401,
+    "grounding": 0.567,
+    "toolCoverage": 0.989,
+    "calibration": 0.211,
+    "evidence": 0.355,
     "trustSafety": 1,
     "promptArtifact": "data/cert-references/agentic-eval/latest.judge-prompts.jsonl",
     "note": "The current judge is deterministic/local so it is replayable without paid LLM calls; the prompt artifact can be sent through pi-ai/OpenAI later."
@@ -182,7 +185,7 @@
       "id": "references_loaded",
       "label": "Certified references are loaded",
       "passed": true,
-      "detail": "29 references judged."
+      "detail": "58 references judged."
     },
     {
       "id": "external_refs_not_training_data",
@@ -205,8 +208,8 @@
     {
       "id": "minimum_real_predictions",
       "label": "At least five real model traces",
-      "passed": false,
-      "detail": "0 real predictions available."
+      "passed": true,
+      "detail": "13 real predictions available."
     },
     {
       "id": "gold_eval_set_exists",
@@ -224,13 +227,13 @@
       "id": "judge_grounding_floor",
       "label": "Average grounding score is promotion-ready",
       "passed": false,
-      "detail": "grounding=0.45"
+      "detail": "grounding=0.567"
     },
     {
       "id": "judge_evidence_floor",
       "label": "Average evidence score is promotion-ready",
       "passed": false,
-      "detail": "evidence=0.401"
+      "detail": "evidence=0.355"
     },
     {
       "id": "agent_tool_surface_complete",
@@ -242,9 +245,9 @@
       "id": "human_review_queue_empty",
       "label": "No non-pass judge verdicts remain",
       "passed": false,
-      "detail": "29 rows need review."
+      "detail": "47 rows need review."
     }
   ],
-  "rowsNeedingReview": 29,
+  "rowsNeedingReview": 47,
   "judgePromptsPath": "data/cert-references/agentic-eval/latest.judge-prompts.jsonl"
 }

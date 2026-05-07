@@ -8,11 +8,11 @@
     "fps": 5,
     "duration": 4.8
   },
-  "capturedAt": "2026-05-07T12:32:27.722Z",
+  "capturedAt": "2026-05-07T19:24:10.381Z",
   "usage": {
     "promptTokenCount": 2384,
-    "candidatesTokenCount": 686,
-    "totalTokenCount": 4245,
+    "candidatesTokenCount": 599,
+    "totalTokenCount": 4106,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,17 +23,19 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 1175,
+    "thoughtsTokenCount": 1123,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip displays a mobile view of a 'Card Condition Vault' detail page for a Tauros card. It initially shows the card with DING annotations, then scrolls down to reveal a 'VERIFIED OUTCOME' section, and finally a detailed 'DINGS (3)' panel with descriptions and materiality notes.",
+    "scene_summary": "The clip displays a mobile view of a 'Card Condition Vault' detail page for a 'Taurus' Pokémon card. It initially shows the card with DING annotations, then scrolls to reveal controls for DING overlays, a 'VERIFIED OUTCOME' section, and finally a detailed 'DINGS (3)' panel with descriptions and materiality notes.",
     "key_observations": [
-      "The page is a detail view for a real card, 'Tauros', with a mobile-optimized layout.",
-      "Visible DING annotation boxes, labels (e.g., 'EDGE WEAR'), and confidence/materiality notes (e.g., 'MODERATE', 'MINOR') are present on the card image.",
-      "A dedicated 'DINGS (3)' panel is visible, providing detailed descriptions and materiality for each annotation.",
-      "The 'Material-to-grade only' checkbox is unchecked during the clip, but the DING overlays remain visible."
+      "The page is a real-card example detail page, confirmed by the card image and text 'Real card image used for vendor-pilot trust demos'.",
+      "Visible DING annotation boxes are present on the card image, labeled 'DING - EDGE WEAR - MODERATE', 'DING - CORNER WEAR - MODERATE', and 'DING - EDGE WEAR - MINOR'.",
+      "Confidence/materiality notes ('MODERATE', 'MINOR') are visible in the DING labels and detailed in the 'DINGS (3)' panel ('Material to grade · moderate/minor').",
+      "A dedicated 'DINGS (3)' panel is visible after scrolling, listing each DING with descriptions and 'annotation: human+model'.",
+      "The UI layout is clearly optimized for mobile, with a bottom navigation bar and stacked content.",
+      "The 'Material-to-grade only' checkbox is unchecked during the clip."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
@@ -43,7 +45,7 @@
       "ALPHA V0.1",
       "REAL MODEL",
       "BRONZE Open CC BY 4.0 image + human/model annotation",
-      "Tauros",
+      "Taurus",
       "DING - EDGE WEAR - MODERATE",
       "DING - CORNER WEAR - MODERATE",
       "DING - EDGE WEAR - MINOR",
@@ -51,31 +53,19 @@
       "Material-to-grade only",
       "IMAGE OPACITY",
       "VERIFIED OUTCOME",
-      "Tauros real-card DING annotations",
-      "Real card image used for vendor-pilot trust demos. DING annotations are CCV/open-dataset QA labels, not official PSA/TAG/CGC/BGS rationale.",
-      "OFFICIAL OUTCOME",
-      "None attached — annotation provenance only.",
+      "Taurus real-card DING annotations",
+      "Real card image used for vendor-pilot trust demos.",
       "DINGS (3)",
       "edge wear",
       "Material to grade · moderate",
-      "Visible whitening and border wear along the top edge of the real card image.",
-      "annotation: human+model",
       "corner wear",
-      "Material to grade · moderate",
-      "Corner and lower-edge wear are visible near the lower-left card boundary.",
-      "edge wear",
       "Material to grade · minor",
-      "Right edge shows visible whitening consistent with edge-wear review.",
+      "annotation: human+model",
       "Capture quality + limitations",
-      "Identity image source: roboflow-cc-by-4.0",
-      "Roboflow-style real card fixture bundled with CCV demo assets.",
-      "Our scan ≠ TAG photometric stereoscopic imaging. Confidence",
       "Dashboard",
       "Workspace",
       "Examples",
       "Cert import",
-      "Benchmarks",
-      "Scan",
       "Cards",
       "Methods",
       "Compare"

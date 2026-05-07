@@ -1,6 +1,6 @@
 # Visible Condition Assistance Proof
 
-Generated: 2026-05-07T12:34:27.451Z
+Generated: 2026-05-07T19:34:20.155Z
 
 ## Claim
 
@@ -25,8 +25,8 @@ Generated: 2026-05-07T12:34:27.451Z
 
 ## Dataset + Model
 
-- Open DING records: 3349
-- Dataset manifest hash: 24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2
+- Open DING records: 25313
+- Dataset manifest hash: 50ba9be93ca008d3775b876ce5d61835322197a0d68d58040f0c01ad74cf0268
 - Model: ding-detector-v0
 - Training run: yolo-20260506T124111Z
 - Weights SHA-256: 7b9e0f62007b6d595d9aa7e9eb9596a19e9a2e51dfe7f9433abe74a9febe1a2d
@@ -37,20 +37,20 @@ Generated: 2026-05-07T12:34:27.451Z
 
 ## Certified References
 
-- Total references: 29
-- Silver+: 20
-- Replayable Silver+ images: 0
+- Total references: 58
+- Silver+: 13
+- Replayable Silver+ images: 13
 - Gold/gold-candidate records: 0
 - Human DING reviews: 0
 
 ## Agent + LLM Judge
 
 - Judge mode: deterministic_llm_judge_fallback
-- Tool coverage: 1.000
-- Grounding: 0.450
-- Evidence: 0.401
+- Tool coverage: 0.989
+- Grounding: 0.567
+- Evidence: 0.355
 - Trust safety: 1.000
-- Rows needing review: 29
+- Rows needing review: 47
 - Agentic annotation eval: pass
 - Multimodel annotation precision: 1.000
 - Multimodel annotation recall: 1.000
@@ -68,11 +68,11 @@ Generated: 2026-05-07T12:34:27.451Z
 
 | Gate | Status | Detail |
 | --- | --- | --- |
-| Open DING dataset audit is verified | PASS | 3349 records. |
+| Open DING dataset audit is verified | PASS | 25313 records. |
 | Real DING model metadata exists | PASS | model=ding-detector-v0. |
 | YOLO detector metrics are measured | PASS | mAP50=0.46374 recall=0.44897. |
 | Random/class-prior baselines exist | PASS | Baseline sanity checks are present in ml/runs/eval_yolo_test_report.json. |
-| Certified references are loaded | PASS | 29/20 references. |
+| Certified references are loaded | PASS | 58/20 references. |
 | External certified references are not training data | PASS | 0 training-policy violations. |
 | TAG references remain link-only/no-bulk-scrape | PASS | 0 TAG policy violations. |
 | Agent tool surface covers inspection workflow | PASS | 0 promotion-required tools missing. |
@@ -85,10 +85,10 @@ Generated: 2026-05-07T12:34:27.451Z
 
 | Gate | Status | Detail |
 | --- | --- | --- |
-| 20 image-backed Silver+ references are replayable | BLOCKED | 0/20 image-backed Silver+ refs. |
+| 20 image-backed Silver+ references are replayable | BLOCKED | 13/20 image-backed Silver+ refs. |
 | 10 human DING reviews exist | BLOCKED | 0/10 reviews. |
-| Agent LLM-judge grounding is vendor-alpha ready | BLOCKED | grounding=0.45. |
-| Certified Reference Alpha release mode passes | BLOCKED | image_backed_silver_plus: 0/20 image-backed Silver+ refs. |
+| Agent LLM-judge grounding is vendor-alpha ready | BLOCKED | grounding=0.567. |
+| Certified Reference Alpha release mode passes | BLOCKED | image_backed_silver_plus: 13/20 image-backed Silver+ refs. |
 
 ## Top Failure Cases
 
@@ -99,13 +99,13 @@ Generated: 2026-05-07T12:34:27.451Z
 | dataset | Human DING review coverage is missing | Create human review tasks for Gold/gold-candidate records and store DING boxes/severity. |
 | dataset | Official outcome band coverage is too narrow | Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands. |
 | dataset | Image-backed Silver+ reference coverage is below production floor | Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_139091062/, then run pnpm eval:certrefs:run. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_142558447/, then run pnpm eval:certrefs:run. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_142558455/, then run pnpm eval:certrefs:run. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_142558459/, then run pnpm eval:certrefs:run. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_142558463/, then run pnpm eval:certrefs:run. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_142558471/, then run pnpm eval:certrefs:run. |
-| evidence | Certified reference declares slab images but no replayable local artifact is attached | Attach permitted front/back images under data/cert-references/slab-images/psa_142558473/, then run pnpm eval:certrefs:run. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
 
 ## Shareable Proof Examples
 

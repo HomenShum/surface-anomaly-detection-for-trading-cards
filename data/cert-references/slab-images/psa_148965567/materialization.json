@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "certId": "psa_148965567",
+  "createdAt": "2026-05-07T17:48:28.828Z",
+  "artifacts": [
+    {
+      "schemaVersion": 1,
+      "certId": "psa_148965567",
+      "view": "front",
+      "filename": "front.jpg",
+      "sourceFilename": "psa_148965567_front_slab.jpg",
+      "source": "vendor_processed_psa_package",
+      "sourceRowLocalImagePath": "processed_psa_references/slab_crops/psa_148965567_front_slab.jpg",
+      "sourceRowLocalImageSha256": "52eb69202a631bd616fa0780612e24913593e2c4ae4eb6529f7dcb8728793271",
+      "targetPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\slab-images\\psa_148965567\\front.jpg",
+      "sha256": "52eb69202a631bd616fa0780612e24913593e2c4ae4eb6529f7dcb8728793271",
+      "sizeBytes": 132806,
+      "consentToStore": true,
+      "publicExampleAllowed": false,
+      "trainingAllowed": false,
+      "importedAt": "2026-05-07T17:48:28.828Z"
+    }
+  ],
+  "policy": "Replayable certified-reference image evidence only. Not training data unless a separate rights/consent record permits it."
+}

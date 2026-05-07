@@ -1,16 +1,16 @@
 # Full System Flywheel Report
 
-Generated: 2026-05-07T12:34:30.236Z
+Generated: 2026-05-07T19:33:36.329Z
 
 Overall local loop: **pass**
 
 ## Dataset State
 
 - Configured Roboflow sources: 8
-- Downloaded/trainable sources: 2
-- Missing configured exports: 6
-- Local records: 3349
-- Manifest SHA-256: 24e62f76baf046c7d3ec83d147bbe4fb0a252b4cd06c77cd7ac13e61add28fa2
+- Downloaded/trainable sources: 5
+- Missing configured exports: 3
+- Local records: 25313
+- Manifest SHA-256: 50ba9be93ca008d3775b876ce5d61835322197a0d68d58040f0c01ad74cf0268
 
 ## Model + Agent Eval
 
@@ -52,22 +52,18 @@ Overall local loop: **pass**
 
 ## Remaining Blockers
 
-- dataset:roboflow_scratch_poke_v2: local_export_missing; https://universe.roboflow.com/pokemonfyp/scratch-poke/dataset/2
-- dataset:roboflow_pokefrontbackdamage_v1: local_export_missing; https://universe.roboflow.com/pokemonfyp/pokefrontbackdamage/dataset/1
-- dataset:roboflow_card_condition_29wwd_v1: local_export_missing; https://universe.roboflow.com/fes-acatlan/card-condition-29wwd/dataset/1
-- dataset:roboflow_pokemon_card_detection_7aaz7_v1: local_export_missing; https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7/dataset/1
-- dataset:roboflow_pokemon_cards_segmentation_v2: local_export_missing; https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation/dataset/2
-- dataset:roboflow_pokemon_card_detection_3_v1: local_export_missing; https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3/dataset/1
-- vendor-alpha:image_backed_silver_plus_20: 0/20 image-backed Silver+ refs.
+- dataset:roboflow_pokemon_card_detection_7aaz7_v1: parse_failed: No data.yaml or dataset.yaml found under D:\VSCode Projects\surface_anomaly_detection_model\ml\datasets\raw\roboflow\roboflow_pokemon_card_detection_7aaz7_v1; https://universe.roboflow.com/roboflow-ayy4i/pokemon-card-detection-7aaz7/dataset/1
+- dataset:roboflow_pokemon_cards_segmentation_v2: parse_failed: No data.yaml or dataset.yaml found under D:\VSCode Projects\surface_anomaly_detection_model\ml\datasets\raw\roboflow\roboflow_pokemon_cards_segmentation_v2; https://universe.roboflow.com/maestromaxo/pokemon-cards-segmentation/dataset/2
+- dataset:roboflow_pokemon_card_detection_3_v1: parse_failed: No data.yaml or dataset.yaml found under D:\VSCode Projects\surface_anomaly_detection_model\ml\datasets\raw\roboflow\roboflow_pokemon_card_detection_3_v1; https://universe.roboflow.com/ferrari-yolo/pokemon-card-detection-3/dataset/1
+- vendor-alpha:image_backed_silver_plus_20: 13/20 image-backed Silver+ refs.
 - vendor-alpha:human_ding_reviews_10: 0/10 reviews.
-- vendor-alpha:agent_grounding_floor: grounding=0.45.
-- vendor-alpha:cert_alpha_gate: image_backed_silver_plus: 0/20 image-backed Silver+ refs.
-- production:image_backed_silver_plus: 0/100 image-backed Silver+ refs.
-- production:real_outcome_rows: 1/100 rows.
-- production:real_band_match_rate: 1.000 on 1 rows.
-- production:official_band_coverage: 1/4 bands.
+- vendor-alpha:agent_grounding_floor: grounding=0.567.
+- vendor-alpha:cert_alpha_gate: image_backed_silver_plus: 13/20 image-backed Silver+ refs.
+- production:image_backed_silver_plus: 13/100 image-backed Silver+ refs.
+- production:real_outcome_rows: 14/100 rows.
+- production:real_band_match_rate: 0.857 on 14 rows.
+- production:official_band_coverage: 2/4 bands.
 - production:gold_records: 0/30 records.
 - production:human_ding_reviews: 0/30 reviews.
 - production:production_gate: One or more hard production gates is blocked.
-- production:declared_silver_plus_images_closed: 20 declared-image refs missing local artifacts.
-- production:agentic_eval_deployable: 29 rows need review.
+- production:agentic_eval_deployable: 47 rows need review.

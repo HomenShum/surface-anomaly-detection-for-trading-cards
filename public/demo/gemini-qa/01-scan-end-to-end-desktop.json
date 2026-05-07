@@ -8,11 +8,11 @@
     "fps": 12,
     "duration": 14.01
   },
-  "capturedAt": "2026-05-07T12:28:50.077Z",
+  "capturedAt": "2026-05-07T19:20:23.192Z",
   "usage": {
     "promptTokenCount": 2364,
-    "candidatesTokenCount": 526,
-    "totalTokenCount": 4080,
+    "candidatesTokenCount": 539,
+    "totalTokenCount": 3485,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,18 +23,17 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 1190,
+    "thoughtsTokenCount": 582,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip shows a 'Card Condition Vault' application analyzing a Pokemon card. A live checklist on the right tracks the real-time progress of various detection and analysis steps, which transition from 'WAITING' to 'DONE'. The process includes identifying card features and inspecting corner regions.",
+    "scene_summary": "The clip begins with a blank screen before loading a 'Card Condition Vault' application. A Pokémon card (Tauros) is displayed on the left, while a 'LIVE CHECKLIST' on the right shows real-time progress of various image analysis steps. The checklist items progressively update from 'WAITING'/'CHECKING' to 'DONE' as the card is processed.",
     "key_observations": [
-      "A Pokemon card (Tauros) is displayed for analysis.",
-      "A 'LIVE CHECKLIST' tracks real-time progress of detection steps, with items like 'Card detected', 'Edges visible', 'Blur check', 'Glare check', 'Perspective normalized', 'Front recognized', and 'Corner regions extracted'.",
-      "Checklist items sequentially transition from 'WAITING' or 'CHECKING' to 'DONE'.",
-      "During 'Corner regions extracted', bounding boxes and labels ('TOP-LEFT', 'BOTTOM-RIGHT', 'TOP EDGE', 'BOTTOM EDGE') appear over the card, indicating inspection areas.",
-      "All checklist items eventually show 'DONE', indicating a successful analysis completion."
+      "The UI loads and displays a Pokémon card for analysis.",
+      "A 'LIVE CHECKLIST' tracks the progress of image processing steps like 'Card detected', 'Edges visible', 'Blur check', 'Glare check', 'Perspective normalized', 'Front recognized', and 'Corner regions extracted'.",
+      "The 'Corner regions extracted' step visually highlights different parts of the card (top-left, bottom-right, top edge, bottom edge) as it processes.",
+      "All checklist items successfully complete and show 'DONE' by the end of the clip."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
@@ -45,6 +44,11 @@
       "ALPHA V0.1 Not an official grade",
       "REAL MODEL ding-detector-v0",
       "Restart",
+      "Tauros",
+      "70 HP",
+      "Crush Chance",
+      "Call for Family",
+      "Horn Attack",
       "LIVE CHECKLIST",
       "Real-time progress",
       "Card detected",
@@ -57,21 +61,19 @@
       "WAITING",
       "CHECKING",
       "DONE",
-      "Inspecting TOP-LEFT",
-      "Inspecting BOTTOM-RIGHT",
-      "Inspecting TOP EDGE",
-      "Inspecting BOTTOM EDGE",
+      "RUNNING",
+      "TOP-LEFT",
+      "BOTTOM-RIGHT",
+      "TOP EDGE",
+      "BOTTOM EDGE",
       "4 region(s) inspected",
       "STREAMING",
       "roboflow-tauros-real-card.jpg",
-      "Tauros",
-      "70 HP",
-      "Crush Chance",
-      "Call for Family",
-      "Horn Attack"
+      "surface matte - sharpness 100 - glare risk 0",
+      "Stream log (1)"
     ],
     "matches_expectation": true,
-    "match_confidence": 1,
+    "match_confidence": 0.9,
     "issues": [],
     "verdict": "pass",
     "suggested_followups": []

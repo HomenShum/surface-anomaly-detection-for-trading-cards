@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T12:32:56.395Z",
+  "generatedAt": "2026-05-07T19:34:06.632Z",
   "rows": [
     {
       "gif": "public/demo/gifs/01-sample-card-analysis.gif",
@@ -13,7 +13,7 @@
       "gif": "public/demo/gifs/01-scan-end-to-end-desktop.gif",
       "verdict": "pass",
       "matches": true,
-      "confidence": 1,
+      "confidence": 0.9,
       "issues": 0,
       "suggested_followups": []
     },
@@ -91,24 +91,25 @@
       "matches": true,
       "confidence": 1,
       "issues": 0,
-      "suggested_followups": []
+      "suggested_followups": [
+        "Verify the exact pixel dimensions (1440x900) if not already confirmed by Playwright's viewport settings.",
+        "Confirm that the DING bounding box colors and label styles are consistent with design specifications."
+      ]
     },
     {
       "gif": "public/demo/gifs/04-example-detail-grader-mobile.gif",
       "verdict": "pass",
       "matches": true,
-      "confidence": 0.9,
-      "issues": 1,
-      "suggested_followups": [
-        "Consider adding a more explicit 'not an official grade' disclaimer if the current phrasing is not sufficient."
-      ]
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
     },
     {
       "gif": "public/demo/gifs/05-methods-board-flywheel-desktop.gif",
       "verdict": "pass",
       "matches": true,
       "confidence": 1,
-      "issues": 1,
+      "issues": 0,
       "suggested_followups": []
     },
     {
@@ -145,6 +146,30 @@
     },
     {
       "gif": "public/demo/gifs/09-benchmarks-flywheel-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/10-dealer-intake-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/11-dealer-dashboard-desktop.gif",
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 1,
+      "issues": 0,
+      "suggested_followups": []
+    },
+    {
+      "gif": "public/demo/gifs/12-dealer-record-review-desktop.gif",
       "verdict": "pass",
       "matches": true,
       "confidence": 1,

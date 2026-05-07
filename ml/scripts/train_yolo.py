@@ -20,6 +20,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device", default=None, help="CUDA device, cpu, or mps.")
     parser.add_argument("--project", default=None)
     parser.add_argument("--name", default=None)
+    parser.add_argument("--model-version", default=None, help="Model version label to write into the metrics JSON.")
     parser.add_argument(
         "--output",
         type=Path,
@@ -97,6 +98,7 @@ def main() -> int:
                     "device": config.get("device", "auto"),
                     "project": project,
                     "name": name,
+                    "model_version": args.model_version or "ding-detector-v0",
                     "output": str(args.output),
                 },
                 indent=2,
@@ -131,8 +133,8 @@ def main() -> int:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(best_path, args.output)
     metrics = {
-        "model_version": "ding-detector-v0",
         "training_run_id": f"yolo-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+        "model_version": args.model_version or "ding-detector-v0",
         "base_model": model_name,
         "data": data_path,
         "imgsz": int(config.get("imgsz", 896)),

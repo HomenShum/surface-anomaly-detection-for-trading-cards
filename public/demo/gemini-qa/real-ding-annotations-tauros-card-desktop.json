@@ -8,11 +8,11 @@
     "fps": 5,
     "duration": 4.8
   },
-  "capturedAt": "2026-05-07T12:32:16.608Z",
+  "capturedAt": "2026-05-07T19:23:58.031Z",
   "usage": {
     "promptTokenCount": 2384,
-    "candidatesTokenCount": 428,
-    "totalTokenCount": 3491,
+    "candidatesTokenCount": 472,
+    "totalTokenCount": 3716,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,28 +23,28 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 679,
+    "thoughtsTokenCount": 860,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip begins showing a detailed view of a 'Tauros' Pokémon card with a DING annotation box and label. The page then scrolls down to reveal more DING annotations on the card and a comprehensive DING panel with additional details and explanations.",
+    "scene_summary": "The clip begins showing the top portion of a card detail page, featuring a 'Tauros' card with DING annotations. The view then scrolls down to reveal the lower part of the card and additional detail panels, including a dedicated DING panel, grader comparison, and capture quality information.",
     "key_observations": [
-      "A 'Tauros' Pokémon card is displayed prominently.",
-      "Initial view shows a 'DING - EDGE WEAR - MODERATE' annotation box on the card.",
-      "The page scrolls down, revealing 'DING - CORNER WEAR - MODERATE' and 'DING - EDGE WEAR - MINOR' annotations on the card.",
-      "A 'DINGS (3)' panel becomes visible, listing 'edge wear' and 'corner wear' with materiality notes like 'Material to grade: moderate' and 'Material to grade: minor'.",
-      "The 'VERIFIED OUTCOME' panel shows 'OUR SCORE 760 Visible condition risk 81%'."
+      "A 'Tauros' card image is displayed prominently on the left.",
+      "Initial view shows DING annotation boxes and labels like 'DING - EDGE WEAR - MODERATE' on the card.",
+      "The page scrolls down, revealing more DING annotations on the card, such as 'DING - CORNER WEAR - MODERATE' and 'DING - EDGE WEAR - MINOR'.",
+      "A 'VERIFIED OUTCOME' panel displays 'OUR SCORE 760' and 'Visible condition risk 81%'.",
+      "After scrolling, a 'DINGS (3)' panel is visible, listing 'edge wear' and 'corner wear' with 'Material to grade: moderate' and 'Material to grade: minor' notes.",
+      "UI elements like 'DING overlays' and 'Material-to-grade only' checkboxes are present below the card image."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
-      "Tauros",
-      "70 HP",
-      "DING - EDGE WEAR - MODERATE",
       "VERIFIED OUTCOME",
       "Tauros real-card DING annotations",
+      "DING - EDGE WEAR - MODERATE",
       "OUR SCORE",
-      "760 Visible condition risk",
+      "760",
+      "Visible condition risk",
       "81%",
       "DING - CORNER WEAR - MODERATE",
       "DING - EDGE WEAR - MINOR",

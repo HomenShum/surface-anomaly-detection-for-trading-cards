@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-05-07T12:34:26.813Z",
-  "checkMode": false,
+  "generatedAt": "2026-05-07T19:34:20.124Z",
+  "checkMode": true,
   "deployable": false,
   "summary": {
-    "total": 29,
-    "psa": 28,
+    "total": 58,
+    "psa": 57,
     "tag": 1,
-    "silverPlus": 20,
+    "silverPlus": 13,
     "gold": 0,
     "analyzed": 0,
     "trainingViolations": 0,
     "tagBulkScrapeViolations": 0,
-    "needsRawScanForGold": 29
+    "needsRawScanForGold": 58
   },
   "gates": [
     {
       "id": "cert_references_exist",
       "label": "Certified references are seeded or imported",
       "passed": true,
-      "detail": "29 references loaded."
+      "detail": "58 references loaded."
     },
     {
       "id": "external_refs_not_training_data",
@@ -42,7 +42,7 @@
       "id": "gold_upgrade_gap_visible",
       "label": "Silver/Silver+ references explicitly require raw scans for Gold",
       "passed": true,
-      "detail": "29 references still need raw pre-submission scan + human DING review."
+      "detail": "58 references still need raw pre-submission scan + human DING review."
     },
     {
       "id": "minimum_model_analyzed_refs",
@@ -59,6 +59,132 @@
   ],
   "references": [
     {
+      "id": "psa_130255216",
+      "provider": "PSA",
+      "certNumber": "130255216",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_130814351",
+      "provider": "PSA",
+      "certNumber": "130814351",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_130814358",
+      "provider": "PSA",
+      "certNumber": "130814358",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_130814362",
+      "provider": "PSA",
+      "certNumber": "130814362",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162369",
+      "provider": "PSA",
+      "certNumber": "134162369",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162371",
+      "provider": "PSA",
+      "certNumber": "134162371",
+      "trustTier": "silver",
+      "officialGrade": "NM 7",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
       "id": "psa_134162375",
       "provider": "PSA",
       "certNumber": "134162375",
@@ -68,12 +194,330 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Label-batch read; verify via PSA API before publishing as final metadata.",
-        "No slab image or raw pre-submission scan attached.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162379",
+      "provider": "PSA",
+      "certNumber": "134162379",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162381",
+      "provider": "PSA",
+      "certNumber": "134162381",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162384",
+      "provider": "PSA",
+      "certNumber": "134162384",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162394",
+      "provider": "PSA",
+      "certNumber": "134162394",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162396",
+      "provider": "PSA",
+      "certNumber": "134162396",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162397",
+      "provider": "PSA",
+      "certNumber": "134162397",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162403",
+      "provider": "PSA",
+      "certNumber": "134162403",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162404",
+      "provider": "PSA",
+      "certNumber": "134162404",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162407",
+      "provider": "PSA",
+      "certNumber": "134162407",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162409",
+      "provider": "PSA",
+      "certNumber": "134162409",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162412",
+      "provider": "PSA",
+      "certNumber": "134162412",
+      "trustTier": "silver",
+      "officialGrade": "NM 7",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162413",
+      "provider": "PSA",
+      "certNumber": "134162413",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_134162422",
+      "provider": "PSA",
+      "certNumber": "134162422",
+      "trustTier": "silver",
+      "officialGrade": "EX-MT 6",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_136693729",
+      "provider": "PSA",
+      "certNumber": "136693729",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_137437905",
+      "provider": "PSA",
+      "certNumber": "137437905",
+      "trustTier": "silver",
+      "officialGrade": "NM 7",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -131,6 +575,27 @@
       ]
     },
     {
+      "id": "psa_139091041",
+      "provider": "PSA",
+      "certNumber": "139091041",
+      "trustTier": "silver",
+      "officialGrade": "NM 7",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
       "id": "psa_139091042",
       "provider": "PSA",
       "certNumber": "139091042",
@@ -149,6 +614,69 @@
       ]
     },
     {
+      "id": "psa_139091051",
+      "provider": "PSA",
+      "certNumber": "139091051",
+      "trustTier": "silver",
+      "officialGrade": "NM 7",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_139091052",
+      "provider": "PSA",
+      "certNumber": "139091052",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_139091058",
+      "provider": "PSA",
+      "certNumber": "139091058",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
       "id": "psa_139091059",
       "provider": "PSA",
       "certNumber": "139091059",
@@ -158,30 +686,99 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Label-batch read; verify via PSA API before publishing as final metadata.",
-        "No slab image or raw pre-submission scan attached.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
       "id": "psa_139091062",
       "provider": "PSA",
       "certNumber": "139091062",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "NM-MT 8",
       "officialBand": "800-849_near_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_139091071",
+      "provider": "PSA",
+      "certNumber": "139091071",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_139091072",
+      "provider": "PSA",
+      "certNumber": "139091072",
+      "trustTier": "silver",
+      "officialGrade": "MINT 9",
+      "officialBand": "900-949_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
+      "id": "psa_139091080",
+      "provider": "PSA",
+      "certNumber": "139091080",
+      "trustTier": "silver",
+      "officialGrade": "NM-MT 8",
+      "officialBand": "800-849_near_mint",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -203,6 +800,27 @@
       ]
     },
     {
+      "id": "psa_140992606",
+      "provider": "PSA",
+      "certNumber": "140992606",
+      "trustTier": "silver",
+      "officialGrade": "NM 7",
+      "officialBand": "700-799_visible_issues",
+      "modelAnalyzed": false,
+      "needsHumanReview": true,
+      "trainingAllowed": false,
+      "publicExampleAllowed": false,
+      "needsRawScanForGold": true,
+      "limitations": [
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
+      ]
+    },
+    {
       "id": "psa_142558447",
       "provider": "PSA",
       "certNumber": "142558447",
@@ -212,12 +830,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -230,48 +853,59 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
       "id": "psa_142558459",
       "provider": "PSA",
       "certNumber": "142558459",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
       "id": "psa_142558463",
       "provider": "PSA",
       "certNumber": "142558463",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -296,18 +930,21 @@
       "id": "psa_142558471",
       "provider": "PSA",
       "certNumber": "142558471",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "NM-MT 8",
       "officialBand": "800-849_near_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -320,12 +957,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -338,30 +980,38 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
       "id": "psa_148901879",
       "provider": "PSA",
       "certNumber": "148901879",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -374,12 +1024,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -392,30 +1047,38 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
       "id": "psa_148901886",
       "provider": "PSA",
       "certNumber": "148901886",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -428,12 +1091,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -446,12 +1114,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -464,12 +1137,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -482,30 +1160,38 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
       "id": "psa_152528467",
       "provider": "PSA",
       "certNumber": "152528467",
-      "trustTier": "silver_plus",
+      "trustTier": "silver",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Card identity read from angled friend photo; verify via PSA API before publishing as final metadata.",
-        "Post-slab image reference only.",
-        "No DING-level grader notes."
+        "label-only evidence; no local replayable card/slab image attached",
+        "not eligible for Silver+ gate until slab/card image is attached",
+        "official PSA grade does not provide DING-level rationale",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Label-only candidate; not image-backed until a local slab/card image is attached."
       ]
     },
     {
@@ -518,12 +1204,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "PSA certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert images must not be cached or used for training without permission."
+        "cert page screenshot, not a direct raw scan",
+        "front/back are visible inside screenshot and may be compressed",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop card area and avoid label leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -536,12 +1227,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {
@@ -554,12 +1250,17 @@
       "modelAnalyzed": false,
       "needsHumanReview": true,
       "trainingAllowed": false,
-      "publicExampleAllowed": true,
+      "publicExampleAllowed": false,
       "needsRawScanForGold": true,
       "limitations": [
-        "Slab-front certified image reference, not a raw pre-submission scan.",
-        "PSA cert pages generally do not expose DING-level grader rationale.",
-        "Cert/slab images must not be cached or used for training without permission."
+        "post-slab image, not raw pre-submission scan",
+        "slab glare/plastic may hide or create apparent surface artifacts",
+        "official PSA grade does not provide DING-level rationale",
+        "condition model must crop out PSA label to avoid grade leakage",
+        "Certified outcome reference only; not DING-level ground truth.",
+        "No raw pre-submission scan is attached.",
+        "Replayable local vendor-provided slab/cert image is available for evaluation.",
+        "Condition inference must use card-only crops or masked label regions to prevent grade-label leakage."
       ]
     },
     {

@@ -8,11 +8,11 @@
     "fps": 14,
     "duration": 11
   },
-  "capturedAt": "2026-05-07T12:32:36.821Z",
+  "capturedAt": "2026-05-07T19:24:20.509Z",
   "usage": {
     "promptTokenCount": 2406,
-    "candidatesTokenCount": 525,
-    "totalTokenCount": 3686,
+    "candidatesTokenCount": 510,
+    "totalTokenCount": 3774,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,18 +23,19 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 755,
+    "thoughtsTokenCount": 858,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip demonstrates a mobile-like UI for a 'Card Condition Vault' performing a real-time scan of a Pokémon card. It shows a 'Tauros' card on a canvas, with dynamic overlays highlighting different regions (corners, edges) for visual inspection. A live checklist tracks progress as the inspection proceeds.",
+    "scene_summary": "The clip demonstrates a card scanning and inspection flow. It begins with a full view of a Pokémon card, then sequentially highlights different corners and edges with visual overlays and zoomed-in views, while a live checklist progresses in the background.",
     "key_observations": [
-      "The UI displays a 'Tauros' Pokémon card as the central 'card canvas'.",
-      "Region inspection overlays appear sequentially, highlighting 'TOP-LEFT', 'TOP-RIGHT', 'BOTTOM-RIGHT' corners, and 'TOP EDGE', 'BOTTOM EDGE' of the card.",
-      "Zoomed-in views of the 'TOP RIGHT CORNER' and 'BOTTOM-RIGHT CORNER' are shown as overlays.",
-      "A 'LIVE CHECKLIST Real-time progress' section is visible at the bottom, with its percentage updating from 0% to 86% across the clip.",
-      "The UI includes navigation steps (1. MODE, 2. CAPTURE, 3. CHECKLIST, 4. REPORT) and model selection (ALPHA V0.1, REAL MODEL)."
+      "The UI displays a 'Card Condition Vault' header with navigation steps, '3. CHECKLIST' being active.",
+      "A 'Tauros' Pokémon card is centrally displayed as the 'card canvas'.",
+      "A 'LIVE CHECKLIST Real-time progress' section shows a percentage increasing from 0% to 86% across the clip.",
+      "Sequential region inspection overlays appear: 'TOP-LEFT', 'TOP-RIGHT', 'BOTTOM-RIGHT', 'TOP EDGE', and 'BOTTOM EDGE'.",
+      "For corner inspections ('TOP-RIGHT', 'BOTTOM-RIGHT'), a zoomed-in miniature view of the respective corner is displayed alongside the main card.",
+      "The status bar below the card shows 'STREAMING' and details like 'surface matte - sharpness 100 - glare risk 0'."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
@@ -55,16 +56,16 @@
       "surface matte - sharpness 100 - glare risk 0",
       "LIVE CHECKLIST",
       "Real-time progress",
+      "TOP-LEFT",
+      "TOP-RIGHT",
+      "BOTTOM-RIGHT",
+      "TOP EDGE",
+      "BOTTOM EDGE",
       "0%",
       "43%",
       "50%",
       "57%",
-      "86%",
-      "TOP-LEFT",
-      "TOP RIGHT CORNER",
-      "BOTTOM-RIGHT CORNER",
-      "TOP EDGE",
-      "BOTTOM EDGE"
+      "86%"
     ],
     "matches_expectation": true,
     "match_confidence": 1,

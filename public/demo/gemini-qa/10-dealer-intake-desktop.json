@@ -1,0 +1,71 @@
+{
+  "gif": "public/demo/gifs/10-dealer-intake-desktop.gif",
+  "expect": "the /dealer/intake bulk PSA-label intake page: drop zone for slab/binder photos, lane swimlanes (Uploaded / Certs detected / Verified / Image attached / Ready / Needs human review / Listed), and a recent-batches table — desktop (1440x900). The page is the Day-1 deliverable of the dealer pilot.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 80,
+    "fps": 11,
+    "duration": 7.27
+  },
+  "capturedAt": "2026-05-07T19:22:38.217Z",
+  "usage": {
+    "promptTokenCount": 2433,
+    "candidatesTokenCount": 593,
+    "totalTokenCount": 3630,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 369
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 604,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip begins with a blank white screen, then quickly loads the 'Bulk PSA-label intake' page. The page displays a drop zone for photos, several swimlanes for processing stages, and a 'Recent batches' table at the bottom. The view scrolls slightly downwards to reveal the full 'Recent batches' table.",
+    "key_observations": [
+      "The page title 'Bulk PSA-label intake — turn messy real-world photos into structured inventory.' is prominently displayed.",
+      "A 'Drop PSA label batch / slab grid / binder page photos' zone is visible with descriptive text.",
+      "Seven swimlanes are present: 'UPLOADED', 'CERTS DETECTED', 'VERIFIED', 'IMAGE ATTACHED', 'READY', 'NEEDS HUMAN REVIEW', and 'LISTED'.",
+      "The 'IMAGE ATTACHED' and 'READY' swimlanes contain sample PSA numbers and grades (e.g., 'PSA 142558447 GEM MT 10').",
+      "A 'Recent batches' table is visible at the bottom, showing one entry: 'batch_seed_ven', '2026-05-07 19:09:02', 'vendor-pilot-seed.json', '20', '20', 'READY'.",
+      "The page includes a 'VENDOR PILOT - DAY 1' label and a 'Vendor pilot contract' sidebar.",
+      "The UI appears stable and fully loaded throughout the visible frames."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Intake",
+      "Bulk PSA-label intake",
+      "VENDOR PILOT - DAY 1",
+      "Drop PSA label batch / slab grid / binder page photos",
+      "UPLOADED",
+      "CERTS DETECTED",
+      "VERIFIED",
+      "IMAGE ATTACHED",
+      "READY",
+      "NEEDS HUMAN REVIEW",
+      "LISTED",
+      "Recent batches",
+      "batch_seed_ven",
+      "vendor-pilot-seed.json",
+      "READY",
+      "ALPHA V0.1 Not an official grade",
+      "REAL MODEL cling-detector-v6",
+      "Vendor pilot contract",
+      "No customer-facing claims yet.",
+      "Friend reviews every report before listing.",
+      "Visible condition only — never an official grade."
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}
