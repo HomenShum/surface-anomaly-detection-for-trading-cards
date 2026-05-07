@@ -24,8 +24,8 @@ export default function SettingsPage() {
         </div>
         <div className="card">
           <h2>Pi agent</h2>
-          <p className="muted">Set `OPENROUTER_API_KEY`, `CARD_AGENT_PROVIDER`, and `CARD_AGENT_MODEL` for pi-ai report and workspace operations. `OPENAI_API_KEY` is used only as a constrained fallback.</p>
-          <code>CARD_AGENT_MODEL=google/gemma-4-26b-a4b</code>
+          <p className="muted">Set `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`, and `ANTHROPIC_API_KEY` for grounded report and workspace operations. OpenRouter remains primary unless the configured provider fails.</p>
+          <code>CARD_AGENT_MODEL=google/gemini-2.5-flash</code>
         </div>
       </section>
     </main>

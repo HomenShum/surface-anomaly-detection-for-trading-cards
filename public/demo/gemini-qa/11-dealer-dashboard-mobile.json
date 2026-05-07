@@ -1,0 +1,78 @@
+{
+  "gif": "public/demo/gifs/11-dealer-dashboard-mobile.gif",
+  "expect": "the /dealer/dashboard on mobile (390x844): summary cards stack vertically, sectional tables scroll horizontally inside their containers if needed.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 92,
+    "fps": 11,
+    "duration": 8.36
+  },
+  "capturedAt": "2026-05-07T19:54:32.342Z",
+  "usage": {
+    "promptTokenCount": 2387,
+    "candidatesTokenCount": 454,
+    "totalTokenCount": 3845,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 323
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1004,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a mobile view of the 'Dealer dashboard' page. The page scrolls vertically, revealing summary cards stacked one below another, followed by two data tables. Both tables display horizontal scrollbars, indicating they support horizontal scrolling.",
+    "key_observations": [
+      "The UI is rendered in a mobile viewport (390x844).",
+      "Summary cards like 'INVENTORY (RAWHIGH)' and 'EXPECTED GRADED EV' are stacked vertically.",
+      "Sectional tables, such as 'Ready to list (8)' and 'Worth grading (17)', display horizontal scrollbars, confirming horizontal scrolling capability within their containers."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Dealer dashboard",
+      "INVENTORY (RAWHIGH)",
+      "$3,846",
+      "21 records",
+      "EXPECTED GRADED EV",
+      "$10,854",
+      "across worth-grading + held",
+      "REVIEWED",
+      "11",
+      "/21 records",
+      "LISTED",
+      "3",
+      "drafts in queue",
+      "SUBMISSION PIPELINE",
+      "2",
+      "in flight",
+      "STALE (>30D)",
+      "0",
+      "consider price drop",
+      "Ready to list (8)",
+      "CERT",
+      "CARD",
+      "GRADE",
+      "LANE",
+      "PSA 148901886",
+      "Tyranitar V Battle Styles #155",
+      "MINT 9",
+      "ready",
+      "Worth grading (17)",
+      "Dashboard",
+      "Workspace",
+      "Examples"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "gif": "public/demo/gifs/10-dealer-intake-mobile.gif",
+  "expect": "the /dealer/intake bulk PSA-label intake page on mobile (390x844): drop zone, lane swimlanes (may stack vertically), and recent-batches table. Layout should not horizontally overflow.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 65,
+    "fps": 11,
+    "duration": 5.91
+  },
+  "capturedAt": "2026-05-07T19:54:14.629Z",
+  "usage": {
+    "promptTokenCount": 2403,
+    "candidatesTokenCount": 539,
+    "totalTokenCount": 3806,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 339
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 864,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a mobile view of the bulk PSA-label intake page. It starts at the top with the drop zone, then scrolls down to reveal vertically stacked swimlanes for processing status, and finally a 'Recent batches' table at the bottom.",
+    "key_observations": [
+      "The page displays a 'Bulk PSA-label intake' title and a 'Drop PSA label batch / slab grid /' section (drop zone).",
+      "Scrolling reveals 'READY', 'NEEDS HUMAN REVIEW', and 'LISTED' swimlanes, which are stacked vertically as expected for mobile.",
+      "A 'Recent batches' table is visible at the bottom, but its content horizontally overflows the viewport, truncating the 'RECO' column."
+    ],
+    "ui_text_snippets": [
+      "Card Condition Vault",
+      "Intake",
+      "Dashboard",
+      "Listings",
+      "Submissions",
+      "Examples",
+      "Benchmarks",
+      "ALPHA V0.1",
+      "CHECKING",
+      "REAL MODEL",
+      "VENDOR PILOT - DAY 1",
+      "Bulk PSA-label intake — turn messy real-world photos into structured inventory.",
+      "Vendor pilot contract",
+      "Drop PSA label batch / slab grid /",
+      "READY",
+      "PSA 148901880",
+      "GEM MT 10",
+      "PSA 154378339",
+      "NM-MT 8",
+      "NEEDS HUMAN REVIEW",
+      "empty",
+      "LISTED",
+      "Recent batches",
+      "BATCH",
+      "UPLOADED",
+      "FILE",
+      "CERTS",
+      "RECO"
+    ],
+    "matches_expectation": false,
+    "match_confidence": 0.7,
+    "issues": [
+      "The 'Recent batches' table horizontally overflows the mobile viewport, cutting off the 'RECO' column, which violates the 'Layout should not horizontally overflow' expectation."
+    ],
+    "verdict": "fail",
+    "suggested_followups": [
+      "Adjust the 'Recent batches' table layout for mobile to prevent horizontal overflow (e.g., responsive table, horizontal scrolling within the table, or column prioritization).",
+      "Verify all other table columns are fully visible and readable on mobile."
+    ]
+  }
+}

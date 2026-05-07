@@ -7,7 +7,13 @@ export type CardReportAgentInput = {
 
 export type CardReportAgentResponse = {
   content: string;
-  provider: "pi-ai-openrouter" | "openrouter-direct" | "openai-direct-fallback" | "local-fallback";
+  provider:
+    | "pi-ai-openrouter"
+    | "openrouter-direct"
+    | "gemini-direct-fallback"
+    | "openai-direct-fallback"
+    | "anthropic-direct-fallback"
+    | "local-fallback";
   model: string;
   error?: string;
 };
@@ -197,6 +203,93 @@ async function callOpenAiDirect(
   };
 }
 
+async function callGeminiDirect(
+  input: CardReportAgentInput,
+  apiKey: string,
+  modelName: string,
+): Promise<CardReportAgentResponse> {
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(modelName)}:generateContent?key=${apiKey}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      contents: [
+        {
+          role: "user",
+          parts: [
+            {
+              text: JSON.stringify({
+                task: input.prompt,
+                cardId: input.cardId,
+                report: input.reportJson,
+                evidenceManifest: input.evidenceManifest,
+              }),
+            },
+          ],
+        },
+      ],
+      generationConfig: {
+        temperature: 0.25,
+        maxOutputTokens: 700,
+      },
+    }),
+  });
+  if (!response.ok) throw new Error(`Gemini returned ${response.status}`);
+  const body = await response.json();
+  const text = (body.candidates?.[0]?.content?.parts ?? [])
+    .map((part: { text?: string }) => part.text ?? "")
+    .join("")
+    .trim();
+  return {
+    content: text || localExplanation(input),
+    provider: "gemini-direct-fallback",
+    model: modelName,
+  };
+}
+
+async function callAnthropicDirect(
+  input: CardReportAgentInput,
+  apiKey: string,
+  modelName: string,
+): Promise<CardReportAgentResponse> {
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: modelName,
+      system: SYSTEM_PROMPT,
+      messages: [
+        {
+          role: "user",
+          content: JSON.stringify({
+            task: input.prompt,
+            cardId: input.cardId,
+            report: input.reportJson,
+            evidenceManifest: input.evidenceManifest,
+          }),
+        },
+      ],
+      temperature: 0.25,
+      max_tokens: 700,
+    }),
+  });
+  if (!response.ok) throw new Error(`Anthropic returned ${response.status}`);
+  const body = await response.json();
+  const text = (body.content ?? [])
+    .map((part: { type?: string; text?: string }) => (part.type === "text" ? part.text ?? "" : ""))
+    .join("")
+    .trim();
+  return {
+    content: text || localExplanation(input),
+    provider: "anthropic-direct-fallback",
+    model: modelName,
+  };
+}
+
 export async function explainCardReport(input: CardReportAgentInput): Promise<CardReportAgentResponse> {
   const apiKey = process.env.OPENROUTER_API_KEY ?? "";
   const modelName = process.env.CARD_AGENT_MODEL ?? "google/gemma-4-26b-a4b";
@@ -213,6 +306,15 @@ export async function explainCardReport(input: CardReportAgentInput): Promise<Ca
     errors.push(fallbackError instanceof Error ? fallbackError.message : "direct OpenRouter fallback failed");
   }
 
+  const geminiKey = process.env.GEMINI_API_KEY ?? "";
+  const geminiModel = process.env.CARD_AGENT_GEMINI_MODEL ?? "gemini-2.5-flash";
+  try {
+    if (geminiKey) return await callGeminiDirect(input, geminiKey, geminiModel);
+    errors.push("Gemini fallback key missing");
+  } catch (geminiError) {
+    errors.push(geminiError instanceof Error ? geminiError.message : "direct Gemini fallback failed");
+  }
+
   const openAiKey = process.env.OPENAI_API_KEY ?? "";
   const openAiModel = process.env.CARD_AGENT_BACKUP_MODEL ?? "gpt-4o-mini";
   try {
@@ -220,6 +322,15 @@ export async function explainCardReport(input: CardReportAgentInput): Promise<Ca
     errors.push("OpenAI fallback key missing");
   } catch (openAiError) {
     errors.push(openAiError instanceof Error ? openAiError.message : "direct OpenAI fallback failed");
+  }
+
+  const anthropicKey = process.env.ANTHROPIC_API_KEY ?? "";
+  const anthropicModel = process.env.CARD_AGENT_ANTHROPIC_MODEL ?? "claude-3-5-haiku-latest";
+  try {
+    if (anthropicKey) return await callAnthropicDirect(input, anthropicKey, anthropicModel);
+    errors.push("Anthropic fallback key missing");
+  } catch (anthropicError) {
+    errors.push(anthropicError instanceof Error ? anthropicError.message : "direct Anthropic fallback failed");
   }
 
   return {

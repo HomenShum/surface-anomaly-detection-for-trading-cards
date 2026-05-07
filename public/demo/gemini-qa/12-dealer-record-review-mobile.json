@@ -1,0 +1,58 @@
+{
+  "gif": "public/demo/gifs/12-dealer-record-review-mobile.gif",
+  "expect": "the /dealer/records/<id> human-review workbench on mobile (390x844): the image-stage and aside columns stack vertically; cert metadata, findings list, pricing/ROI, variant resolver, evidence-packet section all visible while scrolling.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 103,
+    "fps": 11,
+    "duration": 9.36
+  },
+  "capturedAt": "2026-05-07T19:54:48.697Z",
+  "usage": {
+    "promptTokenCount": 2412,
+    "candidatesTokenCount": 299,
+    "totalTokenCount": 3366,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 348
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 655,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip shows a mobile view of a human review workbench for a PSA-graded card. The user scrolls down the page, revealing various sections of the review interface.",
+    "key_observations": [
+      "The UI is rendered in a single-column, vertically stacked layout, consistent with a mobile viewport.",
+      "The clip demonstrates scrolling through all expected sections: 'Cert metadata', 'Findings (0)', 'Pricing & ROI', 'Variant resolver', and 'Evidence packet'.",
+      "All specified sections are present and appear to be fully loaded and functional."
+    ],
+    "ui_text_snippets": [
+      "Human review • PSA 148901890",
+      "Slab image • PSA 148901890",
+      "Cert metadata",
+      "Findings (0)",
+      "No model findings.",
+      "Reviewer",
+      "submit for grading",
+      "sell raw",
+      "rescan",
+      "Pricing & ROI",
+      "Variant resolver",
+      "Evidence packet",
+      "download jsonpublic report"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

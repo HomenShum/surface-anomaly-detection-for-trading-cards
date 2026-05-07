@@ -50,10 +50,16 @@ const EXPECTATIONS = {
     "the /benchmarks/flywheel agentic flywheel dashboard: a system score (any value 0..1, fluctuates per run), per-layer scoreboard (ML, Agent, Calibration, Trust, UX, Evidence), recommended fixes, error buckets, per-cert traces table, and run history — desktop.",
   "10-dealer-intake-desktop":
     "the /dealer/intake bulk PSA-label intake page: drop zone for slab/binder photos, lane swimlanes (Uploaded / Certs detected / Verified / Image attached / Ready / Needs human review / Listed), and a recent-batches table — desktop (1440x900). The page is the Day-1 deliverable of the dealer pilot.",
+  "10-dealer-intake-mobile":
+    "the /dealer/intake bulk PSA-label intake page on mobile (390x844): drop zone, lane swimlanes (may stack vertically), and recent-batches table. Layout should not horizontally overflow.",
   "11-dealer-dashboard-desktop":
     "the /dealer/dashboard daily ops view: inventory $, expected graded EV, reviewed count, listed count, submission pipeline, stale count, then sectional tables for ready-to-list / worth-grading / needs-human-review / recent-imports — desktop (1440x900).",
+  "11-dealer-dashboard-mobile":
+    "the /dealer/dashboard on mobile (390x844): summary cards stack vertically, sectional tables scroll horizontally inside their containers if needed.",
   "12-dealer-record-review-desktop":
     "the /dealer/records/<id> human-review workbench for a Silver+ Snorlax VMAX cert: cert metadata, accept/reject buttons on each model finding, pricing + ROI panel, variant resolver, and evidence-packet section — desktop (1440x900). DING bbox overlays may not appear because no slab image is attached to seeded records (intentional — reviewer attaches it before publishing).",
+  "12-dealer-record-review-mobile":
+    "the /dealer/records/<id> human-review workbench on mobile (390x844): the image-stage and aside columns stack vertically; cert metadata, findings list, pricing/ROI, variant resolver, evidence-packet section all visible while scrolling.",
   "real-dataset-card-corner-wear-model-annotations":
     "a real dataset card image analyzed by the live inference API, with visible DING annotation bounding boxes and readable labels on actual card pixels. CRITICAL: the GIF MUST show at least one real corner_wear DING bbox, confidence label, zoom/crop reinspection panel, evidence/proof text, and the not-an-official-grade disclaimer. Verdict should fail if this looks like a blank page, a placeholder, or unlabeled boxes.",
   "real-card-upload-agent-workspace-desktop":

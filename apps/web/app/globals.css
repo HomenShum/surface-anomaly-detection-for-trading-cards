@@ -7646,8 +7646,8 @@ body:has(.landing-shell) .topbar {
 .dealer-lane--human_review { border-color: rgba(245, 185, 77, 0.32); }
 .dealer-lane--listed { border-color: rgba(153, 217, 255, 0.32); }
 
-.dealer-batches { background: rgba(33, 26, 58, 0.4); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 16px 18px; }
-.dealer-batches table { border-collapse: collapse; font-size: 11px; width: 100%; }
+.dealer-batches { background: rgba(33, 26, 58, 0.4); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 16px 18px; overflow-x: auto; }
+.dealer-batches table { border-collapse: collapse; font-size: 11px; width: 100%; min-width: 540px; }
 .dealer-batches th, .dealer-batches td { border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 7px 10px; text-align: left; }
 .dealer-batches th { color: rgba(255, 255, 255, 0.5); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
 .dealer-batches code { background: rgba(255, 255, 255, 0.06); border-radius: 3px; font-size: 10px; padding: 1px 4px; }
@@ -7665,9 +7665,9 @@ body:has(.landing-shell) .topbar {
 .dealer-summary-val { color: #fff; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 22px; font-weight: 700; }
 .dealer-summary-trend { color: rgba(108, 255, 198, 0.8); font-size: 11px; }
 
-.dealer-section { background: rgba(33, 26, 58, 0.42); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 16px 18px; }
+.dealer-section { background: rgba(33, 26, 58, 0.42); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 16px 18px; overflow-x: auto; }
 .dealer-section h2 { color: rgba(255, 255, 255, 0.92); font-size: 16px; margin: 0 0 10px; }
-.dealer-section table { border-collapse: collapse; font-size: 11px; width: 100%; }
+.dealer-section table { border-collapse: collapse; font-size: 11px; width: 100%; min-width: 540px; }
 .dealer-section th, .dealer-section td { border-bottom: 1px solid rgba(255, 255, 255, 0.06); padding: 7px 10px; text-align: left; }
 .dealer-section th { color: rgba(255, 255, 255, 0.5); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
 .dealer-section td.numeric, .dealer-section th.numeric { font-family: ui-monospace, SFMono-Regular, monospace; text-align: right; }

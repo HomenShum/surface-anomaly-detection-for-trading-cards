@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 105,
+    "nbFrames": 103,
     "fps": 11,
-    "duration": 9.54
+    "duration": 9.36
   },
-  "capturedAt": "2026-05-07T19:22:47.743Z",
+  "capturedAt": "2026-05-07T19:54:22.907Z",
   "usage": {
     "promptTokenCount": 2420,
-    "candidatesTokenCount": 596,
-    "totalTokenCount": 3904,
+    "candidatesTokenCount": 470,
+    "totalTokenCount": 3567,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,59 +23,48 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 888,
+    "thoughtsTokenCount": 677,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip shows a user scrolling down a 'Dealer dashboard' page. It starts with an overview of key metrics like inventory value and submission pipeline, then reveals several detailed tables for 'Ready to list', 'Worth grading', 'Needs human review', 'Recent imports', and 'Price movers (high variance)'.",
+    "scene_summary": "The clip displays a 'Dealer dashboard' page, starting with summary metrics at the top. The view then scrolls down to reveal several sectional tables, including 'Ready to list', 'Worth grading', 'Needs human review', and 'Recent imports'. The page appears to be static, with no interactive elements being clicked or hovered.",
     "key_observations": [
-      "The page displays a 'Dealer dashboard' with a 'VENDOR PILOT - DAILY OPERATING SYSTEM' header.",
-      "Summary cards at the top show 'INVENTORY (RAW/HIGH) $3,846', 'EXPECTED GRADED EV $10,854', 'REVIEWED 10', 'LISTED 3', 'SUBMISSION PIPELINE 2', and 'STALE (>10D) 0'.",
-      "The user scrolls down to reveal sectional tables: 'Ready to list (7)', 'Worth grading (17)', 'Needs human review (0)', 'Recent imports', and 'Price movers (high variance)'.",
-      "All tables contain data, except 'Needs human review (0)' which states 'No records awaiting review'.",
-      "The UI appears stable and responsive throughout the scroll, with no visual glitches or loading issues."
+      "The dashboard presents key operational metrics: Inventory, Expected Graded EV, Reviewed, Listed, Submission Pipeline, and Stale count.",
+      "Below the summary, there are distinct tables for 'Ready to list (8)', 'Worth grading (17)', 'Needs human review (0)', and 'Recent imports'.",
+      "The 'Needs human review' section correctly shows 'No records awaiting review' as it has a count of 0.",
+      "An additional section 'Price movers (high variance)' is visible at the very bottom of the scroll."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
-      "Dashboard",
-      "Intake",
-      "Listings",
-      "Submissions",
-      "ALPHA V8.1 Not an official grade",
-      "REAL MODEL ding-detector-v8",
-      "VENDOR PILOT - DAILY OPERATING SYSTEM",
       "Dealer dashboard",
       "INVENTORY (RAW/HIGH)",
       "$3,846",
       "EXPECTED GRADED EV",
       "$10,854",
       "REVIEWED",
-      "10",
+      "11",
       "LISTED",
       "3",
       "SUBMISSION PIPELINE",
       "2",
-      "STALE (>10D)",
+      "STALE (>180)",
       "0",
-      "Ready to list (7)",
+      "Ready to list (8)",
       "Worth grading (17)",
       "Needs human review (0)",
       "No records awaiting review.",
       "Recent imports",
       "Price movers (high variance)",
-      "SUBMIT",
-      "SELL_RAW",
-      "MINT 9",
-      "GEM MT 10",
-      "image_attached",
-      "SILVER_PLUS",
-      "HIGH"
+      "ALPHA V0.1 Not an official grade"
     ],
     "matches_expectation": true,
     "match_confidence": 1,
     "issues": [],
     "verdict": "pass",
-    "suggested_followups": []
+    "suggested_followups": [
+      "Verify the data accuracy in the summary metrics and tables against a known good state.",
+      "Check responsiveness on different screen sizes if this is intended to be a responsive dashboard."
+    ]
   }
 }

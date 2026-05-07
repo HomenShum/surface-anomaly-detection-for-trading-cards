@@ -302,7 +302,6 @@ const FLOWS = [
       await page.goto(`${baseUrl}/dealer/intake`);
       await page.waitForSelector(".dealer-dropzone", { timeout: 15_000 });
       await page.waitForTimeout(1400);
-      // Scroll through lanes + recent batches.
       const lanes = page.locator(".dealer-lanes").first();
       if (await lanes.count()) {
         await lanes.scrollIntoViewIfNeeded();
@@ -315,7 +314,6 @@ const FLOWS = [
       }
     },
     gif: { startSeconds: "0", durationSeconds: "10", fpsDesktop: 11, fpsMobile: 11 },
-    desktopOnly: true,
   },
   {
     name: "11-dealer-dashboard",
@@ -323,7 +321,6 @@ const FLOWS = [
       await page.goto(`${baseUrl}/dealer/dashboard`);
       await page.waitForSelector(".dealer-summary", { timeout: 15_000 });
       await page.waitForTimeout(1400);
-      // Scroll through summary cards + ready-to-list + worth-grading + needs-review tables.
       const totalScroll = 2400;
       const steps = 36;
       const dy = totalScroll / steps;
@@ -334,20 +331,18 @@ const FLOWS = [
       await page.waitForTimeout(900);
     },
     gif: { startSeconds: "0", durationSeconds: "12", fpsDesktop: 11, fpsMobile: 11 },
-    desktopOnly: true,
   },
   {
     name: "12-dealer-record-review",
     async run(page) {
-      // Open the review workbench on a seeded record so reviewers can see
-      // the bbox overlays + accept/reject controls + variant + ROI + evidence.
-      // The seed always creates dlr_seed_psa_148901890 (Snorlax VMAX).
+      // Seeded record dlr_seed_psa_148901890 (Snorlax VMAX) — has cert metadata,
+      // pricing/ROI, variant resolver, evidence packet section. No slab image
+      // attached (intentional — bronze-tier seed; reviewer attaches before publish).
       await page.goto(`${baseUrl}/dealer/records/dlr_seed_psa_148901890`, {
         waitUntil: "domcontentloaded",
       });
       await page.waitForSelector(".dealer-record-shell", { timeout: 15_000 });
       await page.waitForTimeout(1500);
-      // Scroll to findings list + ROI + variant + evidence.
       const aside = page.locator(".dealer-record-aside").first();
       if (await aside.count()) {
         await aside.scrollIntoViewIfNeeded();
@@ -363,7 +358,6 @@ const FLOWS = [
       await page.waitForTimeout(900);
     },
     gif: { startSeconds: "0", durationSeconds: "13", fpsDesktop: 11, fpsMobile: 11 },
-    desktopOnly: true,
   },
 ];
 
