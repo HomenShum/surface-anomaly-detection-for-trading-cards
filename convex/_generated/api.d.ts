@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as agentRuntime from "../agentRuntime.js";
 import type * as cards from "../cards.js";
 import type * as chat from "../chat.js";
 import type * as inspectionSkills from "../inspectionSkills.js";
@@ -19,6 +20,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  agentRuntime: typeof agentRuntime;
   cards: typeof cards;
   chat: typeof chat;
   inspectionSkills: typeof inspectionSkills;

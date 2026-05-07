@@ -58,6 +58,12 @@ function clampSeverity(raw?: string): DealerModelFinding["severity"] {
   }
 }
 
+function normalizeFindingType(finding: FastApiFinding): string {
+  const raw = (finding.type ?? finding.ding_type ?? "").trim();
+  const normalized = raw.replace(/\s+/g, "_").toLowerCase();
+  return normalized || "unknown_damage";
+}
+
 export type DetectorRunResult = {
   findings: DealerModelFinding[];
   summary?: string;
@@ -90,7 +96,7 @@ export async function runDealerDetector(imageBase64: string): Promise<DetectorRu
   const j = (await res.json()) as FastApiAnalyzeResponse;
   const modelVersion = j.report?.model_version ?? "ding-detector-v0";
   const findings: DealerModelFinding[] = (j.report?.findings ?? []).map((f) => {
-    const type = (f.type ?? f.ding_type ?? "unknown").replace(/\s+/g, "_").toLowerCase();
+    const type = normalizeFindingType(f);
     const bbox = (f.bbox ?? [0, 0, 0, 0]) as [number, number, number, number];
     return {
       type,

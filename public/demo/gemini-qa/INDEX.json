@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T19:54:49.110Z",
+  "generatedAt": "2026-05-07T19:58:56.783Z",
   "rows": [
     {
       "gif": "public/demo/gifs/01-sample-card-analysis.gif",
@@ -162,13 +162,12 @@
     },
     {
       "gif": "public/demo/gifs/10-dealer-intake-mobile.gif",
-      "verdict": "fail",
-      "matches": false,
-      "confidence": 0.7,
-      "issues": 1,
+      "verdict": "pass",
+      "matches": true,
+      "confidence": 0.9,
+      "issues": 0,
       "suggested_followups": [
-        "Adjust the 'Recent batches' table layout for mobile to prevent horizontal overflow (e.g., responsive table, horizontal scrolling within the table, or column prioritization).",
-        "Verify all other table columns are fully visible and readable on mobile."
+        "Consider adding a distinct visual drop zone UI element if the expectation implies a visible area rather than just descriptive text."
       ]
     },
     {

@@ -1,3 +1,6 @@
+import { ConvexHttpClient } from "convex/browser";
+import { makeFunctionReference } from "convex/server";
+
 export type CardReportAgentInput = {
   cardId?: string;
   prompt: string;
@@ -10,6 +13,11 @@ export type CardReportAgentResponse = {
   provider:
     | "pi-ai-openrouter"
     | "openrouter-direct"
+    | "convex-openrouter"
+    | "convex-gemini"
+    | "convex-openai"
+    | "convex-anthropic"
+    | "convex-local-fallback"
     | "gemini-direct-fallback"
     | "openai-direct-fallback"
     | "anthropic-direct-fallback"
@@ -30,6 +38,44 @@ Do not say a proposed method is active for all users unless the skill registry s
 Always explain uncertainty clearly.
 Keep answers compact and operator-friendly.
 `;
+
+const convexExplainReport = makeFunctionReference<"action", Record<string, unknown>, CardReportAgentResponse>(
+  "agentRuntime:explainReport",
+);
+
+function convexUrl() {
+  return process.env.CONVEX_URL ?? process.env.NEXT_PUBLIC_CONVEX_URL;
+}
+
+async function withTimeout<T>(promise: Promise<T>, timeoutMs: number, label: string): Promise<T> {
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<never>((_resolve, reject) => {
+        timeout = setTimeout(() => reject(new Error(`${label} timed out after ${timeoutMs}ms`)), timeoutMs);
+      }),
+    ]);
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
+}
+
+async function callConvexAgent(input: CardReportAgentInput): Promise<CardReportAgentResponse | null> {
+  const url = convexUrl();
+  if (!url) return null;
+  const client = new ConvexHttpClient(url);
+  return await withTimeout(
+    client.action(convexExplainReport, {
+      cardId: input.cardId,
+      prompt: input.prompt,
+      reportJson: input.reportJson,
+      evidenceManifest: input.evidenceManifest,
+    }),
+    Number(process.env.CARD_AGENT_CONVEX_TIMEOUT_MS ?? 6000),
+    "Convex agent runtime",
+  );
+}
 
 function textFromAssistantMessage(message: { content?: Array<{ type: string; text?: string }> }) {
   return message.content
@@ -294,6 +340,14 @@ export async function explainCardReport(input: CardReportAgentInput): Promise<Ca
   const apiKey = process.env.OPENROUTER_API_KEY ?? "";
   const modelName = process.env.CARD_AGENT_MODEL ?? "google/gemma-4-26b-a4b";
   const errors: string[] = [];
+  try {
+    const convexResponse = await callConvexAgent(input);
+    if (convexResponse) return convexResponse;
+    errors.push("Convex agent URL missing");
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : "Convex agent runtime failed");
+  }
+
   try {
     if (apiKey) return await callPiAi(input, apiKey, modelName);
     errors.push("OpenRouter key missing");

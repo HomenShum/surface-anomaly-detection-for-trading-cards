@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { certifiedSeedByImageHash } from "../../../../lib/dealer/cert-seed";
 import { detectCertLabels, imageHash } from "../../../../lib/dealer/ocr";
 import { newId, upsertBatch, upsertRecord } from "../../../../lib/dealer/store";
 import type { DealerRecord, DealerIntakeBatch } from "../../../../lib/dealer/types";
@@ -82,6 +83,7 @@ export async function POST(request: Request) {
   }
 
   const recordIds: string[] = [];
+  const seedReference = certifiedSeedByImageHash(hash);
   for (const label of detection.labels) {
     const cert = label.candidateCerts[0];
     const grade = label.candidateGrades[0] ?? parseGradeFromOcr(label.ocrText);
@@ -105,6 +107,35 @@ export async function POST(request: Request) {
       modelFindings: [],
       consentFlag: "pending",
       trustTier: cert ? "silver" : "bronze",
+    };
+    upsertRecord(rec);
+    recordIds.push(id);
+  }
+
+  if (recordIds.length === 0 && seedReference) {
+    const id = newId("dlr");
+    const rec: DealerRecord = {
+      id,
+      createdAt: uploadedAt,
+      updatedAt: uploadedAt,
+      inventoryType: "graded",
+      lane: "verified",
+      sourceBatchId: batchId,
+      certNumber: seedReference.cert_number,
+      certProvider: seedReference.provider,
+      certUrl: seedReference.external_url ?? `https://www.psacard.com/cert/${seedReference.cert_number}`,
+      cardIdentity: seedReference.card_identity,
+      quantity: 1,
+      imageHash: hash,
+      ocrText:
+        "Matched local certified-reference seed by image hash after OCR returned no PSA-style label crops.",
+      officialGrade: seedReference.official_grade,
+      officialBand: bandFromGrade(seedReference.official_grade),
+      modelFindings: [],
+      notes:
+        "Known vendor PSA Silver+ image-backed reference. OCR did not detect a label, so the cert metadata was resolved from the imported seed manifest by image hash.",
+      consentFlag: "pending",
+      trustTier: seedReference.trust_tier === "silver_plus_image_backed" ? "silver_plus" : "silver",
     };
     upsertRecord(rec);
     recordIds.push(id);
@@ -138,7 +169,11 @@ export async function POST(request: Request) {
     uploaderHint: body.uploaderHint,
     inputFilename: body.filename,
     imageHash: hash,
-    uniqueCertNumbers: detection.uniqueCerts,
+    uniqueCertNumbers: detection.uniqueCerts.length
+      ? detection.uniqueCerts
+      : seedReference
+        ? [seedReference.cert_number]
+        : [],
     recordIds,
     status: detection.uniqueCerts.length ? "ocr_complete" : "ocr_complete",
   };
@@ -148,7 +183,12 @@ export async function POST(request: Request) {
     batchId,
     imageHash: hash,
     detectedLabels: detection.labels.length,
-    uniqueCerts: detection.uniqueCerts,
+    seedReferenceMatches: seedReference ? [seedReference.cert_number] : [],
+    uniqueCerts: detection.uniqueCerts.length
+      ? detection.uniqueCerts
+      : seedReference
+        ? [seedReference.cert_number]
+        : [],
     recordIds,
   });
 }

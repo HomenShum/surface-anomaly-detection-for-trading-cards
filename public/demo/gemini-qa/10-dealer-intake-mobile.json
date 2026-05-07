@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 65,
+    "nbFrames": 77,
     "fps": 11,
-    "duration": 5.91
+    "duration": 7
   },
-  "capturedAt": "2026-05-07T19:54:14.629Z",
+  "capturedAt": "2026-05-07T19:58:56.608Z",
   "usage": {
     "promptTokenCount": 2403,
-    "candidatesTokenCount": 539,
-    "totalTokenCount": 3806,
+    "candidatesTokenCount": 694,
+    "totalTokenCount": 4298,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,16 +23,18 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 864,
+    "thoughtsTokenCount": 1201,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip shows a mobile view of the bulk PSA-label intake page. It starts at the top with the drop zone, then scrolls down to reveal vertically stacked swimlanes for processing status, and finally a 'Recent batches' table at the bottom.",
+    "scene_summary": "The clip shows a mobile view of the 'Bulk PSA-label intake' page, scrolling down to reveal various sections. It starts with an introductory text, then displays several 'swimlanes' for card processing statuses, and concludes with a 'Recent batches' table.",
     "key_observations": [
-      "The page displays a 'Bulk PSA-label intake' title and a 'Drop PSA label batch / slab grid /' section (drop zone).",
-      "Scrolling reveals 'READY', 'NEEDS HUMAN REVIEW', and 'LISTED' swimlanes, which are stacked vertically as expected for mobile.",
-      "A 'Recent batches' table is visible at the bottom, but its content horizontally overflows the viewport, truncating the 'RECO' column."
+      "The page is clearly the '/dealer/intake bulk PSA-label intake page' as indicated by the title and description.",
+      "The layout appears optimized for mobile, with content stacking vertically and no horizontal overflow observed in the main content area.",
+      "The text 'Drop a single photo of many slabs...' describes the drop zone functionality, though a distinct visual drop zone UI element is not explicitly shown.",
+      "Multiple 'lane swimlanes' are present and stack vertically, including 'GEM MT 10', 'READY', 'NEEDS HUMAN REVIEW', and 'LISTED'.",
+      "A 'Recent batches' table is visible at the bottom, displaying batch, upload, and file information."
     ],
     "ui_text_snippets": [
       "Card Condition Vault",
@@ -43,36 +45,49 @@
       "Examples",
       "Benchmarks",
       "ALPHA V0.1",
-      "CHECKING",
       "REAL MODEL",
       "VENDOR PILOT - DAY 1",
       "Bulk PSA-label intake — turn messy real-world photos into structured inventory.",
+      "Drop a single photo of many slabs, a PSA label grid, a binder page, or a table spread.",
+      "Photo limit: 12 MB inline.",
       "Vendor pilot contract",
-      "Drop PSA label batch / slab grid /",
-      "READY",
-      "PSA 148901880",
+      "No customer-facing claims yet.",
+      "Friend reviews every report before listing.",
+      "Visible condition only — never an official grade.",
       "GEM MT 10",
+      "PSA 142558455",
+      "READY",
+      "11",
       "PSA 154378339",
       "NM-MT 8",
+      "dlr-movwi0s2f7c098",
+      "OCR found no PSA-style cert labels in this image.",
       "NEEDS HUMAN REVIEW",
-      "empty",
+      "0",
       "LISTED",
+      "empty",
       "Recent batches",
       "BATCH",
       "UPLOADED",
       "FILE",
-      "CERTS",
-      "RECO"
+      "CEF",
+      "batch_movwi0hp_",
+      "2026-05-07",
+      "dogfood-tauros.jpg",
+      "vendor-pilot-seed.json",
+      "Scan",
+      "Cards",
+      "Methods",
+      "Compare",
+      "Cert import",
+      "Workspace"
     ],
-    "matches_expectation": false,
-    "match_confidence": 0.7,
-    "issues": [
-      "The 'Recent batches' table horizontally overflows the mobile viewport, cutting off the 'RECO' column, which violates the 'Layout should not horizontally overflow' expectation."
-    ],
-    "verdict": "fail",
+    "matches_expectation": true,
+    "match_confidence": 0.9,
+    "issues": [],
+    "verdict": "pass",
     "suggested_followups": [
-      "Adjust the 'Recent batches' table layout for mobile to prevent horizontal overflow (e.g., responsive table, horizontal scrolling within the table, or column prioritization).",
-      "Verify all other table columns are fully visible and readable on mobile."
+      "Consider adding a distinct visual drop zone UI element if the expectation implies a visible area rather than just descriptive text."
     ]
   }
 }

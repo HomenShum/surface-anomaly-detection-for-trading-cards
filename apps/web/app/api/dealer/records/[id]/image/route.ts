@@ -24,7 +24,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     if (existsSync(path)) {
       const buf = readFileSync(path);
       const mime = MIME_BY_EXT[extname(name).toLowerCase()] ?? "application/octet-stream";
-      return new NextResponse(buf, {
+      return new Response(new Uint8Array(buf), {
         status: 200,
         headers: {
           "Content-Type": mime,

@@ -24,7 +24,8 @@ export default function SettingsPage() {
         </div>
         <div className="card">
           <h2>Pi agent</h2>
-          <p className="muted">Set `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`, and `ANTHROPIC_API_KEY` for grounded report and workspace operations. OpenRouter remains primary unless the configured provider fails.</p>
+          <p className="muted">Set provider keys in Convex env for the preferred agent runtime. If Convex is unavailable, the web runtime falls back through OpenRouter, Gemini, OpenAI, Anthropic, then local grounded explanation.</p>
+          <code>CONVEX_URL</code>
           <code>CARD_AGENT_MODEL=google/gemini-2.5-flash</code>
         </div>
       </section>

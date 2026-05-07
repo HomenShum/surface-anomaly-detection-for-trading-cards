@@ -2,201 +2,226 @@
 /**
  * End-to-end dogfood of the dealer pilot, no manual clicks.
  *
- * Steps:
- *   1. POST a real slab photo to /api/dealer/intake
- *   2. POST another photo to /api/dealer/records/<id>/attach-image (triggers detector)
- *   3. POST /api/dealer/records/<id>/review with an accept-decision payload
- *   4. GET /api/dealer/records/<id>/evidence?format=json + format=html
- *   5. GET /dealer/intake|dashboard|listings|submissions|alerts to confirm SSR
+ * This intentionally exercises two distinct paths:
+ *   1. A real imported PSA slab/cert image that should resolve cert metadata.
+ *   2. A real card-condition fixture that should produce at least one model finding.
  *
- * Verifies each step produces the expected state transition + persists.
- *
- * Usage:
- *   node scripts/qa/dogfood_dealer_e2e.mjs
- *   CCV_DEMO_URL=http://127.0.0.1:3100 node scripts/qa/dogfood_dealer_e2e.mjs
+ * The previous Tauros-only smoke proved persistence but did not exercise cert
+ * resolution or a positive DING finding. This script fails if either path stops
+ * working.
  */
 
 import { existsSync, readFileSync } from "node:fs";
-import { resolve, dirname } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const baseUrl = (process.env.CCV_DEMO_URL ?? "http://127.0.0.1:3100").replace(/\/$/, "");
 
-function fixturePath() {
-  // Pick the Tauros sample photo — present in repo, small enough for inline base64.
-  const candidates = [
-    "apps/web/public/demo/sample-cards/roboflow-tauros-real-card.jpg",
-    "apps/web/public/examples/corner-wear.png",
-  ];
-  for (const c of candidates) {
-    const p = resolve(ROOT, c);
-    if (existsSync(p)) return p;
+function firstExisting(candidates) {
+  for (const candidate of candidates) {
+    const path = resolve(ROOT, candidate);
+    if (existsSync(path)) return path;
   }
-  throw new Error("No fixture image available");
+  throw new Error(`No fixture image available from: ${candidates.join(", ")}`);
 }
 
-function loadBase64(p) {
-  return readFileSync(p).toString("base64");
+function certFixturePath() {
+  return firstExisting([
+    "data/cert-references/vendor-batches/processed_psa_references/slab_crops/psa_148901890_front_slab.jpg",
+    "data/cert-references/slab-images/psa_148901890/front.jpg",
+  ]);
+}
+
+function dingFixturePath() {
+  return firstExisting([
+    "apps/web/public/examples/corner-wear.png",
+    "apps/web/public/demo/sample-cards/roboflow-tauros-real-card.jpg",
+  ]);
+}
+
+function loadBase64(path) {
+  return readFileSync(path).toString("base64");
 }
 
 async function step(label, fn) {
-  const t0 = Date.now();
+  const started = Date.now();
   try {
-    const r = await fn();
-    console.log(`✓ ${label} (${Date.now() - t0}ms)`);
-    return r;
-  } catch (err) {
-    console.error(`✗ ${label} (${Date.now() - t0}ms)`);
-    console.error("  ", err?.message ?? err);
-    throw err;
+    const result = await fn();
+    console.log(`OK ${label} (${Date.now() - started}ms)`);
+    return result;
+  } catch (error) {
+    console.error(`FAIL ${label} (${Date.now() - started}ms)`);
+    console.error("  ", error?.message ?? error);
+    throw error;
   }
 }
 
 async function fetchJson(path, init) {
-  const r = await fetch(`${baseUrl}${path}`, init);
-  const text = await r.text();
+  const response = await fetch(`${baseUrl}${path}`, init);
+  const text = await response.text();
   let json;
   try {
     json = JSON.parse(text);
   } catch {
     json = { _raw: text.slice(0, 400) };
   }
-  if (!r.ok) {
-    throw new Error(`${path} → ${r.status}: ${JSON.stringify(json).slice(0, 240)}`);
+  if (!response.ok) {
+    throw new Error(`${path} -> ${response.status}: ${JSON.stringify(json).slice(0, 240)}`);
   }
   return json;
 }
 
-const results = { steps: [], failures: [] };
-
-async function main() {
-  const fixture = fixturePath();
-  const base64 = loadBase64(fixture);
-  console.log(`fixture: ${fixture} (${Math.round(base64.length * 0.75 / 1024)}KB)`);
-  console.log(`baseUrl: ${baseUrl}`);
-  console.log("");
-
-  // 1. Intake POST
-  const intake = await step("intake POST", () =>
+async function postIntake({ label, imageBase64, filename, expectCert }) {
+  const intake = await step(`${label}: intake POST`, () =>
     fetchJson("/api/dealer/intake", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ imageBase64: base64, filename: "dogfood-tauros.jpg" }),
+      body: JSON.stringify({ imageBase64, filename, uploaderHint: "dogfood_e2e" }),
     }),
   );
-  if (!intake.batchId) throw new Error("intake did not return batchId");
+  if (!intake.batchId) throw new Error(`${label}: intake did not return batchId`);
   if (!Array.isArray(intake.recordIds) || intake.recordIds.length === 0) {
-    throw new Error("intake did not create any records");
+    throw new Error(`${label}: intake did not create records`);
   }
-  console.log(`  → batchId=${intake.batchId}`);
-  console.log(`  → recordIds=${JSON.stringify(intake.recordIds)}`);
-  console.log(`  → uniqueCerts=${JSON.stringify(intake.uniqueCerts)}`);
-  console.log(`  → detectedLabels=${intake.detectedLabels}`);
-  results.steps.push({ name: "intake", ok: true, batchId: intake.batchId, records: intake.recordIds.length });
-
-  const newRecordId = intake.recordIds[0];
-
-  // 2. State refresh — confirm record landed on the lane swimlanes
-  const state = await step("state GET", () => fetchJson("/api/dealer/intake/state"));
-  const found = state.records.find((r) => r.id === newRecordId);
-  if (!found) throw new Error(`record ${newRecordId} not visible in state`);
-  console.log(`  → lane=${found.lane} certNumber=${found.certNumber ?? "(none)"} grade=${found.officialGrade ?? "(none)"}`);
-  results.steps.push({ name: "state", ok: true, lane: found.lane });
-
-  // 3. Attach-image POST → triggers detector
-  const attach = await step("attach-image POST", async () => {
-    const r = await fetch(`${baseUrl}/api/dealer/records/${newRecordId}/attach-image`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ imageBase64: base64, mimeType: "image/jpeg" }),
-    });
-    const text = await r.text();
-    let j;
-    try { j = JSON.parse(text); } catch { j = { _raw: text.slice(0, 240) }; }
-    // 502 with detectorError is acceptable — detector unreachable, but
-    // image MUST persist and lane must move to image_attached.
-    if (!r.ok && r.status !== 502) {
-      throw new Error(`${r.status}: ${JSON.stringify(j).slice(0, 240)}`);
-    }
-    return { status: r.status, ...j };
-  });
-  console.log(`  → status=${attach.status} lane=${attach.record?.lane} findings=${(attach.record?.modelFindings ?? []).length}`);
-  if (!attach.record) throw new Error("attach-image did not return record");
-  if (!attach.record.imageUrl) throw new Error("attach-image did not persist imageUrl");
-  results.steps.push({ name: "attach-image", ok: true, status: attach.status, lane: attach.record.lane });
-
-  // 4. Image GET — confirm bytes served back
-  const imgRes = await fetch(`${baseUrl}/api/dealer/records/${newRecordId}/image`);
-  if (!imgRes.ok) throw new Error(`image GET ${imgRes.status}`);
-  const imgBuf = Buffer.from(await imgRes.arrayBuffer());
-  console.log(`✓ image GET (${imgBuf.length}B, content-type=${imgRes.headers.get("content-type")})`);
-  results.steps.push({ name: "image", ok: true, bytes: imgBuf.length });
-
-  // 5. Review POST — accept first finding (if any) + set decision
-  const findingsCount = (attach.record.modelFindings ?? []).length;
-  const decisions = findingsCount > 0 ? { 0: "accepted" } : undefined;
-  const reviewBody = {
-    reviewer: "dogfood_e2e",
-    decisions,
-    notes: "End-to-end dogfood smoke run. Friend's actual review will overwrite.",
-    decision: "submit_for_grading",
-  };
-  const review = await step("review POST", () =>
-    fetchJson(`/api/dealer/records/${newRecordId}/review`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(reviewBody),
-    }),
-  );
-  console.log(`  → lane=${review.record.lane} accepted=${review.record.humanReview?.acceptedFindings} reviewer=${review.record.humanReview?.reviewer}`);
-  if (!review.record.humanReview?.reviewer) throw new Error("review did not persist reviewer");
-  if (review.record.humanReview.decision !== "submit_for_grading") {
-    throw new Error(`expected decision submit_for_grading, got ${review.record.humanReview.decision}`);
+  if (expectCert && (!Array.isArray(intake.uniqueCerts) || intake.uniqueCerts.length === 0)) {
+    throw new Error(`${label}: expected at least one cert number from OCR or seed match`);
   }
-  results.steps.push({ name: "review", ok: true, lane: review.record.lane });
-
-  // 6. Evidence JSON
-  const evJson = await step("evidence GET (json)", () =>
-    fetchJson(`/api/dealer/records/${newRecordId}/evidence?format=json`),
-  );
-  if (!evJson.signature || evJson.signature.length !== 64) {
-    throw new Error(`bad signature: ${evJson.signature?.slice(0, 32)}…`);
-  }
-  if (evJson.algorithm !== "HMAC-SHA256") throw new Error("missing algorithm");
-  if (!evJson.body?.packetId) throw new Error("missing packetId");
-  console.log(`  → packetId=${evJson.body.packetId}`);
-  console.log(`  → signature=${evJson.signature.slice(0, 24)}…`);
-  console.log(`  → cert=${evJson.body.cert.provider} ${evJson.body.cert.number}`);
-  console.log(`  → reviewer=${evJson.body.review.reviewer} decision=${evJson.body.review.decision}`);
-  results.steps.push({ name: "evidence:json", ok: true });
-
-  // 7. Evidence HTML
-  const htmlRes = await fetch(`${baseUrl}/api/dealer/records/${newRecordId}/evidence?format=html`);
-  if (!htmlRes.ok) throw new Error(`evidence html ${htmlRes.status}`);
-  const html = await htmlRes.text();
-  for (const needle of ["Evidence Packet", "Cert", "sha256", "Findings", "Signature", "AI-assisted visible condition report"]) {
-    if (!html.includes(needle)) throw new Error(`evidence html missing "${needle}"`);
-  }
-  console.log(`✓ evidence GET (html) — ${html.length} bytes, all 6 anchors present`);
-  results.steps.push({ name: "evidence:html", ok: true, bytes: html.length });
-
-  // 8. SSR sweep on the 5 dealer surfaces (desktop)
-  for (const path of ["/dealer/intake", "/dealer/dashboard", "/dealer/listings", "/dealer/submissions", "/dealer/alerts"]) {
-    const r = await fetch(`${baseUrl}${path}`);
-    const t = await r.text();
-    if (!r.ok) throw new Error(`${path} ${r.status}`);
-    if (!t.includes("dealer-shell")) throw new Error(`${path} missing .dealer-shell`);
-    console.log(`✓ SSR ${path} (${t.length} bytes)`);
-    results.steps.push({ name: `ssr:${path}`, ok: true, bytes: t.length });
-  }
-
-  console.log("");
-  console.log(`OK — ${results.steps.length} steps passed`);
+  console.log(`  batchId=${intake.batchId}`);
+  console.log(`  recordIds=${JSON.stringify(intake.recordIds)}`);
+  console.log(`  uniqueCerts=${JSON.stringify(intake.uniqueCerts)}`);
+  console.log(`  seedReferenceMatches=${JSON.stringify(intake.seedReferenceMatches ?? [])}`);
+  console.log(`  detectedLabels=${intake.detectedLabels}`);
+  return intake;
 }
 
-main().catch((err) => {
+async function attachImage({ label, recordId, imageBase64, expectFinding }) {
+  const attach = await step(`${label}: attach-image POST`, () =>
+    fetchJson(`/api/dealer/records/${recordId}/attach-image`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ imageBase64, mimeType: "image/jpeg" }),
+    }),
+  );
+  const findings = attach.record?.modelFindings ?? [];
+  console.log(`  lane=${attach.record?.lane} findings=${findings.length}`);
+  if (!attach.record?.imageUrl) throw new Error(`${label}: attach-image did not persist imageUrl`);
+  if (expectFinding && findings.length === 0) throw new Error(`${label}: expected at least one model finding`);
+  if (expectFinding && findings.some((finding) => !String(finding.type ?? "").trim())) {
+    throw new Error(`${label}: detector returned a blank finding type`);
+  }
+  return attach;
+}
+
+async function verifyImage({ label, recordId }) {
+  const imageResponse = await fetch(`${baseUrl}/api/dealer/records/${recordId}/image`);
+  if (!imageResponse.ok) throw new Error(`${label}: image GET ${imageResponse.status}`);
+  const imageBytes = Buffer.from(await imageResponse.arrayBuffer());
+  if (imageBytes.length < 1024) throw new Error(`${label}: image response too small (${imageBytes.length}B)`);
+  console.log(`OK ${label}: image GET (${imageBytes.length}B, content-type=${imageResponse.headers.get("content-type")})`);
+}
+
+async function reviewRecord({ label, recordId, findingsCount }) {
+  const decisions = findingsCount > 0 ? { 0: "accepted" } : undefined;
+  const review = await step(`${label}: review POST`, () =>
+    fetchJson(`/api/dealer/records/${recordId}/review`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        reviewer: "dogfood_e2e",
+        decisions,
+        notes: `${label} dogfood smoke run.`,
+        decision: findingsCount > 0 ? "sell_raw" : "human_review",
+      }),
+    }),
+  );
+  if (!review.record?.humanReview?.reviewer) throw new Error(`${label}: review did not persist reviewer`);
+  console.log(
+    `  lane=${review.record.lane} accepted=${review.record.humanReview.acceptedFindings} decision=${review.record.humanReview.decision}`,
+  );
+  return review;
+}
+
+async function verifyEvidence({ label, recordId, requireAcceptedFinding }) {
+  const evidence = await step(`${label}: evidence GET (json)`, () =>
+    fetchJson(`/api/dealer/records/${recordId}/evidence?format=json`),
+  );
+  if (!evidence.signature || evidence.signature.length !== 64) {
+    throw new Error(`${label}: bad signature`);
+  }
+  if (evidence.algorithm !== "HMAC-SHA256") throw new Error(`${label}: missing algorithm`);
+  if (requireAcceptedFinding && evidence.body?.detector?.acceptedFindings < 1) {
+    throw new Error(`${label}: expected at least one accepted finding in evidence`);
+  }
+  console.log(`  packetId=${evidence.body.packetId}`);
+  console.log(`  signature=${evidence.signature.slice(0, 24)}...`);
+
+  const htmlResponse = await fetch(`${baseUrl}/api/dealer/records/${recordId}/evidence?format=html`);
+  if (!htmlResponse.ok) throw new Error(`${label}: evidence html ${htmlResponse.status}`);
+  const html = await htmlResponse.text();
+  for (const needle of ["Evidence Packet", "Cert", "sha256", "Findings", "Signature", "AI-assisted visible condition report"]) {
+    if (!html.includes(needle)) throw new Error(`${label}: evidence html missing "${needle}"`);
+  }
+  console.log(`OK ${label}: evidence GET (html) - ${html.length} bytes, all anchors present`);
+}
+
+async function runCycle({ label, imagePath, expectCert, expectFinding }) {
+  const imageBase64 = loadBase64(imagePath);
+  console.log("");
+  console.log(`${label} fixture: ${imagePath} (${Math.round((imageBase64.length * 0.75) / 1024)}KB)`);
+  const intake = await postIntake({
+    label,
+    imageBase64,
+    filename: imagePath.split(/[\\/]/).at(-1) ?? `${label}.jpg`,
+    expectCert,
+  });
+  const recordId = intake.recordIds[0];
+
+  const state = await step(`${label}: state GET`, () => fetchJson("/api/dealer/intake/state"));
+  const found = state.records.find((record) => record.id === recordId);
+  if (!found) throw new Error(`${label}: record ${recordId} not visible in intake state`);
+  if (expectCert && !found.certNumber) throw new Error(`${label}: expected certNumber in state`);
+  console.log(`  lane=${found.lane} certNumber=${found.certNumber ?? "(none)"} grade=${found.officialGrade ?? "(none)"}`);
+
+  const attach = await attachImage({ label, recordId, imageBase64, expectFinding });
+  await verifyImage({ label, recordId });
+  const findingsCount = (attach.record.modelFindings ?? []).length;
+  await reviewRecord({ label, recordId, findingsCount });
+  await verifyEvidence({ label, recordId, requireAcceptedFinding: expectFinding });
+  return { recordId, findingsCount };
+}
+
+async function verifySsr() {
+  for (const path of ["/dealer/intake", "/dealer/dashboard", "/dealer/listings", "/dealer/submissions", "/dealer/alerts"]) {
+    const response = await fetch(`${baseUrl}${path}`);
+    const html = await response.text();
+    if (!response.ok) throw new Error(`${path} ${response.status}`);
+    if (!html.includes("dealer-shell")) throw new Error(`${path} missing .dealer-shell`);
+    console.log(`OK SSR ${path} (${html.length} bytes)`);
+  }
+}
+
+async function main() {
+  console.log(`baseUrl: ${baseUrl}`);
+  await runCycle({
+    label: "cert-silver-plus",
+    imagePath: certFixturePath(),
+    expectCert: true,
+    expectFinding: false,
+  });
+  await runCycle({
+    label: "raw-positive-ding",
+    imagePath: dingFixturePath(),
+    expectCert: false,
+    expectFinding: true,
+  });
+  await verifySsr();
+  console.log("");
+  console.log("OK - dealer E2E covered cert intake, positive DING detection, review persistence, signed JSON/HTML evidence, and SSR.");
+}
+
+main().catch((error) => {
   console.error("");
-  console.error("FAIL:", err?.message ?? err);
+  console.error("FAIL:", error?.message ?? error);
   process.exit(1);
 });

@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 76,
+    "nbFrames": 77,
     "fps": 11,
-    "duration": 6.91
+    "duration": 7
   },
-  "capturedAt": "2026-05-07T19:54:00.875Z",
+  "capturedAt": "2026-05-07T19:58:44.601Z",
   "usage": {
     "promptTokenCount": 2433,
-    "candidatesTokenCount": 565,
-    "totalTokenCount": 4120,
+    "candidatesTokenCount": 808,
+    "totalTokenCount": 3888,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,23 +23,33 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 1122,
+    "thoughtsTokenCount": 647,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip opens on the 'Bulk PSA-label intake' page, displaying a drop zone and several swimlanes with pre-populated data. The view then scrolls down to reveal the 'LISTED' swimlane and a 'Recent batches' table, which also contains data.",
+    "scene_summary": "The clip displays a static view of the 'Bulk PSA-label intake' page, which is part of a 'VENDOR PILOT - DAY 1'. The page features a large drop zone for photos, several swimlanes categorizing PSA label intake progress, and a 'Recent batches' table at the bottom.",
     "key_observations": [
-      "The page title 'Bulk PSA-label intake — turn messy real-world photos into structured inventory.' is clearly visible.",
-      "A 'Drop PSA label batch / slab grid / binder page photos' zone is present.",
-      "Swimlanes for 'UPLOADED', 'CERTS DETECTED', 'VERIFIED', 'IMAGE ATTACHED', 'READY', 'NEEDS HUMAN REVIEW', and 'LISTED' are all present.",
-      "The 'IMAGE ATTACHED' and 'READY' swimlanes contain multiple PSA/GEM MT/MINT entries.",
-      "The 'NEEDS HUMAN REVIEW' swimlane shows an entry 'd1r_novui0827tc098' with a detailed explanation.",
-      "A 'Recent batches' table is visible after scrolling, showing two entries with 'OCR_COMPLETE' and 'READY' statuses."
+      "The page title 'Bulk PSA-label intake — turn messy real-world photos into structured inventory.' is prominently displayed.",
+      "A large 'Drop PSA label batch / slab grid / binder page photos' zone is visible with descriptive text.",
+      "Seven swimlanes are present: 'UPLOADED', 'CERTS DETECTED', 'VERIFIED', 'IMAGE ATTACHED', 'READY', 'NEEDS HUMAN REVIEW', and 'LISTED'.",
+      "'IMAGE ATTACHED' and 'READY' swimlanes contain multiple PSA label entries.",
+      "A 'Recent batches' table is visible at the bottom, showing 'BATCH', 'UPLOADED', 'FILE', 'CERTS', 'RECORDS', and 'STATUS' columns with two entries.",
+      "The UI appears stable and fully rendered throughout the clip, with no visible changes or interactions."
     ],
     "ui_text_snippets": [
+      "Card Condition Vault",
+      "Intake",
+      "Dashboard",
+      "Listings",
+      "Submissions",
+      "Examples",
+      "Benchmarks",
+      "ALPHA V0.1 Not an official grade",
+      "REAL MODEL ding-detector-v6",
       "VENDOR PILOT - DAY 1",
       "Bulk PSA-label intake — turn messy real-world photos into structured inventory.",
+      "Drop a single photo of many slabs, a PSA label grid, a binder page, or a table spread.",
       "Drop PSA label batch / slab grid / binder page photos",
       "UPLOADED",
       "CERTS DETECTED",
@@ -48,10 +58,11 @@
       "READY",
       "NEEDS HUMAN REVIEW",
       "LISTED",
-      "PSA 142558447 GEM MT 10",
-      "PSA 154378339 NM MT 8",
-      "d1r_novui0827tc098",
-      "OCR found no PSA-style cert labels in this image.",
+      "empty",
+      "PSA 142558447",
+      "GEM MT 10",
+      "PSA 154378339",
+      "NM-MT 8",
       "Recent batches",
       "BATCH",
       "UPLOADED",
@@ -59,10 +70,21 @@
       "CERTS",
       "RECORDS",
       "STATUS",
-      "dogflood-tauros.jpg",
+      "batch_novdl8h27tc098",
+      "2026-05-07 19:50:23Z",
+      "dogfood-tauros.jpg",
+      "1",
       "OCR_COMPLETE",
+      "batch_seed_ven...",
+      "2026-05-07 19:09:49Z",
       "vendor-pilot-seed.json",
-      "READY"
+      "20",
+      "READY",
+      "Vendor pilot contract",
+      "No customer-facing claims yet.",
+      "Friend reviews every report before listing.",
+      "Visible condition only — never an official grade.",
+      "OCR found no PSA-style cert labels in this image. Training a raw-cert detector is a human review detector. No DING candidates exceeded the current model threshold; this is not proof the card is clean."
     ],
     "matches_expectation": true,
     "match_confidence": 1,
