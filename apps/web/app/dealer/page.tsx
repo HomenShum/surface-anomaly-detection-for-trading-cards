@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AlphaBadge } from "../../components/AlphaBadge";
+import { DealerAgentRail } from "../../components/DealerAgentRail";
 import { DealerDecisionFlow } from "../../components/DealerDecisionFlow";
 import { DealerHeroContext } from "../../components/DealerHeroContext";
 import { InferenceHealthPill } from "../../components/InferenceHealthPill";
@@ -65,9 +66,13 @@ export default async function DealerHomePage({ searchParams }: Props) {
         </div>
       </header>
 
-      <DealerDecisionFlow vault={vault} />
-
-      <DealerHeroContext expert={expert} />
+      <div className="dealer-shell-grid">
+        <div className="dealer-shell-canvas">
+          <DealerDecisionFlow vault={vault} />
+          <DealerHeroContext expert={expert} />
+        </div>
+        <DealerAgentRail />
+      </div>
     </main>
   );
 }

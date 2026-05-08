@@ -106,6 +106,16 @@ export function DealerHeroContext({ expert }: { expert: boolean }) {
               return (
                 <li key={r.id}>
                   <Link href={`/dealer/records/${r.id}`}>
+                    <span className="dealer-hero-recent-thumb" aria-hidden>
+                      {r.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img alt="" loading="lazy" src={r.imageUrl} />
+                      ) : (
+                        <span className="dealer-hero-recent-thumb-fallback">
+                          {(r.certProvider ?? r.cardIdentity ?? "C").slice(0, 2).toUpperCase()}
+                        </span>
+                      )}
+                    </span>
                     <span className="dealer-hero-recent-cert">
                       {r.certNumber ? `${r.certProvider ?? "PSA"} ${r.certNumber}` : r.id.slice(0, 14)}
                     </span>

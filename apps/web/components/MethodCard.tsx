@@ -31,7 +31,7 @@ export function MethodCard({ method, compact = false }: { method: VerifiedMethod
       </div>
       <div className="method-card-foot">
         <Link href={`/contributors/${method.contributorHandle}`}>@{method.contributorHandle}</Link>
-        <span>{method.usedInScans.toLocaleString()} scans</span>
+        <span suppressHydrationWarning>{new Intl.NumberFormat("en-US").format(method.usedInScans)} scans</span>
       </div>
     </article>
   );

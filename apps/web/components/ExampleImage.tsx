@@ -14,6 +14,11 @@ type Props = {
   opacity?: number;
 };
 
+function isReplayableImageSrc(src: string | null): src is string {
+  if (!src) return false;
+  return src.startsWith("/") || src.startsWith("data:") || src.startsWith("blob:");
+}
+
 export function ExampleImage({
   src,
   alt,
@@ -25,7 +30,7 @@ export function ExampleImage({
   opacity = 1,
 }: Props) {
   const [errored, setErrored] = useState(false);
-  const showImage = Boolean(src) && !errored;
+  const showImage = isReplayableImageSrc(src) && !errored;
 
   if (showImage) {
     return (
@@ -48,7 +53,7 @@ export function ExampleImage({
       ) : (
         <em>{fallbackHint ?? "external reference only - no local image"}</em>
       )}
-      {externalReferenceUrl ? (
+      {externalReferenceUrl && verbose ? (
         <a href={externalReferenceUrl} rel="noopener noreferrer" target="_blank">
           {externalReferenceLabel ?? "View source"} ↗
         </a>

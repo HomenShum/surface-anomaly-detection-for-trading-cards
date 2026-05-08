@@ -194,6 +194,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
   const [busyAccepting, setBusyAccepting] = useState(false);
   const [copied, setCopied] = useState(false);
   const [dragOver, setDragOver] = useState(false);
+  const [proofToastVisible, setProofToastVisible] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const startedAtRef = useRef<number>(0);
   const sessionIdRef = useRef<string>("");
@@ -492,6 +493,19 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
       if (!packetResponse.ok) throw new Error(`signed packet ${packetResponse.status}`);
       const packet = (await packetResponse.json()) as EvidenceResponse;
       setEvidence(packet);
+      // Best-effort copy of the public report URL to the clipboard so the
+      // affirmation toast can promise it.
+      if (typeof window !== "undefined" && navigator.clipboard) {
+        const shareUrl = new URL(`/dealer/records/${record.id}/evidence`, window.location.origin).toString();
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          setCopied(true);
+        } catch {
+          /* clipboard blocked — fine, share link still rendered inline */
+        }
+      }
+      setProofToastVisible(true);
+      window.setTimeout(() => setProofToastVisible(false), 6500);
       logBehavior({
         event: "proofSaved",
         proofSavedAt: new Date().toISOString(),
@@ -588,6 +602,18 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
         <section className="dealer-home-grid">
           <input accept="image/*" hidden onChange={onChange} ref={inputRef} type="file" />
           <div className="dealer-landing-panel">
+            {vault && vault.totalRecords === 0 ? (
+              <aside className="dealer-coachmark" aria-label="First-card guide">
+                <span className="dealer-coachmark-kicker">First card?</span>
+                <h3>Three steps. Less than a minute.</h3>
+                <ol>
+                  <li><strong>Try sample card</strong> to watch the streaming pipeline run on a real Roboflow fixture.</li>
+                  <li>Hit <strong>Save proof packet</strong> to generate the signed JSON + share-ready HTML report.</li>
+                  <li>Open the <strong>vault</strong> below to see how the record persists — every scan you run lives there.</li>
+                </ol>
+                <p>Your friend will replay the same flow with their own slab photos.</p>
+              </aside>
+            ) : null}
             <p className="dealer-landing-kicker">Private vendor pilot</p>
             <h1>Scan cards into a condition evidence vault.</h1>
             <p className="dealer-landing-copy">
@@ -981,6 +1007,32 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
             </div>
           ) : null}
         </section>
+      ) : null}
+
+      {evidence && record ? (
+        <aside
+          aria-live="polite"
+          className={`dealer-proof-toast${proofToastVisible ? " is-visible" : ""}`}
+          role="status"
+        >
+          <strong>Saved as Card record <code>{record.id}</code></strong>
+          <p>
+            Signed proof packet <code>{evidence.body.packetId}</code> | {evidence.algorithm}
+            {copied ? " | share link copied to clipboard" : ""}
+          </p>
+          <div className="dealer-proof-toast-actions">
+            <Link href={`/dealer/records/${record.id}/evidence`} target="_blank">
+              open public report
+            </Link>
+            <button onClick={copyProofLink} type="button">
+              {copied ? "link copied" : "copy share link"}
+            </button>
+            <Link href={`/dealer/records/${record.id}`}>open in vault</Link>
+            <button onClick={() => setProofToastVisible(false)} type="button">
+              dismiss
+            </button>
+          </div>
+        </aside>
       ) : null}
     </div>
   );

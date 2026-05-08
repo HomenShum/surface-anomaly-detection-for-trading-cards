@@ -162,7 +162,7 @@ export function LandingClient() {
           <ul className="landing-trust-row">
             <li><strong>Real model</strong><span>ding-detector-v0</span></li>
             <li><strong>Mock fallback</strong><span>off by default</span></li>
-            <li><strong>Cards analyzed</strong><span>{analyzed.toLocaleString()}</span></li>
+            <li><strong>Cards analyzed</strong><span suppressHydrationWarning>{new Intl.NumberFormat("en-US").format(analyzed)}</span></li>
           </ul>
         </div>
 
@@ -301,7 +301,7 @@ export function LandingClient() {
           {stats.map((item) => (
             <div className="landing-stat" key={item.label}>
               <span>{item.label}</span>
-              <strong>{item.label === "Cards analyzed" ? analyzed.toLocaleString() : item.value}</strong>
+              <strong suppressHydrationWarning>{item.label === "Cards analyzed" ? new Intl.NumberFormat("en-US").format(analyzed) : item.value}</strong>
             </div>
           ))}
         </div>
