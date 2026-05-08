@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { certifiedSeedByImageHash } from "../../../../lib/dealer/cert-seed";
 import { detectCertLabels, imageHash } from "../../../../lib/dealer/ocr";
+import { appendEvent, openSession } from "../../../../lib/dealer/sessions";
 import { newId, upsertBatch, upsertRecord } from "../../../../lib/dealer/store";
 import type { DealerRecord, DealerIntakeBatch } from "../../../../lib/dealer/types";
 
@@ -62,24 +63,15 @@ export async function POST(request: Request) {
   const hash = imageHash(body.imageBase64);
 
   let detection;
+  let detectionWarning: string | undefined;
   try {
     detection = await detectCertLabels(body.imageBase64);
   } catch (err) {
-    const batch: DealerIntakeBatch = {
-      batchId,
-      uploadedAt,
-      uploaderHint: body.uploaderHint,
-      inputFilename: body.filename,
-      imageHash: hash,
-      uniqueCertNumbers: [],
-      recordIds: [],
-      status: "failed",
+    detectionWarning = (err as Error).message;
+    detection = {
+      labels: [],
+      uniqueCerts: [],
     };
-    upsertBatch(batch);
-    return NextResponse.json(
-      { error: "detect_failed", message: (err as Error).message, batchId },
-      { status: 502 },
-    );
   }
 
   const recordIds: string[] = [];
@@ -155,7 +147,9 @@ export async function POST(request: Request) {
       quantity: 1,
       imageHash: hash,
       modelFindings: [],
-      notes: "OCR found no PSA-style cert labels in this image. Treating as a raw-card photo for manual review.",
+      notes: detectionWarning
+        ? `Cert OCR unavailable (${detectionWarning}). Treating as a raw-card photo for manual review.`
+        : "OCR found no PSA-style cert labels in this image. Treating as a raw-card photo for manual review.",
       consentFlag: "pending",
       trustTier: "bronze",
     };
@@ -179,8 +173,51 @@ export async function POST(request: Request) {
   };
   upsertBatch(batch);
 
+  // Open a ScanSession for this intake and emit the early-stage events the
+  // workbench audit trail will replay later.
+  const primaryRecord = recordIds[0];
+  const session = openSession({
+    mode: detection.uniqueCerts.length || seedReference ? "cert_import" : "raw_scan",
+    recordId: primaryRecord,
+    inputImageHash: hash,
+    notes: body.uploaderHint,
+  });
+  appendEvent({
+    sessionId: session.id,
+    recordId: primaryRecord,
+    type: "stage.completed",
+    label: `Intake received: ${body.filename ?? "uploaded image"}`,
+    status: "passed",
+    payload: { imageHash: hash },
+  });
+  appendEvent({
+    sessionId: session.id,
+    recordId: primaryRecord,
+    type: "stage.completed",
+    label: `Cert/label detection: ${detection.labels.length} region(s), ${detection.uniqueCerts.length} cert candidate(s)`,
+    status: detection.uniqueCerts.length ? "passed" : seedReference ? "passed" : "warning",
+    payload: { uniqueCerts: detection.uniqueCerts, seedMatches: seedReference ? [seedReference.cert_number] : [] },
+  });
+  if (detectionWarning) {
+    appendEvent({
+      sessionId: session.id,
+      recordId: primaryRecord,
+      type: "warning",
+      label: detectionWarning,
+      status: "warning",
+    });
+  }
+  appendEvent({
+    sessionId: session.id,
+    recordId: primaryRecord,
+    type: "vault.saved",
+    label: `Vault record created: ${primaryRecord}`,
+    status: "passed",
+  });
+
   return NextResponse.json({
     batchId,
+    sessionId: session.id,
     imageHash: hash,
     detectedLabels: detection.labels.length,
     seedReferenceMatches: seedReference ? [seedReference.cert_number] : [],
@@ -189,6 +226,7 @@ export async function POST(request: Request) {
       : seedReference
         ? [seedReference.cert_number]
         : [],
+    warning: detectionWarning,
     recordIds,
   });
 }

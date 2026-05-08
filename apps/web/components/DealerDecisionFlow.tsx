@@ -76,6 +76,24 @@ type EvidenceResponse = {
   algorithm: string;
 };
 
+type DealerVaultSnapshot = {
+  totalRecords: number;
+  proofPackets: number;
+  reviewedCount: number;
+  silverPlusCount: number;
+  humanReviewCount: number;
+  listedCount: number;
+  submittedCount: number;
+  inventoryValue: number;
+  latestRecords: Array<{
+    id: string;
+    title: string;
+    lane: string;
+    findings: number;
+    proofSaved: boolean;
+  }>;
+};
+
 const RECOMMENDATION_COPY: Record<
   string,
   { tone: "good" | "warn" | "bad" | "info" | "muted"; pill: string }
@@ -164,7 +182,7 @@ function logBehavior(payload: Record<string, unknown>): void {
   }).catch(() => {});
 }
 
-export function DealerDecisionFlow() {
+export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
   const [stages, setStages] = useState<StageState[]>(makeIdleStages);
   const [imageDataUrl, setImageDataUrl] = useState<string | null>(null);
   const [record, setRecord] = useState<DealerRecord | null>(null);
@@ -210,12 +228,13 @@ export function DealerDecisionFlow() {
         const blob = await res.blob();
         const filename = url.split("/").pop() ?? "demo.jpg";
         const file = new File([blob], filename, { type: blob.type || "image/jpeg" });
-        // Defer one tick so the initial render commits before we begin streaming.
+        // Hold on the idle prompt for ~1.6s so demo recordings can capture
+        // the landing state before the streaming phase takes over.
         setTimeout(() => {
           void (async () => {
             await handleFileRef.current?.(file);
           })();
-        }, 250);
+        }, 1600);
       } catch {
         // demo trigger is best-effort
       }
@@ -448,6 +467,18 @@ export function DealerDecisionFlow() {
     if (file) void handleFile(file);
   };
 
+  const runSample = useCallback(async () => {
+    try {
+      const res = await fetch("/demo/sample-cards/roboflow-tauros-real-card.jpg");
+      if (!res.ok) throw new Error(`sample ${res.status}`);
+      const blob = await res.blob();
+      const file = new File([blob], "roboflow-tauros-real-card.jpg", { type: blob.type || "image/jpeg" });
+      await handleFile(file);
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  }, [handleFile]);
+
   const findings = record?.modelFindings ?? [];
 
   const saveProof = useCallback(async () => {
@@ -554,29 +585,148 @@ export function DealerDecisionFlow() {
   return (
     <div className="dealer-hero-flow">
       {phase === "idle" ? (
-        <div
-          className={`dealer-hero-dropzone${dragOver ? " is-drag" : ""}`}
-          onClick={() => inputRef.current?.click()}
-          onDragLeave={() => setDragOver(false)}
-          onDragOver={(event) => {
-            event.preventDefault();
-            setDragOver(true);
-          }}
-          onDrop={onDrop}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ") inputRef.current?.click();
-          }}
-          role="button"
-          tabIndex={0}
-        >
+        <section className="dealer-home-grid">
           <input accept="image/*" hidden onChange={onChange} ref={inputRef} type="file" />
-          <p className="dealer-hero-prompt">Drop card photo. Get decision. Save proof.</p>
-          <p className="dealer-hero-sub">
-            AI-assisted visible condition only. Never an official grade. Local vendor-pilot evidence.
-          </p>
-          <span className="dealer-hero-status-pill">ding-detector-v0 ready</span>
+          <div className="dealer-landing-panel">
+            <p className="dealer-landing-kicker">Private vendor pilot</p>
+            <h1>Scan cards into a condition evidence vault.</h1>
+            <p className="dealer-landing-copy">
+              Drop one card photo and get a visible-condition decision, DING annotations, a signed proof packet,
+              and a saved record you can reopen before listing, grading, shipping, or talking to a buyer.
+            </p>
+            <div className="dealer-landing-actions">
+              <button className="is-primary" onClick={() => inputRef.current?.click()} type="button">
+                Upload card photo
+              </button>
+              <button onClick={() => void runSample()} type="button">
+                Try sample card
+              </button>
+              <Link href="/dealer/dashboard?expert=1">Open saved vault</Link>
+            </div>
+            <div className="dealer-landing-proof-grid" aria-label="What gets saved">
+              <div>
+                <span>Evidence</span>
+                <strong>image hash + signed packet</strong>
+              </div>
+              <div>
+                <span>Inspection</span>
+                <strong>14-stage visible DING trace</strong>
+              </div>
+              <div>
+                <span>Decision</span>
+                <strong>sell / submit / hold / review</strong>
+              </div>
+            </div>
+          </div>
+
+          <div className="dealer-home-action-stack">
+            <p className="dealer-drop-heading">Drop card photo. Get decision. Save proof.</p>
+            <div
+              className={`dealer-hero-dropzone${dragOver ? " is-drag" : ""}`}
+              onClick={() => inputRef.current?.click()}
+              onDragLeave={() => setDragOver(false)}
+              onDragOver={(event) => {
+                event.preventDefault();
+                setDragOver(true);
+              }}
+              onDrop={onDrop}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") inputRef.current?.click();
+              }}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="dealer-drop-visual" aria-hidden>
+                <span className="dealer-drop-card dealer-drop-card--back" />
+                <span className="dealer-drop-card dealer-drop-card--front">
+                  <i />
+                </span>
+              </div>
+              <p className="dealer-hero-prompt">Drop card photo. Get decision. Save proof.</p>
+              <p className="dealer-hero-sub">
+                Upload front, back, slab, or cert screenshot. The report is AI-assisted visible condition only,
+                never an official grade.
+              </p>
+              <span className="dealer-hero-status-pill">ding-detector-v0 ready</span>
+            </div>
+
+            <aside className="dealer-vault-panel" aria-label="Saved vault status">
+              <div className="dealer-vault-header">
+                <span>Vendor pilot vault</span>
+                <Link href="/dealer/intake?expert=1">Manage</Link>
+              </div>
+              <div className="dealer-vault-metrics">
+                <div>
+                  <strong>{vault?.totalRecords ?? 0}</strong>
+                  <span>cards captured</span>
+                </div>
+                <div>
+                  <strong>{vault?.reviewedCount ?? 0}</strong>
+                  <span>reviewed</span>
+                </div>
+                <div>
+                  <strong>{vault?.humanReviewCount ?? 0}</strong>
+                  <span>needs review</span>
+                </div>
+                <div>
+                  <strong>{vault?.listedCount ?? 0}</strong>
+                  <span>listed</span>
+                </div>
+                <div>
+                  <strong>{vault?.submittedCount ?? 0}</strong>
+                  <span>submitted</span>
+                </div>
+                <div>
+                  <strong>{fmtUsd(vault?.inventoryValue ?? 0)}</strong>
+                  <span>inventory</span>
+                </div>
+              </div>
+              <div className="dealer-vault-recent">
+                <span>Recent saved records</span>
+                {vault?.latestRecords?.length ? (
+                  <ul>
+                    {vault.latestRecords.map((item) => (
+                      <li key={item.id}>
+                        <Link href={`/dealer/records/${item.id}`}>
+                          <strong>{item.title}</strong>
+                          <small>
+                            {item.lane.replaceAll("_", " ")} | {item.findings} DINGs |{" "}
+                            {item.proofSaved ? "proof saved" : "proof pending"}
+                          </small>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No saved cards yet. Drop the first card to create the account record.</p>
+                )}
+              </div>
+              <div className="dealer-shortcuts" aria-label="Dealer shortcuts">
+                <Link href="/dealer/dashboard?expert=1">
+                  <strong>Dashboard</strong>
+                  <span>{vault?.totalRecords ?? 0} records</span>
+                </Link>
+                <Link href="/dealer/listings?expert=1">
+                  <strong>Listings</strong>
+                  <span>{vault?.listedCount ?? 0} ready</span>
+                </Link>
+                <Link href="/dealer/submissions?expert=1">
+                  <strong>Submissions</strong>
+                  <span>{vault?.submittedCount ?? 0} in flight</span>
+                </Link>
+                <Link href="/dealer/alerts?expert=1">
+                  <strong>Alerts</strong>
+                  <span>{vault?.humanReviewCount ?? 0} review flags</span>
+                </Link>
+              </div>
+              <p className="dealer-trust-footer">
+                HMAC-signed proof packets, image hashes, detector version, and review decisions are stored with each
+                record. AI-assisted visible condition only, never an official grade.
+              </p>
+            </aside>
+          </div>
           {error ? <p className="dealer-hero-error">{error}</p> : null}
-        </div>
+        </section>
       ) : null}
 
       {phase !== "idle" ? (
@@ -613,18 +763,39 @@ export function DealerDecisionFlow() {
             </div>
           ) : null}
 
-          <div className="dealer-stages-strip" aria-label="Pipeline stages">
-            {stages.map((stage) => (
-              <div
-                className={`dealer-stage-cell dealer-stage-cell--${stage.status}`}
-                key={stage.id}
-                title={`${stage.label}${stage.evidence ? `: ${stage.evidence}` : ""}`}
-              >
-                <span aria-hidden>{stageIcon(stage.status)}</span>
-                <small>{stage.label}</small>
-              </div>
-            ))}
-          </div>
+          {phase === "streaming" ? (
+            <div className="dealer-stages-strip" aria-label="Pipeline stages">
+              {stages.map((stage) => (
+                <div
+                  className={`dealer-stage-cell dealer-stage-cell--${stage.status}`}
+                  key={stage.id}
+                  title={`${stage.label}${stage.evidence ? `: ${stage.evidence}` : ""}`}
+                >
+                  <span aria-hidden>{stageIcon(stage.status)}</span>
+                  <small>{stage.label}</small>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <details className="dealer-stages-audit">
+              <summary>
+                Audit trail
+                <span className="dealer-stages-audit-count">
+                  {stages.filter((s) => s.status === "done").length} stages · {fmtMs(elapsed)}
+                </span>
+              </summary>
+              <ol className="dealer-stages-audit-list">
+                {stages.map((stage) => (
+                  <li className={`dealer-stage-row dealer-stage-row--${stage.status}`} key={stage.id}>
+                    <span className="dealer-stage-row-icon" aria-hidden>{stageIcon(stage.status)}</span>
+                    <strong>{stage.label}</strong>
+                    <em>{stage.status}</em>
+                    {stage.evidence ? <small>{stage.evidence}</small> : null}
+                  </li>
+                ))}
+              </ol>
+            </details>
+          )}
           <p className="dealer-stages-summary" aria-live="polite">
             {stagesSummary}
           </p>

@@ -8,8 +8,8 @@
 
 import { chromium, expect } from "@playwright/test";
 import { spawn, spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { existsSync, rmSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -46,19 +46,46 @@ async function waitForServer(url, timeoutMs = 30_000) {
 
 function startManagedWebServer() {
   if (externalBaseUrl) return null;
+  const webCwd = join(ROOT, "apps", "web");
+  const buildIdPath = join(webCwd, ".next", "BUILD_ID");
+  const serverManifestPath = join(webCwd, ".next", "server", "pages-manifest.json");
+  if (!existsSync(buildIdPath) || !existsSync(serverManifestPath)) {
+    const nextDir = join(webCwd, ".next");
+    if (existsSync(nextDir)) {
+      const resolvedNextDir = resolve(nextDir);
+      if (!resolvedNextDir.startsWith(resolve(webCwd))) {
+        throw new Error(`Refusing to clean unexpected path: ${resolvedNextDir}`);
+      }
+      rmSync(resolvedNextDir, { recursive: true, force: true });
+    }
+    const buildCommand = process.platform === "win32" ? "cmd.exe" : "pnpm";
+    const buildArgs = process.platform === "win32" ? ["/d", "/s", "/c", "pnpm build"] : ["build"];
+    const build = spawnSync(buildCommand, buildArgs, {
+      cwd: webCwd,
+      env: process.env,
+      stdio: "inherit",
+      windowsHide: true,
+    });
+    if (build.status !== 0) throw new Error(`pnpm build failed with status ${build.status}`);
+  }
   const pnpmEntrypoint = process.env.npm_execpath;
-  const command = pnpmEntrypoint ? process.execPath : "pnpm";
+  const command = pnpmEntrypoint ? process.execPath : process.platform === "win32" ? "cmd.exe" : "pnpm";
   const args = pnpmEntrypoint
-    ? [pnpmEntrypoint, "--filter", "@card-condition-vault/web", "start"]
-    : ["--filter", "@card-condition-vault/web", "start"];
+    ? [pnpmEntrypoint, "start"]
+    : process.platform === "win32"
+      ? ["/d", "/s", "/c", "pnpm start"]
+      : ["start"];
   const child = spawn(command, args, {
-    cwd: ROOT,
+    cwd: webCwd,
     env: { ...process.env, PORT: managedPort },
     stdio: ["ignore", "pipe", "pipe"],
     windowsHide: true,
   });
   child.stdout.on("data", (chunk) => process.stdout.write(chunk));
   child.stderr.on("data", (chunk) => process.stderr.write(chunk));
+  child.on("error", (error) => {
+    process.stderr.write(String(error?.message ?? error));
+  });
   return child;
 }
 
@@ -97,12 +124,28 @@ async function runHero(viewport, label) {
   });
 
   await page.goto(`${baseUrl}/dealer`, { waitUntil: "domcontentloaded" });
-  await expect(page.getByText("Drop card photo. Get decision. Save proof.")).toBeVisible();
-  await expect(page.getByRole("link", { name: "Dashboard" })).toHaveCount(0);
+  await expect(page.locator(".dealer-drop-heading")).toHaveText("Drop card photo. Get decision. Save proof.");
+  await expect(page.getByRole("heading", { name: "Scan cards into a condition evidence vault." })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Upload card photo" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Try sample card" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open saved vault" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Vendor pilot vault" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Dashboard/i }).first()).toBeVisible();
+  await expect(page.getByText(/HMAC-signed proof packets/)).toBeVisible();
   await checkNoOverflow(page, `${label} idle`);
 
-  await page.locator('input[type="file"]').setInputFiles(fixture);
-  await expect(page.locator(".dealer-decision-card")).toBeVisible({ timeout: 60_000 });
+  await page.getByRole("button", { name: "Try sample card" }).click();
+  try {
+    await expect(page.locator(".dealer-decision-card")).toBeVisible({ timeout: 60_000 });
+  } catch (error) {
+    const bodyText = await page.evaluate(() => document.body.innerText.slice(0, 1400)).catch(() => "");
+    throw new Error(
+      `${label} decision card did not render after sample click. console=${consoleErrors
+        .slice(0, 3)
+        .join(" | ")} network=${networkFailures.slice(0, 3).join(" | ")} body=${bodyText}`,
+      { cause: error },
+    );
+  }
   await expect(page.getByText("14 stages")).toBeVisible();
   await expect(page.locator(".dealer-hero-bbox").first()).toBeVisible();
 

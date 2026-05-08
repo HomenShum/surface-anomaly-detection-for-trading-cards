@@ -335,46 +335,40 @@ const FLOWS = [
   {
     name: "13-dealer-hero",
     async run(page) {
-      // The minimalist single-screen hero with a real card upload. This is
-      // intentionally the friend-facing proof loop: drop image, stream the
-      // 14-stage strip, show labeled DING boxes, save proof, then expand why.
-      // Use the ?demo=tauros query trigger so the component fetches the real
-      // Tauros fixture and runs handleFile. This avoids brittle file-picker
-      // simulation while still exercising the same upload pipeline.
-      await page.goto(`${baseUrl}/dealer?demo=tauros`);
-      await page.waitForSelector(".dealer-decision-card", { timeout: 60_000 });
-      await page.waitForSelector(".dealer-hero-bbox span", { timeout: 30_000 }).catch(() => {});
-      await page.waitForTimeout(900);
-      await page.getByRole("button", { name: /Accept all findings/i }).click().catch(() => {});
-      await page.waitForTimeout(700);
-      await page.getByRole("button", { name: /Save proof packet/i }).click().catch(() => {});
-      await page.waitForSelector(".dealer-decision-shareline", { timeout: 30_000 }).catch(() => {});
-      await page.waitForTimeout(700);
-      // Expand "See why" — try DOM click then locator click as fallback. JS
-      // dispatch handles pointer-event interception by parents.
-      const expanded = await page.evaluate(() => {
-        const btns = Array.from(document.querySelectorAll(".dealer-decision-actions button"));
-        const seeWhy = btns.find((b) => /see why/i.test(b.textContent || ""));
-        if (seeWhy) {
-          seeWhy.click();
-          return true;
-        }
-        return false;
-      });
-      if (!expanded) {
-        await page.locator(".dealer-decision-actions button", { hasText: /See why/i }).first().click({ force: true }).catch(() => {});
+      // Tour the rich /dealer landing: hero panel ("Scan cards into a
+      // condition evidence vault"), three landing actions, proof grid,
+      // vault stats, recent records, four shortcut cards, trust footer.
+      // Streaming + decision pill is verified separately by dogfood_dealer_e2e.mjs;
+      // this GIF proves the page reads as a landing, not a blank dropzone.
+      await page.goto(`${baseUrl}/dealer`, { waitUntil: "domcontentloaded" });
+      await page.waitForSelector(".dealer-home-grid", { timeout: 20_000 });
+      await page.waitForTimeout(2200);
+      // Stats strip.
+      const stats = page.locator(".dealer-hero-stats").first();
+      if (await stats.count()) {
+        await stats.scrollIntoViewIfNeeded().catch(() => {});
+        await page.waitForTimeout(2200);
       }
-      // Wait for the why panel to actually appear in DOM.
-      await page.waitForSelector(".dealer-decision-why", { timeout: 8_000 }).catch(() => {});
-      await page.waitForTimeout(2400);
-      // Scroll into the why panel so Gemini sees it.
-      const why = page.locator(".dealer-decision-why").first();
-      if (await why.count()) {
-        await why.scrollIntoViewIfNeeded().catch(() => {});
+      // Recent records.
+      const recent = page.locator(".dealer-hero-recent").first();
+      if (await recent.count()) {
+        await recent.scrollIntoViewIfNeeded().catch(() => {});
+        await page.waitForTimeout(2400);
+      }
+      // Four shortcut cards.
+      const shortcuts = page.locator(".dealer-hero-shortcuts").first();
+      if (await shortcuts.count()) {
+        await shortcuts.scrollIntoViewIfNeeded().catch(() => {});
+        await page.waitForTimeout(2400);
+      }
+      // Trust footer.
+      const trust = page.locator(".dealer-hero-trust").first();
+      if (await trust.count()) {
+        await trust.scrollIntoViewIfNeeded().catch(() => {});
         await page.waitForTimeout(2200);
       }
     },
-    gif: { startSeconds: "0", durationSeconds: "16", fpsDesktop: 10, fpsMobile: 10 },
+    gif: { startSeconds: "0", durationSeconds: "14", fpsDesktop: 10, fpsMobile: 10 },
   },
   {
     name: "12-dealer-record-review",
@@ -437,6 +431,18 @@ function runPnpm(args) {
   }
 }
 
+function cleanWebNextBuildDir() {
+  const webCwd = join(root, "apps", "web");
+  const nextDir = join(webCwd, ".next");
+  if (!existsSync(nextDir)) return;
+  const resolvedWebCwd = resolve(webCwd);
+  const resolvedNextDir = resolve(nextDir);
+  if (!resolvedNextDir.startsWith(resolvedWebCwd)) {
+    throw new Error(`Refusing to remove unexpected Next build directory: ${resolvedNextDir}`);
+  }
+  rmSync(resolvedNextDir, { recursive: true, force: true });
+}
+
 async function wait(ms) {
   await new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -485,6 +491,7 @@ async function ensureServer() {
 
   if (serverMode !== "dev") {
     console.log("Building @card-condition-vault/web before recording production GIFs...");
+    cleanWebNextBuildDir();
     runPnpm(["--filter", "@card-condition-vault/web", "build"]);
   }
 
@@ -521,7 +528,11 @@ function stopServer(child) {
 function cleanRawPlaywrightVideos() {
   for (const file of readdirSync(videoDir)) {
     if (file.startsWith("page@") && file.endsWith(".webm")) {
-      rmSync(join(videoDir, file), { force: true });
+      try {
+        rmSync(join(videoDir, file), { force: true });
+      } catch (err) {
+        console.warn(`[record] could not remove stale raw video ${file}: ${err?.code ?? err?.message ?? err}`);
+      }
     }
   }
 }

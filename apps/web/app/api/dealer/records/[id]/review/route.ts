@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { appendEvent, openSession } from "../../../../../../lib/dealer/sessions";
 import { loadRecord, upsertRecord } from "../../../../../../lib/dealer/store";
 import type { DealerHumanReview, DealerLane } from "../../../../../../lib/dealer/types";
 
@@ -80,5 +81,28 @@ export async function POST(
     humanReview: review,
     lane,
   });
-  return NextResponse.json({ record: updated });
+
+  // Audit trail: each review touch becomes a session event tied to the record.
+  const session = openSession({ mode: "slab_scan", recordId: id, notes: `review:${reviewer}` });
+  appendEvent({
+    sessionId: session.id,
+    recordId: id,
+    type: "report.updated",
+    label: `Review by ${reviewer}: ${accepted} accepted · ${rejected} rejected · decision=${review.decision ?? "—"}`,
+    status: "passed",
+    payload: { decision: review.decision, acceptedFindings: accepted, rejectedFindings: rejected },
+  });
+  if (body.addedFinding) {
+    appendEvent({
+      sessionId: session.id,
+      recordId: id,
+      type: "tool.completed",
+      label: `Human-added DING: ${body.addedFinding.type.replaceAll("_", " ")}`,
+      targetRegion: body.addedFinding.type,
+      bboxNorm: [body.addedFinding.bbox[0] / 100, body.addedFinding.bbox[1] / 100, body.addedFinding.bbox[2] / 100, body.addedFinding.bbox[3] / 100],
+      status: "passed",
+    });
+  }
+
+  return NextResponse.json({ record: updated, sessionId: session.id });
 }

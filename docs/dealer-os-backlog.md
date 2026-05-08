@@ -3,6 +3,15 @@
 Captured during the Vendor Pilot Day-1-7 build so the deferred scope doesn't seduce future builds. The wedge stays:
 **condition trust + evidence trail**. Workflow ROI features ship _after_ Wedge A is proven.
 
+## Architecture sentence (locked)
+
+> **The user works on one card or batch at a time, but every scan becomes a durable vault record with proof, history, pricing, and review context.**
+
+Three-layer UI:
+- Layer 1 (calm primary surface): one card, one status, one next action
+- Layer 2 (contextual rails): vault, examples, benchmarks, cert references, price comps, tool trace — collapsed by default
+- Layer 3 (proof drawer): model outputs, tool calls, hashes, version history, benchmark alignment, human review notes — power-user only
+
 ## Already shipped in this loop
 
 - `/dealer/intake` — drop-zone bulk PSA-label intake, OCR via FastAPI `/certs/detect-labels`, lane UI (uploaded → certs detected → verified → image attached → ready → human review → listed → submitted → sold). Persists `data/dealer/records.jsonl` + `intake-batches.jsonl`.
@@ -13,8 +22,19 @@ Captured during the Vendor Pilot Day-1-7 build so the deferred scope doesn't sed
 - `/dealer/submissions` — submission tracker with stage counts (raw → submitted → grading → returned → listed → sold).
 - `/dealer/alerts` — derived alerts (low-comp confidence, raw-to-graded spread, returned-low, deal-score high).
 - 20 Silver+ seed records (10 reviewed, 3 listed, 2 submitted) loaded from `data/cert-references/seed.json` via `scripts/dealer/seed_vendor_pilot.mjs`.
+- `/dealer` landing as a real account-backed page (NOT a blank dropzone): hero panel "Scan cards into a condition evidence vault" + 3 actions (Upload / Try sample / Open vault) + proof grid (Evidence / Inspection / Decision) + Vendor pilot vault stats strip + Recent records list + 4 shortcut cards (DASHBOARD / LISTINGS / SUBMISSIONS / ALERTS) + HMAC-signed trust footer. Verified locally with desktop/mobile dogfood and frame extraction; external Gemini GIF QA was blocked by approval review for private-data exfiltration risk.
+- Persistent ScanSession + InspectionEvent stores at `data/dealer/sessions.jsonl` and `data/dealer/events.jsonl`. Every API endpoint (intake / attach-image / review / evidence) opens or appends to a session, emitting structured events with `targetRegion` + `bboxNorm` + `status`. Events replay on the record page as a time-stamped audit trail.
+- Vault-cues block on `/dealer/records/[id]` — "Saved to your vault" + Card record ID + last-analyzed (relative time) + report version (derived from event count) + sessions + events + visibility flag. Includes share link to the public read-only evidence packet.
+- Audit-trail collapse on the focused workbench: during streaming the 14-stage strip is visible; after the decision card lands, it collapses into an `<details>` "Audit trail · N stages · Xms" expandable.
+- Zoom-lens animation stub on running stages (CSS `dealer-zoom-lens` keyframe pulses a lens icon over the stage cell while it runs).
 
 ## Deferred (must NOT seduce future sprints until Wedge A is proven)
+
+### Streaming UI depth (post-wedge-proven)
+- **Literal zoom animation per tool call** — currently a CSS pulse on the stage cell. The full vision: when `tool.started: zoom_region(back_left_edge)` fires, the UI dims everything outside the bbox, animates a lens crop from that region, runs a scanning pulse over the crop, draws DING boxes inside the crop, then snaps the annotation back onto the full card. Same for `crop_corner`, `rotate_image`, `generate_glare_mask`, `compare_before_after`, `run_ding_detector_on_crop`. Requires a streaming event channel from the API (SSE or WebSocket) — current architecture is sequential POST-and-poll which can't drive frame-perfect animations. Ship after the friend says "the audit trail is useful."
+- **Server-Sent Events for live event stream** — `/api/dealer/sessions/[id]/events?stream=sse`. Right now events are polled by reloading the record page. SSE means the workbench can render each `tool.started` / `tool.completed` event as it lands, animating the zoom lens in real time during the friend's actual session.
+- **Replay mode** — given a `sessionId`, walk the events.jsonl entries back through the workbench UI as if it were live, including zoom-lens animations and DING reveals. Lets the friend show a buyer "here's what the system saw on this card on Tuesday."
+- **Full-video capture** off-by-default during scan, with vault-attached webm playback for disputes / before-after evidence. Privacy-first: explicit consent toggle on the workbench, server stores only the consented frames.
 
 ### Bulk intake variants
 - ZIP / folder import UI (drag a folder, server walks)

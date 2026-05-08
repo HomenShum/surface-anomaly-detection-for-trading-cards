@@ -149,6 +149,7 @@ export async function runDealerDetector(imageBase64: string): Promise<DetectorRu
   const base = inferenceBase();
   const imageHash = createHash("sha256").update(imageBase64, "base64").digest("hex");
   const dimensions = await imageSize(imageBase64);
+  const offlineCuratedFindings = curatedOpenDingFixtureFindings(imageHash);
   const url = `${base}/scan/analyze`;
   let res: Response;
   try {
@@ -162,10 +163,28 @@ export async function runDealerDetector(imageBase64: string): Promise<DetectorRu
       }),
     });
   } catch (err) {
+    if (offlineCuratedFindings.length > 0) {
+      return {
+        findings: offlineCuratedFindings,
+        summary:
+          "Open DING fixture: using bundled human-reviewed Tauros annotations because the detector service is offline.",
+        modelVersion: "human-curated-open-ding-fixture",
+        imageHash,
+      };
+    }
     throw new Error(`scan/analyze unreachable at ${url}: ${(err as Error).message}`);
   }
   if (!res.ok) {
     const body = await res.text();
+    if (offlineCuratedFindings.length > 0) {
+      return {
+        findings: offlineCuratedFindings,
+        summary:
+          "Open DING fixture: using bundled human-reviewed Tauros annotations because the detector service returned an error.",
+        modelVersion: "human-curated-open-ding-fixture",
+        imageHash,
+      };
+    }
     throw new Error(`scan/analyze ${res.status}: ${body.slice(0, 400)}`);
   }
   const j = (await res.json()) as FastApiAnalyzeResponse;
