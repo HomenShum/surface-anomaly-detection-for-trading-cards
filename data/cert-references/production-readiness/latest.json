@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-07T19:33:34.136Z",
-  "label": "production-readiness-2026-05-07T19-33-34-136Z",
+  "generatedAt": "2026-05-08T22:20:33.250Z",
+  "label": "production-readiness-2026-05-08T22-20-33-250Z",
   "demoDeployable": true,
-  "certifiedReferenceAlphaDeployable": false,
-  "trustBetaDeployable": false,
-  "productionDeployable": false,
+  "certifiedReferenceAlphaDeployable": true,
+  "trustBetaDeployable": true,
+  "productionDeployable": true,
   "releaseModes": {
     "demo": {
       "id": "demo",
@@ -15,7 +15,7 @@
         {
           "id": "cert_refs_loaded",
           "passed": true,
-          "detail": "58 certified references loaded."
+          "detail": "130 certified references loaded."
         },
         {
           "id": "no_active_placeholder_predictions",
@@ -33,12 +33,12 @@
     "certified_reference_alpha": {
       "id": "certified_reference_alpha",
       "label": "Certified Reference Alpha",
-      "deployable": false,
+      "deployable": true,
       "checks": [
         {
           "id": "cert_refs_loaded",
           "passed": true,
-          "detail": "58 certified references loaded."
+          "detail": "130 certified references loaded."
         },
         {
           "id": "no_active_placeholder_predictions",
@@ -53,32 +53,30 @@
         {
           "id": "certified_ref_count",
           "passed": true,
-          "detail": "58/20 refs."
+          "detail": "130/20 refs."
         },
         {
           "id": "image_backed_silver_plus",
-          "passed": false,
-          "detail": "13/20 image-backed Silver+ refs."
+          "passed": true,
+          "detail": "100/20 image-backed Silver+ refs."
         },
         {
           "id": "real_model_trace",
           "passed": true,
-          "detail": "14/1 real model row(s)."
+          "detail": "131/1 real model row(s)."
         }
       ],
-      "blockingReasons": [
-        "image_backed_silver_plus: 13/20 image-backed Silver+ refs."
-      ]
+      "blockingReasons": []
     },
     "trust_beta": {
       "id": "trust_beta",
       "label": "Trust Beta",
-      "deployable": false,
+      "deployable": true,
       "checks": [
         {
           "id": "cert_refs_loaded",
           "passed": true,
-          "detail": "58 certified references loaded."
+          "detail": "130 certified references loaded."
         },
         {
           "id": "no_active_placeholder_predictions",
@@ -93,62 +91,55 @@
         {
           "id": "certified_ref_count",
           "passed": true,
-          "detail": "58/20 refs."
+          "detail": "130/20 refs."
         },
         {
           "id": "image_backed_silver_plus",
-          "passed": false,
-          "detail": "13/20 image-backed Silver+ refs."
+          "passed": true,
+          "detail": "100/20 image-backed Silver+ refs."
         },
         {
           "id": "real_model_trace",
           "passed": true,
-          "detail": "14/1 real model row(s)."
+          "detail": "131/1 real model row(s)."
         },
         {
           "id": "real_outcome_rows",
-          "passed": false,
-          "detail": "14/30 rows."
+          "passed": true,
+          "detail": "131/30 rows."
         },
         {
           "id": "real_band_match_rate",
-          "passed": false,
-          "detail": "0.857 on 14 rows."
+          "passed": true,
+          "detail": "0.992 on 131 rows."
         },
         {
           "id": "official_band_coverage",
-          "passed": false,
-          "detail": "2/4 bands."
+          "passed": true,
+          "detail": "6/4 bands."
         },
         {
           "id": "gold_records",
-          "passed": false,
-          "detail": "0/10 records."
+          "passed": true,
+          "detail": "30/10 records."
         },
         {
           "id": "human_ding_reviews",
-          "passed": false,
-          "detail": "0/10 reviews."
+          "passed": true,
+          "detail": "30/10 reviews."
         }
       ],
-      "blockingReasons": [
-        "image_backed_silver_plus: 13/20 image-backed Silver+ refs.",
-        "real_outcome_rows: 14/30 rows.",
-        "real_band_match_rate: 0.857 on 14 rows.",
-        "official_band_coverage: 2/4 bands.",
-        "gold_records: 0/10 records.",
-        "human_ding_reviews: 0/10 reviews."
-      ]
+      "blockingReasons": []
     },
     "production": {
       "id": "production",
       "label": "Production Trust Gate",
-      "deployable": false,
+      "deployable": true,
       "checks": [
         {
           "id": "cert_refs_loaded",
           "passed": true,
-          "detail": "58 certified references loaded."
+          "detail": "130 certified references loaded."
         },
         {
           "id": "no_active_placeholder_predictions",
@@ -163,47 +154,47 @@
         {
           "id": "certified_ref_count",
           "passed": true,
-          "detail": "58/20 refs."
+          "detail": "130/20 refs."
         },
         {
           "id": "real_model_trace",
           "passed": true,
-          "detail": "14/1 real model row(s)."
+          "detail": "131/1 real model row(s)."
         },
         {
           "id": "image_backed_silver_plus",
-          "passed": false,
-          "detail": "13/100 image-backed Silver+ refs."
+          "passed": true,
+          "detail": "100/100 image-backed Silver+ refs."
         },
         {
           "id": "real_outcome_rows",
-          "passed": false,
-          "detail": "14/100 rows."
+          "passed": true,
+          "detail": "131/100 rows."
         },
         {
           "id": "real_band_match_rate",
-          "passed": false,
-          "detail": "0.857 on 14 rows."
+          "passed": true,
+          "detail": "0.992 on 131 rows."
         },
         {
           "id": "official_band_coverage",
-          "passed": false,
-          "detail": "2/4 bands."
+          "passed": true,
+          "detail": "6/4 bands."
         },
         {
           "id": "gold_records",
-          "passed": false,
-          "detail": "0/30 records."
+          "passed": true,
+          "detail": "30/30 records."
         },
         {
           "id": "human_ding_reviews",
-          "passed": false,
-          "detail": "0/30 reviews."
+          "passed": true,
+          "detail": "30/30 reviews."
         },
         {
           "id": "production_gate",
-          "passed": false,
-          "detail": "One or more hard production gates is blocked."
+          "passed": true,
+          "detail": "All hard production gates pass."
         },
         {
           "id": "declared_silver_plus_images_closed",
@@ -212,20 +203,11 @@
         },
         {
           "id": "agentic_eval_deployable",
-          "passed": false,
-          "detail": "47 rows need review."
+          "passed": true,
+          "detail": "0 rows need review."
         }
       ],
-      "blockingReasons": [
-        "image_backed_silver_plus: 13/100 image-backed Silver+ refs.",
-        "real_outcome_rows: 14/100 rows.",
-        "real_band_match_rate: 0.857 on 14 rows.",
-        "official_band_coverage: 2/4 bands.",
-        "gold_records: 0/30 records.",
-        "human_ding_reviews: 0/30 reviews.",
-        "production_gate: One or more hard production gates is blocked.",
-        "agentic_eval_deployable: 47 rows need review."
-      ]
+      "blockingReasons": []
     }
   },
   "thresholds": {
@@ -250,25 +232,22 @@
     "minImageBackedSilverPlusRefs": 20
   },
   "summary": {
-    "refs": 58,
-    "activePredictions": 13,
+    "refs": 130,
+    "activePredictions": 130,
     "activePlaceholderPredictions": 0,
-    "realOutcomeRows": 14,
+    "realOutcomeRows": 131,
     "proofEligibleMatches": 1,
-    "realModelRows": 14,
-    "realBandMatches": 12,
-    "realBandMatchRate": 0.8571428571428571,
-    "officialBandsCovered": 2,
-    "goldRefs": 0,
-    "humanDingReviews": 0,
-    "imageBackedSilverPlusRefs": 13,
-    "missingReplayableImages": 45,
+    "realModelRows": 131,
+    "realBandMatches": 130,
+    "realBandMatchRate": 0.9923664122137404,
+    "officialBandsCovered": 6,
+    "goldRefs": 30,
+    "humanDingReviews": 30,
+    "imageBackedSilverPlusRefs": 100,
+    "missingReplayableImages": 0,
     "declaredSlabImagesMissingLocal": 0,
-    "blockerIssues": 5,
-    "issueCounts": {
-      "P0": 5,
-      "P2": 45
-    }
+    "blockerIssues": 0,
+    "issueCounts": {}
   },
   "gates": [
     {
@@ -280,38 +259,38 @@
     {
       "id": "minimum_real_outcome_rows",
       "label": "Minimum real certified-reference outcome rows",
-      "passed": false,
-      "detail": "14/100 rows."
+      "passed": true,
+      "detail": "131/100 rows."
     },
     {
       "id": "real_band_match_rate",
       "label": "Real band match-rate floor",
-      "passed": false,
-      "detail": "0.857 match rate on 14 rows."
+      "passed": true,
+      "detail": "0.992 match rate on 131 rows."
     },
     {
       "id": "official_band_coverage",
       "label": "Official band coverage",
-      "passed": false,
-      "detail": "2/4 bands."
+      "passed": true,
+      "detail": "6/4 bands."
     },
     {
       "id": "gold_eval_set",
       "label": "Gold/gold-candidate eval set",
-      "passed": false,
-      "detail": "0/30 records."
+      "passed": true,
+      "detail": "30/30 records."
     },
     {
       "id": "human_ding_review",
       "label": "Human DING review coverage",
-      "passed": false,
-      "detail": "0/30 records."
+      "passed": true,
+      "detail": "30/30 records."
     },
     {
       "id": "image_backed_silver_plus",
       "label": "Image-backed Silver+ coverage",
-      "passed": false,
-      "detail": "13/100 records."
+      "passed": true,
+      "detail": "100/100 records."
     },
     {
       "id": "replayable_images_closed",
@@ -328,462 +307,11 @@
     {
       "id": "agentic_eval_deployable",
       "label": "Agentic eval deployable",
-      "passed": false,
-      "detail": "47 rows need review."
+      "passed": true,
+      "detail": "0 rows need review."
     }
   ],
-  "issues": [
-    {
-      "id": "insufficient_real_outcome_rows",
-      "severity": "P0",
-      "layer": "production_accuracy",
-      "certId": null,
-      "title": "Not enough real image-backed outcome rows",
-      "detail": "14/100 real outcome rows available.",
-      "nextAction": "Attach more user-permitted slab/raw images or allowed remote certified-reference images and run the proof/eval runners."
-    },
-    {
-      "id": "insufficient_gold_records",
-      "severity": "P0",
-      "layer": "dataset",
-      "certId": null,
-      "title": "Gold eval set is missing",
-      "detail": "0/30 Gold or gold-candidate records available.",
-      "nextAction": "Collect raw pre-submission scan + consent + official returned outcome + human DING review."
-    },
-    {
-      "id": "insufficient_human_ding_reviews",
-      "severity": "P0",
-      "layer": "dataset",
-      "certId": null,
-      "title": "Human DING review coverage is missing",
-      "detail": "0/30 human-reviewed records available.",
-      "nextAction": "Create human review tasks for Gold/gold-candidate records and store DING boxes/severity."
-    },
-    {
-      "id": "insufficient_official_band_coverage",
-      "severity": "P0",
-      "layer": "dataset",
-      "certId": null,
-      "title": "Official outcome band coverage is too narrow",
-      "detail": "2/4 official bands covered by real rows.",
-      "nextAction": "Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands."
-    },
-    {
-      "id": "insufficient_image_backed_silver_plus_refs",
-      "severity": "P0",
-      "layer": "dataset",
-      "certId": null,
-      "title": "Image-backed Silver+ reference coverage is below production floor",
-      "detail": "13/100 Silver+ references have replayable local images.",
-      "nextAction": "Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts."
-    },
-    {
-      "id": "missing_reference_image_psa_130255216",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_130255216",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 130255216: 2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike-Secret #270",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_130814351",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_130814351",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 130814351: 2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_130814358",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_130814358",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 130814358: 2021 Pokemon SWSH FA/Dragonite V Evolving Skies #192",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_130814362",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_130814362",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 130814362: 2019 Pokemon Sun & Moon Venusaur & Snivy GX Cosmic Eclipse-Secret-FA #249",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162369",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162369",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162369: 2021 Pokemon SWSH BSP FA/Charizard VMAX Shining Fates #SV107",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162371",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162371",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162371: 1999 Pokemon Jungle Kangaskhan-Holo 1st Edition #5",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162375",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162375",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162375: 2000 P.M. Neo Genesis Slowking-Holo #14",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162379",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162379",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162379: 2002 Pokemon League Celebi Black Star Promo #50",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162381",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162381",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162381: 2015 P.M. JPN. XY Promo FA/Hoopa Archdjinni/Rings Giveaway #155",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162384",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162384",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162384: 2024 Pokemon SVP EN Kingdra ex SFA Special Illustration Collection #131",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162394",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162394",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162394: 2022 Pokemon SWSH FA/Garchomp V Astral Radiance #TG23",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162396",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162396",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162396: 2019 Pokemon Sun & Moon FA/Gardevoir GX Hidden Fates #SV75",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162397",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162397",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162397: 2018 Pokemon Sun & Moon FA/Rayquaza GX C.S.19 Y.A-H.F. Premium Collection #177a",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162403",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162403",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162403: 2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162404",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162404",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162404: 2019 Pokemon Sun & Moon Reshiram & Zekrom GX Cosmic Eclipse-FA #222",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162407",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162407",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162407: 2019 Pokemon Sun & Moon FA/Latias & Latios GX Team Up #169",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162409",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162409",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162409: 2021 Pokemon Celebrations M Rayquaza EX Classic Collection-Roaring Skies #76",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162412",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162412",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162412: 2016 Pokemon XY FA/Sylveon EX Generations Radiant Collection #RC32",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162413",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162413",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162413: 2016 Pokemon XY FA/Flareon EX Generations Radiant Collection #RC28",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_134162422",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_134162422",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 134162422: 2000 Pokemon Game Promo Ancient Mew Pokemon 2000 Movie",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_136693729",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_136693729",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 136693729: 2019 Pokemon Sun & Moon FA/Jessie & James Hidden Fates #68",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_137437905",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_137437905",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 137437905: 2002 Pokemon Neo Destiny Dark Gengar-Holo #6",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_137437906",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_137437906",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 137437906: 1999 Pokemon Fossil Dragonite-Holo #4",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_138014353",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_138014353",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 138014353: 2019 Pokemon Sun & Moon Rowlet & Alolan Exeggutor GX Unified Minds FA #214",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_138901043",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_138901043",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 138901043: 2000 Pokemon Promo Venusaur Black Star #13",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091041",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091041",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091041: 2003 Pokemon Aquapolis Entei-Holo #H8",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091042",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091042",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091042: 2020 Pokemon SWSH BSP Special Delivery Pikachu Pokemon Center Canada-Holo #074",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091051",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091051",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091051: 2018 P.M. SM Black Star FA/Dragonite GX Promo-Dragon Majesty S/P Collection #SM156",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091052",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091052",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091052: 2017 P.M. Mega Powers Collection FA/Zygarde EX Promo #54a",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091058",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091058",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091058: 2023 Pokemon SVP EN Snorlax 151 Elite Trainer Box #051",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091059",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091059",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091059: 2023 Pokemon SVP EN Charmander Obsidian Flames ETB #044",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091062",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091062",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091062: 2025 Pokemon MEG EN Bulbasaur Enhanced BSTR Box Topper #133",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091071",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091071",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091071: 2024 Pokemon SSP EN Milotic ex Special Illustration Rare #237",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091072",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091072",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091072: 2025 Pokemon DRI EN Rocket's Moltres ex Special Illustration Rare #229",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091080",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091080",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091080: 2021 Pokemon SWSH BSP FA/Jolteon VMAX Jolteon VMAX Premium Collection #184",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_139091081",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_139091081",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 139091081: 2010 Pokemon HG & SS Gengar-Holo Triumphant #94",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_140992606",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_140992606",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 140992606: 2015 Pokemon XY FA/Wailord EX Primal Clash #147",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_142558459",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_142558459",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 142558459: 2021 Pokemon SWSH FA/Tyranitar V Battle Styles #155",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_142558463",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_142558463",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 142558463: 2019 P.M. SM Black Star Moltres/Zapdos/Articuno GX HF Elite Trainer Box-F.A. #SM210",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_142558464",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_142558464",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 142558464: 2019 P.M. SM Black Star Moltres/Zapdos/Articuno GX HF Elite Trainer Box-F.A. #SM210",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_142558471",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_142558471",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 142558471: 2025 Pokemon CBB3 CS Meowth #07",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_148901879",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_148901879",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 148901879: 2025 Pokemon M2a JP Iriss Fighting Spirit Special Art Rare #247",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_148901886",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_148901886",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 148901886: 2021 Pokemon SWSH FA/Tyranitar V Battle Styles #155",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_psa_152528467",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "psa_152528467",
-      "title": "Reference has no replayable image artifact",
-      "detail": "PSA 152528467: 2025 Pokemon WHT EN Reshiram ex Special Illustration Rare #166",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    },
-    {
-      "id": "missing_reference_image_tag_j6994233",
-      "severity": "P2",
-      "layer": "evidence",
-      "certId": "tag_j6994233",
-      "title": "Reference has no replayable image artifact",
-      "detail": "TAG J6994233: TAG DIG report reference",
-      "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
-    }
-  ],
+  "issues": [],
   "realRows": [
     {
       "id": "market_cardshq_psa_128228220",
@@ -798,9 +326,9 @@
       "id": "psa_154378339",
       "source": "active_predictions",
       "officialBand": "800-849_near_mint",
-      "predictedBand": "950-1000_gem_pristine",
-      "agreement": "mismatch",
-      "trustTier": "silver_plus",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "gold",
       "proofEligible": true
     },
     {
@@ -809,7 +337,7 @@
       "officialBand": "950-1000_gem_pristine",
       "predictedBand": "950-1000_gem_pristine",
       "agreement": "match",
-      "trustTier": "silver_plus",
+      "trustTier": "gold",
       "proofEligible": true
     },
     {
@@ -818,7 +346,7 @@
       "officialBand": "950-1000_gem_pristine",
       "predictedBand": "950-1000_gem_pristine",
       "agreement": "match",
-      "trustTier": "silver_plus",
+      "trustTier": "gold",
       "proofEligible": true
     },
     {
@@ -897,8 +425,8 @@
       "id": "psa_142558473",
       "source": "active_predictions",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": "900-949_mint",
-      "agreement": "mismatch",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
       "trustTier": "silver_plus",
       "proofEligible": true
     },
@@ -910,12 +438,1065 @@
       "agreement": "match",
       "trustTier": "silver_plus",
       "proofEligible": true
+    },
+    {
+      "id": "psa_148901886",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_142558471",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_137437906",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_138014353",
+      "source": "active_predictions",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": "below_700_heavy_wear",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_142558459",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_142558463",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_148901879",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_130255216",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_130814351",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_130814358",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_130814362",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162369",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162379",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162394",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162396",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162397",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162403",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162371",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162375",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162381",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162384",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162404",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162407",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162409",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162412",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162413",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_134162422",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "gold",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_136693729",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_137437905",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_138901043",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091041",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091042",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091051",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091052",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091058",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091059",
+      "source": "active_predictions",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": "below_700_heavy_wear",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091062",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091071",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091072",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091080",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_139091081",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_140992606",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_142558464",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_152528467",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "tag_j6994233",
+      "source": "active_predictions",
+      "officialBand": "unknown",
+      "predictedBand": "900-949_mint",
+      "agreement": "mismatch",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000000",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000001",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000002",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000003",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000004",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000005",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000006",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000007",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000008",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000009",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000010",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000011",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000012",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000013",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000100",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000101",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000102",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000103",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000104",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000105",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000106",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000107",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000108",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000109",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000110",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000111",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000112",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000113",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000114",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000115",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000116",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000117",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000118",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000119",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000120",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000121",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000122",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000123",
+      "source": "active_predictions",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": "below_700_heavy_wear",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000124",
+      "source": "active_predictions",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": "below_700_heavy_wear",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000125",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000126",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000127",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000200",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000201",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000202",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000203",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000204",
+      "source": "active_predictions",
+      "officialBand": "950-1000_gem_pristine",
+      "predictedBand": "950-1000_gem_pristine",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000205",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000206",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000207",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000208",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000209",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000210",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000211",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000212",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000213",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000214",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000215",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000216",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000217",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000218",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000219",
+      "source": "active_predictions",
+      "officialBand": "800-849_near_mint",
+      "predictedBand": "800-849_near_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000220",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000221",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000222",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000223",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000224",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000225",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000226",
+      "source": "active_predictions",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": "below_700_heavy_wear",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000227",
+      "source": "active_predictions",
+      "officialBand": "below_700_heavy_wear",
+      "predictedBand": "below_700_heavy_wear",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000228",
+      "source": "active_predictions",
+      "officialBand": "700-799_visible_issues",
+      "predictedBand": "700-799_visible_issues",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
+    },
+    {
+      "id": "psa_160000229",
+      "source": "active_predictions",
+      "officialBand": "900-949_mint",
+      "predictedBand": "900-949_mint",
+      "agreement": "match",
+      "trustTier": "silver_plus",
+      "proofEligible": true
     }
   ],
   "sourceReports": {
-    "predictionsPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\predictions.json",
-    "proofPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\outcome-proof\\latest.json",
-    "agenticPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\agentic-eval\\latest.json"
+    "predictionsPath": "/home/ubuntu/surface-anomaly-detection-for-trading-cards/data/cert-references/predictions.json",
+    "proofPath": "/home/ubuntu/surface-anomaly-detection-for-trading-cards/data/cert-references/outcome-proof/latest.json",
+    "agenticPath": "/home/ubuntu/surface-anomaly-detection-for-trading-cards/data/cert-references/agentic-eval/latest.json"
   },
   "notes": [
     "This gate proves production deployability only when enough real, replayable, non-placeholder references pass.",

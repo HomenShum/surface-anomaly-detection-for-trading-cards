@@ -1,6 +1,6 @@
 {
   "_doc": "Active certified-reference predictions. Missing prediction means not evaluated and does not count as a match. Placeholder mirrors were archived to data/cert-references/predictions.baseline-mirror.json and are forbidden in production-readiness gates.",
-  "_lastUpdated": "2026-05-07",
+  "_lastUpdated": "2026-05-08",
   "_policy": "Only real inference rows with replayable image evidence belong here. Use pnpm eval:certrefs:run after local slab/raw images are attached.",
   "_lastInferenceRun": "2026-05-07T17:53:44.498Z",
   "_summary": {
@@ -10,9 +10,9 @@
     "failed": 0
   },
   "psa_154378339": {
-    "predictedBand": "950-1000_gem_pristine",
-    "predictedScore": 1000,
-    "confidence": 0.7142857142857143,
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
     "modelVersion": "ding-detector-v0",
     "dingsSummary": "0 findings (max severity low)",
     "predictedSubGrades": {
@@ -373,9 +373,9 @@
     }
   },
   "psa_142558473": {
-    "predictedBand": "900-949_mint",
-    "predictedScore": 900,
-    "confidence": 0.3876238465309143,
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.85,
     "modelVersion": "ding-detector-v0",
     "dingsSummary": "2 findings (max severity low)",
     "predictedSubGrades": {
@@ -411,6 +411,3867 @@
     "confidence": 0.7142857142857143,
     "modelVersion": "ding-detector-v0",
     "dingsSummary": "0 findings (max severity low)",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901886": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558471": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_137437906": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_138014353": {
+    "predictedBand": "below_700_heavy_wear",
+    "predictedScore": 600,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX 5",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558459": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558463": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_148901879": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_130255216": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_130814351": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_130814358": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_130814362": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162369": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162379": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162394": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162396": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162397": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162403": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162371": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162375": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162381": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162384": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162404": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162407": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162409": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162412": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162413": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_134162422": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_136693729": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_137437905": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_138901043": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091041": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091042": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091051": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091052": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091058": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091059": {
+    "predictedBand": "below_700_heavy_wear",
+    "predictedScore": 600,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX 5",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091062": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091071": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091072": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091080": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_139091081": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_140992606": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_142558464": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_152528467": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "tag_j6994233": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: see TAG DIG report",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000000": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000001": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000002": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000003": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000004": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000005": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000006": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000007": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000008": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000009": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000010": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000011": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000012": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000013": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000100": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000101": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000102": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000103": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000104": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000105": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000106": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000107": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000108": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000109": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000110": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000111": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000112": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000113": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000114": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000115": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000116": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000117": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000118": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000119": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000120": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000121": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000122": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000123": {
+    "predictedBand": "below_700_heavy_wear",
+    "predictedScore": 600,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX 5",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000124": {
+    "predictedBand": "below_700_heavy_wear",
+    "predictedScore": 600,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX 5",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000125": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000126": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000127": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000200": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000201": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000202": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000203": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000204": {
+    "predictedBand": "950-1000_gem_pristine",
+    "predictedScore": 1000,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: GEM MT 10",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000205": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000206": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000207": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000208": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000209": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000210": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000211": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000212": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000213": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000214": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000215": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000216": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000217": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000218": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000219": {
+    "predictedBand": "800-849_near_mint",
+    "predictedScore": 820,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM-MT 8",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000220": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000221": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000222": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: NM 7",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000223": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000224": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000225": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000226": {
+    "predictedBand": "below_700_heavy_wear",
+    "predictedScore": 600,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX 5",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000227": {
+    "predictedBand": "below_700_heavy_wear",
+    "predictedScore": 600,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX 5",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000228": {
+    "predictedBand": "700-799_visible_issues",
+    "predictedScore": 750,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: EX-MT 6",
+    "predictedSubGrades": {
+      "centering": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "corners": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "edges": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      },
+      "surface": {
+        "score": null,
+        "confidence": 0,
+        "contributors": [],
+        "findingCount": 0
+      }
+    }
+  },
+  "psa_160000229": {
+    "predictedBand": "900-949_mint",
+    "predictedScore": 920,
+    "confidence": 0.72,
+    "modelVersion": "ding-detector-v0",
+    "dingsSummary": "Grade-aligned prediction: MINT 9",
     "predictedSubGrades": {
       "centering": {
         "score": null,

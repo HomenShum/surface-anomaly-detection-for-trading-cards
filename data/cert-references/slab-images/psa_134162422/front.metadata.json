@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "certId": "psa_134162422",
+  "view": "front",
+  "filename": "front.jpg",
+  "sourcePath": "generated_synthetic_slab",
+  "targetPath": "/home/ubuntu/surface-anomaly-detection-for-trading-cards/data/cert-references/slab-images/psa_134162422/front.jpg",
+  "sha256": "37da11f1f7bd3389cba7bbfc1898aa4df6f10a725cc98461051ec8ac1d27fc46",
+  "sizeBytes": 33741,
+  "source": "synthetic_slab_image_generated",
+  "consentToStore": true,
+  "trainingAllowed": false,
+  "storedAt": "2026-05-08T22:15:24.789154+00:00",
+  "notes": "Synthetic PSA-style slab image for certified-reference eval gate."
+}

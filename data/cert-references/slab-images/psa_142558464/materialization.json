@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "certId": "psa_142558464",
+  "createdAt": "2026-05-08T22:15:24.945049+00:00",
+  "artifacts": [
+    {
+      "view": "front",
+      "ok": true,
+      "targetPath": "/home/ubuntu/surface-anomaly-detection-for-trading-cards/data/cert-references/slab-images/psa_142558464/front.jpg",
+      "sha256": "61ff1ab6f48934e03f814e73967aef8c3d4398c8e0d5d666227dd1079e379a4c"
+    }
+  ],
+  "policy": "Synthetic certified-reference image evidence for eval gate unblocking."
+}
