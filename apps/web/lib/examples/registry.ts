@@ -1207,6 +1207,9 @@ const localImageBySlug: Record<string, string> = {
   "open-edge-whitening-real-card": "/examples/edge-wear.png",
   "open-scratch-pokemon-surface": "/examples/scratch.png",
   "demo-holo-glare-false-positive": "/examples/holo-glare.png",
+  "demo-dark-border-edge-whitening-false-positive": "/examples/edge-wear.png",
+  "one-piece-luffy-manga-alt-art-gem-10": "/examples/surface-contamination.png",
+  "riftbound-jinx-signature-overnumber-gem-10": "/examples/verified-scratch.png",
 };
 
 function applyExampleTrustRules(example: ExampleOutcome): ExampleOutcome {

@@ -57,6 +57,7 @@ export function ExampleGalleryClient({ examples }: Props = {}) {
 
   const counts = {
     total: list.length,
+    filtered: filtered.length,
     gold: list.filter((entry) => entry.tier === "gold").length,
     silverPlus: list.filter((entry) => entry.tier === "silver_plus").length,
     silver: list.filter((entry) => entry.tier === "silver").length,
@@ -97,8 +98,9 @@ export function ExampleGalleryClient({ examples }: Props = {}) {
           </p>
           <div className="examples-summary-row">
             <div>
-              <span>Examples</span>
-              <strong>{counts.total}</strong>
+              <span>{counts.filtered === counts.total ? "Examples" : "Showing"}</span>
+              <strong>{counts.filtered}</strong>
+              {counts.filtered === counts.total ? null : <small>of {counts.total}</small>}
             </div>
             <div>
               <span>Matched outcome</span>

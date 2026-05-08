@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { currentOwnerId } from "../lib/dealer/owner";
 import { loadAllRecords } from "../lib/dealer/store";
 import type { DealerRecord } from "../lib/dealer/types";
+import { DealerCardThumb } from "./DealerCardThumb";
 
 function fmtUsd(n: number | undefined | null): string {
   if (n == null || !Number.isFinite(n)) return "n/a";
@@ -32,8 +34,9 @@ function recordRecommendation(r: DealerRecord): { label: string; tone: "good" | 
   return { label: r.lane.replace(/_/g, " "), tone: "muted" };
 }
 
-export function DealerHeroContext({ expert }: { expert: boolean }) {
-  const records = loadAllRecords();
+export async function DealerHeroContext({ expert }: { expert: boolean }) {
+  const ownerId = await currentOwnerId();
+  const records = loadAllRecords(ownerId);
   const total = records.length;
   const reviewed = records.filter((r) => Boolean(r.humanReview)).length;
   const listed = records.filter((r) => Boolean(r.listing)).length;
@@ -107,14 +110,14 @@ export function DealerHeroContext({ expert }: { expert: boolean }) {
                 <li key={r.id}>
                   <Link href={`/dealer/records/${r.id}`}>
                     <span className="dealer-hero-recent-thumb" aria-hidden>
-                      {r.imageUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img alt="" loading="lazy" src={r.imageUrl} />
-                      ) : (
+                      <DealerCardThumb
+                        fallback={
                         <span className="dealer-hero-recent-thumb-fallback">
                           {(r.certProvider ?? r.cardIdentity ?? "C").slice(0, 2).toUpperCase()}
                         </span>
-                      )}
+                        }
+                        src={r.imageUrl}
+                      />
                     </span>
                     <span className="dealer-hero-recent-cert">
                       {r.certNumber ? `${r.certProvider ?? "PSA"} ${r.certNumber}` : r.id.slice(0, 14)}

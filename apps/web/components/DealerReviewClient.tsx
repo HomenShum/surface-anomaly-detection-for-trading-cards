@@ -3,6 +3,7 @@
 import { useState, useCallback, type ChangeEvent } from "react";
 import Link from "next/link";
 import type { DealerRecord, DealerModelFinding } from "../lib/dealer/types";
+import { DealerCardThumb } from "./DealerCardThumb";
 
 const DING_TYPES = [
   "corner_wear",
@@ -194,14 +195,16 @@ export function DealerReviewClient({ record: initial }: Props) {
         </header>
 
         <div className="dealer-record-image">
-          {record.imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img alt="Slab" src={record.imageUrl} />
-          ) : (
-            <div style={{ alignItems: "center", color: "rgba(255,255,255,0.5)", display: "flex", height: "100%", justifyContent: "center" }}>
-              No slab image attached yet
-            </div>
-          )}
+          <DealerCardThumb
+            alt="Slab"
+            className="dealer-record-image-img"
+            fallback={
+              <div style={{ alignItems: "center", color: "rgba(255,255,255,0.5)", display: "flex", height: "100%", justifyContent: "center", textAlign: "center" }}>
+                Local slab image unavailable
+              </div>
+            }
+            src={record.imageUrl}
+          />
           {findings.map((f, idx) => {
             const [x1, y1, x2, y2] = f.bbox;
             return (

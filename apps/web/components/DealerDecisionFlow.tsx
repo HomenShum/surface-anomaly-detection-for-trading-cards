@@ -11,6 +11,7 @@ import {
   type DragEvent,
 } from "react";
 import type { DealerRecord } from "../lib/dealer/types";
+import { DealerCardThumb } from "./DealerCardThumb";
 
 const STAGE_DEFS: Array<{ id: StageId; label: string }> = [
   { id: "uploaded", label: "Uploaded" },
@@ -91,6 +92,18 @@ type DealerVaultSnapshot = {
     lane: string;
     findings: number;
     proofSaved: boolean;
+    imageUrl?: string;
+    cert?: string | null;
+    updatedAt?: string;
+    value?: number | null;
+    grade?: string | null;
+  }>;
+  vaultPreview?: Array<{
+    id: string;
+    title: string;
+    grade: string | null;
+    imageUrl: string;
+    cert: string | null;
   }>;
 };
 
@@ -139,6 +152,29 @@ function fmtMs(ms?: number): string {
   if (!ms || !Number.isFinite(ms)) return "n/a";
   if (ms < 1000) return `${Math.round(ms)}ms`;
   return `${(ms / 1000).toFixed(1)}s`;
+}
+
+function fmtRelTime(iso: string | undefined, now: number | null): string {
+  if (!iso) return "";
+  if (now === null) return "recent";
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  const diff = now - t;
+  const sec = Math.max(0, Math.floor(diff / 1000));
+  if (sec < 60) return `${sec}s ago`;
+  const min = Math.floor(sec / 60);
+  if (min < 60) return `${min}m ago`;
+  const hr = Math.floor(min / 60);
+  if (hr < 48) return `${hr}h ago`;
+  return `${Math.floor(hr / 24)}d ago`;
+}
+
+function laneTone(lane: string): string {
+  if (lane === "ready" || lane === "image_attached") return "good";
+  if (lane === "human_review") return "warn";
+  if (lane === "submitted" || lane === "listed") return "info";
+  if (lane === "sold") return "muted";
+  return "muted";
 }
 
 function recommendationToReviewDecision(
@@ -195,6 +231,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
   const [copied, setCopied] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [proofToastVisible, setProofToastVisible] = useState(false);
+  const [relativeNow, setRelativeNow] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const startedAtRef = useRef<number>(0);
   const sessionIdRef = useRef<string>("");
@@ -205,13 +242,17 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
         : `dealer_session_${Date.now().toString(36)}`;
+    setRelativeNow(Date.now());
+    const relativeTimer = window.setInterval(() => setRelativeNow(Date.now()), 60_000);
     logBehavior({ event: "returnVisit", returnVisitAt: new Date().toISOString(), sessionId: sessionIdRef.current });
 
     // Demo trigger: if ?demo=<fixture> is in the URL, auto-fetch the fixture
     // and feed it through handleFile so recordings can capture the streaming
     // pipeline without simulating a file picker. Recognized fixtures map to
     // images already shipped in /public.
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined") {
+      return () => window.clearInterval(relativeTimer);
+    }
     const demoMap: Record<string, string> = {
       tauros: "/demo/sample-cards/roboflow-tauros-real-card.jpg",
       "corner-wear": "/examples/corner-wear.png",
@@ -220,7 +261,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
     };
     const params = new URLSearchParams(window.location.search);
     const demo = params.get("demo");
-    if (!demo || !demoMap[demo]) return;
+    if (!demo || !demoMap[demo]) return () => window.clearInterval(relativeTimer);
     const url = demoMap[demo];
     void (async () => {
       try {
@@ -240,6 +281,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
         // demo trigger is best-effort
       }
     })();
+    return () => window.clearInterval(relativeTimer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -271,6 +313,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
     setBusySaving(false);
     setBusyAccepting(false);
     setCopied(false);
+    setProofToastVisible(false);
   }, []);
 
   const markFoveationStages = useCallback(
@@ -643,10 +686,40 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
                 <strong>sell / submit / hold / review</strong>
               </div>
             </div>
+            {vault?.vaultPreview && vault.vaultPreview.length > 0 ? (
+              <aside className="dealer-vault-preview" aria-label="Vault preview">
+                <header>
+                  <span className="dealer-vault-preview-kicker">Vault preview</span>
+                  <Link href="/dealer/listings?expert=1">browse all →</Link>
+                </header>
+                <ul>
+                  {vault.vaultPreview.map((p) => (
+                    <li key={p.id}>
+                      <Link href={`/dealer/records/${p.id}`} title={p.title}>
+                        <span className="dealer-vault-preview-thumb">
+                          <DealerCardThumb
+                            src={p.imageUrl}
+                            fallback={
+                              <span className="dealer-vault-preview-thumb-fallback" aria-hidden>
+                                <em>RAW</em>
+                                <b>{p.id.slice(-4)}</b>
+                              </span>
+                            }
+                          />
+                        </span>
+                        <span className="dealer-vault-preview-meta">
+                          <strong>{p.cert ?? p.title}</strong>
+                          <span>{p.grade ?? "raw"}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            ) : null}
           </div>
 
           <div className="dealer-home-action-stack">
-            <p className="dealer-drop-heading">Drop card photo. Get decision. Save proof.</p>
             <div
               className={`dealer-hero-dropzone${dragOver ? " is-drag" : ""}`}
               onClick={() => inputRef.current?.click()}
@@ -708,17 +781,45 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
                 </div>
               </div>
               <div className="dealer-vault-recent">
-                <span>Recent saved records</span>
+                <span>
+                  Recent saved records
+                  <button
+                    aria-label="Ask Pi about recent records"
+                    className="dealer-vault-recent-ask"
+                    data-agent-summon
+                    type="button"
+                  >
+                    ask Pi about these
+                  </button>
+                </span>
                 {vault?.latestRecords?.length ? (
                   <ul>
                     {vault.latestRecords.map((item) => (
                       <li key={item.id}>
                         <Link href={`/dealer/records/${item.id}`}>
-                          <strong>{item.title}</strong>
-                          <small>
-                            {item.lane.replaceAll("_", " ")} | {item.findings} DINGs |{" "}
-                            {item.proofSaved ? "proof saved" : "proof pending"}
-                          </small>
+                          <span className="dealer-vault-recent-thumb">
+                            <DealerCardThumb
+                              src={item.imageUrl}
+                              fallback={
+                                <span className="dealer-vault-recent-thumb-fallback" aria-hidden>
+                                  <em>{(item.cert ?? "RAW").slice(0, 3).toUpperCase()}</em>
+                                  {item.cert ? <b>{item.cert.split(" ").pop()?.slice(-4)}</b> : null}
+                                </span>
+                              }
+                            />
+                          </span>
+                          <span className="dealer-vault-recent-text">
+                            <strong>{item.title}</strong>
+                            <span className="dealer-vault-recent-meta">
+                              <span className={`dealer-pill dealer-pill--${laneTone(item.lane)}`}>{item.lane.replaceAll("_", " ")}</span>
+                              {item.grade ? <span>{item.grade}</span> : null}
+                              <span className="dealer-vault-recent-rel">{fmtRelTime(item.updatedAt, relativeNow)}</span>
+                            </span>
+                          </span>
+                          <span className="dealer-vault-recent-value">
+                            {item.value != null ? <strong>{fmtUsd(item.value)}</strong> : <em>—</em>}
+                            <small>{item.findings} DINGs · {item.proofSaved ? "proof ✓" : "no proof"}</small>
+                          </span>
                         </Link>
                       </li>
                     ))}

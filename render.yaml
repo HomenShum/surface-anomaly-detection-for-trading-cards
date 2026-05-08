@@ -1,23 +1,87 @@
 services:
+  # ─── Next.js dealer-OS web app ──────────────────────────────────────
+  # The Python YOLO inference service is NOT deployed on Render. DING
+  # detection runs against Roboflow Hosted Inference (see DEPLOY.md
+  # "Roboflow setup"). This keeps the Render footprint small ($7/mo)
+  # and avoids the 1.2GB-RAM PyTorch container that won't fit Starter.
+  # The self-hosted FastAPI detector at services/inference-api/ stays
+  # as a dev-mode fallback; deploy it separately on a heavier host
+  # only if you outgrow Roboflow.
+  #
+  # Provisions a Node web service with a 1GB persistent disk mounted at
+  # `/opt/render/project/src/data`. JSONL records, sessions, events, and
+  # per-owner image uploads survive deploys + restarts.
   - type: web
-    name: card-condition-vault-inference
-    runtime: docker
-    dockerfilePath: ./services/inference-api/Dockerfile
-    dockerContext: .
-    plan: starter
-    healthCheckPath: /health
+    name: card-condition-vault-web
+    runtime: node
+    plan: starter # $7/mo — required for persistent disk + always-on
+    region: oregon
+    branch: main
+    rootDir: .
+    buildCommand: corepack enable && corepack prepare pnpm@latest --activate && pnpm install --frozen-lockfile && pnpm --filter @card-condition-vault/web build
+    startCommand: pnpm --filter @card-condition-vault/web start --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: dealer-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
     envVars:
-      - key: CARD_CONDITION_MODEL_VERSION
-        value: ding-detector-v0
-      - key: CARD_CONDITION_YOLO_WEIGHTS
-        value: /workspace/services/inference-api/app/models/ding-detector-v0.pt
-      - key: CARD_CONDITION_PERSIST_ARTIFACTS
-        value: "true"
-      - key: CARD_CONDITION_STORAGE_ROOT
-        value: /workspace/storage
-      - key: ALLOW_MOCK_DETECTOR
-        value: "false"
-      - key: REQUIRE_REAL_MODEL
-        value: "true"
-      - key: ENABLE_FULL_VIDEO_STORAGE
-        value: "false"
+      - key: NODE_ENV
+        value: production
+      - key: NEXTAUTH_URL
+        sync: false # set per-environment in dashboard
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: CARD_AGENT_PROVIDER
+        value: openrouter
+      - key: CARD_AGENT_MODEL
+        value: google/gemma-4-26b-a4b
+      - key: CARD_AGENT_GEMINI_MODEL
+        value: gemini-2.5-flash
+      # ─── DING detector backend (Roboflow Hosted Inference) ─────────
+      # Required for AI auto-DING detection. Without these set, the
+      # dealer-OS still works but records land in the workbench awaiting
+      # manual DING flagging. See DEPLOY.md "Roboflow setup".
+      - key: ROBOFLOW_API_KEY
+        sync: false
+      - key: ROBOFLOW_MODEL_ID
+        sync: false # e.g. "your-workspace/ding-detector/3"
+      - key: INFERENCE_API_TIMEOUT_MS
+        value: "8000"
+      # ─── Heartbeat alert ───────────────────────────────────────────
+      - key: ADMIN_HEARTBEAT_TOKEN
+        generateValue: true
+      - key: ADMIN_ALERT_WEBHOOK_URL
+        sync: false # Discord/Slack/Resend webhook; explained in DEPLOY.md
+
+  # ─── Daily heartbeat cron (10-user alert) ───────────────────────────
+  # Runs once a day at 14:00 UTC (~7am PT). Hits the heartbeat endpoint
+  # with notify=1; if active owners > 10 it fires the webhook to your
+  # configured Discord/Slack/email channel.
+  - type: cron
+    name: dealer-heartbeat-alert
+    runtime: node
+    plan: starter
+    schedule: "0 14 * * *"
+    branch: main
+    rootDir: .
+    buildCommand: 'echo "no build needed"'
+    startCommand: |
+      curl -sS -X GET "$DEALER_BASE_URL/api/admin/heartbeat?notify=1&threshold=10" \
+        -H "Authorization: Bearer $ADMIN_HEARTBEAT_TOKEN" || exit 0
+    envVars:
+      - key: DEALER_BASE_URL
+        sync: false # https://card-condition-vault-web.onrender.com (or custom domain)
+      - key: ADMIN_HEARTBEAT_TOKEN
+        sync: false # paste the same value from the web service

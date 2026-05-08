@@ -6,7 +6,6 @@ import { AlphaBadge } from "./AlphaBadge";
 import { InferenceHealthPill, useInferenceGate } from "./InferenceHealthPill";
 import { MethodCard } from "./MethodCard";
 import { OutcomeExampleCard } from "./OutcomeExampleCard";
-import { RewardToast } from "./RewardToast";
 import { verifiedMethods } from "../lib/community-methods";
 import { outcomeExamples } from "../lib/outcome-examples";
 
@@ -73,7 +72,6 @@ export function LandingClient() {
 
   return (
     <main className="landing-shell">
-      <RewardToast method={featuredMethod} delayMs={1400} />
       <header className="landing-topbar">
         <Link className="brand landing-brand" href="/">
           <span className="brand-mark">CV</span>

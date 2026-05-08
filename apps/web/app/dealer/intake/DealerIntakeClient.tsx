@@ -35,6 +35,15 @@ function fileToBase64(file: File): Promise<string> {
   });
 }
 
+function displayRecordNote(record: DealerRecord) {
+  const raw = record.officialGrade ?? record.cardIdentity ?? record.notes ?? "-";
+  if (/fetch failed|Inference URL unavailable|Detector unreachable/i.test(raw)) {
+    return "local OCR service offline; queued for retry";
+  }
+  if (raw.length > 78) return `${raw.slice(0, 75)}...`;
+  return raw;
+}
+
 export function DealerIntakeClient({ initialRecords, initialBatches }: Props) {
   const [records, setRecords] = useState<DealerRecord[]>(initialRecords);
   const [batches, setBatches] = useState<DealerIntakeBatch[]>(initialBatches);
@@ -127,6 +136,13 @@ export function DealerIntakeClient({ initialRecords, initialBatches }: Props) {
           ref={inputRef}
           type="file"
         />
+        <div className="dealer-dropzone-visual" aria-hidden>
+          <span className="dealer-dropzone-slab dealer-dropzone-slab--back" />
+          <span className="dealer-dropzone-slab dealer-dropzone-slab--front">
+            <i />
+          </span>
+          <strong>DROP</strong>
+        </div>
         <p className="dealer-dropzone-title">
           {busy ? "Running OCR + cert extraction…" : "Drop PSA label batch / slab grid / binder page photos"}
         </p>
@@ -147,10 +163,9 @@ export function DealerIntakeClient({ initialRecords, initialBatches }: Props) {
       <section aria-label="Lanes" className="dealer-lanes">
         {LANE_ORDER.map((lane) => {
           const rows = recordsByLane[lane];
-          if (lane === "submitted" || lane === "sold") {
-            // Hide irrelevant lanes from the intake view (submission tracker has its own page).
-            if (rows.length === 0) return null;
-          }
+          // Hide downstream fulfillment/archive lanes from intake. Submission,
+          // sold, and listing workflows have their own focused surfaces.
+          if (lane === "submitted" || lane === "sold" || lane === "listed") return null;
           return (
             <article className={`dealer-lane dealer-lane--${lane}`} key={lane}>
               <header>
@@ -164,9 +179,7 @@ export function DealerIntakeClient({ initialRecords, initialBatches }: Props) {
                       <strong>
                         {r.certNumber ? `${r.certProvider ?? "PSA"} ${r.certNumber}` : r.id}
                       </strong>
-                      <em>
-                        {r.officialGrade ?? r.cardIdentity ?? r.notes ?? "—"}
-                      </em>
+                      <em>{displayRecordNote(r)}</em>
                     </Link>
                   </li>
                 ))}

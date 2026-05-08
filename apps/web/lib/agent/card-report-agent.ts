@@ -6,6 +6,7 @@ export type CardReportAgentInput = {
   prompt: string;
   reportJson?: unknown;
   evidenceManifest?: unknown;
+  inspectionTrace?: unknown;
 };
 
 export type CardReportAgentResponse = {
@@ -38,6 +39,27 @@ Do not say a proposed method is active for all users unless the skill registry s
 Always explain uncertainty clearly.
 Keep answers compact and operator-friendly.
 `;
+
+const INSPECTION_TOOL_NAMES = [
+  "detect_card_boundary",
+  "normalize_card",
+  "mask_label_region",
+  "crop_region",
+  "crop_corner",
+  "crop_edge_strip",
+  "zoom_region",
+  "rotate_image",
+  "enhance_contrast",
+  "generate_glare_mask",
+  "run_ding_detector",
+  "run_ding_detector_on_crop",
+  "run_surface_anomaly_detector",
+  "run_severity_scorer",
+  "compare_with_certified_reference",
+  "compare_before_after",
+  "create_human_review_task",
+  "cite_evidence",
+] as const;
 
 const convexExplainReport = makeFunctionReference<"action", Record<string, unknown>, CardReportAgentResponse>(
   "agentRuntime:explainReport",
@@ -121,6 +143,23 @@ What not to conclude: This is not an official grade or legal guarantee.
 Next step: Review each DING box, correct false positives, then save the evidence manifest before shipping or submitting the card.`;
 }
 
+function agentPayload(input: CardReportAgentInput) {
+  return {
+    task: input.prompt,
+    cardId: input.cardId,
+    report: input.reportJson,
+    evidenceManifest: input.evidenceManifest,
+    inspectionTrace: input.inspectionTrace,
+    availableInspectionTools: INSPECTION_TOOL_NAMES,
+    hardRules: [
+      "Do not invent DINGs that are absent from report.findings or inspectionTrace annotation candidates.",
+      "Do not claim an official grade.",
+      "If evidence is missing, ask for crop/zoom/glare/detector reinspection or human review.",
+      "Treat LLM-only visual observations as candidate notes until human-reviewed.",
+    ],
+  };
+}
+
 async function callPiAi(input: CardReportAgentInput, apiKey: string, modelName: string): Promise<CardReportAgentResponse> {
   const { complete, getModel, Type } = await import("@mariozechner/pi-ai");
   const reportTools = [
@@ -140,6 +179,47 @@ async function callPiAi(input: CardReportAgentInput, apiKey: string, modelName: 
         afterReportId: Type.String(),
       }),
     },
+    {
+      name: "crop_region",
+      description: "Request a replayable crop for a specific card region. Use before reinspection claims.",
+      parameters: Type.Object({
+        cardId: Type.String(),
+        region: Type.String(),
+      }),
+    },
+    {
+      name: "run_ding_detector_on_crop",
+      description: "Request the ML DING detector on a region crop. Output must ground any candidate DING claim.",
+      parameters: Type.Object({
+        cardId: Type.String(),
+        region: Type.String(),
+      }),
+    },
+    {
+      name: "run_glare_check",
+      description: "Check whether a suspected surface scratch overlaps glare/specular highlights.",
+      parameters: Type.Object({
+        cardId: Type.String(),
+        region: Type.String(),
+      }),
+    },
+    {
+      name: "create_human_review_task",
+      description: "Create a human review task for low-confidence, disputed, or LLM-only findings.",
+      parameters: Type.Object({
+        cardId: Type.String(),
+        reason: Type.String(),
+        region: Type.String(),
+      }),
+    },
+    {
+      name: "cite_evidence",
+      description: "Cite evidence hashes/tool outputs that ground a report claim.",
+      parameters: Type.Object({
+        cardId: Type.String(),
+        claim: Type.String(),
+      }),
+    },
   ];
   const provider = process.env.CARD_AGENT_PROVIDER ?? "openrouter";
   const model = getModel(provider as never, modelName as never);
@@ -148,12 +228,7 @@ async function callPiAi(input: CardReportAgentInput, apiKey: string, modelName: 
     messages: [
       {
         role: "user",
-        content: JSON.stringify({
-          task: input.prompt,
-          cardId: input.cardId,
-          report: input.reportJson,
-          evidenceManifest: input.evidenceManifest,
-        }),
+        content: JSON.stringify(agentPayload(input)),
         timestamp: Date.now(),
       },
     ],
@@ -190,12 +265,7 @@ async function callOpenRouterDirect(
         { role: "system", content: SYSTEM_PROMPT },
         {
           role: "user",
-          content: JSON.stringify({
-            task: input.prompt,
-            cardId: input.cardId,
-            report: input.reportJson,
-            evidenceManifest: input.evidenceManifest,
-          }),
+          content: JSON.stringify(agentPayload(input)),
         },
       ],
       temperature: 0.25,
@@ -228,12 +298,7 @@ async function callOpenAiDirect(
         { role: "system", content: SYSTEM_PROMPT },
         {
           role: "user",
-          content: JSON.stringify({
-            task: input.prompt,
-            cardId: input.cardId,
-            report: input.reportJson,
-            evidenceManifest: input.evidenceManifest,
-          }),
+          content: JSON.stringify(agentPayload(input)),
         },
       ],
       temperature: 0.25,
@@ -264,12 +329,7 @@ async function callGeminiDirect(
           role: "user",
           parts: [
             {
-              text: JSON.stringify({
-                task: input.prompt,
-                cardId: input.cardId,
-                report: input.reportJson,
-                evidenceManifest: input.evidenceManifest,
-              }),
+              text: JSON.stringify(agentPayload(input)),
             },
           ],
         },
@@ -311,12 +371,7 @@ async function callAnthropicDirect(
       messages: [
         {
           role: "user",
-          content: JSON.stringify({
-            task: input.prompt,
-            cardId: input.cardId,
-            report: input.reportJson,
-            evidenceManifest: input.evidenceManifest,
-          }),
+          content: JSON.stringify(agentPayload(input)),
         },
       ],
       temperature: 0.25,

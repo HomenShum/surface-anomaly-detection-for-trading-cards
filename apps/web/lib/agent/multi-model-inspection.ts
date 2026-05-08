@@ -170,6 +170,18 @@ export type AgentRun = {
 
 const PRIVATE_SENSITIVITY = new Set<DataSensitivity>(["vendor_private", "user_private", "gold_training_candidate"]);
 
+const FOVEATED_REGION_BBOXES: Array<{ region: string; bboxNorm: BboxNorm; tool: "crop_corner" | "crop_edge_strip" | "crop_surface" }> = [
+  { region: "top_left_corner", bboxNorm: [0, 0, 0.22, 0.22], tool: "crop_corner" },
+  { region: "top_right_corner", bboxNorm: [0.78, 0, 1, 0.22], tool: "crop_corner" },
+  { region: "bottom_right_corner", bboxNorm: [0.78, 0.78, 1, 1], tool: "crop_corner" },
+  { region: "bottom_left_corner", bboxNorm: [0, 0.78, 0.22, 1], tool: "crop_corner" },
+  { region: "top_edge", bboxNorm: [0, 0, 1, 0.12], tool: "crop_edge_strip" },
+  { region: "right_edge", bboxNorm: [0.88, 0, 1, 1], tool: "crop_edge_strip" },
+  { region: "bottom_edge", bboxNorm: [0, 0.88, 1, 1], tool: "crop_edge_strip" },
+  { region: "left_edge", bboxNorm: [0, 0, 0.12, 1], tool: "crop_edge_strip" },
+  { region: "surface_center", bboxNorm: [0.18, 0.18, 0.82, 0.82], tool: "crop_surface" },
+];
+
 const DEFAULT_MODELS: Record<ProviderPolicy, { provider: InspectionModelRoute["provider"]; modelName: string }> = {
   direct_openai: { provider: "openai", modelName: "openai-vision-direct" },
   direct_google_gemini: { provider: "google_gemini", modelName: "gemini-visual-direct" },
@@ -285,6 +297,36 @@ export class VisualInspectionAgentRuntime {
     const image = input.inputImages[0] ?? { id: "normalized_front", role: "front_normalized", sha256: "missing" };
     const candidates = candidatesFromLocalDetections(input, image, reportIds);
 
+    events.push({
+      id: `tool-normalize-${runId}`,
+      type: "tool.completed",
+      tool: "normalize_card",
+      label: "Normalized card coordinate frame established",
+      target: { imageId: image.id },
+      output: {
+        imageHash: image.sha256,
+        foveationRegions: FOVEATED_REGION_BBOXES.map((region) => region.region),
+      },
+    });
+
+    for (const region of FOVEATED_REGION_BBOXES) {
+      const hits = input.mlDetections.filter((detection) => {
+        const source = String(detection.source ?? "");
+        return detection.zone === region.region || source.includes(`:crop:${region.region}`);
+      });
+      events.push({
+        id: `tool-foveate-${region.region}`,
+        type: "tool.completed",
+        tool: region.tool,
+        label: `${region.region.replaceAll("_", " ")} inspected`,
+        target: { imageId: image.id, bboxNorm: region.bboxNorm, region: region.region },
+        output: {
+          candidates: hits.length,
+          detector: hits.length > 0 ? "crop_yolo" : "no_candidate_above_threshold",
+        },
+      });
+    }
+
     for (const detection of input.mlDetections) {
       const bboxNorm = coerceBboxNorm(detection.bbox);
       const region = detection.zone;
@@ -380,11 +422,13 @@ export function candidatesFromLocalDetections(
     const label = normalizeLabel(detection.type);
     const confidence = clamp01(detection.confidence);
     const severity = normalizeSeverity(detection.severity, confidence);
+    const source = candidateSourceForDetection(detection.source);
+    const toolChain = toolChainForDetectionSource(detection.source);
     return {
       id: detection.id ?? `local-${index}`,
-      source: detection.source === "user" ? "human_review" : "local_yolo",
-      modelName: detection.source === "user" ? "human-review" : "ding-detector-v0",
-      toolChain: ["detect_card_boundary", "normalize_card", "run_ding_detector"],
+      source,
+      modelName: source === "human_review" ? "human-review" : source === "crop_yolo" ? "ding-detector-v0:foveated" : "ding-detector-v0",
+      toolChain,
       imageId: image.id,
       region: detection.zone,
       bboxNorm: coerceBboxNorm(detection.bbox),
@@ -393,7 +437,7 @@ export function candidatesFromLocalDetections(
       severity,
       materiality: materialityFor(severity, confidence),
       evidenceImageIds: [image.id],
-      rationale: `${label.replaceAll("_", " ")} detected in ${detection.zone} at ${Math.round(confidence * 100)}% confidence.`,
+      rationale: `${label.replaceAll("_", " ")} detected in ${detection.zone} at ${Math.round(confidence * 100)}% confidence by ${toolChain.at(-1)}.`,
       grounding: {
         toolOutputIds: [detection.id ?? `local-${index}`],
         reportIds,
@@ -401,6 +445,23 @@ export function candidatesFromLocalDetections(
       },
     };
   });
+}
+
+function candidateSourceForDetection(rawSource: string | undefined): AnnotationSource {
+  const source = String(rawSource ?? "").toLowerCase();
+  if (source === "user" || source.includes("human")) return "human_review";
+  if (source.includes(":crop:")) return source.includes("surface") ? "surface_anomaly" : "crop_yolo";
+  if (source.includes("surface")) return "surface_anomaly";
+  return "local_yolo";
+}
+
+function toolChainForDetectionSource(rawSource: string | undefined): string[] {
+  const source = String(rawSource ?? "").toLowerCase();
+  if (source === "user" || source.includes("human")) return ["human_ding_review"];
+  if (source.includes(":crop:")) {
+    return ["detect_card_boundary", "normalize_card", "crop_region", "run_ding_detector_on_crop"];
+  }
+  return ["detect_card_boundary", "normalize_card", "run_ding_detector"];
 }
 
 export function normalizeLabel(type: string): AnnotationLabel {

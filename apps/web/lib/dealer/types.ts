@@ -162,6 +162,33 @@ export type DealerAlert = {
   cardId?: string;
 };
 
+/**
+ * Cost-basis ledger entry — captures what the dealer paid for the card,
+ * any one-time costs (grading, shipping, slabbing supplies), and the sale
+ * price when realized. P&L = salePrice - acquisitionCost - sum(fees).
+ *
+ * Vendors enter this on the record-detail page after they win a bid /
+ * complete a buy. The ledger is append-only — corrections create a new
+ * adjustment entry instead of overwriting history.
+ */
+export type DealerCostBasis = {
+  acquisitionCost?: number;
+  acquisitionDate?: string; // ISO
+  acquisitionChannel?: "ebay" | "tcgplayer" | "cardmarket" | "auction" | "private" | "other";
+  acquisitionNote?: string;
+  fees?: Array<{
+    label: string;
+    amount: number;
+    /** ISO date this fee was paid */
+    paidAt?: string;
+  }>;
+  salePrice?: number;
+  saleDate?: string; // ISO
+  saleChannel?: "ebay" | "tcgplayer" | "cardmarket" | "private" | "other";
+  saleBuyer?: string;
+  /** Computed: salePrice - acquisitionCost - sum(fees). Not stored — recomputed on read. */
+};
+
 export type DealerRecord = {
   id: string;
   createdAt: string;
@@ -188,6 +215,7 @@ export type DealerRecord = {
   evidencePacket?: DealerEvidencePacket;
   pricing?: DealerPricing;
   roi?: DealerGradingRoi;
+  costBasis?: DealerCostBasis;
   listing?: DealerListingDraft;
   submission?: DealerSubmissionTracking;
   notes?: string;

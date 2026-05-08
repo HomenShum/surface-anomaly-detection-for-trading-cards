@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { DealerAdminTopbar } from "../../../components/DealerAdminTopbar";
+import { DealerShell } from "../../../components/DealerShell";
+import { currentOwnerId } from "../../../lib/dealer/owner";
 import { loadAllRecords } from "../../../lib/dealer/store";
 import type { DealerRecord } from "../../../lib/dealer/types";
 
@@ -78,11 +79,11 @@ type Props = {
 
 export default async function DealerAlertsPage({ searchParams }: Props) {
   const params = (await searchParams) ?? {};
-  const records = loadAllRecords();
+  const ownerId = await currentOwnerId();
+  const records = loadAllRecords(ownerId);
   const alerts = deriveAlerts(records);
   return (
-    <main className="dealer-shell">
-      <DealerAdminTopbar expert={params.expert === "1"} />
+    <DealerShell active="alerts" expert={params.expert === "1"}>
 
       <section>
         <span className="page-kicker">Vendor pilot · alerts</span>
@@ -132,6 +133,6 @@ export default async function DealerAlertsPage({ searchParams }: Props) {
           </tbody>
         </table>
       </section>
-    </main>
+    </DealerShell>
   );
 }

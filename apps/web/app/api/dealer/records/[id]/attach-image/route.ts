@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { runDealerDetector } from "../../../../../../lib/dealer/detector";
+import { sniffBase64 } from "../../../../../../lib/dealer/image-validate";
+import { currentOwnerId } from "../../../../../../lib/dealer/owner";
+import { assertCanUploadImage, QuotaExceededError } from "../../../../../../lib/dealer/quota";
+import { actorKey, consumeToken } from "../../../../../../lib/dealer/rate-limit";
 import { appendEvent, openSession } from "../../../../../../lib/dealer/sessions";
-import { dealerDataDir, loadRecord, upsertRecord } from "../../../../../../lib/dealer/store";
+import { loadRecord, ownerImageDir, upsertRecord } from "../../../../../../lib/dealer/store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,7 +19,23 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
-  const record = loadRecord(id);
+  const ownerId = await currentOwnerId();
+
+  // Rate-limit per-actor so a script can't hammer the detector with
+  // batch uploads.
+  const limit = consumeToken({
+    key: `attach-image:${actorKey(request)}`,
+    capacity: 12,
+    refillRate: 0.2,
+  });
+  if (!limit.ok) {
+    return NextResponse.json(
+      { error: "rate_limited", retryAfterMs: limit.retryAfterMs },
+      { status: 429 },
+    );
+  }
+
+  const record = loadRecord(ownerId, id);
   if (!record) return NextResponse.json({ error: "not_found" }, { status: 404 });
 
   let body: { imageBase64?: string; mimeType?: string };
@@ -31,18 +51,38 @@ export async function POST(
     return NextResponse.json({ error: "image_too_large", maxBytes: MAX_BYTES }, { status: 413 });
   }
 
-  const ext = (body.mimeType ?? "image/jpeg").includes("png") ? ".png" : ".jpg";
-  const dir = join(dealerDataDir(), "images", id);
-  mkdirSync(dir, { recursive: true });
-  const filename = `slab${ext}`;
+  // MIME sniff via magic bytes — never trust the client-declared mimeType.
+  const sniff = sniffBase64(imageBase64);
+  if (!sniff.ok) {
+    return NextResponse.json(
+      { error: "unsupported_image_format", reason: sniff.reason, allowed: ["image/jpeg", "image/png", "image/webp"] },
+      { status: 415 },
+    );
+  }
+
+  // Per-owner storage cap.
+  try {
+    assertCanUploadImage(ownerId, sizeBytes);
+  } catch (err) {
+    if (err instanceof QuotaExceededError) {
+      return NextResponse.json(
+        { error: "quota_exceeded", resource: err.resource, cap: err.cap },
+        { status: 413 },
+      );
+    }
+    throw err;
+  }
+
+  const dir = ownerImageDir(ownerId, id);
+  const filename = `slab${sniff.ext}`;
   const fullPath = join(dir, filename);
   writeFileSync(fullPath, Buffer.from(imageBase64, "base64"));
 
   // Open a per-attach session so the audit trail captures the inspection
   // even when there is no upstream intake session (manual reupload via the
   // workbench). Existing intake sessions get their events appended too.
-  const session = openSession({ mode: "slab_scan", recordId: id, notes: "attach-image" });
-  appendEvent({
+  const session = openSession(ownerId, { mode: "slab_scan", recordId: id, notes: "attach-image" });
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: id,
     type: "stage.started",
@@ -55,7 +95,7 @@ export async function POST(
   try {
     detectorResult = await runDealerDetector(imageBase64);
   } catch (err) {
-    appendEvent({
+    appendEvent(ownerId, {
       sessionId: session.id,
       recordId: id,
       type: "warning",
@@ -63,7 +103,7 @@ export async function POST(
       status: "failed",
     });
     // Persist the image attachment even if detector fails — operator can retry.
-    const next = await upsertRecord({
+    const next = await upsertRecord(ownerId, {
       ...record,
       imageUrl: `/api/dealer/records/${id}/image`,
       imageHash: detectorResult?.imageHash,
@@ -77,7 +117,7 @@ export async function POST(
   // and DING-detection moments later.
   for (const f of detectorResult.findings) {
     const [x1, y1, x2, y2] = f.bbox;
-    appendEvent({
+    appendEvent(ownerId, {
       sessionId: session.id,
       recordId: id,
       type: "tool.completed",
@@ -88,7 +128,7 @@ export async function POST(
       payload: { modelVersion: f.modelVersion },
     });
   }
-  appendEvent({
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: id,
     type: "stage.completed",
@@ -97,7 +137,7 @@ export async function POST(
     payload: { modelVersion: detectorResult.modelVersion },
   });
 
-  const updated = await upsertRecord({
+  const updated = await upsertRecord(ownerId, {
     ...record,
     imageUrl: `/api/dealer/records/${id}/image`,
     imageHash: detectorResult.imageHash,
@@ -108,7 +148,7 @@ export async function POST(
       : record.notes,
   });
 
-  appendEvent({
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: id,
     type: "vault.saved",

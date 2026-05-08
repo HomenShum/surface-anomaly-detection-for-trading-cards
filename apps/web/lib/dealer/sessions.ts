@@ -1,21 +1,18 @@
 /**
- * Persistent ScanSession + InspectionEvent store.
+ * Owner-scoped ScanSession + InspectionEvent store.
  *
- * Each /api/dealer/intake POST opens a session. attach-image, review,
- * and evidence endpoints append events. The audit trail on the report
- * page replays the events in order: same data the friend sees in the
- * "Audit trail" expandable on the focused workbench.
+ * Per-owner files (under data/dealer/owners/<ownerId>/):
+ *   sessions.jsonl   one row per session (status, mode, vault link)
+ *   events.jsonl     one row per event (sessionId, type, label, bbox)
  *
- * Files (under data/dealer/):
- *   sessions.jsonl       one row per session (status, mode, vault link)
- *   events.jsonl         one row per event (sessionId, type, label, bbox)
- *
- * No DB. Append-only. Vendor-pilot scale.
+ * Append-only. The seed-clone in store.ts copies the legacy
+ * `data/dealer/{sessions,events}.jsonl` into a new owner's namespace
+ * on first read so the demo timeline survives the migration.
  */
 
 import { existsSync, appendFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { dealerDataDir, newId } from "./store";
+import { newId, ownerDir } from "./store";
 
 export type ScanSessionMode =
   | "raw_scan"
@@ -68,8 +65,12 @@ export type InspectionEvent = {
   payload?: unknown;
 };
 
-const SESSIONS_PATH = () => join(dealerDataDir(), "sessions.jsonl");
-const EVENTS_PATH = () => join(dealerDataDir(), "events.jsonl");
+function sessionsPath(ownerId: string): string {
+  return join(ownerDir(ownerId), "sessions.jsonl");
+}
+function eventsPath(ownerId: string): string {
+  return join(ownerDir(ownerId), "events.jsonl");
+}
 
 function readJsonl<T>(path: string): T[] {
   if (!existsSync(path)) return [];
@@ -81,61 +82,67 @@ function readJsonl<T>(path: string): T[] {
     try {
       out.push(JSON.parse(line) as T);
     } catch {
-      // skip
+      // skip malformed
     }
   }
   return out;
 }
 
-export function openSession(input: {
-  mode?: ScanSessionMode;
-  recordId?: string;
-  inputImageHash?: string;
-  notes?: string;
-  userId?: string;
-}): ScanSession {
+export function openSession(
+  ownerId: string,
+  input: {
+    mode?: ScanSessionMode;
+    recordId?: string;
+    inputImageHash?: string;
+    notes?: string;
+    userId?: string;
+  },
+): ScanSession {
   const now = new Date().toISOString();
   const session: ScanSession = {
     id: newId("ses"),
     createdAt: now,
     updatedAt: now,
-    userId: input.userId,
+    userId: input.userId ?? ownerId,
     mode: input.mode ?? "slab_scan",
     status: "running",
     vaultRecordId: input.recordId,
     inputImageHashes: input.inputImageHash ? [input.inputImageHash] : [],
     notes: input.notes,
   };
-  appendFileSync(SESSIONS_PATH(), JSON.stringify(session) + "\n", "utf-8");
+  appendFileSync(sessionsPath(ownerId), JSON.stringify(session) + "\n", "utf-8");
   return session;
 }
 
-export function appendEvent(event: Omit<InspectionEvent, "id" | "timestamp">): InspectionEvent {
+export function appendEvent(
+  ownerId: string,
+  event: Omit<InspectionEvent, "id" | "timestamp">,
+): InspectionEvent {
   const stamped: InspectionEvent = {
     ...event,
     id: newId("evt"),
     timestamp: new Date().toISOString(),
   };
-  appendFileSync(EVENTS_PATH(), JSON.stringify(stamped) + "\n", "utf-8");
+  appendFileSync(eventsPath(ownerId), JSON.stringify(stamped) + "\n", "utf-8");
   return stamped;
 }
 
-export function loadEventsForSession(sessionId: string): InspectionEvent[] {
-  return readJsonl<InspectionEvent>(EVENTS_PATH()).filter((e) => e.sessionId === sessionId);
+export function loadEventsForSession(ownerId: string, sessionId: string): InspectionEvent[] {
+  return readJsonl<InspectionEvent>(eventsPath(ownerId)).filter((e) => e.sessionId === sessionId);
 }
 
-export function loadEventsForRecord(recordId: string): InspectionEvent[] {
-  return readJsonl<InspectionEvent>(EVENTS_PATH()).filter((e) => e.recordId === recordId);
+export function loadEventsForRecord(ownerId: string, recordId: string): InspectionEvent[] {
+  return readJsonl<InspectionEvent>(eventsPath(ownerId)).filter((e) => e.recordId === recordId);
 }
 
-export function loadSessionsForRecord(recordId: string): ScanSession[] {
-  return readJsonl<ScanSession>(SESSIONS_PATH()).filter((s) => s.vaultRecordId === recordId);
+export function loadSessionsForRecord(ownerId: string, recordId: string): ScanSession[] {
+  return readJsonl<ScanSession>(sessionsPath(ownerId)).filter((s) => s.vaultRecordId === recordId);
 }
 
-export function loadAllSessions(): ScanSession[] {
-  return readJsonl<ScanSession>(SESSIONS_PATH());
+export function loadAllSessions(ownerId: string): ScanSession[] {
+  return readJsonl<ScanSession>(sessionsPath(ownerId));
 }
 
-export function loadSession(sessionId: string): ScanSession | null {
-  return readJsonl<ScanSession>(SESSIONS_PATH()).find((s) => s.id === sessionId) ?? null;
+export function loadSession(ownerId: string, sessionId: string): ScanSession | null {
+  return readJsonl<ScanSession>(sessionsPath(ownerId)).find((s) => s.id === sessionId) ?? null;
 }

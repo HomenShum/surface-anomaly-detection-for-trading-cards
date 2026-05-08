@@ -1,17 +1,14 @@
-import Link from "next/link";
-import { AlphaBadge } from "../../components/AlphaBadge";
-import { DealerAgentRail } from "../../components/DealerAgentRail";
 import { DealerDecisionFlow } from "../../components/DealerDecisionFlow";
-import { DealerHeroContext } from "../../components/DealerHeroContext";
-import { InferenceHealthPill } from "../../components/InferenceHealthPill";
+import { DealerShell } from "../../components/DealerShell";
+import { currentOwnerId } from "../../lib/dealer/owner";
 import { loadAllRecords } from "../../lib/dealer/store";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Dealer - Drop card photo. Get decision. Save proof.",
+  title: "Drop · Card Condition Vault",
   description:
-    "Single-screen vendor pilot entrypoint: drop a card photo, stream the inspection, get one decision, and save a signed proof packet.",
+    "Drop a card photo, stream the inspection, get one decision, save a signed proof packet. Vault-backed.",
 };
 
 type Props = {
@@ -21,17 +18,35 @@ type Props = {
 export default async function DealerHomePage({ searchParams }: Props) {
   const params = (await searchParams) ?? {};
   const expert = params.expert === "1";
-  const records = loadAllRecords();
-  const latestRecords = records
+  const ownerId = await currentOwnerId();
+  const records = loadAllRecords(ownerId);
+  const sortedByRecent = records
     .slice()
-    .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
-    .slice(0, 3)
+    .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt));
+  const latestRecords = sortedByRecent.slice(0, 4).map((record) => ({
+    id: record.id,
+    title: record.cardIdentity ?? (record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null) ?? `record ${record.id.slice(-6)}`,
+    lane: record.lane,
+    findings: record.modelFindings?.length ?? 0,
+    proofSaved: Boolean(record.evidencePacket),
+    imageUrl: record.imageUrl,
+    cert: record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null,
+    updatedAt: record.updatedAt,
+    value: record.pricing?.rawHigh ?? record.pricing?.graded9 ?? null,
+    grade: record.officialGrade ?? null,
+  }));
+  const vaultPreview = sortedByRecent
+    .filter((r) => Boolean(r.imageUrl))
+    .slice(0, 6)
     .map((record) => ({
       id: record.id,
-      title: record.cardIdentity ?? record.certNumber ?? "Raw card",
-      lane: record.lane,
-      findings: record.modelFindings?.length ?? 0,
-      proofSaved: Boolean(record.evidencePacket),
+      title:
+        record.cardIdentity ??
+        (record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null) ??
+        `Capture ${record.id.slice(-6)}`,
+      grade: record.officialGrade ?? null,
+      imageUrl: record.imageUrl as string,
+      cert: record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null,
     }));
   const vault = {
     totalRecords: records.length,
@@ -39,40 +54,23 @@ export default async function DealerHomePage({ searchParams }: Props) {
     reviewedCount: records.filter((record) => record.humanReview).length,
     silverPlusCount: records.filter((record) => record.trustTier === "silver_plus").length,
     humanReviewCount: records.filter((record) => record.lane === "human_review").length,
-    listedCount: records.filter((record) => record.lane === "listed" || record.listing?.draftStatus === "ready").length,
-    submittedCount: records.filter((record) => record.lane === "submitted" || record.submission).length,
-    inventoryValue: records.reduce((sum, record) => sum + (record.pricing?.rawHigh ?? record.pricing?.rawMid ?? 0), 0),
+    listedCount: records.filter(
+      (record) => record.lane === "listed" || record.listing?.draftStatus === "ready",
+    ).length,
+    submittedCount: records.filter(
+      (record) => record.lane === "submitted" || record.submission,
+    ).length,
+    inventoryValue: records.reduce(
+      (sum, record) => sum + (record.pricing?.rawHigh ?? record.pricing?.rawMid ?? 0),
+      0,
+    ),
     latestRecords,
+    vaultPreview,
   };
-  return (
-    <main className="dealer-shell dealer-hero-shell">
-      <header className="dealer-hero-topbar">
-        <Link className="brand" href="/">
-          <span className="brand-mark">CV</span>
-          <span>Card Condition Vault</span>
-        </Link>
-        <div className="dealer-hero-actions">
-          <AlphaBadge />
-          <InferenceHealthPill />
-          {expert ? (
-            <nav className="dealer-hero-expert" aria-label="Expert nav">
-              <Link href="/dealer/intake?expert=1">Intake lanes</Link>
-              <Link href="/dealer/dashboard?expert=1">Dashboard</Link>
-              <Link href="/dealer/listings?expert=1">Listings</Link>
-              <Link href="/dealer/submissions?expert=1">Submissions</Link>
-              <Link href="/dealer/alerts?expert=1">Alerts</Link>
-            </nav>
-          ) : null}
-        </div>
-      </header>
 
-      <div className="dealer-shell-grid">
-        <div className="dealer-shell-canvas">
-          <DealerDecisionFlow vault={vault} />
-          <DealerHeroContext expert={expert} />
-        </div>
-        <DealerAgentRail />
-      </div>
-    </main>
+  return (
+    <DealerShell active="drop" expert={expert}>
+      <DealerDecisionFlow vault={vault} />
+    </DealerShell>
   );
 }

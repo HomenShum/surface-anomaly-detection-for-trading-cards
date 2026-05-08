@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { DealerAdminTopbar } from "../../../components/DealerAdminTopbar";
+import { DealerShell } from "../../../components/DealerShell";
+import { DealerPortfolioHero } from "../../../components/DealerPortfolioHero";
+import { DealerSortableTable } from "../../../components/DealerSortableTable";
 import { buildDashboard } from "../../../lib/dealer/aggregates";
+import { currentOwnerId } from "../../../lib/dealer/owner";
 import type { DealerRecord } from "../../../lib/dealer/types";
 
 export const dynamic = "force-dynamic";
@@ -52,19 +55,32 @@ type Props = {
 
 export default async function DealerDashboardPage({ searchParams }: Props) {
   const params = (await searchParams) ?? {};
-  const data = buildDashboard();
+  const expert = params.expert === "1";
+  const ownerId = await currentOwnerId();
+  const data = buildDashboard(ownerId);
   return (
-    <main className="dealer-shell">
-      <DealerAdminTopbar expert={params.expert === "1"} />
-
+    <DealerShell active="vault" expert={expert}>
       <section>
         <span className="page-kicker">Vendor pilot · daily operating system</span>
-        <h1>Dealer dashboard</h1>
+        <h1>Vault</h1>
         <p className="muted">
           Aggregates the dealer pipeline: imported certs, accepted DING reviews, ready-to-list inventory, suggested
           gradings, and submission returns. Backed by <code>data/dealer/records.jsonl</code> — vendor-pilot scale only.
         </p>
+        <div className="dealer-export-row">
+          <a className="dealer-export-link" download href="/api/dealer/export?format=inventory">
+            ↓ inventory CSV
+          </a>
+          <a className="dealer-export-link" download href="/api/dealer/export?format=sold">
+            ↓ realized sales CSV
+          </a>
+          <a className="dealer-export-link" download href="/api/dealer/export?format=submissions">
+            ↓ submissions CSV
+          </a>
+        </div>
       </section>
+
+      <DealerPortfolioHero data={data} />
 
       <section className="dealer-summary">
         <div className="dealer-summary-card">
@@ -101,58 +117,26 @@ export default async function DealerDashboardPage({ searchParams }: Props) {
 
       <section className="dealer-section">
         <h2>Ready to list ({data.readyToList.length})</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>cert</th>
-              <th>card</th>
-              <th>grade</th>
-              <th>lane</th>
-              <th className="numeric">raw $</th>
-              <th className="numeric">EV $</th>
-              <th>recommend</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.readyToList.length === 0 ? (
-              <tr>
-                <td className="dealer-section-empty" colSpan={7}>
-                  No reviewed records waiting on a listing draft. Open the review workbench on any record marked Ready.
-                </td>
-              </tr>
-            ) : (
-              data.readyToList.map(recordRow)
-            )}
-          </tbody>
-        </table>
+        <DealerSortableTable
+          rows={data.readyToList}
+          kind="dealerRecord"
+          rowHrefPrefix="/dealer/records/"
+          defaultSortId="rawHigh"
+          defaultSortDir="desc"
+          emptyMessage="No reviewed records waiting on a listing draft. Open the review workbench on any record marked Ready."
+        />
       </section>
 
       <section className="dealer-section">
         <h2>Worth grading ({data.worthGrading.length})</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>cert</th>
-              <th>card</th>
-              <th>grade</th>
-              <th>lane</th>
-              <th className="numeric">raw $</th>
-              <th className="numeric">EV $</th>
-              <th>recommend</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.worthGrading.length === 0 ? (
-              <tr>
-                <td className="dealer-section-empty" colSpan={7}>
-                  No records currently recommend submitting for grading.
-                </td>
-              </tr>
-            ) : (
-              data.worthGrading.map(recordRow)
-            )}
-          </tbody>
-        </table>
+        <DealerSortableTable
+          rows={data.worthGrading}
+          kind="dealerRecord"
+          rowHrefPrefix="/dealer/records/"
+          defaultSortId="ev"
+          defaultSortDir="desc"
+          emptyMessage="No records currently recommend submitting for grading."
+        />
       </section>
 
       <section className="dealer-section">
@@ -262,6 +246,6 @@ export default async function DealerDashboardPage({ searchParams }: Props) {
           </table>
         </section>
       ) : null}
-    </main>
+    </DealerShell>
   );
 }

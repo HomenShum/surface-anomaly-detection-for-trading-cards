@@ -21,8 +21,12 @@ export function RewardToast(props: RewardToastProps) {
   const isCandidate = props.variant === "candidate";
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 500px)").matches) {
+      setVisible(false);
+      return undefined;
+    }
     const showId = window.setTimeout(() => setVisible(true), delayMs);
-    const hideId = window.setTimeout(() => setVisible(false), delayMs + 7600);
+    const hideId = window.setTimeout(() => setVisible(false), delayMs + 4200);
     return () => {
       window.clearTimeout(showId);
       window.clearTimeout(hideId);
@@ -37,9 +41,11 @@ export function RewardToast(props: RewardToastProps) {
     ? props.candidateIds.join(", ")
     : `Contributor @${props.method.contributorHandle} earned ${props.method.reward}.`;
 
+  if (!visible) return null;
+
   return (
     <aside
-      className={`reward-toast ${isCandidate ? "reward-toast--candidate" : ""} ${visible ? "is-visible" : ""}`}
+      className={`reward-toast ${isCandidate ? "reward-toast--candidate" : ""} is-visible`}
       role="status"
       aria-live="polite"
     >

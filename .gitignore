@@ -13,6 +13,18 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+# Dev / prod server logs at the repo root
+.next-dev-*.log
+.next-prod-*.log
+.next-prod-*.err.log
+.next-prod-*.pid
+.next-prod.log
+.next-prod.err.log
+# Per-owner runtime data (seeded from data/dealer/* at first request).
+# Render's persistent disk is the source of truth in production.
+data/dealer/owners/
+# IDE / agent caches
+.serena/
 ml/datasets/raw/
 ml/datasets/processed/
 ml/datasets/yolo/images/

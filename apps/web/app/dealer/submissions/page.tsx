@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { DealerAdminTopbar } from "../../../components/DealerAdminTopbar";
+import { DealerShell } from "../../../components/DealerShell";
+import { DealerSortableTable } from "../../../components/DealerSortableTable";
+import { currentOwnerId } from "../../../lib/dealer/owner";
 import { loadAllRecords } from "../../../lib/dealer/store";
 
 export const dynamic = "force-dynamic";
@@ -36,7 +37,8 @@ type Props = {
 
 export default async function DealerSubmissionsPage({ searchParams }: Props) {
   const params = (await searchParams) ?? {};
-  const records = loadAllRecords();
+  const ownerId = await currentOwnerId();
+  const records = loadAllRecords(ownerId);
   const subs = records.filter((r) => Boolean(r.submission));
   const byStage: Record<string, typeof records> = {};
   for (const r of subs) {
@@ -44,8 +46,7 @@ export default async function DealerSubmissionsPage({ searchParams }: Props) {
     byStage[stage] = [...(byStage[stage] ?? []), r];
   }
   return (
-    <main className="dealer-shell">
-      <DealerAdminTopbar expert={params.expert === "1"} />
+    <DealerShell active="submissions" expert={params.expert === "1"}>
 
       <section>
         <span className="page-kicker">Vendor pilot · grading pipeline</span>
@@ -67,54 +68,14 @@ export default async function DealerSubmissionsPage({ searchParams }: Props) {
 
       <section className="dealer-section">
         <h2>Pipeline</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>cert</th>
-              <th>card</th>
-              <th>stage</th>
-              <th className="numeric">declared</th>
-              <th className="numeric">raw $</th>
-              <th className="numeric">expected EV</th>
-              <th>submitted</th>
-              <th>evidence</th>
-            </tr>
-          </thead>
-          <tbody>
-            {subs.length === 0 ? (
-              <tr>
-                <td colSpan={8} className="dealer-section-empty">
-                  No submissions in flight. Open the review workbench → "submit for grading" to start one.
-                </td>
-              </tr>
-            ) : (
-              subs.map((r) => (
-                <tr key={r.id}>
-                  <td>
-                    <Link href={`/dealer/records/${r.id}`}>
-                      {r.certProvider ?? "PSA"} {r.certNumber ?? r.id}
-                    </Link>
-                  </td>
-                  <td className="muted">{r.cardIdentity ?? "—"}</td>
-                  <td>
-                    <span className="dealer-pill">{r.submission?.status ?? "—"}</span>
-                  </td>
-                  <td className="numeric">{fmtUsd(r.submission?.declaredValue)}</td>
-                  <td className="numeric">{fmtUsd(r.pricing?.rawHigh)}</td>
-                  <td className="numeric">{fmtUsd(r.roi?.expectedGradedEv)}</td>
-                  <td className="muted">
-                    {r.submission?.submittedAt
-                      ? r.submission.submittedAt.replace("T", " ").replace(/\..*$/, "Z")
-                      : "—"}
-                  </td>
-                  <td>
-                    <Link href={`/dealer/records/${r.id}/evidence`}>open ↗</Link>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+        <DealerSortableTable
+          rows={subs}
+          kind="submission"
+          rowHrefPrefix="/dealer/records/"
+          defaultSortId="submitted"
+          defaultSortDir="desc"
+          emptyMessage='No submissions in flight. Open the review workbench → "submit for grading" to start one.'
+        />
       </section>
 
       <section className="dealer-section">
@@ -131,6 +92,6 @@ export default async function DealerSubmissionsPage({ searchParams }: Props) {
           <li>sold → closed. P&L closes against cost basis + grading fee + shipping.</li>
         </ul>
       </section>
-    </main>
+    </DealerShell>
   );
 }

@@ -1,4 +1,5 @@
-import { DealerAdminTopbar } from "../../../components/DealerAdminTopbar";
+import { DealerShell } from "../../../components/DealerShell";
+import { currentOwnerId } from "../../../lib/dealer/owner";
 import { loadAllBatches, loadAllRecords } from "../../../lib/dealer/store";
 import { DealerIntakeClient } from "./DealerIntakeClient";
 
@@ -16,12 +17,12 @@ type Props = {
 
 export default async function DealerIntakePage({ searchParams }: Props) {
   const params = (await searchParams) ?? {};
-  const records = loadAllRecords();
-  const batches = loadAllBatches();
+  const expert = params.expert === "1";
+  const ownerId = await currentOwnerId();
+  const records = loadAllRecords(ownerId);
+  const batches = loadAllBatches(ownerId);
   return (
-    <main className="dealer-shell">
-      <DealerAdminTopbar expert={params.expert === "1"} />
-
+    <DealerShell active="vault" expert={expert}>
       <section className="dealer-hero">
         <div>
           <span className="page-kicker">Vendor pilot · Day 1</span>
@@ -42,6 +43,6 @@ export default async function DealerIntakePage({ searchParams }: Props) {
       </section>
 
       <DealerIntakeClient initialRecords={records} initialBatches={batches} />
-    </main>
+    </DealerShell>
   );
 }

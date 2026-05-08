@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { appendEvent, openSession } from "../../../../../../lib/dealer/sessions";
+import { currentOwnerId } from "../../../../../../lib/dealer/owner";
 import { loadRecord, upsertRecord } from "../../../../../../lib/dealer/store";
 import type { DealerHumanReview, DealerLane } from "../../../../../../lib/dealer/types";
 
@@ -25,7 +26,8 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
-  const record = loadRecord(id);
+  const ownerId = await currentOwnerId();
+  const record = loadRecord(ownerId, id);
   if (!record) return NextResponse.json({ error: "not_found" }, { status: 404 });
   let body: ReviewBody;
   try {
@@ -75,7 +77,7 @@ export async function POST(
     decision: body.decision ?? record.humanReview?.decision,
   };
   const lane: DealerLane = body.advanceLane ?? (accepted > 0 || rejected > 0 ? "ready" : record.lane);
-  const updated = await upsertRecord({
+  const updated = await upsertRecord(ownerId, {
     ...record,
     modelFindings: added,
     humanReview: review,
@@ -83,8 +85,8 @@ export async function POST(
   });
 
   // Audit trail: each review touch becomes a session event tied to the record.
-  const session = openSession({ mode: "slab_scan", recordId: id, notes: `review:${reviewer}` });
-  appendEvent({
+  const session = openSession(ownerId, { mode: "slab_scan", recordId: id, notes: `review:${reviewer}` });
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: id,
     type: "report.updated",
@@ -93,7 +95,7 @@ export async function POST(
     payload: { decision: review.decision, acceptedFindings: accepted, rejectedFindings: rejected },
   });
   if (body.addedFinding) {
-    appendEvent({
+    appendEvent(ownerId, {
       sessionId: session.id,
       recordId: id,
       type: "tool.completed",

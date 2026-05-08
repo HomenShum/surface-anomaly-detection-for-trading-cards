@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { certifiedSeedByImageHash } from "../../../../lib/dealer/cert-seed";
 import { detectCertLabels, imageHash } from "../../../../lib/dealer/ocr";
+import { currentOwnerId } from "../../../../lib/dealer/owner";
 import { appendEvent, openSession } from "../../../../lib/dealer/sessions";
 import { newId, upsertBatch, upsertRecord } from "../../../../lib/dealer/store";
 import type { DealerRecord, DealerIntakeBatch } from "../../../../lib/dealer/types";
@@ -41,6 +42,7 @@ function bandFromGrade(grade?: string): string | undefined {
 }
 
 export async function POST(request: Request) {
+  const ownerId = await currentOwnerId();
   let body: IntakeRequest;
   try {
     body = (await request.json()) as IntakeRequest;
@@ -100,7 +102,7 @@ export async function POST(request: Request) {
       consentFlag: "pending",
       trustTier: cert ? "silver" : "bronze",
     };
-    upsertRecord(rec);
+    upsertRecord(ownerId, rec);
     recordIds.push(id);
   }
 
@@ -129,7 +131,7 @@ export async function POST(request: Request) {
       consentFlag: "pending",
       trustTier: seedReference.trust_tier === "silver_plus_image_backed" ? "silver_plus" : "silver",
     };
-    upsertRecord(rec);
+    upsertRecord(ownerId, rec);
     recordIds.push(id);
   }
 
@@ -153,7 +155,7 @@ export async function POST(request: Request) {
       consentFlag: "pending",
       trustTier: "bronze",
     };
-    upsertRecord(rec);
+    upsertRecord(ownerId, rec);
     recordIds.push(id);
   }
 
@@ -171,18 +173,18 @@ export async function POST(request: Request) {
     recordIds,
     status: detection.uniqueCerts.length ? "ocr_complete" : "ocr_complete",
   };
-  upsertBatch(batch);
+  upsertBatch(ownerId, batch);
 
   // Open a ScanSession for this intake and emit the early-stage events the
   // workbench audit trail will replay later.
   const primaryRecord = recordIds[0];
-  const session = openSession({
+  const session = openSession(ownerId, {
     mode: detection.uniqueCerts.length || seedReference ? "cert_import" : "raw_scan",
     recordId: primaryRecord,
     inputImageHash: hash,
     notes: body.uploaderHint,
   });
-  appendEvent({
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: primaryRecord,
     type: "stage.completed",
@@ -190,7 +192,7 @@ export async function POST(request: Request) {
     status: "passed",
     payload: { imageHash: hash },
   });
-  appendEvent({
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: primaryRecord,
     type: "stage.completed",
@@ -199,7 +201,7 @@ export async function POST(request: Request) {
     payload: { uniqueCerts: detection.uniqueCerts, seedMatches: seedReference ? [seedReference.cert_number] : [] },
   });
   if (detectionWarning) {
-    appendEvent({
+    appendEvent(ownerId, {
       sessionId: session.id,
       recordId: primaryRecord,
       type: "warning",
@@ -207,7 +209,7 @@ export async function POST(request: Request) {
       status: "warning",
     });
   }
-  appendEvent({
+  appendEvent(ownerId, {
     sessionId: session.id,
     recordId: primaryRecord,
     type: "vault.saved",
