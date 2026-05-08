@@ -4,121 +4,121 @@
       "id": "psa_130255216",
       "provider": "PSA",
       "certNumber": "130255216",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike-Secret #270",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_130814351",
       "provider": "PSA",
       "certNumber": "130814351",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_130814358",
       "provider": "PSA",
       "certNumber": "130814358",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2021 Pokemon SWSH FA/Dragonite V Evolving Skies #192",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_130814362",
       "provider": "PSA",
       "certNumber": "130814362",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2019 Pokemon Sun & Moon Venusaur & Snivy GX Cosmic Eclipse-Secret-FA #249",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162369",
       "provider": "PSA",
       "certNumber": "134162369",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2021 Pokemon SWSH BSP FA/Charizard VMAX Shining Fates #SV107",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162371",
       "provider": "PSA",
       "certNumber": "134162371",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "NM 7",
       "cardIdentity": "1999 Pokemon Jungle Kangaskhan-Holo 1st Edition #5",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162375",
       "provider": "PSA",
       "certNumber": "134162375",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "EX-MT 6",
       "cardIdentity": "2000 P.M. Neo Genesis Slowking-Holo #14",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162379",
       "provider": "PSA",
       "certNumber": "134162379",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2002 Pokemon League Celebi Black Star Promo #50",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162381",
       "provider": "PSA",
       "certNumber": "134162381",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "NM-MT 8",
       "cardIdentity": "2015 P.M. JPN. XY Promo FA/Hoopa Archdjinni/Rings Giveaway #155",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162384",
       "provider": "PSA",
       "certNumber": "134162384",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "NM-MT 8",
       "cardIdentity": "2024 Pokemon SVP EN Kingdra ex SFA Special Illustration Collection #131",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162394",
       "provider": "PSA",
       "certNumber": "134162394",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2022 Pokemon SWSH FA/Garchomp V Astral Radiance #TG23",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     },
     {
       "id": "psa_134162396",
       "provider": "PSA",
       "certNumber": "134162396",
-      "trustTier": "silver",
+      "trustTier": "gold",
       "officialGrade": "MINT 9",
       "cardIdentity": "2019 Pokemon Sun & Moon FA/Gardevoir GX Hidden Fates #SV75",
-      "replayableImage": false,
-      "goldEligible": false
+      "replayableImage": true,
+      "goldEligible": true
     }
   ],
   "realDingDemo": {

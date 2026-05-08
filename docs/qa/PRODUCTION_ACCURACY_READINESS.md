@@ -1,9 +1,9 @@
 # Production Accuracy Readiness
 
-Generated: 2026-05-08T22:20:33.250Z
+Generated: 2026-05-08T22:48:38.009Z
 
-Production deployable: **yes**
-Certified Reference Alpha deployable: **yes**
+Production deployable: **no**
+Certified Reference Alpha deployable: **no**
 Demo deployable: **yes**
 
 This is the hard gate for certified-reference outcome matching. It evaluates real image-backed proof rows, active predictions, Gold/human-DING coverage, replayable image evidence, and agent tool completeness.
@@ -11,49 +11,177 @@ This is the hard gate for certified-reference outcome matching. It evaluates rea
 ## Summary
 
 - Active placeholder predictions: 0
-- Real model rows: 131
-- Real outcome rows: 131/100
-- Real band match rate: 0.992
-- Official bands covered by real rows: 6/4
-- Gold/gold-candidate refs: 30/30
-- Human DING reviews: 30/30
-- Image-backed Silver+ refs: 100/100
-- Missing replayable images: 0
-- P0 blockers: 0
+- Real model rows: 11
+- Real outcome rows: 11/100
+- Real band match rate: 1.000
+- Official bands covered by real rows: 1/4
+- Gold/gold-candidate refs: 0/30
+- Human DING reviews: 0/30
+- Image-backed Silver+ refs: 10/100
+- Synthetic/generated trust rows: 102
+- Missing replayable images: 120
+- P0 blockers: 106
 
 ## Gates
 
 | Gate | Status | Detail |
 | --- | --- | --- |
 | No active placeholder predictions | PASS | 0 active placeholder rows. |
-| Minimum real certified-reference outcome rows | PASS | 131/100 rows. |
-| Real band match-rate floor | PASS | 0.992 match rate on 131 rows. |
-| Official band coverage | PASS | 6/4 bands. |
-| Gold/gold-candidate eval set | PASS | 30/30 records. |
-| Human DING review coverage | PASS | 30/30 records. |
-| Image-backed Silver+ coverage | PASS | 100/100 records. |
-| No missing replayable images for declared Silver+ refs | PASS | 0 declared-image refs missing local artifacts. |
+| No synthetic/generated rows in trust gates | BLOCKED | 102 synthetic/generated reference rows. |
+| Minimum real certified-reference outcome rows | BLOCKED | 11/100 rows. |
+| Real band match-rate floor | BLOCKED | 1.000 match rate on 11 rows. |
+| Official band coverage | BLOCKED | 1/4 bands. |
+| Gold/gold-candidate eval set | BLOCKED | 0/30 records. |
+| Human DING review coverage | BLOCKED | 0/30 records. |
+| Image-backed Silver+ coverage | BLOCKED | 10/100 records. |
+| No missing replayable images for declared Silver+ refs | BLOCKED | 90 declared-image refs missing local artifacts. |
 | Agent tool surface complete | PASS | all required tools available. |
-| Agentic eval deployable | PASS | 0 rows need review. |
+| Agentic eval deployable | BLOCKED | 1 rows need review. |
 
 ## Release Modes
 
 | Mode | Status | Blocking reasons |
 | --- | --- | --- |
 | Demo | PASS | none |
-| Certified Reference Alpha | PASS | none |
-| Trust Beta | PASS | none |
-| Production Trust Gate | PASS | none |
+| Certified Reference Alpha | BLOCKED | no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/20 image-backed Silver+ refs. |
+| Trust Beta | BLOCKED | no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/20 image-backed Silver+ refs.; real_outcome_rows: 11/30 rows.; real_band_match_rate: 1.000 on 11 rows.; official_band_coverage: 1/4 bands.; gold_records: 0/10 records.; human_ding_reviews: 0/10 reviews. |
+| Production Trust Gate | BLOCKED | no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/100 image-backed Silver+ refs.; real_outcome_rows: 11/100 rows.; real_band_match_rate: 1.000 on 11 rows.; official_band_coverage: 1/4 bands.; gold_records: 0/30 records.; human_ding_reviews: 0/30 reviews.; production_gate: One or more hard production gates is blocked.; declared_silver_plus_images_closed: 90 declared-image refs missing local artifacts.; agentic_eval_deployable: 1 rows need review. |
 
 ## P0 Blockers
 
 | Issue | Layer | Detail | Next action |
 | --- | --- | --- | --- |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 130255216 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 130814351 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 130814358 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 130814362 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162369 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162371 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162375 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162379 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162381 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162384 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162394 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162396 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162397 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162403 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162404 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162407 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162409 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162412 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162413 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 134162422 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 137437906 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 138014353 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 142558459 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 142558463 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 142558471 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 148901879 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 148901881 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 148901886 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 148901890 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 154378339 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000000 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000001 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000002 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000003 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000004 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000005 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000006 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000007 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000008 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000009 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000010 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000011 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000012 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000013 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000100 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000101 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000102 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000103 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000104 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000105 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000106 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000107 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000108 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000109 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000110 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000111 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000112 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000113 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000114 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000115 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000116 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000117 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000118 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000119 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000120 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000121 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000122 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000123 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000124 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000125 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000126 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000127 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000200 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000201 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000202 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000203 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000204 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000205 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000206 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000207 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000208 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000209 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000210 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000211 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000212 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000213 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000214 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000215 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000216 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000217 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000218 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000219 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000220 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000221 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000222 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000223 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000224 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000225 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000226 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000227 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000228 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Synthetic/generated reference cannot count toward trust gates | source_policy | PSA 160000229 contains synthetic or auto-generated source signals. | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| Gold eval set is missing | dataset | 0/30 Gold or gold-candidate records available. | Collect raw pre-submission scan + consent + official returned outcome + human DING review. |
+| Human DING review coverage is missing | dataset | 0/30 human-reviewed records available. | Create human review tasks for Gold/gold-candidate records and store DING boxes/severity. |
+| Official outcome band coverage is too narrow | dataset | 1/4 official bands covered by real, replayable, non-synthetic rows. | Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands. |
+| Image-backed Silver+ reference coverage is below production floor | dataset | 10/100 Silver+ references have replayable local images. | Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts. |
 
 ## Missing Image Issues (First 20)
 
 | Issue | Reference | Detail | Next action |
 | --- | --- | --- | --- |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_136693729 | PSA 136693729: 2019 Pokemon Sun & Moon FA/Jessie & James Hidden Fates #68 | Attach permitted front/back images under data/cert-references/slab-images/psa_136693729/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_137437905 | PSA 137437905: 2002 Pokemon Neo Destiny Dark Gengar-Holo #6 | Attach permitted front/back images under data/cert-references/slab-images/psa_137437905/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_138901043 | PSA 138901043: 2000 Pokemon Promo Venusaur Black Star #13 | Attach permitted front/back images under data/cert-references/slab-images/psa_138901043/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091041 | PSA 139091041: 2003 Pokemon Aquapolis Entei-Holo #H8 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091041/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091042 | PSA 139091042: 2020 Pokemon SWSH BSP Special Delivery Pikachu Pokemon Center Canada-Holo #074 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091042/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091051 | PSA 139091051: 2018 P.M. SM Black Star FA/Dragonite GX Promo-Dragon Majesty S/P Collection #SM156 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091051/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091052 | PSA 139091052: 2017 P.M. Mega Powers Collection FA/Zygarde EX Promo #54a | Attach permitted front/back images under data/cert-references/slab-images/psa_139091052/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091058 | PSA 139091058: 2023 Pokemon SVP EN Snorlax 151 Elite Trainer Box #051 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091058/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091059 | PSA 139091059: 2023 Pokemon SVP EN Charmander Obsidian Flames ETB #044 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091059/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091062 | PSA 139091062: 2025 Pokemon MEG EN Bulbasaur Enhanced BSTR Box Topper #133 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091062/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091071 | PSA 139091071: 2024 Pokemon SSP EN Milotic ex Special Illustration Rare #237 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091071/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091072 | PSA 139091072: 2025 Pokemon DRI EN Rocket's Moltres ex Special Illustration Rare #229 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091072/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091080 | PSA 139091080: 2021 Pokemon SWSH BSP FA/Jolteon VMAX Jolteon VMAX Premium Collection #184 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091080/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_139091081 | PSA 139091081: 2010 Pokemon HG & SS Gengar-Holo Triumphant #94 | Attach permitted front/back images under data/cert-references/slab-images/psa_139091081/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_140992606 | PSA 140992606: 2015 Pokemon XY FA/Wailord EX Primal Clash #147 | Attach permitted front/back images under data/cert-references/slab-images/psa_140992606/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_142558464 | PSA 142558464: 2019 P.M. SM Black Star Moltres/Zapdos/Articuno GX HF Elite Trainer Box-F.A. #SM210 | Attach permitted front/back images under data/cert-references/slab-images/psa_142558464/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_152528467 | PSA 152528467: 2025 Pokemon WHT EN Reshiram ex Special Illustration Rare #166 | Attach permitted front/back images under data/cert-references/slab-images/psa_152528467/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_160000000 | PSA 160000000: 2016 Pokemon XY Evolutions Charizard-Holo #11 | Attach permitted front/back images under data/cert-references/slab-images/psa_160000000/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_160000001 | PSA 160000001: 2003 Pokemon EX Dragon Salamence-Holo #19 | Attach permitted front/back images under data/cert-references/slab-images/psa_160000001/, then run pnpm eval:certrefs:run. |
+| Certified reference declares slab images but no replayable local artifact is attached | psa_160000002 | PSA 160000002: 2004 Pokemon EX FireRed LeafGreen Venusaur-Holo #30 | Attach permitted front/back images under data/cert-references/slab-images/psa_160000002/, then run pnpm eval:certrefs:run. |
 
 ## Issue Register
 

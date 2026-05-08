@@ -14,6 +14,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { gradeToBand, loadAllRefs, readJson, repoRoot, writeJson } from "../certs/cert_reference_lib.mjs";
+import { auditReferencePolicy, isSyntheticArtifact, isSyntheticReference, isSyntheticReview } from "../certs/cert_source_policy.mjs";
 
 const THRESHOLDS = {
   minRealOutcomeRows: 100,
@@ -105,6 +106,10 @@ function buildReport({ refs, predictions, proof, agentic }) {
   const generatedAt = new Date().toISOString();
   const label = `production-readiness-${generatedAt.replace(/[:.]/g, "-")}`;
   const issues = [];
+  const policyAudits = refs.map(auditReferencePolicy);
+  const policyIssues = policyAudits.flatMap((audit) => audit.issues);
+  const syntheticRefs = refs.filter(isSyntheticReference);
+  issues.push(...policyIssues);
   const activePredictionRows = [...predictions.entries()].map(([certId, prediction]) => ({ certId, prediction }));
   const placeholderPredictions = activePredictionRows.filter(({ prediction }) => isPlaceholderPrediction(prediction));
   const realActivePredictions = activePredictionRows.filter(({ prediction }) => !isPlaceholderPrediction(prediction));
@@ -130,19 +135,26 @@ function buildReport({ refs, predictions, proof, agentic }) {
         predictedBand: prediction.predictedBand ?? null,
         agreement: officialBand && prediction.predictedBand === officialBand ? "match" : "mismatch",
         trustTier: ref?.trustTier ?? "unknown",
+        synthetic: isSyntheticReference(ref),
         proofEligible: hasReplayableImage(ref),
       };
     }),
   ];
-  const realMatchCount = combinedRealRows.filter((row) => row.agreement === "match").length;
-  const realMatchRate = combinedRealRows.length > 0 ? realMatchCount / combinedRealRows.length : 0;
-  const officialBandsCovered = new Set(combinedRealRows.map((row) => row.officialBand).filter(Boolean));
-  const goldRefs = refs.filter((ref) => ref.trustTier === "gold" || ref.trustTier === "gold_candidate");
-  const humanDingReviews = refs.filter((ref) => Boolean(ref.humanDingReview || ref.trustTier === "gold"));
+  const trustEligibleRows = combinedRealRows.filter((row) => row.proofEligible && !row.synthetic);
+  const realMatchCount = trustEligibleRows.filter((row) => row.agreement === "match").length;
+  const realMatchRate = trustEligibleRows.length > 0 ? realMatchCount / trustEligibleRows.length : 0;
+  const officialBandsCovered = new Set(trustEligibleRows.map((row) => row.officialBand).filter(Boolean));
+  const goldRefs = refs.filter(isValidGoldRef);
+  const humanDingReviews = refs.filter(hasValidHumanDingReview);
   const missingReplayableImageRefs = refs.filter((ref) => !hasReplayableImage(ref));
   const refsWithDeclaredSlabImagesButMissingLocal = refs.filter((ref) => ref.hasFrontBackSlabImages && !hasReplayableImage(ref));
   const imageBackedSilverPlusRefs = refs.filter((ref) => ref.trustTier === "silver_plus" && hasReplayableImage(ref));
-  const realModelRows = proofRows.length + realActivePredictions.filter(({ prediction }) => !prediction.inferenceIsSimulated).length;
+  const realModelRows =
+    proofRows.filter((trace) => trace.proofEligible).length +
+    realActivePredictions.filter(({ certId, prediction }) => {
+      const ref = refs.find((item) => item.id === certId);
+      return !prediction.inferenceIsSimulated && hasReplayableImage(ref) && !isSyntheticReference(ref);
+    }).length;
   const missingTools = Array.isArray(agentic?.toolSurface?.missingRequired)
     ? agentic.toolSurface.missingRequired
     : REQUIRED_PROMOTION_TOOLS;
@@ -165,7 +177,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
       severity: "P0",
       layer: "production_accuracy",
       title: "Not enough real image-backed outcome rows",
-      detail: `${combinedRealRows.length}/${THRESHOLDS.minRealOutcomeRows} real outcome rows available.`,
+      detail: `${trustEligibleRows.length}/${THRESHOLDS.minRealOutcomeRows} real, replayable, non-synthetic outcome rows available.`,
       nextAction: "Attach more user-permitted slab/raw images or allowed remote certified-reference images and run the proof/eval runners.",
     }));
   }
@@ -195,7 +207,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
       severity: "P0",
       layer: "calibration",
       title: "Real certified-reference band match rate below production floor",
-      detail: `${realMatchCount}/${combinedRealRows.length} real rows matched (${realMatchRate.toFixed(3)}).`,
+      detail: `${realMatchCount}/${trustEligibleRows.length} real rows matched (${realMatchRate.toFixed(3)}).`,
       nextAction: "Do not promote until non-placeholder real rows meet the match-rate floor without sample-size loopholes.",
     }));
   }
@@ -205,7 +217,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
       severity: "P0",
       layer: "dataset",
       title: "Official outcome band coverage is too narrow",
-      detail: `${officialBandsCovered.size}/${THRESHOLDS.minOfficialBandCoverage} official bands covered by real rows.`,
+      detail: `${officialBandsCovered.size}/${THRESHOLDS.minOfficialBandCoverage} official bands covered by real, replayable, non-synthetic rows.`,
       nextAction: "Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands.",
     }));
   }
@@ -254,8 +266,9 @@ function buildReport({ refs, predictions, proof, agentic }) {
 
   const gates = [
     gate("active_placeholders_removed", "No active placeholder predictions", placeholderPredictions.length === 0, `${placeholderPredictions.length} active placeholder rows.`),
-    gate("minimum_real_outcome_rows", "Minimum real certified-reference outcome rows", combinedRealRows.length >= THRESHOLDS.minRealOutcomeRows, `${combinedRealRows.length}/${THRESHOLDS.minRealOutcomeRows} rows.`),
-    gate("real_band_match_rate", "Real band match-rate floor", combinedRealRows.length >= THRESHOLDS.minRealOutcomeRows && realMatchRate >= THRESHOLDS.minRealBandMatchRate, `${realMatchRate.toFixed(3)} match rate on ${combinedRealRows.length} rows.`),
+    gate("no_synthetic_trust_rows", "No synthetic/generated rows in trust gates", syntheticRefs.length === 0, `${syntheticRefs.length} synthetic/generated reference rows.`),
+    gate("minimum_real_outcome_rows", "Minimum real certified-reference outcome rows", trustEligibleRows.length >= THRESHOLDS.minRealOutcomeRows, `${trustEligibleRows.length}/${THRESHOLDS.minRealOutcomeRows} rows.`),
+    gate("real_band_match_rate", "Real band match-rate floor", trustEligibleRows.length >= THRESHOLDS.minRealOutcomeRows && realMatchRate >= THRESHOLDS.minRealBandMatchRate, `${realMatchRate.toFixed(3)} match rate on ${trustEligibleRows.length} rows.`),
     gate("official_band_coverage", "Official band coverage", officialBandsCovered.size >= THRESHOLDS.minOfficialBandCoverage, `${officialBandsCovered.size}/${THRESHOLDS.minOfficialBandCoverage} bands.`),
     gate("gold_eval_set", "Gold/gold-candidate eval set", goldRefs.length >= THRESHOLDS.minGoldRefs, `${goldRefs.length}/${THRESHOLDS.minGoldRefs} records.`),
     gate("human_ding_review", "Human DING review coverage", humanDingReviews.length >= THRESHOLDS.minHumanDingReviews, `${humanDingReviews.length}/${THRESHOLDS.minHumanDingReviews} records.`),
@@ -268,7 +281,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
   const releaseModes = buildReleaseModes({
     refs,
     placeholderPredictions,
-    combinedRealRows,
+    combinedRealRows: trustEligibleRows,
     realMatchRate,
     officialBandsCovered,
     goldRefs,
@@ -279,6 +292,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
     missingTools,
     agentic,
     productionDeployable,
+    syntheticRefs,
   });
   const issueCounts = countBy(issues, "severity");
 
@@ -298,7 +312,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
       refs: refs.length,
       activePredictions: activePredictionRows.length,
       activePlaceholderPredictions: placeholderPredictions.length,
-      realOutcomeRows: combinedRealRows.length,
+      realOutcomeRows: trustEligibleRows.length,
       proofEligibleMatches: proofEligibleMatches.length,
       realModelRows,
       realBandMatches: realMatchCount,
@@ -307,6 +321,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
       goldRefs: goldRefs.length,
       humanDingReviews: humanDingReviews.length,
       imageBackedSilverPlusRefs: imageBackedSilverPlusRefs.length,
+      syntheticRefs: syntheticRefs.length,
       missingReplayableImages: missingReplayableImageRefs.length,
       declaredSlabImagesMissingLocal: refsWithDeclaredSlabImagesButMissingLocal.length,
       blockerIssues: issues.filter((item) => item.severity === "P0").length,
@@ -314,7 +329,7 @@ function buildReport({ refs, predictions, proof, agentic }) {
     },
     gates,
     issues,
-    realRows: combinedRealRows,
+    realRows: trustEligibleRows,
     sourceReports: {
       predictionsPath,
       proofPath,
@@ -343,13 +358,39 @@ function isPlaceholderPrediction(prediction) {
   return model.includes("baseline-trust-cert") || model.includes("test-baseline-mirror") || prediction?.confidence === 0;
 }
 
+function isValidGoldRef(ref) {
+  if (!ref) return false;
+  if (!["gold", "gold_candidate"].includes(ref.trustTier)) return false;
+  if (isSyntheticReference(ref)) return false;
+  if (!ref.rawPreSubmissionScanAvailable) return false;
+  if (!ref.provider || !ref.certNumber || !ref.officialGrade) return false;
+  return true;
+}
+
+function hasValidHumanDingReview(ref) {
+  if (!ref?.humanDingReview) return false;
+  if (isSyntheticReference(ref) || isSyntheticReview(ref.humanDingReview)) return false;
+  const reviewer = String(ref.humanDingReview.reviewerHandle ?? "").toLowerCase();
+  const source = String(ref.humanDingReview.reviewedImageSource ?? "").toLowerCase();
+  if (reviewer.includes("auto_agent")) return false;
+  if (source.includes("synthetic")) return false;
+  return true;
+}
+
 function hasReplayableImage(ref) {
   if (!ref) return false;
-  if (ref.rawPreSubmissionScanAvailable || ref.trustTier === "gold" || ref.trustTier === "gold_candidate") return true;
+  if (isSyntheticReference(ref)) return false;
+  if (ref.rawPreSubmissionScanAvailable || ref.trustTier === "gold" || ref.trustTier === "gold_candidate") return isValidGoldRef(ref);
   const dir = join(slabRoot, ref.id);
   if (!existsSync(dir)) return false;
   if (!statSync(dir).isDirectory()) return false;
-  return readdirSync(dir).some((entry) => /\.(png|jpe?g|webp|bmp)$/i.test(entry));
+  const materialization = readJson(join(dir, "materialization.json"), null);
+  if (isSyntheticArtifact(materialization)) return false;
+  return readdirSync(dir).some((entry) => {
+    if (!/\.(png|jpe?g|webp|bmp)$/i.test(entry)) return false;
+    const metadata = readJson(join(dir, entry.replace(/\.(png|jpe?g|webp|bmp)$/i, ".metadata.json")), null);
+    return !isSyntheticArtifact(metadata);
+  });
 }
 
 function issue({ id, severity, layer, certId = null, title, detail, nextAction }) {
@@ -380,10 +421,12 @@ function buildReleaseModes({
   missingTools,
   agentic,
   productionDeployable,
+  syntheticRefs,
 }) {
   const agentToolsComplete = !missingTools.some((tool) => REQUIRED_PROMOTION_TOOLS.includes(tool));
   const noPlaceholders = placeholderPredictions.length === 0;
   const hasRefs = refs.length > 0;
+  const noSyntheticTrustRows = syntheticRefs.length === 0;
   const demoChecks = [
     releaseCheck("cert_refs_loaded", hasRefs, `${refs.length} certified references loaded.`),
     releaseCheck("no_active_placeholder_predictions", noPlaceholders, `${placeholderPredictions.length} placeholder prediction rows.`),
@@ -391,6 +434,7 @@ function buildReleaseModes({
   ];
   const alphaChecks = [
     ...demoChecks,
+    releaseCheck("no_synthetic_trust_rows", noSyntheticTrustRows, `${syntheticRefs.length} synthetic/generated reference row(s).`),
     releaseCheck("certified_ref_count", refs.length >= ALPHA_THRESHOLDS.minCertifiedRefs, `${refs.length}/${ALPHA_THRESHOLDS.minCertifiedRefs} refs.`),
     releaseCheck(
       "image_backed_silver_plus",
@@ -409,6 +453,7 @@ function buildReleaseModes({
   ];
   const productionChecks = [
     ...demoChecks,
+    releaseCheck("no_synthetic_trust_rows", noSyntheticTrustRows, `${syntheticRefs.length} synthetic/generated reference row(s).`),
     releaseCheck("certified_ref_count", refs.length >= ALPHA_THRESHOLDS.minCertifiedRefs, `${refs.length}/${ALPHA_THRESHOLDS.minCertifiedRefs} refs.`),
     releaseCheck("real_model_trace", realModelRows >= ALPHA_THRESHOLDS.minRealModelRows, `${realModelRows}/${ALPHA_THRESHOLDS.minRealModelRows} real model row(s).`),
     releaseCheck(
@@ -472,6 +517,7 @@ function renderMarkdown(report) {
     `- Gold/gold-candidate refs: ${report.summary.goldRefs}/${report.thresholds.minGoldRefs}`,
     `- Human DING reviews: ${report.summary.humanDingReviews}/${report.thresholds.minHumanDingReviews}`,
     `- Image-backed Silver+ refs: ${report.summary.imageBackedSilverPlusRefs}/${report.thresholds.minImageBackedSilverPlusRefs}`,
+    `- Synthetic/generated trust rows: ${report.summary.syntheticRefs}`,
     `- Missing replayable images: ${report.summary.missingReplayableImages}`,
     `- P0 blockers: ${report.summary.blockerIssues}`,
     "",

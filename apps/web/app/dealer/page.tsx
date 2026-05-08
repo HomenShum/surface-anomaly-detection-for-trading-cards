@@ -1,7 +1,7 @@
 import { DealerDecisionFlow } from "../../components/DealerDecisionFlow";
 import { DealerShell } from "../../components/DealerShell";
 import { currentOwnerId } from "../../lib/dealer/owner";
-import { loadAllRecords } from "../../lib/dealer/store";
+import { loadAllRecords, resolveSlabImagePath } from "../../lib/dealer/store";
 
 export const dynamic = "force-dynamic";
 
@@ -23,20 +23,25 @@ export default async function DealerHomePage({ searchParams }: Props) {
   const sortedByRecent = records
     .slice()
     .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt));
+  const replayableImageUrl = (record: (typeof records)[number]) => {
+    if (!record.imageUrl) return undefined;
+    if (!record.imageUrl.startsWith("/api/dealer/records/")) return record.imageUrl;
+    return resolveSlabImagePath(ownerId, record.id) ? record.imageUrl : undefined;
+  };
   const latestRecords = sortedByRecent.slice(0, 4).map((record) => ({
     id: record.id,
     title: record.cardIdentity ?? (record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null) ?? `record ${record.id.slice(-6)}`,
     lane: record.lane,
     findings: record.modelFindings?.length ?? 0,
     proofSaved: Boolean(record.evidencePacket),
-    imageUrl: record.imageUrl,
+    imageUrl: replayableImageUrl(record),
     cert: record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null,
     updatedAt: record.updatedAt,
     value: record.pricing?.rawHigh ?? record.pricing?.graded9 ?? null,
     grade: record.officialGrade ?? null,
   }));
   const vaultPreview = sortedByRecent
-    .filter((r) => Boolean(r.imageUrl))
+    .filter((r) => Boolean(replayableImageUrl(r)))
     .slice(0, 6)
     .map((record) => ({
       id: record.id,
@@ -45,7 +50,7 @@ export default async function DealerHomePage({ searchParams }: Props) {
         (record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null) ??
         `Capture ${record.id.slice(-6)}`,
       grade: record.officialGrade ?? null,
-      imageUrl: record.imageUrl as string,
+      imageUrl: replayableImageUrl(record) as string,
       cert: record.certNumber ? `${record.certProvider ?? "PSA"} ${record.certNumber}` : null,
     }));
   const vault = {

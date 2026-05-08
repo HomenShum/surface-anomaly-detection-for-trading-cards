@@ -47,6 +47,7 @@ export type ProductionReadinessReport = {
     goldRefs: number;
     humanDingReviews: number;
     imageBackedSilverPlusRefs?: number;
+    syntheticRefs?: number;
     missingReplayableImages: number;
     declaredSlabImagesMissingLocal: number;
     blockerIssues: number;

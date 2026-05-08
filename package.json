@@ -54,6 +54,8 @@
     "certs:verify-candidates": "node scripts/certs/verify_psa_cert_candidates.mjs",
     "certs:materialize-images": "node scripts/certs/materialize_vendor_slab_images.mjs",
     "certs:build-imports": "node scripts/certs/build_cert_reference_seed.mjs",
+    "certs:policy-audit": "node scripts/certs/audit_cert_source_policy.mjs",
+    "certs:policy-audit:strict": "node scripts/certs/audit_cert_source_policy.mjs --strict",
     "certs:detect-labels": "python scripts/certs/detect_psa_labels.py",
     "certs:resolve-identities": "node scripts/certs/resolve_card_identities.mjs",
     "qa:dealer:hero": "node scripts/qa/dogfood_dealer_hero.mjs",

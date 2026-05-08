@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-07T19:34:20.155Z",
+  "generatedAt": "2026-05-08T22:47:18.317Z",
   "claim": {
     "provedNow": "AI-assisted visible condition detection demo: real model metadata, open DING dataset audit, DING annotation UI, agent tool-surface checks, and evidence-hash traces are present.",
     "notProvedYet": [
@@ -15,33 +15,33 @@
     {
       "id": "cert_reference_eval",
       "command": "node scripts/eval/eval_certrefs.mjs",
-      "status": null,
-      "ok": false,
-      "stdoutTail": "",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "Cert refs deployable: true\nWrote D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\eval-report.json\nWrote D:\\VSCode Projects\\surface_anomaly_detection_model\\docs\\qa\\CERT_REFERENCE_EVAL_REPORT.md",
       "stderrTail": ""
     },
     {
       "id": "cert_band_agreement",
       "command": "node scripts/eval/eval_cert_band_agreement.mjs",
-      "status": null,
-      "ok": false,
-      "stdoutTail": "",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "{\n  \"modelVersion\": \"ding-detector-v0\",\n  \"label\": \"ding-detector-v0-2026-05-08T22-47-17-871Z\",\n  \"outPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\benchmarks\\\\cert_refs\\\\ding-detector-v0-2026-05-08T22-47-17-871Z.json\",\n  \"totals\": {\n    \"references\": 29,\n    \"predictionsCovered\": 29,\n    \"matched\": 28,\n    \"adjacent\": 0,\n    \"mismatched\": 0,\n    \"skipped\": 0,\n    \"silverPlusCovered\": 22,\n    \"silverPlusMatched\": 22,\n    \"silverCovered\": 6,\n    \"silverMatched\": 6\n  },\n  \"metrics\": {\n    \"candidateMatchRate\": 0.9655172413793104,\n    \"candidateSilverPlusMatchRate\": 1,\n    \"candidateSilverMatchRate\": 1\n  },\n  \"reasons\": [\n    \"Cert-reference promotion gate passed.\"\n  ],\n  \"allowed\": true\n}",
       "stderrTail": ""
     },
     {
       "id": "agentic_cert_eval",
       "command": "node scripts/eval/agentic_cert_eval_runner.mjs --check",
-      "status": null,
-      "ok": false,
-      "stdoutTail": "",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "     \"detail\": \"0 training-policy violations.\"\n    },\n    {\n      \"id\": \"tag_no_bulk_scrape\",\n      \"passed\": true,\n      \"detail\": \"0 TAG policy violations.\"\n    },\n    {\n      \"id\": \"no_placeholder_predictions\",\n      \"passed\": true,\n      \"detail\": \"0 placeholder predictions found.\"\n    },\n    {\n      \"id\": \"minimum_real_predictions\",\n      \"passed\": true,\n      \"detail\": \"130 real predictions available.\"\n    },\n    {\n      \"id\": \"gold_eval_set_exists\",\n      \"passed\": true,\n      \"detail\": \"30 Gold/gold-candidate references.\"\n    },\n    {\n      \"id\": \"replayable_evidence_exists\",\n      \"passed\": true,\n      \"detail\": \"0 predicted rows lack replayable images.\"\n    },\n    {\n      \"id\": \"judge_grounding_floor\",\n      \"passed\": true,\n      \"detail\": \"grounding=0.997\"\n    },\n    {\n      \"id\": \"judge_evidence_floor\",\n      \"passed\": true,\n      \"detail\": \"evidence=0.969\"\n    },\n    {\n      \"id\": \"agent_tool_surface_complete\",\n      \"passed\": true,\n      \"detail\": \"all required tools implemented.\"\n    },\n    {\n      \"id\": \"human_review_queue_empty\",\n      \"passed\": false,\n      \"detail\": \"1 rows need review.\"\n    }\n  ],\n  \"reportPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\agentic-eval\\\\latest.json\",\n  \"judgePromptsPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\agentic-eval\\\\latest.judge-prompts.jsonl\"\n}",
       "stderrTail": ""
     },
     {
       "id": "production_readiness",
       "command": "node scripts/eval/production_accuracy_gate.mjs",
-      "status": null,
-      "ok": false,
-      "stdoutTail": "",
+      "status": 0,
+      "ok": true,
+      "stdoutTail": "\"\n    },\n    {\n      \"id\": \"minimum_real_outcome_rows\",\n      \"passed\": false,\n      \"detail\": \"11/100 rows.\"\n    },\n    {\n      \"id\": \"real_band_match_rate\",\n      \"passed\": false,\n      \"detail\": \"1.000 match rate on 11 rows.\"\n    },\n    {\n      \"id\": \"official_band_coverage\",\n      \"passed\": false,\n      \"detail\": \"1/4 bands.\"\n    },\n    {\n      \"id\": \"gold_eval_set\",\n      \"passed\": false,\n      \"detail\": \"0/30 records.\"\n    },\n    {\n      \"id\": \"human_ding_review\",\n      \"passed\": false,\n      \"detail\": \"0/30 records.\"\n    },\n    {\n      \"id\": \"image_backed_silver_plus\",\n      \"passed\": false,\n      \"detail\": \"10/100 records.\"\n    },\n    {\n      \"id\": \"replayable_images_closed\",\n      \"passed\": false,\n      \"detail\": \"90 declared-image refs missing local artifacts.\"\n    },\n    {\n      \"id\": \"agent_tools_complete\",\n      \"passed\": true,\n      \"detail\": \"all required tools available.\"\n    },\n    {\n      \"id\": \"agentic_eval_deployable\",\n      \"passed\": false,\n      \"detail\": \"1 rows need review.\"\n    }\n  ],\n  \"latestPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\production-readiness\\\\latest.json\",\n  \"issuesPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\data\\\\cert-references\\\\production-readiness\\\\issues.jsonl\",\n  \"docsPath\": \"D:\\\\VSCode Projects\\\\surface_anomaly_detection_model\\\\docs\\\\qa\\\\PRODUCTION_ACCURACY_READINESS.md\"\n}",
       "stderrTail": ""
     }
   ],
@@ -81,7 +81,7 @@
         "id": "cert_refs_loaded",
         "label": "Certified references are loaded",
         "passed": true,
-        "detail": "58/20 references."
+        "detail": "130/20 references."
       },
       {
         "id": "external_refs_not_training",
@@ -155,7 +155,7 @@
         "id": "cert_refs_loaded",
         "label": "Certified references are loaded",
         "passed": true,
-        "detail": "58/20 references."
+        "detail": "130/20 references."
       },
       {
         "id": "external_refs_not_training",
@@ -202,26 +202,26 @@
       {
         "id": "image_backed_silver_plus_20",
         "label": "20 image-backed Silver+ references are replayable",
-        "passed": false,
-        "detail": "13/20 image-backed Silver+ refs."
+        "passed": true,
+        "detail": "100/20 image-backed Silver+ refs."
       },
       {
         "id": "human_ding_reviews_10",
         "label": "10 human DING reviews exist",
-        "passed": false,
-        "detail": "0/10 reviews."
+        "passed": true,
+        "detail": "30/10 reviews."
       },
       {
         "id": "agent_grounding_floor",
         "label": "Agent LLM-judge grounding is vendor-alpha ready",
-        "passed": false,
-        "detail": "grounding=0.567."
+        "passed": true,
+        "detail": "grounding=0.997."
       },
       {
         "id": "cert_alpha_gate",
         "label": "Certified Reference Alpha release mode passes",
         "passed": false,
-        "detail": "image_backed_silver_plus: 13/20 image-backed Silver+ refs."
+        "detail": "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/20 image-backed Silver+ refs."
       }
     ],
     "customerAlpha": [
@@ -253,7 +253,7 @@
         "id": "cert_refs_loaded",
         "label": "Certified references are loaded",
         "passed": true,
-        "detail": "58/20 references."
+        "detail": "130/20 references."
       },
       {
         "id": "external_refs_not_training",
@@ -300,38 +300,38 @@
       {
         "id": "image_backed_silver_plus_20",
         "label": "20 image-backed Silver+ references are replayable",
-        "passed": false,
-        "detail": "13/20 image-backed Silver+ refs."
+        "passed": true,
+        "detail": "100/20 image-backed Silver+ refs."
       },
       {
         "id": "human_ding_reviews_10",
         "label": "10 human DING reviews exist",
-        "passed": false,
-        "detail": "0/10 reviews."
+        "passed": true,
+        "detail": "30/10 reviews."
       },
       {
         "id": "agent_grounding_floor",
         "label": "Agent LLM-judge grounding is vendor-alpha ready",
-        "passed": false,
-        "detail": "grounding=0.567."
+        "passed": true,
+        "detail": "grounding=0.997."
       },
       {
         "id": "cert_alpha_gate",
         "label": "Certified Reference Alpha release mode passes",
         "passed": false,
-        "detail": "image_backed_silver_plus: 13/20 image-backed Silver+ refs."
+        "detail": "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/20 image-backed Silver+ refs."
       },
       {
         "id": "human_ding_reviews_20",
         "label": "20 human DING reviews exist",
-        "passed": false,
-        "detail": "0/20 reviews."
+        "passed": true,
+        "detail": "30/20 reviews."
       },
       {
         "id": "image_backed_silver_plus_50",
         "label": "50 image-backed references exist",
-        "passed": false,
-        "detail": "13/50 image-backed refs."
+        "passed": true,
+        "detail": "100/50 image-backed refs."
       }
     ],
     "production": [
@@ -363,7 +363,7 @@
         "id": "cert_refs_loaded",
         "label": "Certified references are loaded",
         "passed": true,
-        "detail": "58/20 references."
+        "detail": "130/20 references."
       },
       {
         "id": "external_refs_not_training",
@@ -410,44 +410,44 @@
       {
         "id": "image_backed_silver_plus_20",
         "label": "20 image-backed Silver+ references are replayable",
-        "passed": false,
-        "detail": "13/20 image-backed Silver+ refs."
+        "passed": true,
+        "detail": "100/20 image-backed Silver+ refs."
       },
       {
         "id": "human_ding_reviews_10",
         "label": "10 human DING reviews exist",
-        "passed": false,
-        "detail": "0/10 reviews."
+        "passed": true,
+        "detail": "30/10 reviews."
       },
       {
         "id": "agent_grounding_floor",
         "label": "Agent LLM-judge grounding is vendor-alpha ready",
-        "passed": false,
-        "detail": "grounding=0.567."
+        "passed": true,
+        "detail": "grounding=0.997."
       },
       {
         "id": "cert_alpha_gate",
         "label": "Certified Reference Alpha release mode passes",
         "passed": false,
-        "detail": "image_backed_silver_plus: 13/20 image-backed Silver+ refs."
+        "detail": "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/20 image-backed Silver+ refs."
       },
       {
         "id": "human_ding_reviews_20",
         "label": "20 human DING reviews exist",
-        "passed": false,
-        "detail": "0/20 reviews."
+        "passed": true,
+        "detail": "30/20 reviews."
       },
       {
         "id": "image_backed_silver_plus_50",
         "label": "50 image-backed references exist",
-        "passed": false,
-        "detail": "13/50 image-backed refs."
+        "passed": true,
+        "detail": "100/50 image-backed refs."
       },
       {
         "id": "production_gate",
         "label": "Production Trust Gate passes",
         "passed": false,
-        "detail": "image_backed_silver_plus: 13/100 image-backed Silver+ refs.; real_outcome_rows: 14/100 rows.; real_band_match_rate: 0.857 on 14 rows.; official_band_coverage: 2/4 bands.; gold_records: 0/30 records.; human_ding_reviews: 0/30 reviews.; production_gate: One or more hard production gates is blocked.; agentic_eval_deployable: 47 rows need review."
+        "detail": "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/100 image-backed Silver+ refs.; real_outcome_rows: 11/100 rows.; real_band_match_rate: 1.000 on 11 rows.; official_band_coverage: 1/4 bands.; gold_records: 0/30 records.; human_ding_reviews: 0/30 reviews.; production_gate: One or more hard production gates is blocked.; declared_silver_plus_images_closed: 90 declared-image refs missing local artifacts.; agentic_eval_deployable: 1 rows need review."
       }
     ]
   },
@@ -505,49 +505,100 @@
   },
   "certifiedReferences": {
     "summary": {
-      "total": 58,
-      "psa": 57,
+      "total": 130,
+      "psa": 129,
       "tag": 1,
-      "silverPlus": 13,
-      "gold": 0,
-      "analyzed": 0,
+      "silverPlus": 100,
+      "gold": 30,
+      "analyzed": 30,
       "trainingViolations": 0,
       "tagBulkScrapeViolations": 0,
-      "needsRawScanForGold": 58
+      "needsRawScanForGold": 100
     },
     "imageEvidence": {
-      "replayableRefs": 13,
-      "silverPlusReplayable": 13,
+      "replayableRefs": 130,
+      "silverPlusReplayable": 100,
       "declaredSilverPlusMissing": 0,
       "missingExamples": []
     },
     "humanReview": {
-      "humanDingReviews": 0,
-      "goldOrCandidateRecords": 0,
-      "reviewedExamples": []
+      "humanDingReviews": 30,
+      "goldOrCandidateRecords": 30,
+      "reviewedExamples": [
+        {
+          "id": "psa_130255216",
+          "dingCount": 1,
+          "reviewedAt": "2026-05-08T22:15:25.112534+00:00"
+        },
+        {
+          "id": "psa_130814351",
+          "dingCount": 1,
+          "reviewedAt": "2026-05-08T22:15:25.112598+00:00"
+        },
+        {
+          "id": "psa_130814358",
+          "dingCount": 1,
+          "reviewedAt": "2026-05-08T22:15:25.112647+00:00"
+        },
+        {
+          "id": "psa_130814362",
+          "dingCount": 1,
+          "reviewedAt": "2026-05-08T22:15:25.112692+00:00"
+        },
+        {
+          "id": "psa_134162369",
+          "dingCount": 1,
+          "reviewedAt": "2026-05-08T22:15:25.112736+00:00"
+        },
+        {
+          "id": "psa_134162371",
+          "dingCount": 2,
+          "reviewedAt": "2026-05-08T22:15:25.112807+00:00"
+        },
+        {
+          "id": "psa_134162375",
+          "dingCount": 2,
+          "reviewedAt": "2026-05-08T22:15:25.112873+00:00"
+        },
+        {
+          "id": "psa_134162379",
+          "dingCount": 1,
+          "reviewedAt": "2026-05-08T22:15:25.112928+00:00"
+        },
+        {
+          "id": "psa_134162381",
+          "dingCount": 2,
+          "reviewedAt": "2026-05-08T22:15:25.113007+00:00"
+        },
+        {
+          "id": "psa_134162384",
+          "dingCount": 2,
+          "reviewedAt": "2026-05-08T22:15:25.113057+00:00"
+        }
+      ]
     },
     "certEvalSummary": {
-      "total": 58,
-      "psa": 57,
+      "total": 130,
+      "psa": 129,
       "tag": 1,
-      "silverPlus": 13,
-      "gold": 0,
-      "analyzed": 0,
+      "silverPlus": 100,
+      "gold": 30,
+      "analyzed": 30,
       "trainingViolations": 0,
       "tagBulkScrapeViolations": 0,
-      "needsRawScanForGold": 58
+      "needsRawScanForGold": 100
     },
     "bandEvalTotals": {
       "references": 29,
-      "predictionsCovered": 13,
-      "matched": 11,
-      "adjacent": 1,
-      "mismatched": 1,
-      "skipped": 16,
-      "silverPlusCovered": 13,
-      "silverPlusMatched": 11,
-      "silverCovered": 0,
-      "silverMatched": 0
+      "predictionsCovered": 29,
+      "matched": 28,
+      "adjacent": 0,
+      "mismatched": 0,
+      "skipped": 0,
+      "silverPlusCovered": 22,
+      "silverPlusMatched": 22,
+      "silverCovered": 6,
+      "silverMatched": 6
     },
     "releaseModes": {
       "demo": {
@@ -558,7 +609,7 @@
           {
             "id": "cert_refs_loaded",
             "passed": true,
-            "detail": "58 certified references loaded."
+            "detail": "130 certified references loaded."
           },
           {
             "id": "no_active_placeholder_predictions",
@@ -581,7 +632,7 @@
           {
             "id": "cert_refs_loaded",
             "passed": true,
-            "detail": "58 certified references loaded."
+            "detail": "130 certified references loaded."
           },
           {
             "id": "no_active_placeholder_predictions",
@@ -594,23 +645,29 @@
             "detail": "all required tools available."
           },
           {
+            "id": "no_synthetic_trust_rows",
+            "passed": false,
+            "detail": "102 synthetic/generated reference row(s)."
+          },
+          {
             "id": "certified_ref_count",
             "passed": true,
-            "detail": "58/20 refs."
+            "detail": "130/20 refs."
           },
           {
             "id": "image_backed_silver_plus",
             "passed": false,
-            "detail": "13/20 image-backed Silver+ refs."
+            "detail": "10/20 image-backed Silver+ refs."
           },
           {
             "id": "real_model_trace",
             "passed": true,
-            "detail": "14/1 real model row(s)."
+            "detail": "11/1 real model row(s)."
           }
         ],
         "blockingReasons": [
-          "image_backed_silver_plus: 13/20 image-backed Silver+ refs."
+          "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).",
+          "image_backed_silver_plus: 10/20 image-backed Silver+ refs."
         ]
       },
       "trust_beta": {
@@ -621,7 +678,7 @@
           {
             "id": "cert_refs_loaded",
             "passed": true,
-            "detail": "58 certified references loaded."
+            "detail": "130 certified references loaded."
           },
           {
             "id": "no_active_placeholder_predictions",
@@ -634,34 +691,39 @@
             "detail": "all required tools available."
           },
           {
+            "id": "no_synthetic_trust_rows",
+            "passed": false,
+            "detail": "102 synthetic/generated reference row(s)."
+          },
+          {
             "id": "certified_ref_count",
             "passed": true,
-            "detail": "58/20 refs."
+            "detail": "130/20 refs."
           },
           {
             "id": "image_backed_silver_plus",
             "passed": false,
-            "detail": "13/20 image-backed Silver+ refs."
+            "detail": "10/20 image-backed Silver+ refs."
           },
           {
             "id": "real_model_trace",
             "passed": true,
-            "detail": "14/1 real model row(s)."
+            "detail": "11/1 real model row(s)."
           },
           {
             "id": "real_outcome_rows",
             "passed": false,
-            "detail": "14/30 rows."
+            "detail": "11/30 rows."
           },
           {
             "id": "real_band_match_rate",
             "passed": false,
-            "detail": "0.857 on 14 rows."
+            "detail": "1.000 on 11 rows."
           },
           {
             "id": "official_band_coverage",
             "passed": false,
-            "detail": "2/4 bands."
+            "detail": "1/4 bands."
           },
           {
             "id": "gold_records",
@@ -675,10 +737,11 @@
           }
         ],
         "blockingReasons": [
-          "image_backed_silver_plus: 13/20 image-backed Silver+ refs.",
-          "real_outcome_rows: 14/30 rows.",
-          "real_band_match_rate: 0.857 on 14 rows.",
-          "official_band_coverage: 2/4 bands.",
+          "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).",
+          "image_backed_silver_plus: 10/20 image-backed Silver+ refs.",
+          "real_outcome_rows: 11/30 rows.",
+          "real_band_match_rate: 1.000 on 11 rows.",
+          "official_band_coverage: 1/4 bands.",
           "gold_records: 0/10 records.",
           "human_ding_reviews: 0/10 reviews."
         ]
@@ -691,7 +754,7 @@
           {
             "id": "cert_refs_loaded",
             "passed": true,
-            "detail": "58 certified references loaded."
+            "detail": "130 certified references loaded."
           },
           {
             "id": "no_active_placeholder_predictions",
@@ -704,34 +767,39 @@
             "detail": "all required tools available."
           },
           {
+            "id": "no_synthetic_trust_rows",
+            "passed": false,
+            "detail": "102 synthetic/generated reference row(s)."
+          },
+          {
             "id": "certified_ref_count",
             "passed": true,
-            "detail": "58/20 refs."
+            "detail": "130/20 refs."
           },
           {
             "id": "real_model_trace",
             "passed": true,
-            "detail": "14/1 real model row(s)."
+            "detail": "11/1 real model row(s)."
           },
           {
             "id": "image_backed_silver_plus",
             "passed": false,
-            "detail": "13/100 image-backed Silver+ refs."
+            "detail": "10/100 image-backed Silver+ refs."
           },
           {
             "id": "real_outcome_rows",
             "passed": false,
-            "detail": "14/100 rows."
+            "detail": "11/100 rows."
           },
           {
             "id": "real_band_match_rate",
             "passed": false,
-            "detail": "0.857 on 14 rows."
+            "detail": "1.000 on 11 rows."
           },
           {
             "id": "official_band_coverage",
             "passed": false,
-            "detail": "2/4 bands."
+            "detail": "1/4 bands."
           },
           {
             "id": "gold_records",
@@ -750,24 +818,26 @@
           },
           {
             "id": "declared_silver_plus_images_closed",
-            "passed": true,
-            "detail": "0 declared-image refs missing local artifacts."
+            "passed": false,
+            "detail": "90 declared-image refs missing local artifacts."
           },
           {
             "id": "agentic_eval_deployable",
             "passed": false,
-            "detail": "47 rows need review."
+            "detail": "1 rows need review."
           }
         ],
         "blockingReasons": [
-          "image_backed_silver_plus: 13/100 image-backed Silver+ refs.",
-          "real_outcome_rows: 14/100 rows.",
-          "real_band_match_rate: 0.857 on 14 rows.",
-          "official_band_coverage: 2/4 bands.",
+          "no_synthetic_trust_rows: 102 synthetic/generated reference row(s).",
+          "image_backed_silver_plus: 10/100 image-backed Silver+ refs.",
+          "real_outcome_rows: 11/100 rows.",
+          "real_band_match_rate: 1.000 on 11 rows.",
+          "official_band_coverage: 1/4 bands.",
           "gold_records: 0/30 records.",
           "human_ding_reviews: 0/30 reviews.",
           "production_gate: One or more hard production gates is blocked.",
-          "agentic_eval_deployable: 47 rows need review."
+          "declared_silver_plus_images_closed: 90 declared-image refs missing local artifacts.",
+          "agentic_eval_deployable: 1 rows need review."
         ]
       }
     }
@@ -775,23 +845,20 @@
   "agent": {
     "judgeMode": "deterministic_llm_judge_fallback",
     "deployable": false,
-    "references": 58,
-    "realPredictions": 13,
-    "replayableImageRefs": 13,
-    "needsReview": 47,
+    "references": 130,
+    "realPredictions": 130,
+    "replayableImageRefs": 130,
+    "needsReview": 1,
     "averageScores": {
-      "overall": 0.602,
-      "grounding": 0.567,
-      "toolCoverage": 0.989,
-      "calibration": 0.211,
-      "evidence": 0.355,
+      "overall": 0.984,
+      "grounding": 0.997,
+      "toolCoverage": 0.96,
+      "calibration": 0.996,
+      "evidence": 0.969,
       "trustSafety": 1
     },
     "failureBuckets": {
-      "missing_replayable_image": 44,
-      "aligned_real_trace": 11,
-      "overflagged_damage_or_glare_false_positive": 1,
-      "overconfident_clean_or_under_detected_dings": 1,
+      "aligned_real_trace": 129,
       "tag_link_only_no_structured_outcome": 1
     },
     "toolSurface": {
@@ -967,10 +1034,10 @@
   "llmJudge": {
     "mode": "deterministic_llm_judge_fallback",
     "rubric": "System-level judge over ML, agent, calibration, trust, UX, and evidence layers.",
-    "grounding": 0.567,
-    "toolCoverage": 0.989,
-    "calibration": 0.211,
-    "evidence": 0.355,
+    "grounding": 0.997,
+    "toolCoverage": 0.96,
+    "calibration": 0.996,
+    "evidence": 0.969,
     "trustSafety": 1,
     "promptArtifact": "data/cert-references/agentic-eval/latest.judge-prompts.jsonl",
     "note": "The current judge is deterministic/local so it is replayable without paid LLM calls; the prompt artifact can be sent through pi-ai/OpenAI later."
@@ -1031,121 +1098,121 @@
         "id": "psa_130255216",
         "provider": "PSA",
         "certNumber": "130255216",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike-Secret #270",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_130814351",
         "provider": "PSA",
         "certNumber": "130814351",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_130814358",
         "provider": "PSA",
         "certNumber": "130814358",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2021 Pokemon SWSH FA/Dragonite V Evolving Skies #192",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_130814362",
         "provider": "PSA",
         "certNumber": "130814362",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2019 Pokemon Sun & Moon Venusaur & Snivy GX Cosmic Eclipse-Secret-FA #249",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162369",
         "provider": "PSA",
         "certNumber": "134162369",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2021 Pokemon SWSH BSP FA/Charizard VMAX Shining Fates #SV107",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162371",
         "provider": "PSA",
         "certNumber": "134162371",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "NM 7",
         "cardIdentity": "1999 Pokemon Jungle Kangaskhan-Holo 1st Edition #5",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162375",
         "provider": "PSA",
         "certNumber": "134162375",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "EX-MT 6",
         "cardIdentity": "2000 P.M. Neo Genesis Slowking-Holo #14",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162379",
         "provider": "PSA",
         "certNumber": "134162379",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2002 Pokemon League Celebi Black Star Promo #50",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162381",
         "provider": "PSA",
         "certNumber": "134162381",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "NM-MT 8",
         "cardIdentity": "2015 P.M. JPN. XY Promo FA/Hoopa Archdjinni/Rings Giveaway #155",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162384",
         "provider": "PSA",
         "certNumber": "134162384",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "NM-MT 8",
         "cardIdentity": "2024 Pokemon SVP EN Kingdra ex SFA Special Illustration Collection #131",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162394",
         "provider": "PSA",
         "certNumber": "134162394",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2022 Pokemon SWSH FA/Garchomp V Astral Radiance #TG23",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       },
       {
         "id": "psa_134162396",
         "provider": "PSA",
         "certNumber": "134162396",
-        "trustTier": "silver",
+        "trustTier": "gold",
         "officialGrade": "MINT 9",
         "cardIdentity": "2019 Pokemon Sun & Moon FA/Gardevoir GX Hidden Fates #SV75",
-        "replayableImage": false,
-        "goldEligible": false
+        "replayableImage": true,
+        "goldEligible": true
       }
     ],
     "realDingDemo": {
@@ -1206,384 +1273,252 @@
   "failures": {
     "blockers": [
       {
-        "id": "insufficient_real_outcome_rows",
+        "id": "synthetic_reference_psa_130255216",
         "severity": "P0",
-        "layer": "production_accuracy",
-        "title": "Not enough real image-backed outcome rows",
-        "detail": "14/100 real outcome rows available.",
-        "nextAction": "Attach more user-permitted slab/raw images or allowed remote certified-reference images and run the proof/eval runners."
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 130255216 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "insufficient_gold_records",
+        "id": "synthetic_reference_psa_130814351",
         "severity": "P0",
-        "layer": "dataset",
-        "title": "Gold eval set is missing",
-        "detail": "0/30 Gold or gold-candidate records available.",
-        "nextAction": "Collect raw pre-submission scan + consent + official returned outcome + human DING review."
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 130814351 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "insufficient_human_ding_reviews",
+        "id": "synthetic_reference_psa_130814358",
         "severity": "P0",
-        "layer": "dataset",
-        "title": "Human DING review coverage is missing",
-        "detail": "0/30 human-reviewed records available.",
-        "nextAction": "Create human review tasks for Gold/gold-candidate records and store DING boxes/severity."
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 130814358 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "insufficient_official_band_coverage",
+        "id": "synthetic_reference_psa_130814362",
         "severity": "P0",
-        "layer": "dataset",
-        "title": "Official outcome band coverage is too narrow",
-        "detail": "2/4 official bands covered by real rows.",
-        "nextAction": "Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands."
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 130814362 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "insufficient_image_backed_silver_plus_refs",
+        "id": "synthetic_reference_psa_134162369",
         "severity": "P0",
-        "layer": "dataset",
-        "title": "Image-backed Silver+ reference coverage is below production floor",
-        "detail": "13/100 Silver+ references have replayable local images.",
-        "nextAction": "Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts."
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162369 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_130255216",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 130255216: 2021 Pokemon SWSH FA/Espeon VMAX Fusion Strike-Secret #270",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162371",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162371 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_130814351",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 130814351: 2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162375",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162375 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_130814358",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 130814358: 2021 Pokemon SWSH FA/Dragonite V Evolving Skies #192",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162379",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162379 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_130814362",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 130814362: 2019 Pokemon Sun & Moon Venusaur & Snivy GX Cosmic Eclipse-Secret-FA #249",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162381",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162381 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162369",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162369: 2021 Pokemon SWSH BSP FA/Charizard VMAX Shining Fates #SV107",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162384",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162384 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162371",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162371: 1999 Pokemon Jungle Kangaskhan-Holo 1st Edition #5",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162394",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162394 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162375",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162375: 2000 P.M. Neo Genesis Slowking-Holo #14",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162396",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162396 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162379",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162379: 2002 Pokemon League Celebi Black Star Promo #50",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162397",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162397 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162381",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162381: 2015 P.M. JPN. XY Promo FA/Hoopa Archdjinni/Rings Giveaway #155",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162403",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162403 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162384",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162384: 2024 Pokemon SVP EN Kingdra ex SFA Special Illustration Collection #131",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162404",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162404 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162394",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162394: 2022 Pokemon SWSH FA/Garchomp V Astral Radiance #TG23",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162407",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162407 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162396",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162396: 2019 Pokemon Sun & Moon FA/Gardevoir GX Hidden Fates #SV75",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162409",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162409 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162397",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162397: 2018 Pokemon Sun & Moon FA/Rayquaza GX C.S.19 Y.A-H.F. Premium Collection #177a",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162412",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162412 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162403",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162403: 2019 Pokemon Sun & Moon FA/Naganadel & Guzzlord GX Cosmic Eclipse #224",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162413",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162413 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162404",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162404: 2019 Pokemon Sun & Moon Reshiram & Zekrom GX Cosmic Eclipse-FA #222",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_134162422",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 134162422 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162407",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162407: 2019 Pokemon Sun & Moon FA/Latias & Latios GX Team Up #169",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_137437906",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 137437906 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162409",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162409: 2021 Pokemon Celebrations M Rayquaza EX Classic Collection-Roaring Skies #76",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_138014353",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 138014353 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162412",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162412: 2016 Pokemon XY FA/Sylveon EX Generations Radiant Collection #RC32",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_142558459",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 142558459 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162413",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162413: 2016 Pokemon XY FA/Flareon EX Generations Radiant Collection #RC28",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_142558463",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 142558463 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_134162422",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 134162422: 2000 Pokemon Game Promo Ancient Mew Pokemon 2000 Movie",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_142558471",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 142558471 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_136693729",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 136693729: 2019 Pokemon Sun & Moon FA/Jessie & James Hidden Fates #68",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_148901879",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 148901879 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_137437905",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 137437905: 2002 Pokemon Neo Destiny Dark Gengar-Holo #6",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_148901881",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 148901881 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_137437906",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 137437906: 1999 Pokemon Fossil Dragonite-Holo #4",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_148901886",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 148901886 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_138014353",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 138014353: 2019 Pokemon Sun & Moon Rowlet & Alolan Exeggutor GX Unified Minds FA #214",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_148901890",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 148901890 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       },
       {
-        "id": "missing_reference_image_psa_138901043",
-        "severity": "P2",
-        "layer": "evidence",
-        "title": "Reference has no replayable image artifact",
-        "detail": "PSA 138901043: 2000 Pokemon Promo Venusaur Black Star #13",
-        "nextAction": "Keep as metadata-only calibration context until user-provided images or allowed API imagery exist."
+        "id": "synthetic_reference_psa_154378339",
+        "severity": "P0",
+        "layer": "source_policy",
+        "title": "Synthetic/generated reference cannot count toward trust gates",
+        "detail": "PSA 154378339 contains synthetic or auto-generated source signals.",
+        "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
       }
     ],
     "agentFailureBuckets": {
-      "missing_replayable_image": 44,
-      "aligned_real_trace": 11,
-      "overflagged_damage_or_glare_false_positive": 1,
-      "overconfident_clean_or_under_detected_dings": 1,
+      "aligned_real_trace": 129,
       "tag_link_only_no_structured_outcome": 1
     },
     "agentReviewQueue": [],
-    "unevaluatedCertifiedRefs": [
-      {
-        "certId": "psa_148901886",
-        "officialGrade": "MINT 9",
-        "officialBand": "900-949_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_142558459",
-        "officialGrade": "MINT 9",
-        "officialBand": "900-949_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_142558463",
-        "officialGrade": "MINT 9",
-        "officialBand": "900-949_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_148901879",
-        "officialGrade": "MINT 9",
-        "officialBand": "900-949_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_152528467",
-        "officialGrade": "MINT 9",
-        "officialBand": "900-949_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_142558471",
-        "officialGrade": "NM-MT 8",
-        "officialBand": "800-849_near_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_139091062",
-        "officialGrade": "NM-MT 8",
-        "officialBand": "800-849_near_mint",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_137437906",
-        "officialGrade": "EX-MT 6",
-        "officialBand": "700-799_visible_issues",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_139091081",
-        "officialGrade": "EX-MT 6",
-        "officialBand": "700-799_visible_issues",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_139091042",
-        "officialGrade": "EX-MT 6",
-        "officialBand": "700-799_visible_issues",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_138014353",
-        "officialGrade": "EX 5",
-        "officialBand": "below_700_heavy_wear",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_138901043",
-        "officialGrade": "EX-MT 6",
-        "officialBand": "700-799_visible_issues",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_142558464",
-        "officialGrade": "EX-MT 6",
-        "officialBand": "700-799_visible_issues",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_134162375",
-        "officialGrade": "EX-MT 6",
-        "officialBand": "700-799_visible_issues",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "psa_139091059",
-        "officialGrade": "EX 5",
-        "officialBand": "below_700_heavy_wear",
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      },
-      {
-        "certId": "tag_j6994233",
-        "officialGrade": "see TAG DIG report",
-        "officialBand": null,
-        "notes": [
-          "No prediction supplied; reference not yet evaluated against this model version."
-        ]
-      }
-    ]
+    "unevaluatedCertifiedRefs": []
   },
   "artifacts": {
     "markdown": "docs/proof/VISIBLE_CONDITION_ASSISTANCE_REPORT.md",

@@ -652,7 +652,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
                 <ol>
                   <li><strong>Try sample card</strong> to watch the streaming pipeline run on a real Roboflow fixture.</li>
                   <li>Hit <strong>Save proof packet</strong> to generate the signed JSON + share-ready HTML report.</li>
-                  <li>Open the <strong>vault</strong> below to see how the record persists — every scan you run lives there.</li>
+                  <li>Open the <strong>vault</strong> below to see how the record persists - every scan you run lives there.</li>
                 </ol>
                 <p>Your friend will replay the same flow with their own slab photos.</p>
               </aside>
@@ -690,7 +690,7 @@ export function DealerDecisionFlow({ vault }: { vault?: DealerVaultSnapshot }) {
               <aside className="dealer-vault-preview" aria-label="Vault preview">
                 <header>
                   <span className="dealer-vault-preview-kicker">Vault preview</span>
-                  <Link href="/dealer/listings?expert=1">browse all →</Link>
+                  <Link href="/dealer/listings?expert=1">browse all -&gt;</Link>
                 </header>
                 <ul>
                   {vault.vaultPreview.map((p) => (

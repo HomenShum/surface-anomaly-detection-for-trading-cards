@@ -49,7 +49,8 @@ function startManagedWebServer() {
   const webCwd = join(ROOT, "apps", "web");
   const buildIdPath = join(webCwd, ".next", "BUILD_ID");
   const serverManifestPath = join(webCwd, ".next", "server", "pages-manifest.json");
-  if (!existsSync(buildIdPath) || !existsSync(serverManifestPath)) {
+  const shouldBuild = process.env.CCV_SKIP_BUILD !== "1";
+  if (shouldBuild || !existsSync(buildIdPath) || !existsSync(serverManifestPath)) {
     const nextDir = join(webCwd, ".next");
     if (existsSync(nextDir)) {
       const resolvedNextDir = resolve(nextDir);
@@ -77,7 +78,12 @@ function startManagedWebServer() {
       : ["start"];
   const child = spawn(command, args, {
     cwd: webCwd,
-    env: { ...process.env, PORT: managedPort },
+    env: {
+      ...process.env,
+      PORT: managedPort,
+      NEXTAUTH_URL: process.env.NEXTAUTH_URL ?? baseUrl,
+      NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ?? "local-dealer-hero-qa-secret",
+    },
     stdio: ["ignore", "pipe", "pipe"],
     windowsHide: true,
   });
@@ -124,12 +130,12 @@ async function runHero(viewport, label) {
   });
 
   await page.goto(`${baseUrl}/dealer`, { waitUntil: "domcontentloaded" });
-  await expect(page.locator(".dealer-drop-heading")).toHaveText("Drop card photo. Get decision. Save proof.");
+  await expect(page.locator(".dealer-hero-prompt")).toHaveText("Drop card photo. Get decision. Save proof.");
   await expect(page.getByRole("heading", { name: "Scan cards into a condition evidence vault." })).toBeVisible();
   await expect(page.getByRole("button", { name: "Upload card photo" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Try sample card" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Open saved vault" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Vendor pilot vault" })).toBeVisible();
+  await expect(page.getByText("Vendor pilot vault")).toBeVisible();
   await expect(page.getByRole("link", { name: /Dashboard/i }).first()).toBeVisible();
   await expect(page.getByText(/HMAC-signed proof packets/)).toBeVisible();
   await checkNoOverflow(page, `${label} idle`);

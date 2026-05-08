@@ -163,6 +163,11 @@ export default function CertifiedReferenceBenchmarksPage() {
                 <small>alpha target {productionReadiness.alphaThresholds?.minImageBackedSilverPlusRefs ?? 20}</small>
               </div>
               <div>
+                <span>Synthetic trust rows</span>
+                <strong>{productionReadiness.summary.syntheticRefs ?? 0}</strong>
+                <small>demo fixtures only</small>
+              </div>
+              <div>
                 <span>Missing images</span>
                 <strong>{productionReadiness.summary.missingReplayableImages}</strong>
                 <small>{productionReadiness.summary.declaredSlabImagesMissingLocal} declared Silver+</small>

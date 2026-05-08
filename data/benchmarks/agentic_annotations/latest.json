@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-07T19:33:50.281Z",
+  "generatedAt": "2026-05-08T22:47:17.674Z",
   "fixtureCount": 4,
   "claim": "Measures whether agentic reinspection improves visible DING annotations while preserving grounding and no-grade-claim safety.",
   "deployable": true,

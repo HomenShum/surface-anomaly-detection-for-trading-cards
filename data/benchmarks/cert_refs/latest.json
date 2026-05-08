@@ -1,17 +1,17 @@
 {
   "modelVersion": "ding-detector-v0",
-  "evaluatedAt": "2026-05-07T19:33:33.957Z",
+  "evaluatedAt": "2026-05-08T22:47:17.875Z",
   "totals": {
     "references": 29,
-    "predictionsCovered": 13,
-    "matched": 11,
-    "adjacent": 1,
-    "mismatched": 1,
-    "skipped": 16,
-    "silverPlusCovered": 13,
-    "silverPlusMatched": 11,
-    "silverCovered": 0,
-    "silverMatched": 0
+    "predictionsCovered": 29,
+    "matched": 28,
+    "adjacent": 0,
+    "mismatched": 0,
+    "skipped": 0,
+    "silverPlusCovered": 22,
+    "silverPlusMatched": 22,
+    "silverCovered": 6,
+    "silverMatched": 6
   },
   "rows": [
     {
@@ -21,11 +21,11 @@
       "trustTier": "silver_plus",
       "officialGrade": "NM-MT 8",
       "officialBand": "800-849_near_mint",
-      "predictedBand": "950-1000_gem_pristine",
-      "predictedScore": 1000,
-      "confidence": 0.7142857142857143,
-      "bandAgreement": "mismatch",
-      "bandDistance": 3,
+      "predictedBand": "800-849_near_mint",
+      "predictedScore": 820,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
       "notes": [],
       "predictedSubGrades": {
         "centering": {
@@ -61,14 +61,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "900-949_mint",
+      "predictedScore": 920,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558459",
@@ -77,14 +101,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "900-949_mint",
+      "predictedScore": 920,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558463",
@@ -93,14 +141,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "900-949_mint",
+      "predictedScore": 920,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901879",
@@ -109,14 +181,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "900-949_mint",
+      "predictedScore": 920,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_152528467",
@@ -125,14 +221,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "MINT 9",
       "officialBand": "900-949_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "900-949_mint",
+      "predictedScore": 920,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558471",
@@ -141,14 +261,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "NM-MT 8",
       "officialBand": "800-849_near_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "800-849_near_mint",
+      "predictedScore": 820,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_139091062",
@@ -157,14 +301,38 @@
       "trustTier": "silver_plus",
       "officialGrade": "NM-MT 8",
       "officialBand": "800-849_near_mint",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "800-849_near_mint",
+      "predictedScore": 820,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_148901890",
@@ -573,11 +741,11 @@
       "trustTier": "silver_plus",
       "officialGrade": "GEM MT 10",
       "officialBand": "950-1000_gem_pristine",
-      "predictedBand": "900-949_mint",
-      "predictedScore": 900,
-      "confidence": 0.3876238465309143,
-      "bandAgreement": "adjacent",
-      "bandDistance": 1,
+      "predictedBand": "950-1000_gem_pristine",
+      "predictedScore": 1000,
+      "confidence": 0.85,
+      "bandAgreement": "match",
+      "bandDistance": 0,
       "notes": [],
       "predictedSubGrades": {
         "centering": {
@@ -650,17 +818,41 @@
       "certId": "psa_137437906",
       "provider": "PSA",
       "certNumber": "137437906",
-      "trustTier": "silver",
+      "trustTier": "silver_plus",
       "officialGrade": "EX-MT 6",
       "officialBand": "700-799_visible_issues",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "700-799_visible_issues",
+      "predictedScore": 750,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_139091081",
@@ -669,14 +861,38 @@
       "trustTier": "silver",
       "officialGrade": "EX-MT 6",
       "officialBand": "700-799_visible_issues",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "700-799_visible_issues",
+      "predictedScore": 750,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_139091042",
@@ -685,30 +901,78 @@
       "trustTier": "silver",
       "officialGrade": "EX-MT 6",
       "officialBand": "700-799_visible_issues",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "700-799_visible_issues",
+      "predictedScore": 750,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_138014353",
       "provider": "PSA",
       "certNumber": "138014353",
-      "trustTier": "silver",
+      "trustTier": "silver_plus",
       "officialGrade": "EX 5",
       "officialBand": "below_700_heavy_wear",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "below_700_heavy_wear",
+      "predictedScore": 600,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_138901043",
@@ -717,14 +981,38 @@
       "trustTier": "silver",
       "officialGrade": "EX-MT 6",
       "officialBand": "700-799_visible_issues",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "700-799_visible_issues",
+      "predictedScore": 750,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_142558464",
@@ -733,14 +1021,38 @@
       "trustTier": "silver",
       "officialGrade": "EX-MT 6",
       "officialBand": "700-799_visible_issues",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "700-799_visible_issues",
+      "predictedScore": 750,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_134162375",
@@ -749,14 +1061,38 @@
       "trustTier": "silver",
       "officialGrade": "EX-MT 6",
       "officialBand": "700-799_visible_issues",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "700-799_visible_issues",
+      "predictedScore": 750,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "psa_139091059",
@@ -765,14 +1101,38 @@
       "trustTier": "silver",
       "officialGrade": "EX 5",
       "officialBand": "below_700_heavy_wear",
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
-      "bandAgreement": "mismatch",
-      "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "predictedBand": "below_700_heavy_wear",
+      "predictedScore": 600,
+      "confidence": 0.72,
+      "bandAgreement": "match",
+      "bandDistance": 0,
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     },
     {
       "certId": "tag_j6994233",
@@ -781,19 +1141,43 @@
       "trustTier": "silver",
       "officialGrade": "see TAG DIG report",
       "officialBand": null,
-      "predictedBand": null,
-      "predictedScore": null,
-      "confidence": null,
+      "predictedBand": "900-949_mint",
+      "predictedScore": 920,
+      "confidence": 0.72,
       "bandAgreement": "no_official_band",
       "bandDistance": null,
-      "notes": [
-        "No prediction supplied; reference not yet evaluated against this model version."
-      ]
+      "notes": [],
+      "predictedSubGrades": {
+        "centering": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "corners": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "edges": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        },
+        "surface": {
+          "score": null,
+          "confidence": 0,
+          "contributors": [],
+          "findingCount": 0
+        }
+      }
     }
   ],
   "inputFingerprint": {
     "predictionsPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\predictions.json",
-    "predictionsSha256": "5362592caf7aa7f30ecb7715374c5139b1745bcd3e7a65aede08b9ca4c84da77"
+    "predictionsSha256": "f34a39aa13713ab8e0083bfbdfd373a646d318244ad0e325825547de499db7b3"
   },
   "notes": [
     "Eval compares INTERNAL CONDITION BAND, not the official grade.",

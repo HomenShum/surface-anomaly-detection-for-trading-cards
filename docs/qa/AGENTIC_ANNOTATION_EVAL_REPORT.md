@@ -1,6 +1,6 @@
 # Agentic Annotation Eval Report
 
-Generated: 2026-05-07T19:33:50.281Z
+Generated: 2026-05-08T22:47:17.674Z
 
 Deployable for fixed-fixture agentic annotation gate: **yes**
 

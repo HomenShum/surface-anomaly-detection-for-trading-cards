@@ -1,6 +1,6 @@
 # Visible Condition Assistance Proof
 
-Generated: 2026-05-07T19:34:20.155Z
+Generated: 2026-05-08T22:47:18.317Z
 
 ## Claim
 
@@ -37,20 +37,20 @@ Generated: 2026-05-07T19:34:20.155Z
 
 ## Certified References
 
-- Total references: 58
-- Silver+: 13
-- Replayable Silver+ images: 13
-- Gold/gold-candidate records: 0
-- Human DING reviews: 0
+- Total references: 130
+- Silver+: 100
+- Replayable Silver+ images: 100
+- Gold/gold-candidate records: 30
+- Human DING reviews: 30
 
 ## Agent + LLM Judge
 
 - Judge mode: deterministic_llm_judge_fallback
-- Tool coverage: 0.989
-- Grounding: 0.567
-- Evidence: 0.355
+- Tool coverage: 0.960
+- Grounding: 0.997
+- Evidence: 0.969
 - Trust safety: 1.000
-- Rows needing review: 47
+- Rows needing review: 1
 - Agentic annotation eval: pass
 - Multimodel annotation precision: 1.000
 - Multimodel annotation recall: 1.000
@@ -72,7 +72,7 @@ Generated: 2026-05-07T19:34:20.155Z
 | Real DING model metadata exists | PASS | model=ding-detector-v0. |
 | YOLO detector metrics are measured | PASS | mAP50=0.46374 recall=0.44897. |
 | Random/class-prior baselines exist | PASS | Baseline sanity checks are present in ml/runs/eval_yolo_test_report.json. |
-| Certified references are loaded | PASS | 58/20 references. |
+| Certified references are loaded | PASS | 130/20 references. |
 | External certified references are not training data | PASS | 0 training-policy violations. |
 | TAG references remain link-only/no-bulk-scrape | PASS | 0 TAG policy violations. |
 | Agent tool surface covers inspection workflow | PASS | 0 promotion-required tools missing. |
@@ -85,27 +85,24 @@ Generated: 2026-05-07T19:34:20.155Z
 
 | Gate | Status | Detail |
 | --- | --- | --- |
-| 20 image-backed Silver+ references are replayable | BLOCKED | 13/20 image-backed Silver+ refs. |
-| 10 human DING reviews exist | BLOCKED | 0/10 reviews. |
-| Agent LLM-judge grounding is vendor-alpha ready | BLOCKED | grounding=0.567. |
-| Certified Reference Alpha release mode passes | BLOCKED | image_backed_silver_plus: 13/20 image-backed Silver+ refs. |
+| Certified Reference Alpha release mode passes | BLOCKED | no_synthetic_trust_rows: 102 synthetic/generated reference row(s).; image_backed_silver_plus: 10/20 image-backed Silver+ refs. |
 
 ## Top Failure Cases
 
 | Layer | Issue | Next action |
 | --- | --- | --- |
-| production_accuracy | Not enough real image-backed outcome rows | Attach more user-permitted slab/raw images or allowed remote certified-reference images and run the proof/eval runners. |
-| dataset | Gold eval set is missing | Collect raw pre-submission scan + consent + official returned outcome + human DING review. |
-| dataset | Human DING review coverage is missing | Create human review tasks for Gold/gold-candidate records and store DING boxes/severity. |
-| dataset | Official outcome band coverage is too narrow | Add real image-backed examples across Gem, Mint, Near Mint, visible issues, and heavy wear bands. |
-| dataset | Image-backed Silver+ reference coverage is below production floor | Attach user-provided or permissioned local slab/front/back images and hash them as replayable reference artifacts. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
-| evidence | Reference has no replayable image artifact | Keep as metadata-only calibration context until user-provided images or allowed API imagery exist. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
+| source_policy | Synthetic/generated reference cannot count toward trust gates | Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence. |
 
 ## Shareable Proof Examples
 

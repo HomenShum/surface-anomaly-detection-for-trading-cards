@@ -1,0 +1,947 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-08T22:46:52.093Z",
+  "repoRoot": "D:\\VSCode Projects\\surface_anomaly_detection_model",
+  "policyPath": "D:\\VSCode Projects\\surface_anomaly_detection_model\\data\\cert-references\\source-policy.json",
+  "summary": {
+    "refs": 130,
+    "syntheticRefs": 102,
+    "p0": 102,
+    "p1": 0,
+    "p2": 0
+  },
+  "gates": [
+    {
+      "id": "no_p0_policy_violations",
+      "label": "No P0 source-policy violations",
+      "passed": false,
+      "detail": "102 P0 issue(s)."
+    },
+    {
+      "id": "no_synthetic_trust_rows",
+      "label": "No synthetic/generated rows in trust gates",
+      "passed": false,
+      "detail": "102 synthetic/generated reference row(s)."
+    }
+  ],
+  "issues": [
+    {
+      "id": "synthetic_reference_psa_130255216",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_130255216",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 130255216 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_130814351",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_130814351",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 130814351 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_130814358",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_130814358",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 130814358 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_130814362",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_130814362",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 130814362 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162369",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162369",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162369 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162371",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162371",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162371 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162375",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162375",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162375 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162379",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162379",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162379 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162381",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162381",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162381 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162384",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162384",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162384 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162394",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162394",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162394 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162396",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162396",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162396 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162397",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162397",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162397 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162403",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162403",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162403 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162404",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162404",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162404 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162407",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162407",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162407 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162409",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162409",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162409 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162412",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162412",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162412 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162413",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162413",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162413 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_134162422",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_134162422",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 134162422 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_137437906",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_137437906",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 137437906 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_138014353",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_138014353",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 138014353 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_142558459",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_142558459",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 142558459 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_142558463",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_142558463",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 142558463 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_142558471",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_142558471",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 142558471 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_148901879",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_148901879",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 148901879 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_148901881",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_148901881",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 148901881 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_148901886",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_148901886",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 148901886 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_148901890",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_148901890",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 148901890 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_154378339",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_154378339",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 154378339 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000000",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000000",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000000 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000001",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000001",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000001 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000002",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000002",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000002 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000003",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000003",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000003 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000004",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000004",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000004 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000005",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000005",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000005 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000006",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000006",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000006 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000007",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000007",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000007 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000008",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000008",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000008 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000009",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000009",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000009 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000010",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000010",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000010 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000011",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000011",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000011 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000012",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000012",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000012 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000013",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000013",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000013 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000100",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000100",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000100 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000101",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000101",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000101 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000102",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000102",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000102 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000103",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000103",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000103 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000104",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000104",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000104 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000105",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000105",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000105 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000106",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000106",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000106 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000107",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000107",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000107 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000108",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000108",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000108 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000109",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000109",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000109 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000110",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000110",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000110 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000111",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000111",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000111 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000112",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000112",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000112 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000113",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000113",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000113 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000114",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000114",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000114 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000115",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000115",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000115 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000116",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000116",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000116 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000117",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000117",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000117 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000118",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000118",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000118 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000119",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000119",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000119 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000120",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000120",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000120 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000121",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000121",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000121 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000122",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000122",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000122 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000123",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000123",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000123 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000124",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000124",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000124 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000125",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000125",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000125 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000126",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000126",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000126 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000127",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000127",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000127 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000200",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000200",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000200 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000201",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000201",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000201 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000202",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000202",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000202 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000203",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000203",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000203 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000204",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000204",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000204 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000205",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000205",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000205 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000206",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000206",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000206 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000207",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000207",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000207 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000208",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000208",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000208 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000209",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000209",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000209 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000210",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000210",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000210 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000211",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000211",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000211 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000212",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000212",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000212 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000213",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000213",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000213 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000214",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000214",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000214 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000215",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000215",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000215 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000216",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000216",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000216 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000217",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000217",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000217 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000218",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000218",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000218 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000219",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000219",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000219 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000220",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000220",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000220 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000221",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000221",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000221 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000222",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000222",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000222 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000223",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000223",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000223 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000224",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000224",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000224 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000225",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000225",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000225 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000226",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000226",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000226 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000227",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000227",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000227 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000228",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000228",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000228 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    },
+    {
+      "id": "synthetic_reference_psa_160000229",
+      "severity": "P0",
+      "layer": "source_policy",
+      "certId": "psa_160000229",
+      "title": "Synthetic/generated reference cannot count toward trust gates",
+      "detail": "PSA 160000229 contains synthetic or auto-generated source signals.",
+      "nextAction": "Keep this row as a demo fixture only, or replace it with user/vendor-provided replayable images and non-generated review evidence."
+    }
+  ]
+}
