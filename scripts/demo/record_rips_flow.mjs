@@ -125,8 +125,15 @@ async function recordFlow({ name, viewport, isMobile = false }) {
   page.setDefaultTimeout(60_000);
 
   await page.goto(`${baseUrl}/rips`, { waitUntil: "domcontentloaded" });
-  await page.getByRole("button", { name: "Open pack", exact: true }).click();
-  await page.getByRole("button", { name: "Auto rip", exact: true }).click();
+  const stage = page.getByTestId("rip-pack-stage");
+  await stage.waitFor({ state: "visible" });
+  await stage.scrollIntoViewIfNeeded();
+  const box = await stage.boundingBox();
+  if (!box) throw new Error(`No rip stage bounds for ${name}`);
+  await page.mouse.move(box.x + box.width * 0.2, box.y + box.height * 0.22);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.84, box.y + box.height * 0.72, { steps: 16 });
+  await page.mouse.up();
   await page.getByText("Reveal complete").waitFor({ state: "visible", timeout: 15_000 });
   await wait(900);
   await page.getByRole("button", { name: "Hold in vault", exact: true }).click();

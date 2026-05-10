@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type KeyboardEvent,
   type PointerEvent,
 } from "react";
 import type { RipCard, RipPack } from "../../lib/rips/sample-packs";
@@ -19,6 +20,30 @@ type RipDecision = "none" | "sell" | "ship" | "vault";
 
 const PACK_WIDTH = 360;
 const PACK_HEIGHT = 520;
+const DEFAULT_TEAR_START = { x: PACK_WIDTH / 2, y: 34 };
+const DEFAULT_TEAR_END = { x: PACK_WIDTH / 2, y: PACK_HEIGHT - 34 };
+
+type Point = { x: number; y: number };
+
+type TearGeometry = {
+  start: Point;
+  end: Point;
+  handle: Point;
+  dir: Point;
+  normal: Point;
+  angleDeg: number;
+  sideA: Point[];
+  sideB: Point[];
+  seamPath: string;
+  fibers: Array<{
+    x: number;
+    y: number;
+    dx: number;
+    dy: number;
+    start: number;
+    rotate: number;
+  }>;
+};
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
@@ -47,21 +72,142 @@ function seededWave(seed: number, i: number) {
   return raw - Math.floor(raw);
 }
 
-function makeTearPoints(seedText: string) {
-  const seed = seedNumber(seedText);
-  return Array.from({ length: 19 }, (_, i) => {
-    const t = i / 18;
-    const wobble = (seededWave(seed, i) - 0.5) * 42;
-    const micro = Math.sin(i * 1.7 + seed * 0.01) * 10;
-    return {
-      x: PACK_WIDTH / 2 + wobble + micro,
-      y: t * PACK_HEIGHT,
-    };
-  });
+function distance(a: Point, b: Point) {
+  return Math.hypot(b.x - a.x, b.y - a.y);
 }
 
-function makeTearPath(points: Array<{ x: number; y: number }>) {
+function normalizeVector(a: Point, b: Point): Point {
+  const len = distance(a, b);
+  if (len < 0.001) return { x: 0, y: 1 };
+  return { x: (b.x - a.x) / len, y: (b.y - a.y) / len };
+}
+
+function cross(dir: Point, point: Point, origin: Point) {
+  return dir.x * (point.y - origin.y) - dir.y * (point.x - origin.x);
+}
+
+function polygonCss(points: Point[]) {
+  if (points.length < 3) return "polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%)";
+  return `polygon(${points.map((p) => `${p.x.toFixed(1)}px ${p.y.toFixed(1)}px`).join(", ")})`;
+}
+
+function lineRectIntersections(origin: Point, dir: Point): Point[] {
+  const hits: Array<Point & { t: number }> = [];
+  const addHit = (t: number) => {
+    const point = { x: origin.x + dir.x * t, y: origin.y + dir.y * t, t };
+    if (
+      point.x >= -0.5 &&
+      point.x <= PACK_WIDTH + 0.5 &&
+      point.y >= -0.5 &&
+      point.y <= PACK_HEIGHT + 0.5 &&
+      hits.every((hit) => Math.abs(hit.x - point.x) > 0.5 || Math.abs(hit.y - point.y) > 0.5)
+    ) {
+      hits.push(point);
+    }
+  };
+  if (Math.abs(dir.x) > 0.001) {
+    addHit((0 - origin.x) / dir.x);
+    addHit((PACK_WIDTH - origin.x) / dir.x);
+  }
+  if (Math.abs(dir.y) > 0.001) {
+    addHit((0 - origin.y) / dir.y);
+    addHit((PACK_HEIGHT - origin.y) / dir.y);
+  }
+  hits.sort((a, b) => a.t - b.t);
+  if (hits.length >= 2) return [hits[0], hits[hits.length - 1]];
+  return [
+    { x: PACK_WIDTH / 2, y: 0 },
+    { x: PACK_WIDTH / 2, y: PACK_HEIGHT },
+  ];
+}
+
+function clipPolygon(points: Point[], origin: Point, dir: Point, keepPositive: boolean) {
+  const output: Point[] = [];
+  for (let i = 0; i < points.length; i += 1) {
+    const current = points[i];
+    const previous = points[(i + points.length - 1) % points.length];
+    const currentValue = cross(dir, current, origin);
+    const previousValue = cross(dir, previous, origin);
+    const currentInside = keepPositive ? currentValue >= -0.01 : currentValue <= 0.01;
+    const previousInside = keepPositive ? previousValue >= -0.01 : previousValue <= 0.01;
+    if (currentInside !== previousInside) {
+      const denom = previousValue - currentValue;
+      const t = Math.abs(denom) < 0.001 ? 0 : previousValue / denom;
+      output.push({
+        x: previous.x + (current.x - previous.x) * t,
+        y: previous.y + (current.y - previous.y) * t,
+      });
+    }
+    if (currentInside) output.push(current);
+  }
+  return output;
+}
+
+function makeJitteredPath(points: Point[]) {
   return points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
+}
+
+function makeTearGeometry(seedText: string, start: Point, current: Point, progress: number): TearGeometry {
+  const seed = seedNumber(seedText);
+  const dir = normalizeVector(start, current);
+  const normal = { x: -dir.y, y: dir.x };
+  const [lineStart, lineEnd] = lineRectIntersections(start, dir);
+  const pathPoints = Array.from({ length: 25 }, (_, i) => {
+    const t = i / 24;
+    const wobble = (seededWave(seed, i + 5) - 0.5) * (12 + progress * 26);
+    const stress = Math.sin(i * 1.7 + seed * 0.01) * (2 + progress * 8);
+    return {
+      x: lineStart.x + (lineEnd.x - lineStart.x) * t + normal.x * (wobble + stress),
+      y: lineStart.y + (lineEnd.y - lineStart.y) * t + normal.y * (wobble + stress),
+    };
+  });
+  const rect = [
+    { x: 0, y: 0 },
+    { x: PACK_WIDTH, y: 0 },
+    { x: PACK_WIDTH, y: PACK_HEIGHT },
+    { x: 0, y: PACK_HEIGHT },
+  ];
+  const maxReach = Math.max(distance(start, lineStart), distance(start, lineEnd));
+  const pull = Math.min(maxReach, Math.max(distance(start, current), maxReach * progress * 0.9));
+  const handle = {
+    x: clamp(start.x + dir.x * pull, 0, PACK_WIDTH),
+    y: clamp(start.y + dir.y * pull, 0, PACK_HEIGHT),
+  };
+  const fibers = Array.from({ length: 34 }, (_, i) => {
+    const t = i / 33;
+    const x = lineStart.x + (lineEnd.x - lineStart.x) * t;
+    const y = lineStart.y + (lineEnd.y - lineStart.y) * t;
+    const side = i % 2 === 0 ? -1 : 1;
+    const travel = 24 + seededWave(seed, i + 71) * 92;
+    return {
+      x,
+      y,
+      dx: normal.x * travel * side + dir.x * (seededWave(seed, i + 101) - 0.5) * 28,
+      dy: normal.y * travel * side + dir.y * (seededWave(seed, i + 131) - 0.5) * 28,
+      start: Math.max(0.04, t - 0.18),
+      rotate: (seededWave(seed, i + 161) - 0.5) * 160,
+    };
+  });
+
+  return {
+    start,
+    end: current,
+    handle,
+    dir,
+    normal,
+    angleDeg: Math.atan2(dir.y, dir.x) * (180 / Math.PI),
+    sideA: clipPolygon(rect, start, dir, true),
+    sideB: clipPolygon(rect, start, dir, false),
+    seamPath: makeJitteredPath(pathPoints),
+    fibers,
+  };
+}
+
+function pointFromPointer(event: PointerEvent<HTMLDivElement>, rect: DOMRect): Point {
+  return {
+    x: clamp((event.clientX - rect.left) / rect.width, 0, 1) * PACK_WIDTH,
+    y: clamp((event.clientY - rect.top) / rect.height, 0, 1) * PACK_HEIGHT,
+  };
 }
 
 function rarityTone(rarity: RipCard["rarity"]) {
@@ -100,62 +246,55 @@ function RipPackVisual({
   phase,
   progress,
   result,
+  tear,
   onPointerDown,
+  onPointerMove,
+  onPointerUp,
+  onKeyDown,
 }: {
   pack: RipPack;
   phase: Phase;
   progress: number;
   result: RipCard | null;
+  tear: TearGeometry;
   onPointerDown: (event: PointerEvent<HTMLDivElement>) => void;
+  onPointerMove: (event: PointerEvent<HTMLDivElement>) => void;
+  onPointerUp: (event: PointerEvent<HTMLDivElement>) => void;
+  onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void;
 }) {
-  const tearPoints = useMemo(() => makeTearPoints(pack.id), [pack.id]);
-  const revealedY = PACK_HEIGHT * progress + 16;
-  const clipPoints = tearPoints.map((point) =>
-    point.y <= revealedY ? point : { x: PACK_WIDTH / 2, y: point.y },
-  );
-  const seamPath = makeTearPath(tearPoints);
-  const leftClip = `polygon(0px 0px, ${clipPoints
-    .map((point) => `${point.x.toFixed(1)}px ${point.y.toFixed(1)}px`)
-    .join(", ")}, 0px ${PACK_HEIGHT}px)`;
-  const rightClip = `polygon(${PACK_WIDTH}px 0px, ${PACK_WIDTH}px ${PACK_HEIGHT}px, ${[...clipPoints]
-    .reverse()
-    .map((point) => `${point.x.toFixed(1)}px ${point.y.toFixed(1)}px`)
-    .join(", ")})`;
   const packetStyle = { "--rip-accent": pack.accent } as CSSProperties;
-  const leftStyle: CSSProperties = {
-    clipPath: leftClip,
-    transform: `translate3d(${-126 * progress}px, ${10 * progress}px, 0) rotate(${-8 * progress}deg)`,
+  const sideAStyle: CSSProperties = {
+    clipPath: polygonCss(tear.sideA),
+    transform: `translate3d(${tear.normal.x * -112 * progress + tear.dir.x * 16 * progress}px, ${tear.normal.y * -112 * progress + tear.dir.y * 16 * progress}px, 0) rotate(${(-7 - tear.angleDeg * 0.018) * progress}deg)`,
+    transformOrigin: `${(tear.start.x / PACK_WIDTH) * 100}% ${(tear.start.y / PACK_HEIGHT) * 100}%`,
   };
-  const rightStyle: CSSProperties = {
-    clipPath: rightClip,
-    transform: `translate3d(${126 * progress}px, ${10 * progress}px, 0) rotate(${8 * progress}deg)`,
+  const sideBStyle: CSSProperties = {
+    clipPath: polygonCss(tear.sideB),
+    transform: `translate3d(${tear.normal.x * 112 * progress + tear.dir.x * 16 * progress}px, ${tear.normal.y * 112 * progress + tear.dir.y * 16 * progress}px, 0) rotate(${(7 + tear.angleDeg * 0.018) * progress}deg)`,
+    transformOrigin: `${(tear.start.x / PACK_WIDTH) * 100}% ${(tear.start.y / PACK_HEIGHT) * 100}%`,
   };
   const cardStyle: CSSProperties = {
     opacity: clamp((progress - 0.12) / 0.68),
     transform: `translate3d(0, ${(1 - progress) * 24}px, 0) scale(${0.9 + 0.1 * progress})`,
   };
-  const particles = useMemo(
-    () =>
-      Array.from({ length: 26 }, (_, i) => {
-        const t = i / 25;
-        return {
-          x: PACK_WIDTH / 2 + (seededWave(seedNumber(pack.id), i + 31) - 0.5) * 48,
-          y: 32 + t * (PACK_HEIGHT - 64),
-          dx: (i % 2 === 0 ? -1 : 1) * (28 + seededWave(seedNumber(pack.id), i + 61) * 70),
-          dy: -18 + seededWave(seedNumber(pack.id), i + 91) * 76,
-          start: Math.max(0.08, t - 0.12),
-        };
-      }),
-    [pack.id],
-  );
+  const tensionStyle = {
+    opacity: clamp(progress / 0.35),
+    transform: `translate(${tear.start.x}px, ${tear.start.y}px) rotate(${tear.angleDeg}deg) scaleX(${0.15 + progress * 1.2})`,
+  } as CSSProperties;
 
   return (
     <div className={styles.visualFrame} style={packetStyle}>
       <div
-        aria-label="Drag down the center seam to rip the pack open"
+        aria-label="Press anywhere on the wrapper and pull in any direction to rip the pack open"
         className={`${styles.packStage} ${phase === "revealed" ? styles.isRevealed : ""}`}
+        data-testid="rip-pack-stage"
         onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onKeyDown={onKeyDown}
         role="application"
+        tabIndex={0}
       >
         {result ? (
           <div className={styles.hiddenCard} style={cardStyle}>
@@ -167,36 +306,43 @@ function RipPackVisual({
           </div>
         )}
 
-        <div className={`${styles.packHalf} ${styles.packHalfLeft}`} style={leftStyle}>
-          <PackFace pack={pack} side="left" />
+        <div className={`${styles.packHalf} ${styles.packHalfLeft}`} style={sideAStyle}>
+          <PackFace pack={pack} side="left" progress={progress} />
         </div>
-        <div className={`${styles.packHalf} ${styles.packHalfRight}`} style={rightStyle}>
-          <PackFace pack={pack} side="right" />
+        <div className={`${styles.packHalf} ${styles.packHalfRight}`} style={sideBStyle}>
+          <PackFace pack={pack} side="right" progress={progress} />
         </div>
 
         <svg className={styles.seamSvg} viewBox={`0 0 ${PACK_WIDTH} ${PACK_HEIGHT}`} aria-hidden>
           <path
             className={styles.seamShadow}
-            d={seamPath}
+            d={tear.seamPath}
             pathLength={1}
             style={{ strokeDashoffset: 1 - progress }}
           />
           <path
             className={styles.seamFiber}
-            d={seamPath}
+            d={tear.seamPath}
             pathLength={1}
             style={{ strokeDashoffset: 1 - progress }}
           />
         </svg>
 
+        <span className={styles.plasticTension} aria-hidden style={tensionStyle} />
+
         <div
           className={styles.seamHandle}
-          style={{ transform: `translate3d(-50%, ${progress * (PACK_HEIGHT - 70)}px, 0)` }}
+          data-testid="rip-seam-handle"
+          style={{
+            left: tear.handle.x,
+            top: tear.handle.y,
+            transform: `translate3d(-50%, -50%, 0) rotate(${tear.angleDeg}deg)`,
+          }}
         >
-          <span>drag</span>
+          <span>pull</span>
         </div>
 
-        {particles.map((particle, i) => {
+        {tear.fibers.map((particle, i) => {
           const local = clamp((progress - particle.start) / 0.26);
           return (
             <span
@@ -207,7 +353,7 @@ function RipPackVisual({
                 left: particle.x,
                 opacity: local,
                 top: particle.y,
-                transform: `translate3d(${particle.dx * local}px, ${particle.dy * local}px, 0) rotate(${i * 19 * local}deg) scale(${0.5 + local})`,
+                transform: `translate3d(${particle.dx * local}px, ${particle.dy * local}px, 0) rotate(${particle.rotate * local}deg) scale(${0.45 + local})`,
               }}
             />
           );
@@ -217,10 +363,12 @@ function RipPackVisual({
   );
 }
 
-function PackFace({ pack, side }: { pack: RipPack; side: "left" | "right" }) {
+function PackFace({ pack, side, progress }: { pack: RipPack; side: "left" | "right"; progress: number }) {
   return (
-    <div className={styles.packFace}>
+    <div className={styles.packFace} style={{ "--rip-stress": progress } as CSSProperties}>
       <div className={styles.packChrome} />
+      <div className={styles.packMesh} aria-hidden />
+      <div className={styles.packSpecular} aria-hidden />
       <div className={styles.packBrand}>
         <span>{pack.series}</span>
         <strong>{side === "left" ? "RIP" : "VAULT"}</strong>
@@ -241,13 +389,20 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
   const selectedPack = packs.find((pack) => pack.id === selectedPackId) ?? packs[0];
   const [phase, setPhase] = useState<Phase>("idle");
   const [progress, setProgress] = useState(0);
+  const [tear, setTear] = useState<TearGeometry>(() =>
+    makeTearGeometry(packs[0]?.id ?? "default", DEFAULT_TEAR_START, DEFAULT_TEAR_END, 0),
+  );
   const [result, setResult] = useState<RipCard | null>(null);
   const [decision, setDecision] = useState<RipDecision>("none");
   const [credits, setCredits] = useState(184);
   const [events, setEvents] = useState<string[]>([
     "Ready | choose a pack, open it, then save the reveal to the vault",
   ]);
-  const stageRef = useRef<HTMLDivElement | null>(null);
+  const dragRectRef = useRef<DOMRect | null>(null);
+  const draggingRef = useRef(false);
+  const progressRef = useRef(0);
+  const tearStartRef = useRef<Point>(DEFAULT_TEAR_START);
+  const tearCurrentRef = useRef<Point>(DEFAULT_TEAR_END);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -260,48 +415,83 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
     setEvents((current) => [makeEvent(label), ...current].slice(0, 8));
   }, []);
 
+  const setRipProgress = useCallback((next: number) => {
+    const clamped = clamp(next);
+    progressRef.current = clamped;
+    setProgress(clamped);
+  }, []);
+
+  const setTearProgress = useCallback(
+    (next: number) => {
+      const clamped = clamp(next);
+      setRipProgress(clamped);
+      setTear(makeTearGeometry(selectedPack.id, tearStartRef.current, tearCurrentRef.current, clamped));
+    },
+    [selectedPack.id, setRipProgress],
+  );
+
+  const setTearVector = useCallback(
+    (start: Point, current: Point, nextProgress: number) => {
+      tearStartRef.current = start;
+      tearCurrentRef.current = current;
+      setTearProgress(nextProgress);
+    },
+    [setTearProgress],
+  );
+
   const resetForPack = useCallback(
     (pack: RipPack) => {
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      draggingRef.current = false;
+      dragRectRef.current = null;
+      tearStartRef.current = DEFAULT_TEAR_START;
+      tearCurrentRef.current = DEFAULT_TEAR_END;
       setSelectedPackId(pack.id);
       setPhase("idle");
-      setProgress(0);
+      setRipProgress(0);
+      setTear(makeTearGeometry(pack.id, DEFAULT_TEAR_START, DEFAULT_TEAR_END, 0));
       setResult(null);
       setDecision("none");
-      setEvents([makeEvent(`Selected ${pack.title}`), "Ready | drag the seam or use Auto rip"]);
+      setEvents([makeEvent(`Selected ${pack.title}`), "Ready | press anywhere on the wrapper and pull any direction"]);
     },
-    [],
+    [setRipProgress],
   );
 
-  const openPack = useCallback(() => {
-    if (!selectedPack) return;
+  const commitPack = useCallback(() => {
+    if (!selectedPack) return null;
     const nonce = Date.now() + selectedPack.id.length + Math.round(credits);
     const nextCard = pickRipCard(selectedPack, nonce);
     setResult(nextCard);
     setDecision("none");
-    setPhase("ready");
-    setProgress(0);
+    setTearProgress(0);
     setCredits((value) => value - selectedPack.priceUsd);
     appendEvent(`Pack committed | ${selectedPack.title} | ${money(selectedPack.priceUsd)}`);
-  }, [appendEvent, credits, selectedPack]);
+    return nextCard;
+  }, [appendEvent, credits, selectedPack, setTearProgress]);
+
+  const openPack = useCallback(() => {
+    const nextCard = commitPack();
+    if (!nextCard) return;
+    setPhase("ready");
+  }, [commitPack]);
 
   const completeReveal = useCallback(() => {
-    setProgress(1);
+    setTearProgress(1);
     setPhase("revealed");
     appendEvent("Reveal complete | card added to temporary rip record");
-  }, [appendEvent]);
+  }, [appendEvent, setTearProgress]);
 
   const animateProgress = useCallback(
     (target: number, durationMs: number) => {
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
       const start = performance.now();
-      const initial = progress;
+      const initial = progressRef.current;
       setPhase(target >= 1 ? "tearing" : "ready");
       const tick = (now: number) => {
         const t = clamp((now - start) / durationMs);
         const eased = easeOutCubic(t);
         const next = initial + (target - initial) * eased;
-        setProgress(next);
+        setTearProgress(next);
         if (t < 1) {
           rafRef.current = requestAnimationFrame(tick);
           return;
@@ -312,59 +502,95 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
       };
       rafRef.current = requestAnimationFrame(tick);
     },
-    [completeReveal, progress],
+    [completeReveal, setTearProgress],
   );
 
   const autoRip = useCallback(() => {
-    if (phase === "idle") openPack();
+    if (phase === "idle" || phase === "revealed") {
+      const nextCard = commitPack();
+      if (!nextCard) return;
+    }
     appendEvent("Auto rip started | synthetic foil tear path");
     animateProgress(1, 860);
-  }, [animateProgress, appendEvent, openPack, phase]);
+  }, [animateProgress, appendEvent, commitPack, phase]);
 
   const onPointerDown = useCallback(
     (event: PointerEvent<HTMLDivElement>) => {
-      if (phase === "idle" || phase === "revealed") return;
+      if (phase === "revealed") return;
+      if (phase === "idle") {
+        const nextCard = commitPack();
+        if (!nextCard) return;
+        appendEvent("Manual rip started | drag gesture committed pack");
+      }
+      event.preventDefault();
       event.currentTarget.setPointerCapture(event.pointerId);
+      draggingRef.current = true;
+      dragRectRef.current = event.currentTarget.getBoundingClientRect();
       setPhase("dragging");
-      const rect = event.currentTarget.getBoundingClientRect();
-      const update = (clientY: number) => {
-        const next = clamp((clientY - rect.top - 24) / (rect.height - 64));
-        setProgress(next);
+      const rect = dragRectRef.current;
+      const point = pointFromPointer(event, rect);
+      const fallbackCurrent = {
+        x: clamp(point.x + 2, 0, PACK_WIDTH),
+        y: clamp(point.y + 2, 0, PACK_HEIGHT),
       };
-      update(event.clientY);
+      setTearVector(point, fallbackCurrent, 0.02);
     },
-    [phase],
+    [appendEvent, commitPack, phase, setTearVector],
   );
 
-  const onGlobalPointerMove = useCallback(
-    (event: globalThis.PointerEvent) => {
-      if (phase !== "dragging") return;
-      const rect = stageRef.current?.getBoundingClientRect();
+  const onPointerMove = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      if (!draggingRef.current) return;
+      event.preventDefault();
+      const rect = dragRectRef.current;
       if (!rect) return;
-      setProgress(clamp((event.clientY - rect.top - 24) / (rect.height - 64)));
+      const current = pointFromPointer(event, rect);
+      const nextProgress = clamp(distance(tearStartRef.current, current) / 170);
+      setTearVector(tearStartRef.current, current, nextProgress);
     },
-    [phase],
+    [setTearVector],
   );
 
-  const onGlobalPointerUp = useCallback(() => {
-    if (phase !== "dragging") return;
-    if (progress >= 0.68) {
-      appendEvent("Manual rip threshold reached");
-      animateProgress(1, 420);
-      return;
-    }
-    appendEvent("Seal snapped back | keep dragging down the seam");
-    animateProgress(0, 300);
-  }, [animateProgress, appendEvent, phase, progress]);
+  const onPointerUp = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      if (!draggingRef.current) return;
+      event.preventDefault();
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+      draggingRef.current = false;
+      dragRectRef.current = null;
+      if (progressRef.current >= 0.68) {
+        appendEvent("Manual rip threshold reached");
+        animateProgress(1, 420);
+        return;
+      }
+      appendEvent("Seal snapped back | keep dragging down the seam");
+      animateProgress(0, 300);
+    },
+    [animateProgress, appendEvent],
+  );
 
-  useEffect(() => {
-    window.addEventListener("pointermove", onGlobalPointerMove);
-    window.addEventListener("pointerup", onGlobalPointerUp);
-    return () => {
-      window.removeEventListener("pointermove", onGlobalPointerMove);
-      window.removeEventListener("pointerup", onGlobalPointerUp);
-    };
-  }, [onGlobalPointerMove, onGlobalPointerUp]);
+  const completeKeyboardRip = useCallback(() => {
+    if (phase === "idle" || phase === "revealed") {
+      const nextCard = commitPack();
+      if (!nextCard) return;
+    }
+    tearStartRef.current = DEFAULT_TEAR_START;
+    tearCurrentRef.current = DEFAULT_TEAR_END;
+    setTearProgress(0.72);
+    appendEvent("Keyboard/manual rip threshold reached");
+    animateProgress(1, 420);
+  }, [animateProgress, appendEvent, commitPack, phase, setTearProgress]);
+
+  const onPointerStageKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      completeKeyboardRip();
+    },
+    [completeKeyboardRip],
+  );
 
   const saveDecision = useCallback(
     (next: RipDecision) => {
@@ -392,7 +618,8 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
           <p>
             This is the interaction layer Triumph-style rip apps need on web: physical pack opening,
             instant reveal state, account-backed inventory, fulfillment actions, and an auditable trail.
-            It uses original placeholder cards and pack art.
+            It uses original placeholder cards and pack art. Press anywhere on the wrapper and pull
+            in any direction to tear the plastic along that angle.
           </p>
           <div className={styles.heroActions}>
             <button onClick={autoRip} type="button">Open and auto rip</button>
@@ -453,13 +680,17 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
             <div className={styles.phasePill}>{phase === "idle" ? "sealed" : phase}</div>
           </div>
 
-          <div ref={stageRef}>
+          <div>
             <RipPackVisual
               pack={selectedPack}
               phase={phase}
               progress={progress}
               result={result}
+              tear={tear}
               onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onKeyDown={onPointerStageKeyDown}
             />
           </div>
 

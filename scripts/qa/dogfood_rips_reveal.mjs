@@ -97,6 +97,19 @@ async function checkNoOverflow(page, label) {
   if (overflow) throw new Error(`${label} overflow: scrollWidth=${overflow.width} viewport=${overflow.viewport}`);
 }
 
+async function dragPackOpen(page, label, from, to) {
+  const stage = page.getByTestId("rip-pack-stage");
+  await expect(stage).toBeVisible();
+  await stage.scrollIntoViewIfNeeded();
+  const box = await stage.boundingBox();
+  if (!box) throw new Error(`${label} rip pack stage has no bounding box`);
+  await page.mouse.move(box.x + box.width * from.x, box.y + box.height * from.y);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * to.x, box.y + box.height * to.y, { steps: 14 });
+  await page.mouse.up();
+  await expect(page.getByText(/Reveal complete/)).toBeVisible({ timeout: 15_000 });
+}
+
 async function runRips(viewport, label) {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
@@ -122,10 +135,13 @@ async function runRips(viewport, label) {
   await expect(page.getByRole("button", { name: "Open pack" })).toBeVisible();
   await checkNoOverflow(page, `${label} idle`);
 
-  await page.getByRole("button", { name: "Open pack" }).click();
-  await expect(page.getByRole("button", { name: "Auto rip", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Auto rip", exact: true }).click();
-  await expect(page.getByText(/Reveal complete/)).toBeVisible({ timeout: 15_000 });
+  await dragPackOpen(page, `${label} down-right`, { x: 0.2, y: 0.22 }, { x: 0.84, y: 0.72 });
+
+  if (label === "desktop") {
+    await page.getByRole("button", { name: "Reset seal", exact: true }).click();
+    await dragPackOpen(page, `${label} up-left`, { x: 0.82, y: 0.76 }, { x: 0.18, y: 0.18 });
+  }
+
   await expect(page.getByText(/Estimated value/)).toBeVisible();
   await expect(page.getByRole("button", { name: "Sell for vault credit" })).toBeEnabled();
   await page.getByRole("button", { name: "Sell for vault credit" }).click();
