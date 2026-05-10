@@ -1,0 +1,79 @@
+{
+  "gif": "public/demo/gifs/14-rips-web-reveal-desktop.gif",
+  "expect": "the /rips web pack-opening prototype on desktop (1440x920): a vault-backed dealer shell, rich hero copy, pack rail, physical foil pack with jagged center tear, reveal animation, original card art, result panel, value/condition signal, and a saved vault decision. It should not use Pokemon or Triumph assets and should not look like a blank upload box.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 48,
+    "fps": 12,
+    "duration": 4.01
+  },
+  "capturedAt": "2026-05-10T20:49:01.120Z",
+  "usage": {
+    "promptTokenCount": 2437,
+    "candidatesTokenCount": 579,
+    "totalTokenCount": 3999,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 373
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 983,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a web-based pack opening prototype. It begins with a sealed pack and a hero section, then proceeds to 'auto rip' the pack, revealing a 'Prism Hydra EX' card. Finally, the user makes a decision to 'Hold in vault', which is confirmed by a toast message.",
+    "key_observations": [
+      "The initial screen displays a 'WEB RIPS LAB | PRIVATE VENDOR PROTOTYPE' interface with a 'Vault credit' of $184 and a 'PACKS Choose a drop' rail.",
+      "The main hero section prompts to 'Rip a sealed pack on web. Reveal, decide, save proof.'",
+      "Clicking 'Auto rip' initiates a tearing animation on the 'ORIGINAL DEMO PACK'.",
+      "A 'Prism Hydra EX' card is revealed in the 'REVEAL' panel, showing an 'Estimated value $118' and 'Condition signal Clean front, inspect lower edge'.",
+      "After the reveal, options to 'Sell for vault credit', 'Ship physical card', or 'Hold in vault' become active.",
+      "Selecting 'Hold in vault' triggers a 'Decision saved: vault.' toast message and updates the 'PROOF TRAIL'."
+    ],
+    "ui_text_snippets": [
+      "WEB RIPS LAB | PRIVATE VENDOR PROTOTYPE",
+      "Rip a sealed pack on web. Reveal, decide, save proof.",
+      "Vault credit",
+      "$184",
+      "Open and auto rip",
+      "Back to card vault",
+      "See condition examples",
+      "PACKS Choose a drop",
+      "Neon Vault Rip",
+      "Arcade Drop",
+      "Dealer Mystery",
+      "Transparent odds",
+      "REVEAL",
+      "No card revealed yet",
+      "ORIGINAL DEMO PACK",
+      "Auto rip",
+      "Reset seal",
+      "Prism Hydra EX",
+      "Estimated value",
+      "Condition signal",
+      "Clean front, inspect lower edge",
+      "Proof state",
+      "sealed",
+      "ready to save",
+      "Sell for vault credit",
+      "Ship physical card",
+      "Hold in vault",
+      "Open another pack",
+      "PROOF TRAIL",
+      "Every visible animation maps to a product event.",
+      "Decision saved: vault."
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}

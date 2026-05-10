@@ -25,6 +25,7 @@
     "demo:gifs:real-ding": "python scripts/demo/build_real_ding_annotation_gif.py",
     "demo:gifs:workspace": "node scripts/demo/record_workspace_flow.mjs",
     "demo:gifs:scan": "node scripts/demo/record_scan_flow.mjs",
+    "demo:gifs:rips": "node scripts/demo/record_rips_flow.mjs",
     "demo:readme": "python scripts/qa/build_submission_package.py",
     "demo:submission": "python scripts/qa/build_submission_package.py",
     "qa:snapshots": "python scripts/qa/snapshot_report.py",

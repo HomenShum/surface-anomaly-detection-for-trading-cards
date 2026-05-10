@@ -1,0 +1,94 @@
+{
+  "gif": "public/demo/gifs/14-rips-web-reveal-mobile.gif",
+  "expect": "the /rips web pack-opening prototype on mobile (390x844): the same web rip flow stacked for mobile, with the pack opening/reveal visible, result/action panel readable while scrolling, and no horizontal overflow. It should feel like a durable account-backed rip/vault product, not a disposable drop zone.",
+  "model": "gemini-2.5-flash",
+  "framesSampled": 8,
+  "frameMeta": {
+    "nbFrames": 45,
+    "fps": 12,
+    "duration": 3.76
+  },
+  "capturedAt": "2026-05-10T20:49:12.113Z",
+  "usage": {
+    "promptTokenCount": 2425,
+    "candidatesTokenCount": 803,
+    "totalTokenCount": 4425,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 361
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 2064
+      }
+    ],
+    "thoughtsTokenCount": 1197,
+    "serviceTier": "standard"
+  },
+  "finishReason": "STOP",
+  "response": {
+    "scene_summary": "The clip demonstrates a mobile web pack-opening flow. Initially, the user sees options to 'Auto rip' or 'Reset seal' and a list of 'PACKS' to choose from. After an implied pack opening, the UI updates to show 'Open another pack' and reveals details of an 'Ember Scout' card, including its estimated value, condition, proof state, and options to 'Sell for vault credit', 'Ship physical card', or 'Hold in vault'. A 'PROOF TRAIL' confirms the decision was saved to the vault.",
+    "key_observations": [
+      "The UI is presented in a mobile-first, vertically stacked layout.",
+      "The initial state shows 'Auto rip' and 'Reset seal' buttons, with 'Neon Vault Rip' selected from a list of packs.",
+      "Scrolling reveals 'Transparent odds' for Chase, Ultra, and Rare+ items.",
+      "After an action (implied pack opening), the 'Auto rip' button changes to 'Open another pack'.",
+      "A 'REVEAL' section displays 'Ember Scout | Neon Vault NV-018 RARE' with an image of the card.",
+      "Further scrolling shows detailed information about the revealed card, including 'Estimated value $14', 'Condition signal Minor edge whitening candidate', and 'Proof state ready to save'.",
+      "Action buttons 'Sell for vault credit', 'Ship physical card', and 'Hold in vault' are presented.",
+      "A 'Decision saved: vault.' message appears, followed by a 'PROOF TRAIL' detailing event timestamps and the product's backend integration for vault storage.",
+      "No horizontal overflow or layout issues are observed."
+    ],
+    "ui_text_snippets": [
+      "RIILT",
+      "Neon Vault Rip",
+      "Original web demo",
+      "Auto rip",
+      "Reset seal",
+      "PACKS",
+      "Choose a drop",
+      "Original demo pack",
+      "$24",
+      "Arcade Drop",
+      "Skill prize test",
+      "$10",
+      "Dealer Mystery",
+      "Vendor inventory mock",
+      "$39",
+      "Ask Pi",
+      "Transparent odds",
+      "Chase",
+      "1:24",
+      "Ultra",
+      "1:8",
+      "Rare+",
+      "1:3",
+      "Prism Hydra EX. Odds are static demo copy, not a live prize engine.",
+      "REVEAL",
+      "Ember Scout | Neon Vault NV-018",
+      "RARE",
+      "Open another pack",
+      "Estimated value",
+      "$14",
+      "Condition signal",
+      "Minor edge whitening candidate",
+      "Proof state",
+      "ready to save",
+      "Sell for vault credit",
+      "Ship physical card",
+      "Hold in vault",
+      "Decision saved: vault.",
+      "PROOF TRAIL",
+      "Every visible animation maps to a product event.",
+      "In a production build, this same event stream connects to payment authorization, randomization audit, card assignment, fulfillment, and vault storage. For this repo, it is a safe interaction prototype with original assets.",
+      "01:48:34 PM | Held in vault | reveal record saved",
+      "01:48:33 PM | Reveal complete | card temporary rip record"
+    ],
+    "matches_expectation": true,
+    "match_confidence": 1,
+    "issues": [],
+    "verdict": "pass",
+    "suggested_followups": []
+  }
+}
