@@ -308,8 +308,9 @@
   background:
     radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.12), transparent 14%),
     radial-gradient(circle at 76% 76%, rgba(255, 255, 255, 0.08), transparent 18%),
-    repeating-linear-gradient(18deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(104deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 11px);
+    repeating-linear-gradient(18deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(104deg, rgba(255, 255, 255, 0.042) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 18px);
   border-radius: inherit;
   content: "";
   filter: contrast(1.15);
@@ -368,7 +369,8 @@
     linear-gradient(118deg, rgba(255, 255, 255, 0.2), transparent 18% 44%, rgba(255, 255, 255, 0.14) 45%, transparent 48%),
     radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--rip-accent) 28%, transparent), transparent 34%),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 8px),
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.11) 0 1px, transparent 1px 14px);
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.11) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 5px);
   display: grid;
   height: 100%;
   padding: 24px;
@@ -391,20 +393,22 @@
 
 .packMesh {
   background:
-    repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 13px),
-    repeating-linear-gradient(142deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 16px);
+    repeating-linear-gradient(33deg, rgba(255, 255, 255, 0.18) 0 0.7px, transparent 0.7px 5px),
+    repeating-linear-gradient(123deg, rgba(255, 255, 255, 0.12) 0 0.8px, transparent 0.8px 6px),
+    repeating-linear-gradient(88deg, rgba(0, 0, 0, 0.11) 0 1px, transparent 1px 11px);
   filter: blur(0.1px);
   inset: 0;
-  mix-blend-mode: overlay;
-  opacity: calc(0.32 + var(--rip-stress, 0) * 0.22);
+  mix-blend-mode: screen;
+  opacity: calc(0.42 + var(--rip-stress, 0) * 0.34);
   pointer-events: none;
   position: absolute;
 }
 
 .packSpecular {
   background:
-    linear-gradient(102deg, transparent 0 8%, rgba(255, 255, 255, 0.22) 11%, transparent 18% 74%, rgba(255, 255, 255, 0.18) 78%, transparent 86%),
-    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.2), transparent 18%);
+    linear-gradient(102deg, transparent 0 8%, rgba(255, 255, 255, 0.28) 11%, transparent 18% 74%, rgba(255, 255, 255, 0.22) 78%, transparent 86%),
+    linear-gradient(168deg, transparent 0 28%, rgba(255, 255, 255, 0.16) 33%, transparent 38% 100%),
+    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.22), transparent 18%);
   filter: blur(0.2px);
   inset: -8%;
   mix-blend-mode: screen;
@@ -486,7 +490,35 @@
   z-index: 8;
 }
 
+.crinkleGroup {
+  mix-blend-mode: screen;
+}
+
+.crinklePath {
+  fill: none;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.2));
+  stroke: rgba(255, 255, 255, 0.68);
+  stroke-linecap: round;
+}
+
+.foilShard {
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.34))
+    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.28));
+  mix-blend-mode: screen;
+  stroke: rgba(255, 255, 255, 0.46);
+  stroke-width: 0.7;
+}
+
+.meshThread {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.32));
+  stroke: rgba(255, 255, 255, 0.78);
+  stroke-linecap: round;
+}
+
 .seamShadow,
+.seamVoid,
+.seamFray,
 .seamFiber {
   fill: none;
   stroke-dasharray: 1;
@@ -495,31 +527,48 @@
 }
 
 .seamShadow {
-  filter: blur(3px);
+  filter: blur(5px);
   opacity: 0.7;
   stroke: rgba(0, 0, 0, 0.78);
-  stroke-width: 13;
+  stroke-width: 22;
+}
+
+.seamVoid {
+  filter: blur(0.7px);
+  opacity: 0.92;
+  stroke: rgba(4, 5, 6, 0.92);
+  stroke-width: 14;
+}
+
+.seamFray {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.32));
+  opacity: 0.86;
+  stroke: rgba(255, 255, 255, 0.74);
+  stroke-dasharray: 0.035 0.016;
+  stroke-width: 9;
 }
 
 .seamFiber {
-  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--rip-accent) 42%, transparent));
-  stroke: #f5f5f4;
-  stroke-width: 5;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--rip-accent) 48%, transparent));
+  stroke: #fffdfa;
+  stroke-dasharray: 0.018 0.012;
+  stroke-width: 4;
 }
 
 .plasticTension {
   background:
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.68), transparent),
-    linear-gradient(90deg, transparent, color-mix(in srgb, var(--rip-accent) 48%, transparent), transparent);
+    repeating-linear-gradient(90deg, transparent 0 10px, rgba(255, 255, 255, 0.18) 10px 11px, transparent 11px 16px),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--rip-accent) 54%, transparent), transparent);
   border-radius: 999px;
   filter: blur(0.6px);
-  height: 18px;
+  height: 26px;
   left: 0;
   pointer-events: none;
   position: absolute;
   top: 0;
   transform-origin: left center;
-  width: 220px;
+  width: 260px;
   z-index: 10;
 }
 
@@ -547,9 +596,8 @@
   background: #fafaf9;
   border-radius: 999px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.72);
-  height: 4px;
+  height: 3px;
   position: absolute;
-  width: 11px;
   z-index: 9;
 }
 

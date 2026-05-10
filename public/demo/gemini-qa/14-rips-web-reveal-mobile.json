@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 41,
+    "nbFrames": 44,
     "fps": 12,
-    "duration": 3.41
+    "duration": 3.66
   },
-  "capturedAt": "2026-05-10T21:53:42.707Z",
+  "capturedAt": "2026-05-10T22:10:15.040Z",
   "usage": {
     "promptTokenCount": 2425,
-    "candidatesTokenCount": 516,
-    "totalTokenCount": 3444,
+    "candidatesTokenCount": 597,
+    "totalTokenCount": 3937,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,33 +23,40 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 503,
+    "thoughtsTokenCount": 915,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip demonstrates a mobile web pack-opening flow. A 'Neon Vault Rip' pack is shown animating through 'DRAGGING' and 'TEARING' states before revealing a 'Skyline Manta' card. The user then scrolls down to view the card's details, value, condition, proof state, and available actions like selling or holding in a vault, along with a 'PROOF TRAIL' section.",
+    "scene_summary": "The clip demonstrates a mobile pack-opening flow for a 'Neon Vault Rip'. A user interacts with a digital pack, which animates through 'DRAGGING' and 'TEARING' states to reveal an 'Ember Scout' card. After the reveal, the user scrolls down to view the card's details, estimated value, condition, proof state, and available actions like selling, shipping, or holding in a vault, along with a 'PROOF TRAIL' log.",
     "key_observations": [
-      "The UI is presented in a mobile portrait orientation (390x844).",
-      "The pack opening animation transitions from 'DRAGGING' to 'TEARING' to 'REVEALED' states.",
+      "The UI displays a 'Neon Vault Rip' pack with a 'PULL' indicator, transitioning from 'DRAGGING' to 'TEARING' and finally 'REVEALED' states.",
+      "An 'Ember Scout' card is revealed, showing 'Minor edge whitening candidate' as its description.",
       "After the reveal, the 'Auto rip' button changes to 'Open another pack'.",
-      "Scrolling reveals detailed information about the 'Skyline Manta' card, including 'Estimated value', 'Condition signal', and 'Proof state'.",
-      "Action buttons are visible: 'Sell for vault credit', 'Ship physical card', and 'Hold in vault'.",
-      "A 'PROOF TRAIL' section explains the product's underlying event mapping and vault storage concept."
+      "Scrolling reveals detailed information about the revealed card, including 'Estimated value $14', 'Condition Minor edge whitening candidate', and 'Proof state ready to save'.",
+      "Action buttons 'Sell for vault credit', 'Ship physical card', and 'Hold in vault' are visible, followed by a 'Decision saved: vault.' confirmation.",
+      "A 'PROOF TRAIL' section explains the product event mapping and backend processes, reinforcing the 'vault' concept."
     ],
     "ui_text_snippets": [
       "ACTIVE RIP",
       "Neon Vault Rip",
       "DRAGGING",
-      "TEARING",
-      "REVEALED",
+      "PULL",
+      "ORIGINAL DEMO PACK",
+      "VAULT",
+      "Original web demo",
       "Auto rip",
+      "Search",
+      "Ask Pi",
+      "TEARING",
+      "NV-018",
+      "Ember Scout",
+      "Minor edge whitening candidate",
+      "REVEALED",
       "Open another pack",
-      "Skyline Manta",
-      "Holo surface, glare retake advised",
       "Estimated value",
-      "$44",
-      "Condition signal",
+      "$14",
+      "Condition",
       "Proof state",
       "ready to save",
       "Sell for vault credit",
@@ -57,17 +64,15 @@
       "Hold in vault",
       "Decision saved: vault.",
       "PROOF TRAIL",
-      "Every visible animation maps to a product event.",
-      "Search",
-      "Ask Pi"
+      "Every visible animation maps to a product event."
     ],
     "matches_expectation": true,
     "match_confidence": 0.9,
     "issues": [],
     "verdict": "pass",
     "suggested_followups": [
-      "Verify the responsiveness of the UI on slightly different mobile viewport sizes.",
-      "Confirm the 'PROOF TRAIL' text is fully readable without truncation on all mobile devices."
+      "Verify the responsiveness of the 'PULL' interaction on various mobile devices.",
+      "Confirm that the 'PROOF TRAIL' content is dynamic and reflects actual events in a production environment."
     ]
   }
 }

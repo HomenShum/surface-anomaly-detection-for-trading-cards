@@ -35,6 +35,25 @@ type TearGeometry = {
   sideA: Point[];
   sideB: Point[];
   seamPath: string;
+  meshThreads: Array<{
+    x1: number;
+    y1: number;
+    x2: number;
+    y2: number;
+    opacity: number;
+    width: number;
+  }>;
+  crinklePaths: Array<{
+    d: string;
+    opacity: number;
+    width: number;
+  }>;
+  foilShards: Array<{
+    points: string;
+    opacity: number;
+    delay: number;
+    hue: number;
+  }>;
   fibers: Array<{
     x: number;
     y: number;
@@ -42,6 +61,7 @@ type TearGeometry = {
     dy: number;
     start: number;
     rotate: number;
+    width: number;
   }>;
 };
 
@@ -186,6 +206,94 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
       dy: normal.y * travel * side + dir.y * (seededWave(seed, i + 131) - 0.5) * 28,
       start: Math.max(0.04, t - 0.18),
       rotate: (seededWave(seed, i + 161) - 0.5) * 160,
+      width: 10 + seededWave(seed, i + 191) * 24 + progress * 18,
+    };
+  });
+  const meshThreads = Array.from({ length: 118 }, (_, i) => {
+    const t = i / 117;
+    const base = {
+      x: lineStart.x + (lineEnd.x - lineStart.x) * t,
+      y: lineStart.y + (lineEnd.y - lineStart.y) * t,
+    };
+    const lateral = (seededWave(seed, i + 211) - 0.5) * (70 + progress * 120);
+    const bias = i % 4 < 2 ? normal : dir;
+    const crossBias = i % 4 < 2 ? dir : normal;
+    const len = 12 + seededWave(seed, i + 241) * 54 + progress * 46;
+    const center = {
+      x: base.x + normal.x * lateral + dir.x * (seededWave(seed, i + 271) - 0.5) * 38,
+      y: base.y + normal.y * lateral + dir.y * (seededWave(seed, i + 271) - 0.5) * 38,
+    };
+    const slant = {
+      x: bias.x * 0.72 + crossBias.x * (i % 2 === 0 ? 0.54 : -0.54),
+      y: bias.y * 0.72 + crossBias.y * (i % 2 === 0 ? 0.54 : -0.54),
+    };
+    return {
+      x1: center.x - slant.x * len,
+      y1: center.y - slant.y * len,
+      x2: center.x + slant.x * len,
+      y2: center.y + slant.y * len,
+      opacity: 0.1 + seededWave(seed, i + 301) * 0.28 + progress * 0.32,
+      width: 0.35 + seededWave(seed, i + 331) * 1.4,
+    };
+  });
+  const crinklePaths = Array.from({ length: 28 }, (_, i) => {
+    const t = i / 27;
+    const base = {
+      x: lineStart.x + (lineEnd.x - lineStart.x) * t,
+      y: lineStart.y + (lineEnd.y - lineStart.y) * t,
+    };
+    const side = i % 2 === 0 ? -1 : 1;
+    const reach = 38 + seededWave(seed, i + 361) * 128 + progress * 60;
+    const bend = (seededWave(seed, i + 391) - 0.5) * 46;
+    const p1 = {
+      x: base.x + normal.x * side * reach * 0.32 + dir.x * bend * 0.2,
+      y: base.y + normal.y * side * reach * 0.32 + dir.y * bend * 0.2,
+    };
+    const p2 = {
+      x: base.x + normal.x * side * reach * 0.76 + dir.x * bend,
+      y: base.y + normal.y * side * reach * 0.76 + dir.y * bend,
+    };
+    const p3 = {
+      x: base.x + normal.x * side * reach + dir.x * bend * 1.35,
+      y: base.y + normal.y * side * reach + dir.y * bend * 1.35,
+    };
+    return {
+      d: `M ${base.x.toFixed(1)} ${base.y.toFixed(1)} C ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}, ${p3.x.toFixed(1)} ${p3.y.toFixed(1)}`,
+      opacity: 0.1 + seededWave(seed, i + 421) * 0.3 + progress * 0.26,
+      width: 0.65 + seededWave(seed, i + 451) * 1.6,
+    };
+  });
+  const foilShards = Array.from({ length: 54 }, (_, i) => {
+    const t = i / 53;
+    const base = {
+      x: lineStart.x + (lineEnd.x - lineStart.x) * t,
+      y: lineStart.y + (lineEnd.y - lineStart.y) * t,
+    };
+    const side = i % 2 === 0 ? -1 : 1;
+    const offset = 7 + seededWave(seed, i + 481) * (18 + progress * 24);
+    const length = 8 + seededWave(seed, i + 511) * (18 + progress * 22);
+    const width = 3 + seededWave(seed, i + 541) * (8 + progress * 7);
+    const center = {
+      x: base.x + normal.x * side * offset + dir.x * (seededWave(seed, i + 571) - 0.5) * 20,
+      y: base.y + normal.y * side * offset + dir.y * (seededWave(seed, i + 571) - 0.5) * 20,
+    };
+    const tip = {
+      x: center.x + normal.x * side * length + dir.x * (seededWave(seed, i + 601) - 0.5) * 16,
+      y: center.y + normal.y * side * length + dir.y * (seededWave(seed, i + 601) - 0.5) * 16,
+    };
+    const p1 = {
+      x: center.x + dir.x * width,
+      y: center.y + dir.y * width,
+    };
+    const p2 = {
+      x: center.x - dir.x * width,
+      y: center.y - dir.y * width,
+    };
+    return {
+      points: `${p1.x.toFixed(1)},${p1.y.toFixed(1)} ${tip.x.toFixed(1)},${tip.y.toFixed(1)} ${p2.x.toFixed(1)},${p2.y.toFixed(1)}`,
+      opacity: 0.16 + seededWave(seed, i + 631) * 0.42 + progress * 0.24,
+      delay: t,
+      hue: Math.round(seededWave(seed, i + 661) * 38),
     };
   });
 
@@ -199,6 +307,9 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
     sideA: clipPolygon(rect, start, dir, true),
     sideB: clipPolygon(rect, start, dir, false),
     seamPath: makeJitteredPath(pathPoints),
+    meshThreads,
+    crinklePaths,
+    foilShards,
     fibers,
   };
 }
@@ -314,8 +425,57 @@ function RipPackVisual({
         </div>
 
         <svg className={styles.seamSvg} viewBox={`0 0 ${PACK_WIDTH} ${PACK_HEIGHT}`} aria-hidden>
+          <g className={styles.crinkleGroup} opacity={clamp(progress / 0.18)}>
+            {tear.foilShards.map((shard, i) => {
+              const shardProgress = clamp((progress - shard.delay * 0.22) / 0.45);
+              return (
+                <polygon
+                  className={styles.foilShard}
+                  key={`foil-shard-${i}`}
+                  points={shard.points}
+                  style={{
+                    opacity: shard.opacity * shardProgress,
+                    transform: `scale(${0.72 + shardProgress * 0.28})`,
+                    transformOrigin: `${tear.start.x}px ${tear.start.y}px`,
+                    fill: `color-mix(in srgb, var(--rip-accent) ${44 + shard.hue}%, white)`,
+                  }}
+                />
+              );
+            })}
+            {tear.crinklePaths.map((crinkle, i) => (
+              <path
+                className={styles.crinklePath}
+                d={crinkle.d}
+                key={`crinkle-${i}`}
+                style={{ opacity: crinkle.opacity, strokeWidth: crinkle.width }}
+              />
+            ))}
+            {tear.meshThreads.map((thread, i) => (
+              <line
+                className={styles.meshThread}
+                key={`thread-${i}`}
+                style={{ opacity: thread.opacity, strokeWidth: thread.width }}
+                x1={thread.x1}
+                x2={thread.x2}
+                y1={thread.y1}
+                y2={thread.y2}
+              />
+            ))}
+          </g>
           <path
             className={styles.seamShadow}
+            d={tear.seamPath}
+            pathLength={1}
+            style={{ strokeDashoffset: 1 - progress }}
+          />
+          <path
+            className={styles.seamVoid}
+            d={tear.seamPath}
+            pathLength={1}
+            style={{ strokeDashoffset: 1 - progress }}
+          />
+          <path
+            className={styles.seamFray}
             d={tear.seamPath}
             pathLength={1}
             style={{ strokeDashoffset: 1 - progress }}
@@ -353,6 +513,7 @@ function RipPackVisual({
                 left: particle.x,
                 opacity: local,
                 top: particle.y,
+                width: particle.width * (0.55 + local),
                 transform: `translate3d(${particle.dx * local}px, ${particle.dy * local}px, 0) rotate(${particle.rotate * local}deg) scale(${0.45 + local})`,
               }}
             />

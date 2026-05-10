@@ -172,14 +172,26 @@ async function main() {
   const server = await ensureServer();
   try {
     const flows = [
-      { name: "14-rips-web-reveal-desktop", viewport: { width: 1440, height: 920 }, isMobile: false, width: "960" },
-      { name: "14-rips-web-reveal-mobile", viewport: { width: 390, height: 844 }, isMobile: true, width: "390" },
+      {
+        name: "14-rips-web-reveal-desktop",
+        viewport: { width: 1440, height: 920 },
+        isMobile: false,
+        width: "960",
+        start: "0.35",
+      },
+      {
+        name: "14-rips-web-reveal-mobile",
+        viewport: { width: 390, height: 844 },
+        isMobile: true,
+        width: "390",
+        start: "0.25",
+      },
     ];
 
     for (const flow of flows) {
       const video = await recordFlow(flow);
       const gif = join(gifDir, `${flow.name}.gif`);
-      makeGif(video, gif, { width: flow.width });
+      makeGif(video, gif, { width: flow.width, start: flow.start });
       copyFileSync(gif, join(appGifDir, `${flow.name}.gif`));
       console.log(`Recorded ${flow.name}: ${gif}`);
     }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T21:53:42.781Z",
+  "generatedAt": "2026-05-10T22:10:15.106Z",
   "rows": [
     {
       "gif": "public/demo/gifs/01-sample-card-analysis.gif",
@@ -236,8 +236,8 @@
       "confidence": 0.9,
       "issues": 0,
       "suggested_followups": [
-        "Verify the responsiveness of the UI on slightly different mobile viewport sizes.",
-        "Confirm the 'PROOF TRAIL' text is fully readable without truncation on all mobile devices."
+        "Verify the responsiveness of the 'PULL' interaction on various mobile devices.",
+        "Confirm that the 'PROOF TRAIL' content is dynamic and reflects actual events in a production environment."
       ]
     },
     {

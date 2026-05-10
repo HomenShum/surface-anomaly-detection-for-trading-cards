@@ -110,6 +110,13 @@ async function dragPackOpen(page, label, from, to) {
   await expect(page.getByText(/Reveal complete/)).toBeVisible({ timeout: 15_000 });
 }
 
+async function resetSeal(page) {
+  const reset = page.getByRole("button", { name: "Reset seal", exact: true });
+  await expect(reset).toBeVisible();
+  await reset.click();
+  await expect(page.getByRole("button", { name: "Open pack" })).toBeVisible();
+}
+
 async function runRips(viewport, label) {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
@@ -135,11 +142,24 @@ async function runRips(viewport, label) {
   await expect(page.getByRole("button", { name: "Open pack" })).toBeVisible();
   await checkNoOverflow(page, `${label} idle`);
 
-  await dragPackOpen(page, `${label} down-right`, { x: 0.2, y: 0.22 }, { x: 0.84, y: 0.72 });
+  const dragCases = viewport.width < 600
+    ? [
+        [`${label} down-right`, { x: 0.2, y: 0.22 }, { x: 0.86, y: 0.72 }],
+        [`${label} up-left`, { x: 0.82, y: 0.76 }, { x: 0.18, y: 0.18 }],
+        [`${label} horizontal`, { x: 0.12, y: 0.48 }, { x: 0.88, y: 0.5 }],
+      ]
+    : [
+        [`${label} down-right`, { x: 0.2, y: 0.22 }, { x: 0.84, y: 0.72 }],
+        [`${label} up-left`, { x: 0.82, y: 0.76 }, { x: 0.18, y: 0.18 }],
+        [`${label} horizontal`, { x: 0.1, y: 0.5 }, { x: 0.9, y: 0.48 }],
+        [`${label} vertical`, { x: 0.52, y: 0.9 }, { x: 0.48, y: 0.1 }],
+        [`${label} down-left`, { x: 0.86, y: 0.2 }, { x: 0.14, y: 0.78 }],
+      ];
 
-  if (label === "desktop") {
-    await page.getByRole("button", { name: "Reset seal", exact: true }).click();
-    await dragPackOpen(page, `${label} up-left`, { x: 0.82, y: 0.76 }, { x: 0.18, y: 0.18 });
+  for (let i = 0; i < dragCases.length; i += 1) {
+    const [caseLabel, from, to] = dragCases[i];
+    if (i > 0) await resetSeal(page);
+    await dragPackOpen(page, caseLabel, from, to);
   }
 
   await expect(page.getByText(/Estimated value/)).toBeVisible();
