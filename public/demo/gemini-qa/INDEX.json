@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T22:10:15.106Z",
+  "generatedAt": "2026-05-10T23:30:57.719Z",
   "rows": [
     {
       "gif": "public/demo/gifs/01-sample-card-analysis.gif",
@@ -233,11 +233,11 @@
       "gif": "public/demo/gifs/14-rips-web-reveal-mobile.gif",
       "verdict": "pass",
       "matches": true,
-      "confidence": 0.9,
+      "confidence": 1,
       "issues": 0,
       "suggested_followups": [
-        "Verify the responsiveness of the 'PULL' interaction on various mobile devices.",
-        "Confirm that the 'PROOF TRAIL' content is dynamic and reflects actual events in a production environment."
+        "Verify the responsiveness and layout on other mobile device sizes if applicable.",
+        "Confirm the 'Ask Pi' and 'Search' floating buttons maintain their position and functionality during scrolling."
       ]
     },
     {

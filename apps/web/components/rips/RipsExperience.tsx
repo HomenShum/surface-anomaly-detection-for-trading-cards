@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
   type CSSProperties,
@@ -22,6 +21,8 @@ const PACK_WIDTH = 360;
 const PACK_HEIGHT = 520;
 const DEFAULT_TEAR_START = { x: PACK_WIDTH / 2, y: 34 };
 const DEFAULT_TEAR_END = { x: PACK_WIDTH / 2, y: PACK_HEIGHT - 34 };
+const MANUAL_RIP_DISTANCE = 260;
+const RIP_COMMIT_THRESHOLD = 0.72;
 
 type Point = { x: number; y: number };
 
@@ -35,6 +36,8 @@ type TearGeometry = {
   sideA: Point[];
   sideB: Point[];
   seamPath: string;
+  lipAPath: string;
+  lipBPath: string;
   meshThreads: Array<{
     x1: number;
     y1: number;
@@ -167,18 +170,40 @@ function makeJitteredPath(points: Point[]) {
   return points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
 }
 
+function makeOffsetPath(points: Point[], normal: Point, offset: number) {
+  return points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${(p.x + normal.x * offset).toFixed(1)} ${(p.y + normal.y * offset).toFixed(1)}`)
+    .join(" ");
+}
+
 function makeTearGeometry(seedText: string, start: Point, current: Point, progress: number): TearGeometry {
   const seed = seedNumber(seedText);
   const dir = normalizeVector(start, current);
   const normal = { x: -dir.y, y: dir.x };
   const [lineStart, lineEnd] = lineRectIntersections(start, dir);
+  const fullLength = distance(lineStart, lineEnd);
+  const startT = clamp(distance(lineStart, start) / Math.max(fullLength, 1), 0, 1);
+  const commitSpread = easeOutCubic(clamp((progress - RIP_COMMIT_THRESHOLD) / (1 - RIP_COMMIT_THRESHOLD)));
+  const pullSpread = clamp(distance(start, current) / 260);
+  const backReach = 0.035 + pullSpread * 0.11 + commitSpread * startT;
+  const forwardReach = 0.075 + pullSpread * 0.62 + commitSpread * (1 - startT);
+  const visualStartT = clamp(startT - backReach, 0, 1);
+  const visualEndT = clamp(startT + forwardReach, 0, 1);
+  const visualStart = {
+    x: lineStart.x + (lineEnd.x - lineStart.x) * visualStartT,
+    y: lineStart.y + (lineEnd.y - lineStart.y) * visualStartT,
+  };
+  const visualEnd = {
+    x: lineStart.x + (lineEnd.x - lineStart.x) * visualEndT,
+    y: lineStart.y + (lineEnd.y - lineStart.y) * visualEndT,
+  };
   const pathPoints = Array.from({ length: 25 }, (_, i) => {
     const t = i / 24;
-    const wobble = (seededWave(seed, i + 5) - 0.5) * (12 + progress * 26);
-    const stress = Math.sin(i * 1.7 + seed * 0.01) * (2 + progress * 8);
+    const wobble = (seededWave(seed, i + 5) - 0.5) * (5 + progress * 12);
+    const stress = Math.sin(i * 1.7 + seed * 0.01) * (1 + progress * 4);
     return {
-      x: lineStart.x + (lineEnd.x - lineStart.x) * t + normal.x * (wobble + stress),
-      y: lineStart.y + (lineEnd.y - lineStart.y) * t + normal.y * (wobble + stress),
+      x: visualStart.x + (visualEnd.x - visualStart.x) * t + normal.x * (wobble + stress),
+      y: visualStart.y + (visualEnd.y - visualStart.y) * t + normal.y * (wobble + stress),
     };
   });
   const rect = [
@@ -193,35 +218,35 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
     x: clamp(start.x + dir.x * pull, 0, PACK_WIDTH),
     y: clamp(start.y + dir.y * pull, 0, PACK_HEIGHT),
   };
-  const fibers = Array.from({ length: 34 }, (_, i) => {
-    const t = i / 33;
-    const x = lineStart.x + (lineEnd.x - lineStart.x) * t;
-    const y = lineStart.y + (lineEnd.y - lineStart.y) * t;
+  const fibers = Array.from({ length: 48 }, (_, i) => {
+    const t = i / 47;
+    const x = visualStart.x + (visualEnd.x - visualStart.x) * t;
+    const y = visualStart.y + (visualEnd.y - visualStart.y) * t;
     const side = i % 2 === 0 ? -1 : 1;
-    const travel = 24 + seededWave(seed, i + 71) * 92;
+    const travel = 6 + seededWave(seed, i + 71) * 28;
     return {
       x,
       y,
-      dx: normal.x * travel * side + dir.x * (seededWave(seed, i + 101) - 0.5) * 28,
-      dy: normal.y * travel * side + dir.y * (seededWave(seed, i + 131) - 0.5) * 28,
+      dx: normal.x * travel * side + dir.x * (seededWave(seed, i + 101) - 0.5) * 12,
+      dy: normal.y * travel * side + dir.y * (seededWave(seed, i + 131) - 0.5) * 12,
       start: Math.max(0.04, t - 0.18),
       rotate: (seededWave(seed, i + 161) - 0.5) * 160,
-      width: 10 + seededWave(seed, i + 191) * 24 + progress * 18,
+      width: 2 + seededWave(seed, i + 191) * 7 + progress * 4,
     };
   });
-  const meshThreads = Array.from({ length: 118 }, (_, i) => {
-    const t = i / 117;
+  const meshThreads = Array.from({ length: 170 }, (_, i) => {
+    const t = i / 169;
     const base = {
-      x: lineStart.x + (lineEnd.x - lineStart.x) * t,
-      y: lineStart.y + (lineEnd.y - lineStart.y) * t,
+      x: visualStart.x + (visualEnd.x - visualStart.x) * t,
+      y: visualStart.y + (visualEnd.y - visualStart.y) * t,
     };
-    const lateral = (seededWave(seed, i + 211) - 0.5) * (70 + progress * 120);
+    const lateral = (seededWave(seed, i + 211) - 0.5) * (22 + progress * 38);
     const bias = i % 4 < 2 ? normal : dir;
     const crossBias = i % 4 < 2 ? dir : normal;
-    const len = 12 + seededWave(seed, i + 241) * 54 + progress * 46;
+    const len = 3 + seededWave(seed, i + 241) * 11 + progress * 7;
     const center = {
-      x: base.x + normal.x * lateral + dir.x * (seededWave(seed, i + 271) - 0.5) * 38,
-      y: base.y + normal.y * lateral + dir.y * (seededWave(seed, i + 271) - 0.5) * 38,
+      x: base.x + normal.x * lateral + dir.x * (seededWave(seed, i + 271) - 0.5) * 18,
+      y: base.y + normal.y * lateral + dir.y * (seededWave(seed, i + 271) - 0.5) * 18,
     };
     const slant = {
       x: bias.x * 0.72 + crossBias.x * (i % 2 === 0 ? 0.54 : -0.54),
@@ -232,19 +257,19 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
       y1: center.y - slant.y * len,
       x2: center.x + slant.x * len,
       y2: center.y + slant.y * len,
-      opacity: 0.1 + seededWave(seed, i + 301) * 0.28 + progress * 0.32,
-      width: 0.35 + seededWave(seed, i + 331) * 1.4,
+      opacity: 0.025 + seededWave(seed, i + 301) * 0.075 + progress * 0.06,
+      width: 0.18 + seededWave(seed, i + 331) * 0.48,
     };
   });
-  const crinklePaths = Array.from({ length: 28 }, (_, i) => {
-    const t = i / 27;
+  const crinklePaths = Array.from({ length: 44 }, (_, i) => {
+    const t = i / 43;
     const base = {
-      x: lineStart.x + (lineEnd.x - lineStart.x) * t,
-      y: lineStart.y + (lineEnd.y - lineStart.y) * t,
+      x: visualStart.x + (visualEnd.x - visualStart.x) * t,
+      y: visualStart.y + (visualEnd.y - visualStart.y) * t,
     };
     const side = i % 2 === 0 ? -1 : 1;
-    const reach = 38 + seededWave(seed, i + 361) * 128 + progress * 60;
-    const bend = (seededWave(seed, i + 391) - 0.5) * 46;
+    const reach = 12 + seededWave(seed, i + 361) * 38 + progress * 22;
+    const bend = (seededWave(seed, i + 391) - 0.5) * 18;
     const p1 = {
       x: base.x + normal.x * side * reach * 0.32 + dir.x * bend * 0.2,
       y: base.y + normal.y * side * reach * 0.32 + dir.y * bend * 0.2,
@@ -259,20 +284,20 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
     };
     return {
       d: `M ${base.x.toFixed(1)} ${base.y.toFixed(1)} C ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}, ${p3.x.toFixed(1)} ${p3.y.toFixed(1)}`,
-      opacity: 0.1 + seededWave(seed, i + 421) * 0.3 + progress * 0.26,
-      width: 0.65 + seededWave(seed, i + 451) * 1.6,
+      opacity: 0.025 + seededWave(seed, i + 421) * 0.08 + progress * 0.06,
+      width: 0.2 + seededWave(seed, i + 451) * 0.55,
     };
   });
-  const foilShards = Array.from({ length: 54 }, (_, i) => {
-    const t = i / 53;
+  const foilShards = Array.from({ length: 78 }, (_, i) => {
+    const t = i / 77;
     const base = {
-      x: lineStart.x + (lineEnd.x - lineStart.x) * t,
-      y: lineStart.y + (lineEnd.y - lineStart.y) * t,
+      x: visualStart.x + (visualEnd.x - visualStart.x) * t,
+      y: visualStart.y + (visualEnd.y - visualStart.y) * t,
     };
     const side = i % 2 === 0 ? -1 : 1;
-    const offset = 7 + seededWave(seed, i + 481) * (18 + progress * 24);
-    const length = 8 + seededWave(seed, i + 511) * (18 + progress * 22);
-    const width = 3 + seededWave(seed, i + 541) * (8 + progress * 7);
+    const offset = 5 + seededWave(seed, i + 481) * (14 + progress * 18);
+    const length = 3 + seededWave(seed, i + 511) * (8 + progress * 9);
+    const width = 1.6 + seededWave(seed, i + 541) * (4 + progress * 4);
     const center = {
       x: base.x + normal.x * side * offset + dir.x * (seededWave(seed, i + 571) - 0.5) * 20,
       y: base.y + normal.y * side * offset + dir.y * (seededWave(seed, i + 571) - 0.5) * 20,
@@ -291,9 +316,9 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
     };
     return {
       points: `${p1.x.toFixed(1)},${p1.y.toFixed(1)} ${tip.x.toFixed(1)},${tip.y.toFixed(1)} ${p2.x.toFixed(1)},${p2.y.toFixed(1)}`,
-      opacity: 0.16 + seededWave(seed, i + 631) * 0.42 + progress * 0.24,
+      opacity: 0.08 + seededWave(seed, i + 631) * 0.22 + progress * 0.12,
       delay: t,
-      hue: Math.round(seededWave(seed, i + 661) * 38),
+      hue: Math.round(seededWave(seed, i + 661) * 22),
     };
   });
 
@@ -307,6 +332,8 @@ function makeTearGeometry(seedText: string, start: Point, current: Point, progre
     sideA: clipPolygon(rect, start, dir, true),
     sideB: clipPolygon(rect, start, dir, false),
     seamPath: makeJitteredPath(pathPoints),
+    lipAPath: makeOffsetPath(pathPoints, normal, -6 - progress * 12),
+    lipBPath: makeOffsetPath(pathPoints, normal, 6 + progress * 12),
     meshThreads,
     crinklePaths,
     foilShards,
@@ -358,6 +385,7 @@ function RipPackVisual({
   progress,
   result,
   tear,
+  revealPulse,
   onPointerDown,
   onPointerMove,
   onPointerUp,
@@ -368,26 +396,59 @@ function RipPackVisual({
   progress: number;
   result: RipCard | null;
   tear: TearGeometry;
+  /** Bumps each time `completeReveal` fires - used as a React `key`
+   *  on the card wrapper so the CSS reveal animation restarts even
+   *  on repeat rips of the same pack. */
+  revealPulse: number;
   onPointerDown: (event: PointerEvent<HTMLDivElement>) => void;
   onPointerMove: (event: PointerEvent<HTMLDivElement>) => void;
   onPointerUp: (event: PointerEvent<HTMLDivElement>) => void;
   onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void;
 }) {
   const packetStyle = { "--rip-accent": pack.accent } as CSSProperties;
+  // Progress curve: stress marks respond immediately, but the wrapper
+  // halves stay mostly sealed until the pull crosses the commit point.
+  // That makes short drags feel like stretching foil instead of exposing
+  // a full-height cartoon split.
+  const openProgress = easeOutCubic(clamp((progress - 0.64) / 0.36));
+  const cardSlide = easeOutCubic(clamp((progress - RIP_COMMIT_THRESHOLD) / (1 - RIP_COMMIT_THRESHOLD)));
+  const peelX = tear.normal.x * 132 * openProgress;
+  const peelY = tear.normal.y * 132 * openProgress;
+  const curlX = tear.normal.y * 22 * openProgress;
+  const curlY = tear.normal.x * -28 * openProgress;
   const sideAStyle: CSSProperties = {
     clipPath: polygonCss(tear.sideA),
-    transform: `translate3d(${tear.normal.x * -112 * progress + tear.dir.x * 16 * progress}px, ${tear.normal.y * -112 * progress + tear.dir.y * 16 * progress}px, 0) rotate(${(-7 - tear.angleDeg * 0.018) * progress}deg)`,
+    transform: `perspective(900px) translate3d(${-peelX + tear.dir.x * 16 * openProgress}px, ${-peelY + tear.dir.y * 16 * openProgress}px, ${openProgress * 22}px) rotateZ(${(-6 - tear.angleDeg * 0.014) * openProgress}deg) rotateX(${-curlX}deg) rotateY(${-curlY}deg) scale(${1 - openProgress * 0.03})`,
     transformOrigin: `${(tear.start.x / PACK_WIDTH) * 100}% ${(tear.start.y / PACK_HEIGHT) * 100}%`,
   };
   const sideBStyle: CSSProperties = {
     clipPath: polygonCss(tear.sideB),
-    transform: `translate3d(${tear.normal.x * 112 * progress + tear.dir.x * 16 * progress}px, ${tear.normal.y * 112 * progress + tear.dir.y * 16 * progress}px, 0) rotate(${(7 + tear.angleDeg * 0.018) * progress}deg)`,
+    transform: `perspective(900px) translate3d(${peelX + tear.dir.x * 16 * openProgress}px, ${peelY + tear.dir.y * 16 * openProgress}px, ${openProgress * 22}px) rotateZ(${(6 + tear.angleDeg * 0.014) * openProgress}deg) rotateX(${curlX}deg) rotateY(${curlY}deg) scale(${1 - openProgress * 0.03})`,
     transformOrigin: `${(tear.start.x / PACK_WIDTH) * 100}% ${(tear.start.y / PACK_HEIGHT) * 100}%`,
   };
+  // Card slide-out: starts off-screen below the visible area, pulls up
+  // and grows as the wrapper opens. Mimics the physical motion of
+  // sliding a card out of a sleeve / sealed pouch.
   const cardStyle: CSSProperties = {
-    opacity: clamp((progress - 0.12) / 0.68),
-    transform: `translate3d(0, ${(1 - progress) * 24}px, 0) scale(${0.9 + 0.1 * progress})`,
+    opacity: clamp((cardSlide - 0.04) / 0.96),
+    transform: `translate3d(0, ${(1 - cardSlide) * 96}px, 0) scale(${0.78 + 0.22 * cardSlide})`,
+    filter:
+      phase === "revealed" ? "none" : `brightness(${0.82 + 0.18 * cardSlide})`,
   };
+  // Pack-body tilt during active rip - subtle 3D rotation in the
+  // direction of the tear so the whole packet feels GRABBED, not just
+  // statically dissected. Only kicks in while dragging or tearing.
+  const tiltActive = phase === "dragging" || phase === "tearing";
+  const tiltAmount = tiltActive ? clamp(progress * 1.4) : 0;
+  const stageTilt: CSSProperties = tiltActive
+    ? {
+        transform: `perspective(1100px) rotateX(${-tear.dir.y * 5 * tiltAmount}deg) rotateY(${tear.dir.x * 6 * tiltAmount}deg)`,
+        transition: "transform 80ms linear",
+      }
+    : {
+        transform: "perspective(1100px) rotateX(0) rotateY(0)",
+        transition: "transform 320ms ease-out",
+      };
   const tensionStyle = {
     opacity: clamp(progress / 0.35),
     transform: `translate(${tear.start.x}px, ${tear.start.y}px) rotate(${tear.angleDeg}deg) scaleX(${0.15 + progress * 1.2})`,
@@ -405,10 +466,28 @@ function RipPackVisual({
         onPointerCancel={onPointerUp}
         onKeyDown={onKeyDown}
         role="application"
+        style={stageTilt}
         tabIndex={0}
       >
+        {/* Wrapper INTERIOR - sits BEHIND the two halves but ABOVE the
+            card. As the halves part, this dark/foil layer becomes
+            visible at the tear opening. Gives the pack physical depth
+            instead of "two flat panels split apart over empty space". */}
+        <div
+          aria-hidden
+          className={styles.packInterior}
+          style={{ opacity: clamp(openProgress * 1.4) }}
+        />
         {result ? (
-          <div className={styles.hiddenCard} style={cardStyle}>
+          // key={revealPulse} restarts the reveal CSS animation every
+          // time a fresh card is revealed, even if it's the same pack.
+          // Rarity class drives the glow tint in @keyframes rip-reveal-pop.
+          <div
+            className={`${styles.hiddenCard} ${phase === "revealed" ? styles.hiddenCardRevealed : ""} ${result.rarity ? styles[`rarity-${result.rarity}`] : ""}`}
+            data-reveal-pulse={revealPulse}
+            key={`reveal-${revealPulse}`}
+            style={cardStyle}
+          >
             <RipCardArt card={result} />
           </div>
         ) : (
@@ -475,6 +554,18 @@ function RipPackVisual({
             style={{ strokeDashoffset: 1 - progress }}
           />
           <path
+            className={`${styles.tornLip} ${styles.tornLipA}`}
+            d={tear.lipAPath}
+            pathLength={1}
+            style={{ strokeDashoffset: 1 - progress }}
+          />
+          <path
+            className={`${styles.tornLip} ${styles.tornLipB}`}
+            d={tear.lipBPath}
+            pathLength={1}
+            style={{ strokeDashoffset: 1 - progress }}
+          />
+          <path
             className={styles.seamFray}
             d={tear.seamPath}
             pathLength={1}
@@ -525,21 +616,35 @@ function RipPackVisual({
 }
 
 function PackFace({ pack, side, progress }: { pack: RipPack; side: "left" | "right"; progress: number }) {
+  const ridges = Array.from({ length: 18 }, (_, i) => i);
   return (
     <div className={styles.packFace} style={{ "--rip-stress": progress } as CSSProperties}>
+      <div className={`${styles.crimpBand} ${styles.crimpTop}`} aria-hidden>
+        {ridges.map((ridge) => (
+          <span key={`top-${ridge}`} />
+        ))}
+      </div>
+      <div className={`${styles.crimpBand} ${styles.crimpBottom}`} aria-hidden>
+        {ridges.map((ridge) => (
+          <span key={`bottom-${ridge}`} />
+        ))}
+      </div>
+      <div className={`${styles.sideSeal} ${styles.sideSealLeft}`} aria-hidden />
+      <div className={`${styles.sideSeal} ${styles.sideSealRight}`} aria-hidden />
       <div className={styles.packChrome} />
       <div className={styles.packMesh} aria-hidden />
       <div className={styles.packSpecular} aria-hidden />
       <div className={styles.packBrand}>
         <span>{pack.series}</span>
-        <strong>{side === "left" ? "RIP" : "VAULT"}</strong>
+        <strong>{pack.title}</strong>
+        <em>{side === "left" ? "Foil wrapper" : "Sealed insert"}</em>
       </div>
       <div className={styles.packCreature} aria-hidden>
         <i />
       </div>
       <div className={styles.packFooter}>
-        <span>{pack.title}</span>
-        <small>Original web demo</small>
+        <span>pull anywhere</span>
+        <small>crimped web foil</small>
       </div>
     </div>
   );
@@ -565,11 +670,48 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
   const tearStartRef = useRef<Point>(DEFAULT_TEAR_START);
   const tearCurrentRef = useRef<Point>(DEFAULT_TEAR_END);
   const rafRef = useRef<number | null>(null);
+  // Drag-move coalescing: a 120Hz pointer fires ~240 events/sec; the
+  // tear geometry regen is ~260 SVG primitives. Without this throttle
+  // a single drag stalls the main thread for tens of ms per frame.
+  // Pattern: store latest pointer position in a ref, schedule one rAF,
+  // process when it ticks - guarantees max 1 geometry rebuild per frame.
+  const pendingMoveRef = useRef<Point | null>(null);
+  const moveRafRef = useRef<number | null>(null);
+  // Threshold-crossing haptic gate - fire vibration only when progress
+  // first crosses the commit point within a single drag.
+  const hapticFiredRef = useRef(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [revealPulse, setRevealPulse] = useState(0); // bumps on reveal to trigger CSS animation
 
   useEffect(() => {
     return () => {
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      if (moveRafRef.current != null) cancelAnimationFrame(moveRafRef.current);
     };
+  }, []);
+
+  // Respect OS-level motion preference. We keep the rip interaction
+  // (it's the point of the page) but cut animation durations and skip
+  // the particle bursts to dodge vestibular triggers.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mql.matches);
+    const onChange = () => setReducedMotion(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  // Tiny haptic helper - safe to call without checks. navigator.vibrate
+  // is a no-op when unsupported or denied; we also swallow the rare
+  // SecurityError some browsers throw outside user-gesture contexts.
+  const haptic = useCallback((pattern: number | number[]) => {
+    if (typeof navigator === "undefined" || !navigator.vibrate) return;
+    try {
+      navigator.vibrate(pattern);
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   const appendEvent = useCallback((label: string) => {
@@ -602,7 +744,15 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
 
   const resetForPack = useCallback(
     (pack: RipPack) => {
+      // Use the shared kill-switch - covers BOTH the auto-rip RAF and
+      // any coalesced pointermove RAF. Without this, switching packs
+      // mid-tear left a stale RAF writing into the new pack's state.
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      if (moveRafRef.current != null) cancelAnimationFrame(moveRafRef.current);
+      rafRef.current = null;
+      moveRafRef.current = null;
+      pendingMoveRef.current = null;
+      hapticFiredRef.current = false;
       draggingRef.current = false;
       dragRectRef.current = null;
       tearStartRef.current = DEFAULT_TEAR_START;
@@ -639,17 +789,28 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
   const completeReveal = useCallback(() => {
     setTearProgress(1);
     setPhase("revealed");
+    // Bump the pulse counter so CSS reveal animation re-fires even
+    // on repeat rips of the same pack. Pattern triggers a key-change
+    // on the card wrapper which restarts the keyframe.
+    setRevealPulse((n) => n + 1);
+    // Reveal haptic - double-tap pattern feels more "ta-da" than a
+    // single buzz. Skipped under reduced-motion preference.
+    if (!reducedMotion) haptic([12, 40, 18]);
     appendEvent("Reveal complete | card added to temporary rip record");
-  }, [appendEvent, setTearProgress]);
+  }, [appendEvent, haptic, reducedMotion, setTearProgress]);
 
   const animateProgress = useCallback(
     (target: number, durationMs: number) => {
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      // Compress duration under reduced-motion (still need *some*
+      // animation so the seam draws - instant teleport would be a
+      // worse experience than a 120ms ease).
+      const effectiveDuration = reducedMotion ? Math.min(durationMs, 140) : durationMs;
       const start = performance.now();
       const initial = progressRef.current;
       setPhase(target >= 1 ? "tearing" : "ready");
       const tick = (now: number) => {
-        const t = clamp((now - start) / durationMs);
+        const t = clamp((now - start) / effectiveDuration);
         const eased = easeOutCubic(t);
         const next = initial + (target - initial) * eased;
         setTearProgress(next);
@@ -663,21 +824,39 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
       };
       rafRef.current = requestAnimationFrame(tick);
     },
-    [completeReveal, setTearProgress],
+    [completeReveal, reducedMotion, setTearProgress],
   );
 
+  // Shared kill-switch - used by both auto-rip and manual drag start
+  // so a running animation can't fight a fresh user gesture.
+  const cancelAllRafs = useCallback(() => {
+    if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+    if (moveRafRef.current != null) cancelAnimationFrame(moveRafRef.current);
+    rafRef.current = null;
+    moveRafRef.current = null;
+    pendingMoveRef.current = null;
+  }, []);
+
   const autoRip = useCallback(() => {
+    cancelAllRafs();
     if (phase === "idle" || phase === "revealed") {
       const nextCard = commitPack();
       if (!nextCard) return;
     }
+    hapticFiredRef.current = false;
     appendEvent("Auto rip started | synthetic foil tear path");
-    animateProgress(1, 860);
-  }, [animateProgress, appendEvent, commitPack, phase]);
+    // Under reduced-motion, skip the dramatic 860ms - go to ~280ms.
+    animateProgress(1, reducedMotion ? 280 : 860);
+  }, [animateProgress, appendEvent, cancelAllRafs, commitPack, phase, reducedMotion]);
 
   const onPointerDown = useCallback(
     (event: PointerEvent<HTMLDivElement>) => {
       if (phase === "revealed") return;
+      // If an auto-rip RAF is mid-flight when the user touches, kill
+      // it so the drag has authority. Without this, the user's gesture
+      // can race with the RAF's setState writes - visible as a jumpy
+      // seam during the first ~100ms of touch.
+      cancelAllRafs();
       if (phase === "idle") {
         const nextCard = commitPack();
         if (!nextCard) return;
@@ -686,6 +865,7 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
       event.preventDefault();
       event.currentTarget.setPointerCapture(event.pointerId);
       draggingRef.current = true;
+      hapticFiredRef.current = false;
       dragRectRef.current = event.currentTarget.getBoundingClientRect();
       setPhase("dragging");
       const rect = dragRectRef.current;
@@ -695,8 +875,10 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
         y: clamp(point.y + 2, 0, PACK_HEIGHT),
       };
       setTearVector(point, fallbackCurrent, 0.02);
+      // Tiny tap-feedback so users know the grip "took" on first press.
+      if (!reducedMotion) haptic(8);
     },
-    [appendEvent, commitPack, phase, setTearVector],
+    [appendEvent, cancelAllRafs, commitPack, haptic, phase, reducedMotion, setTearVector],
   );
 
   const onPointerMove = useCallback(
@@ -705,11 +887,32 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
       event.preventDefault();
       const rect = dragRectRef.current;
       if (!rect) return;
-      const current = pointFromPointer(event, rect);
-      const nextProgress = clamp(distance(tearStartRef.current, current) / 170);
-      setTearVector(tearStartRef.current, current, nextProgress);
+      // Just capture the latest position; the rAF tick below does the
+      // expensive geometry rebuild. Coalesces multi-hundred-Hz pointer
+      // streams into one rebuild per frame.
+      pendingMoveRef.current = pointFromPointer(event, rect);
+      if (moveRafRef.current != null) return;
+      moveRafRef.current = requestAnimationFrame(() => {
+        moveRafRef.current = null;
+        const current = pendingMoveRef.current;
+        if (!current || !draggingRef.current) return;
+        pendingMoveRef.current = null;
+        const nextProgress = clamp(distance(tearStartRef.current, current) / MANUAL_RIP_DISTANCE);
+        // Threshold-crossing haptic: fire ONCE when the user pulls past
+        // the commit point. Gives "click" feedback like a pull-tab.
+        if (
+          !hapticFiredRef.current &&
+          progressRef.current < RIP_COMMIT_THRESHOLD &&
+          nextProgress >= RIP_COMMIT_THRESHOLD &&
+          !reducedMotion
+        ) {
+          hapticFiredRef.current = true;
+          haptic(18);
+        }
+        setTearVector(tearStartRef.current, current, nextProgress);
+      });
     },
-    [setTearVector],
+    [haptic, reducedMotion, setTearVector],
   );
 
   const onPointerUp = useCallback(
@@ -719,17 +922,22 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
       if (event.currentTarget.hasPointerCapture(event.pointerId)) {
         event.currentTarget.releasePointerCapture(event.pointerId);
       }
+      // Cancel any pending coalesced move so the snap-back animation
+      // isn't stomped one frame later. Drag is over.
+      if (moveRafRef.current != null) cancelAnimationFrame(moveRafRef.current);
+      moveRafRef.current = null;
+      pendingMoveRef.current = null;
       draggingRef.current = false;
       dragRectRef.current = null;
-      if (progressRef.current >= 0.68) {
+      if (progressRef.current >= RIP_COMMIT_THRESHOLD) {
         appendEvent("Manual rip threshold reached");
-        animateProgress(1, 420);
+        animateProgress(1, reducedMotion ? 180 : 420);
         return;
       }
       appendEvent("Seal snapped back | keep dragging down the seam");
-      animateProgress(0, 300);
+      animateProgress(0, reducedMotion ? 140 : 300);
     },
-    [animateProgress, appendEvent],
+    [animateProgress, appendEvent, reducedMotion],
   );
 
   const completeKeyboardRip = useCallback(() => {
@@ -739,7 +947,7 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
     }
     tearStartRef.current = DEFAULT_TEAR_START;
     tearCurrentRef.current = DEFAULT_TEAR_END;
-    setTearProgress(0.72);
+    setTearProgress(RIP_COMMIT_THRESHOLD);
     appendEvent("Keyboard/manual rip threshold reached");
     animateProgress(1, 420);
   }, [animateProgress, appendEvent, commitPack, phase, setTearProgress]);
@@ -847,6 +1055,7 @@ export function RipsExperience({ packs }: { packs: RipPack[] }) {
               phase={phase}
               progress={progress}
               result={result}
+              revealPulse={revealPulse}
               tear={tear}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}

@@ -4,15 +4,15 @@
   "model": "gemini-2.5-flash",
   "framesSampled": 8,
   "frameMeta": {
-    "nbFrames": 44,
+    "nbFrames": 42,
     "fps": 12,
-    "duration": 3.66
+    "duration": 3.51
   },
-  "capturedAt": "2026-05-10T22:10:15.040Z",
+  "capturedAt": "2026-05-10T23:30:57.692Z",
   "usage": {
     "promptTokenCount": 2425,
-    "candidatesTokenCount": 597,
-    "totalTokenCount": 3937,
+    "candidatesTokenCount": 703,
+    "totalTokenCount": 4374,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -23,40 +23,42 @@
         "tokenCount": 2064
       }
     ],
-    "thoughtsTokenCount": 915,
+    "thoughtsTokenCount": 1246,
     "serviceTier": "standard"
   },
   "finishReason": "STOP",
   "response": {
-    "scene_summary": "The clip demonstrates a mobile pack-opening flow for a 'Neon Vault Rip'. A user interacts with a digital pack, which animates through 'DRAGGING' and 'TEARING' states to reveal an 'Ember Scout' card. After the reveal, the user scrolls down to view the card's details, estimated value, condition, proof state, and available actions like selling, shipping, or holding in a vault, along with a 'PROOF TRAIL' log.",
+    "scene_summary": "The clip demonstrates a mobile web pack-opening flow. A 'Neon Vault Rip' pack is shown, which the user interacts with by 'DRAGGING' and 'TEARING' to reveal a 'Prism Hydra EX' card. After the reveal, the user scrolls down to view the card's estimated value, condition, proof state, and available actions like selling, shipping, or holding in a vault, along with a 'PROOF TRAIL' of events.",
     "key_observations": [
-      "The UI displays a 'Neon Vault Rip' pack with a 'PULL' indicator, transitioning from 'DRAGGING' to 'TEARING' and finally 'REVEALED' states.",
-      "An 'Ember Scout' card is revealed, showing 'Minor edge whitening candidate' as its description.",
-      "After the reveal, the 'Auto rip' button changes to 'Open another pack'.",
-      "Scrolling reveals detailed information about the revealed card, including 'Estimated value $14', 'Condition Minor edge whitening candidate', and 'Proof state ready to save'.",
+      "The initial view shows an 'ACTIVE RIP Neon Vault Rip' pack with instructions to 'pull anywhere'.",
+      "The pack undergoes 'DRAGGING' and 'TEARING' animations, revealing a 'Prism Hydra EX' card.",
+      "After the card is 'REVEALED', the 'Auto rip' button changes to 'Open another pack'.",
+      "Scrolling down reveals detailed information about the card, including 'Estimated value $118', 'Condition Clean front, inspect lower edge', and 'Proof state ready to save'.",
       "Action buttons 'Sell for vault credit', 'Ship physical card', and 'Hold in vault' are visible, followed by a 'Decision saved: vault.' confirmation.",
-      "A 'PROOF TRAIL' section explains the product event mapping and backend processes, reinforcing the 'vault' concept."
+      "A 'PROOF TRAIL' section explains the product event mapping and the prototype's purpose, showing timestamps of actions.",
+      "The UI appears to be well-stacked for mobile, with no visible horizontal overflow."
     ],
     "ui_text_snippets": [
       "ACTIVE RIP",
       "Neon Vault Rip",
       "DRAGGING",
-      "PULL",
       "ORIGINAL DEMO PACK",
-      "VAULT",
-      "Original web demo",
+      "NEON VAULT RIP",
+      "FOIL TO INSERT",
+      "pull anywhere",
+      "crimped web foil",
       "Auto rip",
       "Search",
       "Ask Pi",
       "TEARING",
-      "NV-018",
-      "Ember Scout",
-      "Minor edge whitening candidate",
+      "Prism Hydra EX",
+      "Clean front, inspect lower edge",
       "REVEALED",
       "Open another pack",
       "Estimated value",
-      "$14",
+      "$118",
       "Condition",
+      "signal",
       "Proof state",
       "ready to save",
       "Sell for vault credit",
@@ -64,15 +66,18 @@
       "Hold in vault",
       "Decision saved: vault.",
       "PROOF TRAIL",
-      "Every visible animation maps to a product event."
+      "Every visible animation maps to a product event.",
+      "In a production build, this same event stream connects to payment authorization, randomization audit, card assignment, fulfillment, and vault storage. For this repo, it is a safe interaction prototype with original assets.",
+      "04:30:25 PM | He reveal record saved",
+      "04:30:24 PM | Revea complete | card temporary rip record"
     ],
     "matches_expectation": true,
-    "match_confidence": 0.9,
+    "match_confidence": 1,
     "issues": [],
     "verdict": "pass",
     "suggested_followups": [
-      "Verify the responsiveness of the 'PULL' interaction on various mobile devices.",
-      "Confirm that the 'PROOF TRAIL' content is dynamic and reflects actual events in a production environment."
+      "Verify the responsiveness and layout on other mobile device sizes if applicable.",
+      "Confirm the 'Ask Pi' and 'Search' floating buttons maintain their position and functionality during scrolling."
     ]
   }
 }
