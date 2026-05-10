@@ -109,6 +109,7 @@ export async function DealerSideNav({ active, expert = false }: Props) {
       <nav className="dealer-sidenav-group" aria-label="Workflow">
         <NavItem href={`/dealer/workbench${expertSuffix}`} iconKey="workbench" label="Workbench" badge={c.workbench || null} active={active === "workbench"} />
         <NavItem href="/dealer" iconKey="drop" label="Drop" active={active === "drop"} />
+        <NavItem href="/rips" iconKey="drop" label="Rips" />
         <NavItem href={`/dealer/dashboard${expertSuffix}`} iconKey="vault" label="Vault" badge={c.total} active={active === "vault"} />
         <NavItem href={`/dealer/listings${expertSuffix}`} iconKey="listings" label="Listings" badge={c.listed || null} active={active === "listings"} />
         <NavItem href={`/dealer/submissions${expertSuffix}`} iconKey="submissions" label="Submissions" badge={c.submitted || null} active={active === "submissions"} />
