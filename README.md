@@ -22,11 +22,13 @@ https://card-condition-vault.vercel.app/workspace
 
 The public web app is a controlled alpha. The repo now includes the durable inference container contract, retrying Vercel proxy, Convex idempotency keys, local artifact persistence, and an executable launch-blocker check. A public SaaS launch still requires setting the production `INFERENCE_API_URL` to a durable HTTPS container host and using a project-owned Convex deployment.
 
+Use Python 3.11+ and pnpm 10.15.0 for this local real-model demo. The `ml` extra supplies the declared YOLO runtime; `test` supplies the test dependencies.
+
 ```bash
 pnpm install
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-pip install -e ".[test]"
+pip install -e ".[ml,test]"
 pnpm demo:seed
 pnpm dev:api
 pnpm dev

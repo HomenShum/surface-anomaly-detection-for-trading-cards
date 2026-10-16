@@ -35,7 +35,7 @@ Use this when your friend is watching your laptop or screen share.
 pnpm install
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-pip install -e ".[test]"
+pip install -e ".[ml,test]"
 pnpm demo:seed
 pnpm dev:api
 ```
